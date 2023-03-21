@@ -1,0 +1,6 @@
+const NEW_LOCATION = 'location/newLocation'
+const LOAD_LOCATION = 'location/loadLocation'
+const EDIT_LOCATION = 'location/editLocation'
+const DELETE_LOCATION = 'location/deleteLocation'
+const LOAD_ONE_LOCATION = 'location/loadOneLocation'
+// const ADD_IMAGE = 'product/addImage'

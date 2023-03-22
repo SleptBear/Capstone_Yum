@@ -1,0 +1,29 @@
+.body-container {
+    width: 100%;
+}
+
+.body-container-items {
+    display: flex;
+    background-color: gray;
+    width: 100%;
+}
+
+.filters {
+width: 20%;
+background-color: red;
+}
+
+.all-cards-container {
+    display: flex;
+    flex-direction: column;
+    /* background-color: blue; */
+    width: 55%;
+}
+
+.maps-api-container {
+    width: 25%;
+}
+
+.maps-api-container img {
+    height: 100%;
+}

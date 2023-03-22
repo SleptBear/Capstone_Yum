@@ -38,5 +38,6 @@ class Location(db.Model):
             'lat': self.lat,
             'lng': self.lng,
             'price': self.price,
-            'operating_hours': self.operating_hours
+            'operating_hours': self.operating_hours,
+            
         }

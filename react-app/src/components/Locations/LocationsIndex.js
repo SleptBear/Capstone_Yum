@@ -3,6 +3,7 @@ import { useEffect } from "react";
 // import { Link } from "react-router-dom";
 import { getLocations } from "../../store/location";
 import LocationCard from "./LocationCard";
+import './index.css'
 
 const LocationsIndex = () => {
     const dispatch = useDispatch();
@@ -24,16 +25,23 @@ const LocationsIndex = () => {
 
 <section className="body-container">
     <div className="body-container-items">
-        {/* <LocationCard location={locations[0]} /> */}
+        <div className="filters">
+            filter component in progress
+        </div>
+        <div className="all-cards-container">
 
         {
             locations.map(location => (
                 // <Link key={location.id.toString()} to={`/locations/${location.id}`}>
                 <LocationCard location={location} />
-            // </Link>
+                // </Link>
                 ))
             }
 
+        </div>
+        <div className="maps-api-container">
+            <img src='https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/w_2560%2Cc_limit/GoogleMapTA.jpg' alt="Maps API Container"></img>
+        </div>
     </div>
 
 </section>

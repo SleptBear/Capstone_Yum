@@ -40,15 +40,16 @@
     display: flex;
     flex-direction: column;
     background-color: purple;
-    height: 20rem;
+    height: 50rem;
 }
 
-.some-images {
+/* .some-images {
     display: flex;
     justify-content: center;
     height: 20rem;
     background-color: blue;
-}
+    width: 100%;
+} */
 
 .location-details {
     display: flex;

@@ -51,6 +51,12 @@ def seed_location_images():
     db.session.add(image1)
     db.session.add(image2)
     db.session.add(image3)
+    db.session.add(image4)
+    db.session.add(image5)
+    db.session.add(image6)
+    db.session.add(image7)
+    db.session.add(image8)
+    db.session.add(image9)
 
     db.session.commit()
 

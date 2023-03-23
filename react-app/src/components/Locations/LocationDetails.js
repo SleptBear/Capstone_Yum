@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getLocation } from '../../store/location'
 import MiniLocation from './MiniLocation'
+import MiniReviews from '../Reviews/MiniReviews'
 
 
 const LocationDetails = () => {
@@ -41,7 +42,16 @@ const LocationDetails = () => {
         </div>
         <div className="location-details">
             <div className="details-left">
-                left
+                <div className='topLeft'>
+                    <button onClick={() => window.alert("Coming Soon")}>Write a Review</button>
+                    <button onClick={() => window.alert("Coming Soon")}>Add Photo</button>
+                    <button onClick={() => window.alert("Coming Soon")}>Share</button>
+                    <button onClick={() => window.alert("Coming Soon")}>Save</button>
+                    <button onClick={() => window.alert("Coming Soon")}>Follow</button>
+                </div>
+                <div className='leftReviews-container'>
+                    <MiniReviews />
+                </div>
             </div>
             <div className='details-right'>
                 right

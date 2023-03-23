@@ -27,3 +27,38 @@ background-color: red;
 .maps-api-container img {
     height: 100%;
 }
+
+.some-images {
+    display: flex;
+    height: 30rem;
+    width: 100%;
+    background-color: red;
+}
+.some-images img {
+    display: flex;
+    height: 30rem;
+    width: 100%;
+    background-color: red;
+}
+
+.individual-image {
+    display: flex;
+    width: 100%
+}
+
+.over-images {
+    display: flex;
+    justify-content: center;
+    /* border-color: black; */
+    /* border-width: 2px; */
+    /* border-style: dotted; */
+    background-color: blue;
+    width: 85%;
+    position: absolute;
+    top: 400px;
+}
+
+.mini-container {
+    display: flex;
+    flex-direction: column;
+}

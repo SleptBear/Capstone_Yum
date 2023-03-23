@@ -35,9 +35,13 @@ def oneLocation(id):
     location = Location.query.get(id)
     print("location =========>", location)
     print("location =========>", location.owner)
+    print("location =========>", location.images)
+    images_obj = [images.to_dict() for images in location.images]
+    print("location =========>", images_obj)
+    location_obj = location.to_dict()
     # location_objs = [location.to_dict() for location in locations]
-
-    return location.to_dict()
+    location_obj['images'] = images_obj
+    return location_obj
 
 
 @location_routes.route('', methods=['POST'])

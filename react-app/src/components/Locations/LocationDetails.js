@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getLocation } from '../../store/location'
+import MiniLocation from './MiniLocation'
 
 
 const LocationDetails = () => {
@@ -9,19 +10,34 @@ const LocationDetails = () => {
     const locationObj = useSelector(state => state.location.location)
     const id = useParams()
     const locationId = id.id
-    console.log(id)
+    const imagesArray = locationObj.images
 
     useEffect(() => {
         dispatch(getLocation(locationId))
-    }, [dispatch])
+    }, [dispatch, locationId])
+    if(!locationObj.id) return null
 
-    if(!locationObj) return null
-    
+
+
+
     return (
 
         <div className='details-container'>
-        <div className='some-images'>
-            images container
+        <div className='some-images'
+    //     style={{
+    // backgroundImage: `url(${imagesArray[0].img_url})`,
+    // backgroundRepeat: "no-repeat",
+    // backgroundSize: "stretch",
+    // width: "2000px"}}
+    >
+            <div className='individual-image'>
+            {imagesArray.map(image => (
+                <img src={image.img_url} key={image.id} alt='not found' ></img>
+            ))}
+            </div>
+        </div>
+        <div className='over-images'>
+            <MiniLocation location={locationObj}/>
         </div>
         <div className="location-details">
             <div className="details-left">

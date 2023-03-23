@@ -17,6 +17,36 @@ def seed_location_images():
         location_id=3,
         user_id=3,
     )
+    image4 = Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/D1h9IZztEAFRqLTgYZxlIQ/348s.jpg',
+        location_id=1,
+        user_id=1,
+    )
+    image5 = Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/L8fJ120FAJdykpsfcesHEA/348s.jpg',
+        location_id=1,
+        user_id=1,
+    )
+    image6 = Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/8dSSqJMGaMmNi2sHcIIQ0w/348s.jpg',
+        location_id=2,
+        user_id=2,
+    )
+    image7 = Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/aUvbdeRhgz7klYyewFcQXA/348s.jpg',
+        location_id=2,
+        user_id=2,
+    )
+    image8 = Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/lmBv5gPsBXZqJ-7ELE4XMA/348s.jpg',
+        location_id=3,
+        user_id=3,
+    )
+    image9 = Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/bar0P91_K3RM_stLbHG9wQ/348s.jpg',
+        location_id=3,
+        user_id=3,
+    )
 
     db.session.add(image1)
     db.session.add(image2)

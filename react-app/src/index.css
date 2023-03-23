@@ -1,1 +1,62 @@
 /* TODO Add site wide styles */
+
+.Home {
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    /* height: 20rem; */
+}
+
+.background {
+    display: flex;
+    justify-content: center;
+    height: 20rem;
+    background-color: blue;
+}
+
+.recent-activity {
+    display: flex;
+    justify-content: center;
+    background-color: purple;
+    height: 20rem;
+}
+
+.search-container {
+    color:red;
+}
+
+.grub-finder {
+    color: red;
+}
+
+.nav-modals {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    background-color: purple;
+    height: 20rem;
+}
+
+.some-images {
+    display: flex;
+    justify-content: center;
+    height: 20rem;
+    background-color: blue;
+}
+
+.location-details {
+    display: flex;
+    flex-direction: row;
+    color: red;
+    justify-content: space-around;
+}
+
+.details-right {
+    color:red;
+}

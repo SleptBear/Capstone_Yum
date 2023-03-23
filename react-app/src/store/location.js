@@ -47,7 +47,7 @@ export const getLocations = () => async dispatch => {
 }
 
 export const getLocation = (locationId) => async dispatch => {
-    const res = await fetch(`/api/spots/${locationId}`);
+    const res = await fetch(`/api/locations/${locationId}`);
 
     const location = await res.json();
     if (res.ok) {
@@ -161,8 +161,8 @@ export default function spotReducer(state = initialState, action) {
             return newState
 
         case LOAD_ONE_LOCATION:
-            newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
-            newState.spot = action.spot
+            newState = { ...state, locations: {...state.locations}, location: {...state.location} }
+            newState.location = action.location
             // newState.spots = {}
             return newState
 

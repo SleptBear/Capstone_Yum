@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.models import Location, db
+from app.models import Location, db, Review
 from flask_login import login_required, current_user
 
 location_routes = Blueprint('locations', __name__)
@@ -105,3 +105,14 @@ def updateLocation(id):
         return location.to_dict()
     else:
         return {"error": "Location Does not Exist"}
+
+
+@location_routes.route('/<int:id>/reviews')
+def locationReviews(id):
+    print("ID========>", id)
+    reviews = Review.query.filter(Review.location_id == id).all()
+    reviewList = []
+    for review in reviews:
+        print(review.to_dict())
+        reviewList.append(review.to_dict())
+    return {'reviews': reviewList}

@@ -52,7 +52,8 @@ export const addReview = (id, review) => async (dispatch) => {
 export const readReviews = (locationId) => async (dispatch) => {
     const response = await fetch(`/api/locations/${locationId}/reviews`)
     const reviews = await response.json()
-    dispatch(actionReadReview(reviews))
+    if (response.ok) dispatch(actionReadReview(reviews))
+    return reviews
 }
 
 export const editReview = (updatedReview) => async (dispatch) => {

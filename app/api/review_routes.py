@@ -32,13 +32,13 @@ def createReview():
         new_review = Review(
             review = data["review"],
             rating = data["rating"],
-            product_id = data["location_id"],
+            location_id = data["location_id"],
             user_id=current_user.id,
             # created_at=date
         )
         print(new_review.to_dict())
         db.session.add(new_review)
-        # db.session.commit()
+        db.session.commit()
 
         return new_review.to_dict()
     else:

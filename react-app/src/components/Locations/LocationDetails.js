@@ -41,7 +41,16 @@ const LocationDetails = () => {
         </div>
         <div className="location-details">
             <div className="details-left">
-                left
+                <div className='topLeft'>
+                    <button>Write a Review</button>
+                    <button>Add Photo</button>
+                    <button>Share</button>
+                    <button>Save</button>
+                    <button>Follow</button>
+                </div>
+                <div className='leftReviews-container'>
+                    Reviews Component
+                </div>
             </div>
             <div className='details-right'>
                 right

@@ -142,7 +142,7 @@ export const deleteLocation = (locationId) => async dispatch => {
 
 const initialState = { locations: {}, location: {} }
 
-export default function spotReducer(state = initialState, action) {
+export default function locationReducer(state = initialState, action) {
     let newState = { ...state}
     switch (action.type) {
         case NEW_LOCATION:

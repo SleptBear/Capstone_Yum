@@ -1,44 +1,42 @@
 const ADD_REVIEW = 'reviews/addReview'
-const READ_REVIEW = 'reviews/readReview'
+const READ_LOCATIONS_REVIEWS = 'reviews/readReview'
 const DELETE_REVIEW = 'reviews/deleteReview'
-const EDIT_REVIEWS = 'reviews/editReviews' // editing/update a review
+const EDIT_REVIEW = 'reviews/editReviews' // editing/update a review
 
 
-const addReview = (review) => ({
+const actionAddReview = (review) => ({
     type: ADD_REVIEW,
     payload: review
 })
 
-const readReview = (reviews) => ({
-    type: READ_REVIEW,
+const actionReadReview = (reviews) => ({
+    type: READ_LOCATIONS_REVIEWS,
     payload: reviews
 })
 
-export const updateReview = (reviews) => ({
-    type: EDIT_REVIEWS,
+export const actionUpdateReview = (reviews) => ({
+    type: EDIT_REVIEW,
     payload: reviews
 })
 
-
-
-const deleteReview = (reviewId) => ({
+const actionDeleteReview = (reviewId) => ({
     type: DELETE_REVIEW,
     payload: reviewId
 })
 
 //THUNKS
-export const addReviewThunk = (id, review) => async (dispatch) => {
+export const addReview = (id, review) => async (dispatch) => {
 
     // console.log("REVIEW", review)
     // console.log("ID", id)
-    const response = await fetch(`/api/products/${id}/reviews` , {
+    const response = await fetch(`/api/locations/${id}/reviews` , {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
             user_id: review.userId,
-            product_id: id,
+            location_id: id,
             review: review.review,
             rating: review.rating
         })
@@ -51,28 +49,28 @@ export const addReviewThunk = (id, review) => async (dispatch) => {
     }
 }
 
-export const readReviewThunk = (productID) => async (dispatch) => {
-    const response = await fetch(`/api/products/${productID}`)
+export const readReviews = (locationId) => async (dispatch) => {
+    const response = await fetch(`/api/locations/${locationId}/reviews`)
     const reviews = await response.json()
-    dispatch(readReview(reviews))
+    dispatch(actionReadReview(reviews))
 }
 
-export const editReviewThunk = (review) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/${review.id}`, {
+export const editReview = (updatedReview) => async (dispatch) => {
+    const response = await fetch(`/api/reviews/${updatedReview.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(review)
+        body: JSON.stringify(updatedReview)
     })
     if (response.ok) {
         const data = await response.json()
-        dispatch(updateReview(data))
+        dispatch(actionUpdateReview(data))
         return data
     }
 }
 
 
 
-export const deleteReviewThunk = (id) => async (dispatch) => {
+export const deleteReview = (id) => async (dispatch) => {
     const response = await fetch(`/api/reviews/${id}`, {
         method: 'DELETE',
         headers: {
@@ -82,7 +80,7 @@ export const deleteReviewThunk = (id) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(deleteReview(data))
+        dispatch(actionDeleteReview(data))
         return data
     }
 }
@@ -90,39 +88,40 @@ export const deleteReviewThunk = (id) => async (dispatch) => {
 //initial state
 
 let initialState = {
-    ProductReviews:{},
-    UserReviews:{}
+    LocationReviews:{},
+    UserReviews:{},
+    AllReviews:{}
 }
 //REDUCER
 
         const reviewsReducer = (state = initialState, action) => {
     let newState;
     switch(action.type){
-        case READ_REVIEW:
+        case READ_LOCATIONS_REVIEWS:
             newState = { ...state}
             let reviewsCopy = {}
 
             action.payload.reviews.forEach(review => {
                 reviewsCopy[review.id] = review
             })
-            newState.ProductReviews = reviewsCopy
+            newState.LocationReviews = reviewsCopy
             return newState
         case ADD_REVIEW:
             newState = {...state}
-            let newStateCopy = {...newState.ProductReviews}
+            let newStateCopy = {...newState.LocationReviews}
             newStateCopy[action.payload.id] = action.payload
-            newState.allProducts = newStateCopy
+            newState.allLocations = newStateCopy
             return newState
 
-        case EDIT_REVIEWS:
+        case EDIT_REVIEW:
             const updatedReviews = { ...state.reviews }
             updatedReviews[action.payload.id] = action.payload
             return { ...state, reviews: updatedReviews }
         case DELETE_REVIEW:
             newState = {...state}
-            let reviewCopy = {...newState.ProductReviews}
+            let reviewCopy = {...newState.LocationReviews}
             delete reviewCopy[action.payload.id]
-            newState.ProductReviews = reviewCopy
+            newState.LocationReviews = reviewCopy
             return newState
         default:
             return state;

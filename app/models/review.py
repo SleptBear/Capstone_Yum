@@ -27,6 +27,6 @@ class Review(db.Model):
             'rating': self.rating,
             'user_id': self.user_id,
             'location_id': self.location_id,
-            'created_at': self.created_at,
+            # 'created_at': self.created_at,
             'updated_at': self.created_at
         }

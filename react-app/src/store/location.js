@@ -114,7 +114,7 @@ export const updateLocation = (location, locationId) => async dispatch => {
     // }
     //todo dispatch update with correct data types and value instead of read
     if (res.ok) {
-    dispatch(actionReadLocation(locationId))
+    // dispatch(actionReadLocation(locationId))
 
             // console.log("new image res", data2)
             // data.SpotImages.push(data2)

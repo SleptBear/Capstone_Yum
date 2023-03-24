@@ -9,12 +9,14 @@ const EditLocation = () => {
     const location = useSelector(state => state.location.location)
     // console.log("USERSELECTOR", user)
     const [name, setName] = useState(location.name)
+    const [description, setDescription] = useState(location.description)
     const [phone, setPhone] = useState(location.phone)
     const [stringprice, setstringPrice] = useState(location.price)
     const [city, setCity] = useState(location.city)
     const [state, setState ] = useState(location.state)
     const [address, setAddress] = useState(location.address)
     const [zipcode, setZipcode] = useState(location.zipcode)
+    const [category, setCategory] = useState(location.category)
     const [operating_hours, setOperating_hours] = useState(location.operating_hours)
     const [image, setImage] = useState('')
     const [errors, setErrors] = useState([]);
@@ -30,15 +32,16 @@ const EditLocation = () => {
         dispatch(getLocation(locationId))
     }, [dispatch])
 
-    if(!user) {
-       return <h4>User not logged in</h4>
-    }
+    // if(!user) {
+    //    return <h4>User not logged in</h4>
+    // }
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
     const LocationData = {
         name,
+        description,
         phone,
         city,
         state,
@@ -55,16 +58,16 @@ const EditLocation = () => {
         dispatch(updateLocation(LocationData, locationId))
 
         .then(async (res) => history.push(`/locations/${locationId}`))
-        // .catch(async (res) => {
-        //     const data = await res.json();
-        //     if (data && data.errors) setErrors(data.errors)
-        //   });
+        .catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors)
+          });
     }
 
     return(
         <div className= "UpdateLocationMain">
 
-            <form className="UpdateLocationform" onSubmit={handleSubmit} noValidate>
+            <form className="UpdateLocationform" onSubmit={handleSubmit}>
                 <h1>Update a Location</h1>
                 <ul className="error-message">
                 {errors.map((error, idx) => (
@@ -75,11 +78,13 @@ const EditLocation = () => {
                 </ul>
             <label className="Label">
                 Name
-            <input className="name-form"
+                <input className="name-form"
             type="text"
             value={name}
             placeholder="Name"
             maxLength={50}
+            pattern="[a-zA-Z ]*"
+            title="No Symbols, numbers, or special characters"
             onChange={(e) => {
                 setName(e.target.value)
             }}
@@ -87,12 +92,13 @@ const EditLocation = () => {
 
             ></input>
             </label>
-            {/* <label className="descriptionlabel">
+            <label className="Label">
                 Description
-            <textarea className="description-form"
-
+                <textarea
+            className="description-form"
+            type="text"
             value={description}
-
+            pattern="[-a-zA-Z0-9 .,;:?! ]*"
             placeholder="Describe your Location here"
             maxLength={255}
             onChange={(e) => {
@@ -101,10 +107,10 @@ const EditLocation = () => {
             required
 
             ></textarea>
-            </label> */}
+            </label>
             <label className="Label">
                 Phone
-            <input className="Phone-form"
+                <input className="Phone-form"
             type="text"
             value={phone}
             placeholder="Phone"
@@ -118,11 +124,13 @@ const EditLocation = () => {
             </label>
             <label className="Label">
                 Price
-            <input className="price-form"
+                <input className="price-form"
             type="text"
             value={stringprice}
             placeholder="Price"
             maxLength={20}
+            pattern="[0-9]*"
+            title="No Symbols or Characters"
             onChange={(e) => {
                 setstringPrice(e.target.value)
             }}
@@ -132,11 +140,13 @@ const EditLocation = () => {
             </label>
             <label className="Label">
                 City
-            <input className="city-form"
+                <input className="city-form"
             type="text"
             value={city}
             placeholder="City"
             maxLength={50}
+            pattern="[a-zA-Z ]*"
+            title="No Symbols or special characters"
             onChange={(e) => {
                 setCity(e.target.value)
             }}
@@ -146,11 +156,13 @@ const EditLocation = () => {
             </label>
             <label className="Label">
                 State
-            <input className="State-form"
+                <input className="State-form"
             type="text"
             value={state}
             placeholder="State"
             maxLength={30}
+            pattern="[a-zA-Z ]*"
+            title="No Symbols, numbers, or special characters"
             onChange={(e) => {
                 setState(e.target.value)
             }}
@@ -160,11 +172,13 @@ const EditLocation = () => {
             </label>
             <label className="Label">
                 Address
-            <input className="Address-form"
+                <input className="Address-form"
             type="text"
             value={address}
             placeholder="Address"
             maxLength={50}
+            pattern="[a-zA-Z0-9 ]*"
+            title="No Symbols or special characters"
             onChange={(e) => {
                 setAddress(e.target.value)
             }}
@@ -174,11 +188,13 @@ const EditLocation = () => {
             </label>
             <label className="Label">
                 Zipcode
-            <input className="Zipcode-form"
+                <input className="Zipcode-form"
             type="text"
             value={zipcode}
             placeholder="Zipcode"
             maxLength={5}
+            pattern="[0-9]*"
+            title="No Symbols or Characters"
             onChange={(e) => {
                 setZipcode(e.target.value)
             }}
@@ -187,12 +203,30 @@ const EditLocation = () => {
             ></input>
             </label>
             <label className="Label">
+                Cateogry
+                <input className="Category-form"
+            type="text"
+            value={category}
+            placeholder="Category"
+            maxLength={20}
+            pattern="[a-zA-Z ]*"
+            title="No Symbols or Numbers"
+            onChange={(e) => {
+                setCategory(e.target.value)
+            }}
+            required
+
+            ></input>
+            </label>
+            <label className="Label">
                 Hours of Operation
-            <input className="Operating_hours-form"
+                <input className="Operating_hours-form"
             type="text"
             value={operating_hours}
             placeholder="Hours of Operation"
             maxLength={50}
+            pattern="[-a-zA-Z0-9 ]*"
+            title='Format as #am-#pm'
             onChange={(e) => {
                 setOperating_hours(e.target.value)
             }}

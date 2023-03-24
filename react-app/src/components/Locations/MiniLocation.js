@@ -6,9 +6,9 @@ function MiniLocation(location) {
     if(!location?.location.id) return null
     return (
         <div className="mini-container">
-            <div>{location.location.name}</div>
+            <h3>{location.location.name}</h3>
             <div>Reviews rating and amount</div>
-            <div>Categories</div>
+            <div>Category: {location.location.category}</div>
             <div>Open: {location.location.operating_hours}</div>
             <NavLink to={`/locations/${location.location.id}/edit`}>Edit</NavLink>
         </div>

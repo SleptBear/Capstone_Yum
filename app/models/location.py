@@ -17,6 +17,8 @@ class Location(db.Model):
     lat = db.Column(db.Float(precision=9, asdecimal=True))
     lng = db.Column(db.Float(precision=9, asdecimal=True))
     price = db.Column(db.Integer)
+    description = db.Column(db.String(255), nullable=False)
+    category = db.Column(db.String(50))
     operating_hours = db.Column(db.String(255), nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     # Relationships
@@ -30,6 +32,7 @@ class Location(db.Model):
             'id': self.id,
             'owner_id': self.owner_id,
             'name': self.name,
+            'description': self.description,
             'phone': self.phone,
             'city': self.city,
             'state': self.state,
@@ -38,6 +41,6 @@ class Location(db.Model):
             'lat': self.lat,
             'lng': self.lng,
             'price': self.price,
+            'category': self.category,
             'operating_hours': self.operating_hours,
-
         }

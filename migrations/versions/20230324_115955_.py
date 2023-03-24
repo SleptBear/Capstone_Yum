@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: e1a6ea1a700d
+Revision ID: 9f7402a98e97
 Revises:
-Create Date: 2023-03-21 15:31:53.851334
+Create Date: 2023-03-24 11:59:55.320066
 
 """
 from alembic import op
@@ -14,7 +14,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = 'e1a6ea1a700d'
+revision = '9f7402a98e97'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -42,10 +42,14 @@ def upgrade():
     sa.Column('lat', sa.Float(precision=9, asdecimal=True), nullable=True),
     sa.Column('lng', sa.Float(precision=9, asdecimal=True), nullable=True),
     sa.Column('price', sa.Integer(), nullable=True),
+    sa.Column('description', sa.String(length=255), nullable=False),
+    sa.Column('category', sa.String(length=50), nullable=True),
     sa.Column('operating_hours', sa.String(length=255), nullable=False),
     sa.Column('owner_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('address'),
+    sa.UniqueConstraint('name')
     )
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),

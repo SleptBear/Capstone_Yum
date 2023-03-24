@@ -46,12 +46,14 @@ def oneLocation(id):
 
 # Create
 @location_routes.route('', methods=['POST'])
+@login_required
 def createLocation():
     data = request.get_json()
     form = LocationForm()
     form['csrf_token'].data = request.cookies['csrf_token'] # makes a csrf_token in form object
     new_location = Location(
         name = data["name"],
+        description= data["description"],
         phone = data["phone"],
         city = data["city"],
         state = data["state"],
@@ -67,6 +69,7 @@ def createLocation():
 
     return new_location.to_dict()
 
+# DELETE Location
 @location_routes.route('/<int:id>', methods=["DELETE"])
 @login_required
 def removeLocation(id):
@@ -82,7 +85,7 @@ def removeLocation(id):
 
     return {"Location successfully Deleted": id}
 
-
+# Edit Location
 @location_routes.route('/<int:id>', methods=["PUT"])
 @login_required
 def updateLocation(id):
@@ -92,6 +95,7 @@ def updateLocation(id):
     # add in any additional relationship data after commit line 80
     if location:
         location.name = data['name']
+        location.description = data['description']
         location.phone = data['phone']
         location.city = data['city']
         location.state = data['state']

@@ -8,12 +8,14 @@ const AddLocation = () => {
     const user = useSelector(state => state.session.user)
     // console.log("USERSELECTOR", user)
     const [name, setName] = useState('')
+    const [description, setDescription] = useState('')
     const [phone, setPhone] = useState('')
     const [stringprice, setstringPrice] = useState('')
     const [city, setCity] = useState('')
     const [state, setState ] = useState('')
     const [address, setAddress] = useState('')
     const [zipcode, setZipcode] = useState('')
+    const [category, setCategory] = useState('')
     const [operating_hours, setOperating_hours] = useState('')
     const [image, setImage] = useState('')
     const [errors, setErrors] = useState([]);
@@ -31,12 +33,14 @@ const AddLocation = () => {
         e.preventDefault()
     const LocationData = {
         name,
+        description,
         phone,
         city,
         state,
         address,
         zipcode,
         price,
+        category,
         operating_hours,
     };
 
@@ -47,16 +51,16 @@ const AddLocation = () => {
         dispatch(createLocation(LocationData, imgData))
 
         .then(async (res) => history.push(`/locations/${res.id}`))
-        // .catch(async (res) => {
-        //     const data = await res.json();
-        //     if (data && data.errors) setErrors(data.errors)
-        //   });
+        .catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors)
+          });
     }
 
     return(
         <div className= "addLocationMain">
 
-            <form className="addLocationform" onSubmit={handleSubmit} noValidate>
+            <form className="addLocationform" onSubmit={handleSubmit}>
                 <h1>Add a Location</h1>
                 <ul className="error-message">
                 {errors.map((error, idx) => (
@@ -72,6 +76,8 @@ const AddLocation = () => {
             value={name}
             placeholder="Name"
             maxLength={50}
+            pattern="[a-zA-Z ]*"
+            title="No Symbols, numbers, or special characters"
             onChange={(e) => {
                 setName(e.target.value)
             }}
@@ -79,12 +85,13 @@ const AddLocation = () => {
 
             ></input>
             </label>
-            {/* <label className="descriptionlabel">
+            <label className="Label">
                 Description
-            <textarea className="description-form"
-
+            <textarea
+            className="description-form"
+            type="text"
             value={description}
-
+            pattern="[-a-zA-Z0-9 .,;:?! ]*"
             placeholder="Describe your Location here"
             maxLength={255}
             onChange={(e) => {
@@ -93,7 +100,7 @@ const AddLocation = () => {
             required
 
             ></textarea>
-            </label> */}
+            </label>
             <label className="Label">
                 Phone
             <input className="Phone-form"
@@ -115,6 +122,8 @@ const AddLocation = () => {
             value={stringprice}
             placeholder="Price"
             maxLength={20}
+            pattern="[0-9]*"
+            title="No Symbols or Characters"
             onChange={(e) => {
                 setstringPrice(e.target.value)
             }}
@@ -129,6 +138,8 @@ const AddLocation = () => {
             value={city}
             placeholder="City"
             maxLength={50}
+            pattern="[a-zA-Z ]*"
+            title="No Symbols or special characters"
             onChange={(e) => {
                 setCity(e.target.value)
             }}
@@ -143,6 +154,8 @@ const AddLocation = () => {
             value={state}
             placeholder="State"
             maxLength={30}
+            pattern="[a-zA-Z ]*"
+            title="No Symbols, numbers, or special characters"
             onChange={(e) => {
                 setState(e.target.value)
             }}
@@ -157,6 +170,8 @@ const AddLocation = () => {
             value={address}
             placeholder="Address"
             maxLength={50}
+            pattern="[a-zA-Z0-9 ]*"
+            title="No Symbols or special characters"
             onChange={(e) => {
                 setAddress(e.target.value)
             }}
@@ -171,8 +186,26 @@ const AddLocation = () => {
             value={zipcode}
             placeholder="Zipcode"
             maxLength={5}
+            pattern="[0-9]*"
+            title="No Symbols or Characters"
             onChange={(e) => {
                 setZipcode(e.target.value)
+            }}
+            required
+
+            ></input>
+            </label>
+            <label className="Label">
+                Category
+            <input className="Category-form"
+            type="text"
+            value={category}
+            placeholder="Category"
+            maxLength={20}
+            pattern="[a-zA-Z ]*"
+            title="No Symbols or Numbers"
+            onChange={(e) => {
+                setCategory(e.target.value)
             }}
             required
 
@@ -185,6 +218,8 @@ const AddLocation = () => {
             value={operating_hours}
             placeholder="Hours of Operation"
             maxLength={50}
+            pattern="[-a-zA-Z0-9 ]*"
+            title='Format as #am-#pm'
             onChange={(e) => {
                 setOperating_hours(e.target.value)
             }}

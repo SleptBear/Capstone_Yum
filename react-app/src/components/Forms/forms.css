@@ -54,6 +54,12 @@
 
 }
 
+.Form-Title{
+    display: flex;
+    justify-content: center;
+    color: #aa0f14;
+}
+
 .addLocationForm label {
     padding: 10px;
     display: flex;
@@ -62,6 +68,7 @@
     align-items: center;
     font-weight: bold;
     margin-bottom: 5px;
+    justify-items: center;
 }
 .UpdateLocationForm label {
     padding: 10px;

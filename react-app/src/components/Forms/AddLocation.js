@@ -61,7 +61,7 @@ const AddLocation = () => {
         <div className= "addLocationMain">
 
             <form className="addLocationform" onSubmit={handleSubmit}>
-                <h1>Add a Location</h1>
+                <h1 className='Form-Title'>Add a Location</h1>
                 <ul className="error-message">
                 {errors.map((error, idx) => (
                 <li key={idx} className="error-text">

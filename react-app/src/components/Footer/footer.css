@@ -1,5 +1,5 @@
 footer {
-    background-color: green;
+    background-color: #f7f7f7;
     color: black;
     padding: 20px;
     display: flex;
@@ -10,6 +10,10 @@ footer {
     /* margin-top: auto; */
     width: 140%;
     margin-left: -22%;
+    /* padding-top: 20rem; */
+    /* margin-top: 5rem; */
+    font-size: 14px;
+
 
 
 

@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getLocation } from '../../store/location'
 import MiniLocation from './MiniLocation'
-import MiniReviews from '../Reviews/MiniReviews'
+import LocationReviews from '../Reviews/LocationReviews'
+import AllImages from './Images/images'
 
 
 const LocationDetails = () => {
     const dispatch = useDispatch()
     const locationObj = useSelector(state => state.location.location)
+    const reviewObj = useSelector(state => state.review.LocationReviews)
     const id = useParams()
     const locationId = id.id
     const imagesArray = locationObj.images
@@ -31,30 +33,48 @@ const LocationDetails = () => {
     // backgroundSize: "stretch",
     // width: "2000px"}}
     >
-            <div className='individual-image'>
             {imagesArray.map(image => (
+            <div className='individual-image'>
                 <img src={image.img_url} key={image.id} alt='not found' ></img>
-            ))}
             </div>
+            ))}
         </div>
         <div className='over-images'>
-            <MiniLocation location={locationObj}/>
+            <MiniLocation location={locationObj} />
+            <AllImages location={locationObj} reviews={reviewObj} />
         </div>
         <div className="location-details">
             <div className="details-left">
                 <div className='topLeft'>
-                    <button onClick={() => window.alert("Coming Soon")}>Write a Review</button>
-                    <button onClick={() => window.alert("Coming Soon")}>Add Photo</button>
-                    <button onClick={() => window.alert("Coming Soon")}>Share</button>
-                    <button onClick={() => window.alert("Coming Soon")}>Save</button>
-                    <button onClick={() => window.alert("Coming Soon")}>Follow</button>
+                    <div className='WriteReview'>
+                    <button onClick={() => window.alert("Coming Soon")}><i class="fa-regular fa-star"></i> Write a Review</button>
+                    </div>
+
+                    <button onClick={() => window.alert("Coming Soon")}><i class="fa-solid fa-camera"></i> Add Photo</button>
+                    <button onClick={() => window.alert("Coming Soon")}><i class="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
+                    <button onClick={() => window.alert("Coming Soon")}><i class="fa-regular fa-bookmark"></i> Save</button>
+                    <button onClick={() => window.alert("Coming Soon")}><i class="fa-solid fa-plus"></i> Follow</button>
                 </div>
+                {/* <br></br> */}
+                <hr style={{width: "90%"}}></hr>
                 <div className='leftReviews-container'>
-                    <MiniReviews />
+                    <LocationReviews />
                 </div>
             </div>
             <div className='details-right'>
-                right
+                <div className='Website-Section'>
+                    <div>https://www.RestaurantName.com</div>
+                    <div><i class="fa-solid fa-up-right-from-square"></i></div>
+                </div>
+                <div className='phone-section'>
+                    <div>{locationObj.phone}</div>
+                    <div><i class="fa-solid fa-phone-volume"></i></div>
+                </div>
+                <div className='message-section'>
+                    <div>Message the Business</div>
+                    <div><i class="fa-solid fa-comment-dots"></i></div>
+
+                </div>
             </div>
         </div>
     </div>

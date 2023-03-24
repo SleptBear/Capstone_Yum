@@ -68,7 +68,7 @@ const EditLocation = () => {
         <div className= "UpdateLocationMain">
 
             <form className="UpdateLocationform" onSubmit={handleSubmit}>
-                <h1>Update a Location</h1>
+                <h1 className='Form-Title'>Update a Location</h1>
                 <ul className="error-message">
                 {errors.map((error, idx) => (
                 <li key={idx} className="error-text">

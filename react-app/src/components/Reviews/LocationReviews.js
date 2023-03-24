@@ -5,7 +5,7 @@ import { readReviews } from "../../store/review"
 import DetailedReview from "./DetailedReview"
 
 
-function MiniReviews() {
+function LocationReviews() {
     const dispatch = useDispatch()
     const reviewsObj = useSelector(state => state.review.LocationReviews)
     const id = useParams();
@@ -18,13 +18,16 @@ function MiniReviews() {
     if (!reviewsArray[0]) return null
     console.log(reviewsArray)
     return (
+        <>
+        <h2>Recommended Reviews</h2>
         <div>
             {reviewsArray.map(review => (
                 <DetailedReview review={review} key={review.id}/>
-            ))}
+                ))}
         </div>
+        </>
     )
 }
 
 
-export default MiniReviews
+export default LocationReviews

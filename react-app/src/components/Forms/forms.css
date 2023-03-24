@@ -1,0 +1,79 @@
+
+
+.addLocationMain form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding:15px;
+    max-width: 500px;
+    width: 350px;
+}
+.UpdateLocationMain form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding:15px;
+    max-width: 500px;
+    width: 350px;
+}
+
+
+.submit-form {
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 8px;
+    max-width: 500px;
+    width: 350px;
+}
+
+.submit-form:hover {
+    background-color: #aa0f14;
+}
+
+.addLocationMain {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.UpdateLocationMain {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.addLocationForm label {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.UpdateLocationForm label {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.Label {
+    display: flex;
+    flex-direction: column;
+}

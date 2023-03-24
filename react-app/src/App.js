@@ -5,6 +5,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import LocationsIndex from "./components/Locations/LocationsIndex";
 import LocationDetails from "./components/Locations/LocationDetails";
+import AddLocation from "./components/Forms/AddLocation";
+import EditLocation from "./components/Forms/EditLocation";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/HomePage";
@@ -31,6 +33,12 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route exact path="/locations/new">
+            <AddLocation />
+          </Route>
+          <Route exact path="/locations/:id/edit">
+            <EditLocation />
           </Route>
           <Route exact path="/locations">
             <LocationsIndex />

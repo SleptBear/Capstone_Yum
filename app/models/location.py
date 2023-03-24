@@ -8,11 +8,11 @@ class Location(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
+    name = db.Column(db.String(50), nullable=False, unique=True)
     phone = db.Column(db.String(20), nullable=False)
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(50), nullable=False)
-    address = db.Column(db.String(50), nullable=False)
+    address = db.Column(db.String(50), nullable=False, unique=True)
     zipcode = db.Column(db.Integer, nullable=False)
     lat = db.Column(db.Float(precision=9, asdecimal=True))
     lng = db.Column(db.Float(precision=9, asdecimal=True))
@@ -39,5 +39,5 @@ class Location(db.Model):
             'lng': self.lng,
             'price': self.price,
             'operating_hours': self.operating_hours,
-            
+
         }

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 
 
 function MiniLocation(location) {
@@ -9,6 +10,7 @@ function MiniLocation(location) {
             <div>Reviews rating and amount</div>
             <div>Categories</div>
             <div>Open: {location.location.operating_hours}</div>
+            <NavLink to={`/locations/${location.location.id}/edit`}>Edit</NavLink>
         </div>
     )
 }

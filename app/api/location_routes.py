@@ -1,9 +1,10 @@
 from flask import Blueprint, jsonify, request
-from app.models import Location, db, Review
+from app.models import Location, db, Review, Image
+from app.forms.location_form import LocationForm
 from flask_login import login_required, current_user
 
 location_routes = Blueprint('locations', __name__)
-
+# GET ALL
 @location_routes.route('')
 def allLocations():
     locations = Location.query.all()
@@ -29,26 +30,26 @@ def allLocations():
     # location_images = [location['images'] = ]
     # print(location_objs)
     return location_objs
-
+# GET
 @location_routes.route('/<int:id>')
 def oneLocation(id):
     location = Location.query.get(id)
-    print("location =========>", location)
-    print("location =========>", location.owner)
-    print("location =========>", location.images)
+    # print("location =========>", location)
+    # print("location =========>", location.owner)
+    # print("location =========>", location.images)
     images_obj = [images.to_dict() for images in location.images]
-    print("location =========>", images_obj)
+    # print("location =========>", images_obj)
     location_obj = location.to_dict()
     # location_objs = [location.to_dict() for location in locations]
     location_obj['images'] = images_obj
     return location_obj
 
-
+# Create
 @location_routes.route('', methods=['POST'])
 def createLocation():
     data = request.get_json()
-    # form = LocationForm()
-    # form['csrf_token'].data = request.cookies['csrf_token'] # makes a csrf_token in form object
+    form = LocationForm()
+    form['csrf_token'].data = request.cookies['csrf_token'] # makes a csrf_token in form object
     new_location = Location(
         name = data["name"],
         phone = data["phone"],
@@ -56,11 +57,9 @@ def createLocation():
         state = data["state"],
         address = data["address"],
         zipcode = data["zipcode"],
-        lat = data["lat"],
-        lng = data["lng"],
         price = data["price"],
         operating_hours = data["operating_hours"],
-        owner_id = data["owner_id"]
+        owner_id = current_user.id
     )
 
     db.session.add(new_location)
@@ -69,11 +68,14 @@ def createLocation():
     return new_location.to_dict()
 
 @location_routes.route('/<int:id>', methods=["DELETE"])
-# @login_required
+@login_required
 def removeLocation(id):
     location = Location.query.get(id)
     if not location:
         return ("Location not found"), 404
+
+    if location.owner_id != current_user.id:
+        return ("Not authorized"), 401
 
     db.session.delete(location)
     db.session.commit()
@@ -82,7 +84,7 @@ def removeLocation(id):
 
 
 @location_routes.route('/<int:id>', methods=["PUT"])
-# @login_required
+@login_required
 def updateLocation(id):
     location = Location.query.get(id)
     data = request.get_json()
@@ -95,12 +97,12 @@ def updateLocation(id):
         location.state = data['state']
         location.address = data['address']
         location.zipcode = data['zipcode']
-        location.lat = data['lat']
-        location.lng = data['lng']
+        # location.lat = data['lat']
+        # location.lng = data['lng']
         location.price = data['price']
         location.operating_hours = data['operating_hours']
         db.session.commit()
-        print("RETURN=====>", location.to_dict())
+        # print("RETURN=====>", location.to_dict())
 
         return location.to_dict()
     else:
@@ -109,10 +111,30 @@ def updateLocation(id):
 
 @location_routes.route('/<int:id>/reviews')
 def locationReviews(id):
-    print("ID========>", id)
+    # print("ID========>", id)
     reviews = Review.query.filter(Review.location_id == id).all()
     reviewList = []
     for review in reviews:
         print(review.to_dict())
         reviewList.append(review.to_dict())
     return {'reviews': reviewList}
+
+
+# Create Image for location on spot creation
+@location_routes.route('/<int:id>/images', methods=['POST'])
+@login_required
+def createLocationImage(id):
+    data = request.get_json()
+    print("LOOOOK", data)
+    # form = LocationForm()
+    # form['csrf_token'].data = request.cookies['csrf_token'] # makes a csrf_token in form object
+    new_image = Image(
+        img_url = data["image_url"],
+        user_id = current_user.id,
+        location_id = id
+    )
+
+    db.session.add(new_image)
+    db.session.commit()
+    print("IMAGE RETURN", new_image.to_dict())
+    return new_image.to_dict()

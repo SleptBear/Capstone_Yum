@@ -22,7 +22,7 @@ function Navigation({ isLoaded }){
 	  			</div>
 
         		<div className='nav-modals'>
-
+						<NavLink exact to='/locations/new'>Add your Location</NavLink>
 						<NavLink className="grub-finder" exact to='/locations'>Find Grub</NavLink>
 
 

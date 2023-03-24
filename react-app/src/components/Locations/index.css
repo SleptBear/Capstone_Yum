@@ -33,17 +33,19 @@ background-color: red;
     height: 30rem;
     width: 100%;
     background-color: red;
+    /* justify-content: center; */
 }
 .some-images img {
     display: flex;
     height: 30rem;
     width: 100%;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .individual-image {
     display: flex;
-    width: 100%
+    width: 33.33%;
+    max-width: 100%
 }
 
 .over-images {

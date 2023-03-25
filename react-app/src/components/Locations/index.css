@@ -1,3 +1,12 @@
+button:hover {
+    cursor: pointer;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+
 .body-container {
     width: 100%;
 }
@@ -30,35 +39,87 @@ background-color: red;
 
 .some-images {
     display: flex;
-    height: 30rem;
+    height: 25rem;
     width: 100%;
     background-color: red;
+    /* justify-content: center; */
 }
 .some-images img {
     display: flex;
-    height: 30rem;
+    height: 25rem;
     width: 100%;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .individual-image {
     display: flex;
-    width: 100%
+    width: 33.33%;
+    /* max-width: 100% */
 }
 
 .over-images {
     display: flex;
-    justify-content: center;
+    justify-content:space-evenly;
     /* border-color: black; */
     /* border-width: 2px; */
     /* border-style: dotted; */
-    background-color: blue;
-    width: 85%;
+    /* background-color: blue; */
+    width: 100%;
     position: absolute;
-    top: 400px;
+    top: 225px;
 }
 
 .mini-container {
     display: flex;
     flex-direction: column;
+    width: 30rem;
+    height: 15rem;
+    /* background-color: pink; */
+    /* background-color: rgba(245, 245, 245, 0.139); */
+    color: white;
+    font-size: 24px;
+}
+
+.mini-container h3 {
+    color: white;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;;
+    font-size: 48px;
+}
+
+.mini-container div {
+    color: white;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.mini-container button {
+    background-color: transparent;
+    color: white;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    width: 3rem;
+    border-color: white;
+
+}
+
+
+.mini-images {
+    display: flex;
+    align-items: end;
+}
+
+.mini-images button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    border-radius: 5px;
+    width: 15rem;
+    color: white;
+    font-size: x-large;
+    background-color: transparent;
+    border-color: white;
+}
+
+.mini-images button:hover {
+    background-color: rgba(245, 245, 245, 0.184);
+    transition: .8s;
 }

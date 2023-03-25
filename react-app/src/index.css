@@ -59,8 +59,8 @@
 .details-container {
     display: flex;
     flex-direction: column;
-    background-color: purple;
-    height: 50rem;
+    /* background-color: purple; */
+    height: 100rem;
 }
 
 /* .some-images {
@@ -74,28 +74,71 @@
 .location-details {
     display: flex;
     flex-direction: row;
-    color: red;
+    /* color: red; */
     background-color: indigo;
-    justify-content: space-around;
+    justify-content: center;
+    /* height: 80rem; */
 }
 
 .details-right {
-    background-color: orange;
-    width: 25%;
+    background-color: rgb(138, 91, 5);
+    width: 20%;
     height: fit-content;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    position: sticky;
 }
 .details-left {
-    background-color: orange;
+    /* background-color: orange; */
     display: flex;
     flex-direction: column;
     width: 45%;
     align-items: center;
-    justify-content: center;
-    height: 6rem;
+    justify-content: start;
+    height: 30rem;
+    padding-top: 2rem;
 }
 
 .topLeft {
     display: flex;
     flex-direction: row;
     gap: 15px;
+    padding-bottom: 1.5rem;
+}
+
+.topLeft button {
+    height: 2.5rem;
+    width: fit-content;
+    background-color: white;
+    border-width: thin;
+    color: rgba(45,46,47,1);
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.WriteReview button {
+    background-color: rgba(224,7,7,1);
+}
+.WriteReview button:hover {
+    background-color: rgb(243, 8, 8);
+    transition: .8sec;
+}
+
+.Website-Section {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.phone-section {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.message-section {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
 }

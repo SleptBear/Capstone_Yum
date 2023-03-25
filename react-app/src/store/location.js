@@ -59,7 +59,7 @@ export const getLocation = (locationId) => async dispatch => {
 
 
 export const createLocation = (location, imgData) => async dispatch => {
-
+    console.log("locationData", location)
     const res = await fetch('/api/locations', {
         method: 'POST',
         headers: {
@@ -68,28 +68,29 @@ export const createLocation = (location, imgData) => async dispatch => {
         body: JSON.stringify(location)
 })
 
+const data = await res.json()
 if (res.ok) {
-    const data = await res.json()
-    // const res2 = await csrfFetch(`/api/spots/${data.id}/images`, {
-    //     method: 'POST',
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(imgData)
-    // })
-    // if(res2.ok) {
-        // const data2 = await res2.json();
-        // data.previewImage = data2.url
-    // }
+    const res2 = await fetch(`/api/locations/${data.id}/images`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(imgData)
+    })
+    if(res2.ok) {
+        const data2 = await res2.json();
+        data.images = data2
+    }
 
     // dispatch(getSpot(data.id))
     dispatch(actionCreateLocation(data))
-
-        return data
-    }
+}
+console.log("DATA=========>", data)
+return data
 }
 
-export const updateLocation = (location, locationId, imgData) => async dispatch => {
+export const updateLocation = (location, locationId) => async dispatch => {
+    console.log(location)
     const res = await fetch(`/api/locations/${locationId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -113,7 +114,7 @@ export const updateLocation = (location, locationId, imgData) => async dispatch 
     // }
     //todo dispatch update with correct data types and value instead of read
     if (res.ok) {
-    dispatch(actionReadLocation(locationId))
+    // dispatch(actionReadLocation(locationId))
 
             // console.log("new image res", data2)
             // data.SpotImages.push(data2)

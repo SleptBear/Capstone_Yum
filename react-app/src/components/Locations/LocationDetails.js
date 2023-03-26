@@ -56,7 +56,7 @@ const LocationDetails = () => {
                     <button onClick={() => window.alert("Coming Soon")}><i class="fa-solid fa-plus"></i> Follow</button>
                 </div>
                 {/* <br></br> */}
-                <hr style={{width: "90%"}}></hr>
+                {/* <hr style={{width: "90%", height: "1px", color: "#ebebeb"}}></hr> */}
                 <div className='leftReviews-container'>
                     <LocationReviews />
                 </div>

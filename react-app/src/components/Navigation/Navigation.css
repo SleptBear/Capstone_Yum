@@ -37,6 +37,116 @@
 
 }
 
+.logo button{
+  /* font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif; */
+  /* font-family: 'Kanit', sans-serif */
+  font-family: 'Kanit', sans-serif;
+  font-weight: 600;
+  color: rgba(45,46,47,1);
+  /* list-style: none; */
+  text-decoration: none;
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 30px;
+
+}
+
+.fa-utensils {
+  /* background-color: red; */
+  color: rgb(241, 7, 7);
+  font-size: 30px;
+}
+
 .profile-dropdown {
   color: black;
+}
+
+.nav-modals {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.nav-modals button {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgba(45,46,47,1);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+.profile-dropdown {
+  position: absolute;
+  top: 4rem;
+  list-style: none;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(10, 0, 10, 0.30);
+  /* border-radius: 1rem; */
+  height: fit-content;
+  width: 13rem;
+  max-width: 30rem;
+  padding: 1rem;
+  overflow: hidden;
+  z-index: 100;
+  color: rgba(45,46,47,1);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profile-dropdown li {
+  padding-top: 20px;
+}
+
+.user-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3rem;
+
+}
+
+.user-menu button {
+  font-size: 30px
+}
+
+.fa-circle-user {
+  color: lightgray;
+  background-color: rgb(161, 161, 161);
+  border-radius: 2rem;
+}
+
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  height: 3rem;
+  width: 60rem;
+  /* background-color: black; */
+}
+
+.search-bar input {
+  height: 100%;
+  width: 75%;
+  box-shadow: 0 0 8px rgba(10, 0, 10, 0.30);
+  background-color: #ffffff;
+  border-color: transparent;
+
+}
+
+.search-bar button {
+  height: 113%;
+  width: 24%;
+  background-color: rgba(224,7,7,1);
+  color: #fff;
+  box-shadow: 0 0 8px rgba(10, 0, 10, 0.30);
+  border-color: transparent;
+  width: 3.5rem;
+  font-size: 20px;
+
+}
+.search-bar button:hover {
+  background-color: rgb(241, 7, 7);
+  transition: 5sec;
 }

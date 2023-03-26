@@ -1,29 +1,40 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import NavSearch from './NavSearch.js';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
+	const history = useHistory();
 
 	return (
 		<div className='navStart'>
     		<nav className='navbar'>
 
       			<div className='logo'>
+					<button onClick={() => history.push('/')}>
+					yum!
+					</button>
         			<NavLink exact to="/">
-		  				<i className="fa-solid fa-utensils"></i>
+						<i className="fa-solid fa-utensils"></i>
         			</NavLink>
       			</div>
 
 	  			<div className='search-container'>
-					Search Container
+					<NavSearch />
 	  			</div>
 
         		<div className='nav-modals'>
-						<NavLink exact to='/locations/new'>Add your Location</NavLink>
-						<NavLink className="grub-finder" exact to='/locations'>Find Grub</NavLink>
+					<button onClick={() => history.push('/locations/new')}>
+						Add your Location
+					</button>
+					<button onClick={() => history.push('/locations')}>
+						Find Grub
+					</button>
+						{/* <NavLink exact to='/locations/new'>Add your Location</NavLink>
+						<NavLink className="grub-finder" exact to='/locations'>Find Grub</NavLink> */}
 
 
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import { NavLink, Switch, Route, useHistory, useParams } from 'react-router-dom'
-import { updateLocation, getLocation } from '../../store/location'
+import { updateLocation, getLocation, deleteLocation } from '../../store/location'
 import "./forms.css"
 // import "./addproduct.css"
 const EditLocation = () => {
@@ -35,6 +35,25 @@ const EditLocation = () => {
     // if(!user) {
     //    return <h4>User not logged in</h4>
     // }
+    const possibleOwner = () => {
+        return user.id == location.owner_id
+    }
+
+    const handleRemove = async (e) => {
+        // e.preventDefault()
+        dispatch(deleteLocation(locationId))
+
+        .then(async (res) => {
+            history.push(`/`)
+            window.alert("Location Unlisted")
+        })
+        .catch(async (res) => {
+            const data = await res.json();
+            console.log(data)
+            if (data && data.errors) setErrors(data.errors)
+          });
+
+    }
 
 
     const handleSubmit = async (e) => {
@@ -248,7 +267,10 @@ const EditLocation = () => {
             ></input>
             // </label> */}
             <button className="submit-form" type="Submit" >Submit</button>
+            <br></br>
             </form>
+
+                <button onClick={() => handleRemove()} className="submit-form" style={{backgroundColor: 'dark red'}}>Remove Location</button>
             {/* <button className="demo-add-item"
             onClick={() => dispatch(createLocationThunk(({name: "Demo Pants",description: "This is a description",price: 19.99, category: "pants" , color: "Demo Color", size: "Demo Size", seller: user?.id},
             {

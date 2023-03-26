@@ -64,15 +64,17 @@ const LocationDetails = () => {
             <div className='details-right'>
                 <div className='Website-Section'>
                     <div>https://www.RestaurantName.com</div>
-                    <div><i class="fa-solid fa-up-right-from-square"></i></div>
+                    <a onClick={() => window.alert("messages coming soon")}><i class="fa-solid fa-up-right-from-square"></i></a>
                 </div>
+                <hr></hr>
                 <div className='phone-section'>
                     <div>{locationObj.phone}</div>
                     <div><i class="fa-solid fa-phone-volume"></i></div>
                 </div>
+                <hr></hr>
                 <div className='message-section'>
                     <div>Message the Business</div>
-                    <div><i class="fa-solid fa-comment-dots"></i></div>
+                    <a onClick={() => window.alert("messages coming soon")}><i class="fa-solid fa-comment-dots"></i></a>
 
                 </div>
             </div>

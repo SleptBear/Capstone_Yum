@@ -14,9 +14,12 @@ function Navigation({ isLoaded }){
     		<nav className='navbar'>
 
       			<div className='logo'>
-					<button onClick={() => history.push('/')}>
+					{/* <button onClick={() => history.push('/')}>
 					yum!
 					</button>
+        			<NavLink exact to="/">
+						<i className="fa-solid fa-utensils"></i>
+        			</NavLink> */}
         			<NavLink exact to="/">
 						<i className="fa-solid fa-utensils"></i>
         			</NavLink>

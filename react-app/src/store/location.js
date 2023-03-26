@@ -129,6 +129,7 @@ export const updateLocation = (location, locationId) => async dispatch => {
 
 
 export const deleteLocation = (locationId) => async dispatch => {
+    console.log(locationId)
     const res = await fetch(`/api/locations/${locationId}`, {
         method: 'DELETE'})
         let data;
@@ -138,7 +139,8 @@ export const deleteLocation = (locationId) => async dispatch => {
             // dispatch(actionReadSpots())
             //todo for all thunks return data to send back to component for error handeling
         }
-        return data
+        console.log(data)
+    return res.json()
 }
 
 const initialState = { locations: {}, location: {} }

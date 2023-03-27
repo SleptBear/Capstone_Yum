@@ -32,12 +32,6 @@ const EditLocation = () => {
         dispatch(getLocation(locationId))
     }, [dispatch])
 
-    // if(!user) {
-    //    return <h4>User not logged in</h4>
-    // }
-    const possibleOwner = () => {
-        return user.id == location.owner_id
-    }
 
     const handleRemove = async (e) => {
         // e.preventDefault()
@@ -49,39 +43,42 @@ const EditLocation = () => {
         })
         .catch(async (res) => {
             const data = await res.json();
-            console.log(data)
             if (data && data.errors) setErrors(data.errors)
-          });
+        });
 
     }
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-    const LocationData = {
-        name,
-        description,
-        phone,
-        city,
-        state,
-        address,
-        zipcode,
-        price,
-        operating_hours,
-    };
+        const LocationData = {
+            name,
+            description,
+            phone,
+            city,
+            state,
+            address,
+            zipcode,
+            price,
+            operating_hours,
+        };
 
-    // const imgData = {
-    //     image_url: image
-    // }
+    dispatch(updateLocation(LocationData, locationId))
+    .then(async (res) => {
+        const data = await res.json();
+        console.log("return data in catch", data)
 
-        dispatch(updateLocation(LocationData, locationId))
-
-        // .then(async (res) => history.push(`/locations/${locationId}`))
-        .catch(async (res) => {
-            const data = await res.json();
-            if (data && data.error) setErrors(data.error)
-          });
+        if (data && data.errors) setErrors([data.errors])
+        if(res.ok) history.push(`/locations/${locationId}`)
     }
+        )
+
+    //   .catch(async (res) => {
+    //     const data = await res.json();
+    //     console.log("return data in catch", data)
+    //     if (data && data.errors) setErrors(data.errors)
+    //   });
+}
 
     return(
         <div className= "UpdateLocationMain">
@@ -102,8 +99,8 @@ const EditLocation = () => {
             value={name}
             placeholder="Name"
             maxLength={50}
-            pattern="[a-zA-Z ]*"
-            title="No Symbols, numbers, or special characters"
+            pattern="[a-zA-Z0-9 ]*"
+            title="No Symbols, or special characters"
             onChange={(e) => {
                 setName(e.target.value)
             }}

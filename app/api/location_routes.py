@@ -93,7 +93,7 @@ def updateLocation(id):
     data = request.get_json()
 
     if location.owner.id != current_user.id:
-        return {"error": "Not Authorized"}, 403
+        return {"errors": "Not Authorized User"}, 403
     # setup conditional to check if request data has value or not:
     # add in any additional relationship data after commit line 80
     if location:
@@ -113,7 +113,7 @@ def updateLocation(id):
 
         return location.to_dict()
     else:
-        return {"error": "Location Does not Exist"}
+        return {"errors": "Location Does not Exist"}
 
 
 @location_routes.route('/<int:id>/reviews')

@@ -20,6 +20,7 @@ const LocationDetails = () => {
         dispatch(getLocation(locationId))
     }, [dispatch, locationId])
     if(!locationObj.id) return null
+    if(!reviewObj) return null
     let copyArray = imagesArray.slice(0,5)
     let reviewsArray = Object.values(reviewObj)
     // console.log("here", reviewsArray)

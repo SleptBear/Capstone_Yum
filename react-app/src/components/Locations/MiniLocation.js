@@ -9,7 +9,7 @@ function MiniLocation(props) {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(state => state.session?.user)
-    const [showEdit, setShowEdit] = useState(false)
+    const [showEdit, setShowEdit] = useState(true)
     // const [averagRating, setAveragRating] = useState(0)
     // let averageRating = 3
     // if(!location?.location.id || !reviews) return null
@@ -18,9 +18,10 @@ function MiniLocation(props) {
     useEffect(() => {
         if(props.location.owner_id == user?.id) setShowEdit(true)
         if(props.location.owner_id != user?.id) setShowEdit(false)
-    }, [dispatch, user])
-    
-    if(!props.location) return null
+    }, [dispatch, user, showEdit])
+
+    if(!props?.location) return null
+    if(!props?.reviews) return null
     console.log("MiniProps", props)
 
 
@@ -28,12 +29,12 @@ function MiniLocation(props) {
         let avg = 0
         let count = 0
         props.reviews.forEach(review => {
-            avg += review.rating
+            avg += review?.rating
             count += 1
         });
         // console.log("BEFORE", averageRating)
         let averageRating = Number(avg/count)
-        // console.log("AFTER", averageRating)
+        console.log("AFTER", averageRating)
         console.log((avg/count))
         return <Stars rating={averageRating}/>
     }
@@ -46,7 +47,7 @@ function MiniLocation(props) {
     return (
         <div className="mini-container">
             <h3>{props.location.name}</h3>
-            <div className="mini-reviews"> {handleReviews()} {props.reviews.length} Reviews</div>
+            <div className="mini-reviews"> {handleReviews()} {props?.reviews.length} Reviews</div>
             <div>Category: {props.location.category}</div>
             <div id="hours-edit">
             <div>Open: {props.location.operating_hours}</div>

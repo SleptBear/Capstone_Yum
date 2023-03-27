@@ -76,8 +76,8 @@ const AddLocation = () => {
             value={name}
             placeholder="Name"
             maxLength={50}
-            pattern="[a-zA-Z ]*"
-            title="No Symbols, numbers, or special characters"
+            pattern="[a-zA-Z0-9 ]*"
+            title="No Symbols, or special characters"
             onChange={(e) => {
                 setName(e.target.value)
             }}

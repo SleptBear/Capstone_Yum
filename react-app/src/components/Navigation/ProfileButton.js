@@ -42,31 +42,34 @@ function ProfileButton({ user }) {
     <div className="user-menu">
 
       <button onClick={openMenu}>
-      <i className="fa-solid fa-circle-user"></i>      </button>
+        <i className="fa-solid fa-circle-user" id='prof-user'></i>
+      </button>
     </div>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>About {user.first_name} {user.last_name}</li>
-            <li>Find Friends</li>
-            <li>Account Settings</li>
+            <li><i className="fa-solid fa-user-large"></i> About {user.first_name} {user.last_name}</li>
+            <li><i className="fa-solid fa-user-group"></i> Find Friends</li>
+            <li><i className="fa-solid fa-gear"></i> Account Settings</li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
           </>
         ) : (
           <>
+          <div className="in-or-out">
             <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
-            />
+              />
 
             <OpenModalButton
               buttonText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
-            />
+              />
+          </div>
           </>
         )}
       </ul>

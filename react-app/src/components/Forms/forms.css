@@ -1,4 +1,10 @@
-
+.error-message {
+    color: red;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding-right: 1.4rem;
+}
 
 .addLocationMain form {
     display: flex;

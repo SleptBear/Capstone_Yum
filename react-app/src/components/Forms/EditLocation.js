@@ -18,7 +18,7 @@ const EditLocation = () => {
     const [zipcode, setZipcode] = useState(location.zipcode)
     const [category, setCategory] = useState(location.category)
     const [operating_hours, setOperating_hours] = useState(location.operating_hours)
-    const [image, setImage] = useState('')
+    // const [image, setImage] = useState('')
     const [errors, setErrors] = useState([]);
 
     const dispatch = useDispatch()
@@ -38,13 +38,17 @@ const EditLocation = () => {
         dispatch(deleteLocation(locationId))
 
         .then(async (res) => {
+            const data = await res.json();
+            console.log(res)
+            console.log(data)
+            if (data && data.errors) setErrors([data.errors])
+            if(res.ok) {
             history.push(`/`)
             window.alert("Location Unlisted")
+            }
         })
-        .catch(async (res) => {
-            const data = await res.json();
-            if (data && data.errors) setErrors(data.errors)
-        });
+        // .catch(async (res) => {
+        // });
 
     }
 
@@ -219,7 +223,7 @@ const EditLocation = () => {
             ></input>
             </label>
             <label className="Label">
-                Cateogry
+                Category
                 <input className="Category-form"
             type="text"
             value={category}

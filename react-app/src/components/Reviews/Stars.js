@@ -12,10 +12,10 @@ function Stars(rating) {
     const [currentRating, setCurrentRating] = useState(Math.floor(rating.rating));
     console.log("inside stars", rating.rating)
 
+    if(!rating?.rating) return null
     return (
         <div>
             {stars.map((_, index) => {
-                const ratingValue = index + 1
 
                 return (
 

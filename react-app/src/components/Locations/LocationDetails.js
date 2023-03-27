@@ -30,7 +30,7 @@ const LocationDetails = () => {
     // console.log("here", reviewsArray)
     let props = {
         'location': locationObj,
-        'reviews': reviewsArray
+        'reviews': reviewObj
     }
 
 
@@ -47,13 +47,13 @@ const LocationDetails = () => {
     // width: "2000px"}}
     >
             {copyArray.map(image => (
-            <div className='individual-image'>
-                <img src={image.img_url} key={image.id} alt='not found' ></img>
+            <div className='individual-image' key={image.id}>
+                <img src={image.img_url} alt='not found' ></img>
             </div>
             ))}
         </div>
         <div className='over-images'>
-            <MiniLocation location={locationObj} reviews={reviewsArray}/>
+            <MiniLocation location={locationObj} reviews={reviewObj}/>
             <AllImages location={locationObj} />
         </div>
         <div className="location-details">

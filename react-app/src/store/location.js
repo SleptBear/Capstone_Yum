@@ -130,15 +130,15 @@ export const deleteLocation = (locationId) => async dispatch => {
     console.log(locationId)
     const res = await fetch(`/api/locations/${locationId}`, {
         method: 'DELETE'})
-        let data;
+        // let data;
         if (res.ok) {
-            data = await res.json();
+            // data = await res.json();
             dispatch(actionDeleteLocation(locationId))
             // dispatch(actionReadSpots())
             //todo for all thunks return data to send back to component for error handeling
         }
-        console.log(data)
-    return res.json()
+    console.log("res", res)
+    return res
 }
 
 const initialState = { locations: {}, location: {} }
@@ -158,6 +158,7 @@ export default function locationReducer(state = initialState, action) {
 
         case LOAD_LOCATIONS:
             newState.locations = {...action.locations}
+            newState.location = {}
             // newState.spot = {}
             return newState
 

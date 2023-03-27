@@ -76,10 +76,10 @@ const EditLocation = () => {
 
         dispatch(updateLocation(LocationData, locationId))
 
-        .then(async (res) => history.push(`/locations/${locationId}`))
+        // .then(async (res) => history.push(`/locations/${locationId}`))
         .catch(async (res) => {
             const data = await res.json();
-            if (data && data.errors) setErrors(data.errors)
+            if (data && data.error) setErrors(data.error)
           });
     }
 

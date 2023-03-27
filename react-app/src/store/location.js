@@ -116,7 +116,7 @@ export const updateLocation = (location, locationId) => async dispatch => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(location)
     })
-    // console.log("response", res)
+    console.log("response", res)
     const data = await res.json();
     // console.log('updated spot', data)
     // console.log('res status', res.ok)
@@ -143,6 +143,7 @@ export const updateLocation = (location, locationId) => async dispatch => {
 
         dispatch(actionUpdateLocation(data))
     }
+    console.log("update data", data)
     return data
 }
 

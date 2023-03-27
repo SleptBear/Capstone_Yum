@@ -131,3 +131,8 @@ background-color: red;
 .mini-reviews {
     display: flex;
 }
+
+#hours-edit {
+    display: flex;
+    gap: 5px;
+}

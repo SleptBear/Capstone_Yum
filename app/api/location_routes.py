@@ -91,6 +91,9 @@ def removeLocation(id):
 def updateLocation(id):
     location = Location.query.get(id)
     data = request.get_json()
+
+    if location.owner.id != current_user.id:
+        return {"error": "Not Authorized"}, 403
     # setup conditional to check if request data has value or not:
     # add in any additional relationship data after commit line 80
     if location:

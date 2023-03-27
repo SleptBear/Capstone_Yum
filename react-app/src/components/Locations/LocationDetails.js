@@ -5,6 +5,7 @@ import { getLocation } from '../../store/location'
 import MiniLocation from './MiniLocation'
 import LocationReviews from '../Reviews/LocationReviews'
 import AllImages from './Images/images'
+import { readReviews } from '../../store/review'
 
 
 const LocationDetails = () => {
@@ -18,7 +19,10 @@ const LocationDetails = () => {
 
     useEffect(() => {
         dispatch(getLocation(locationId))
-    }, [dispatch, locationId])
+        // dispatch(readReviews(locationId))
+    }, [dispatch, locationId, reviewObj])
+
+
     if(!locationObj.id) return null
     if(!reviewObj) return null
     let copyArray = imagesArray.slice(0,5)
@@ -59,7 +63,7 @@ const LocationDetails = () => {
                     <button onClick={() => window.alert("Coming Soon")}><i className="fa-regular fa-star"></i> Write a Review</button>
                     </div>
 
-                    <button onClick={() => history.push(`/locations/${locationId}/photo`)}><i class="fa-solid fa-camera"></i> Add Photo</button>
+                    <button onClick={() => history.push(`/locations/${locationId}/photo`)}><i className="fa-solid fa-camera"></i> Add Photo</button>
                     <button onClick={() => window.alert("Coming Soon")}><i className="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
                     <button onClick={() => window.alert("Coming Soon")}><i className="fa-regular fa-bookmark"></i> Save</button>
                     <button onClick={() => window.alert("Coming Soon")}><i className="fa-solid fa-plus"></i> Follow</button>

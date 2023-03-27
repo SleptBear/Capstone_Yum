@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { useHistory } from "react-router-dom"
+import { readReviews } from "../../store/review"
 import Stars from "../Reviews/Stars"
 
 
@@ -10,19 +11,15 @@ function MiniLocation(props) {
     const history = useHistory();
     const user = useSelector(state => state.session?.user)
     const [showEdit, setShowEdit] = useState(true)
-    // const [averagRating, setAveragRating] = useState(0)
-    // let averageRating = 3
-    // if(!location?.location.id || !reviews) return null
-    // console.log("MiniLocation", location?.location)
-    // console.log("MiniReviews", reviews)
+
     useEffect(() => {
+        dispatch(readReviews(props?.location.id))
         if(props.location.owner_id == user?.id) setShowEdit(true)
         if(props.location.owner_id != user?.id) setShowEdit(false)
     }, [dispatch, user, showEdit])
 
-    if(!props?.location) return null
-    if(!props?.reviews) return null
-    console.log("MiniProps", props)
+    if(!props?.location.id) return null
+    if(!props?.reviews[0]) return null
 
 
     const handleReviews = () => {
@@ -34,15 +31,10 @@ function MiniLocation(props) {
         });
         // console.log("BEFORE", averageRating)
         let averageRating = Number(avg/count)
-        console.log("AFTER", averageRating)
-        console.log((avg/count))
         return <Stars rating={averageRating}/>
     }
 
     const ulClassName = "edit-button" + (showEdit ? "" : " hidden");
-
-
-
 
     return (
         <div className="mini-container">

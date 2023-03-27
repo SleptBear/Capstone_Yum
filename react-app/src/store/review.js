@@ -53,7 +53,7 @@ export const readReviews = (locationId) => async (dispatch) => {
     const response = await fetch(`/api/locations/${locationId}/reviews`)
     const reviews = await response.json()
     if (response.ok) dispatch(actionReadReview(reviews))
-    return reviews
+    return response
 }
 
 export const editReview = (updatedReview) => async (dispatch) => {

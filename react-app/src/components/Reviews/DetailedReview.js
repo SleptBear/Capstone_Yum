@@ -1,7 +1,7 @@
 // import { useEffect } from "react"
 // import { useDispatch } from "react-redux"
 import Stars from "./Stars"
-import DynamicStars from "./DynamicStars"
+// import DynamicStars from "./DynamicStars"
 
 
 function DetailedReview(review) {
@@ -10,7 +10,7 @@ function DetailedReview(review) {
 
     return (
         <div>
-            <DynamicStars rating={review.review.rating}/>
+            {/* <DynamicStars rating={review.review.rating}/> */}
             <Stars rating={review.review.rating}/>
             Rating: {rev.rating}
         </div>

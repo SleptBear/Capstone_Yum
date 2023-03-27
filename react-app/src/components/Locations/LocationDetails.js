@@ -21,6 +21,12 @@ const LocationDetails = () => {
     }, [dispatch, locationId])
     if(!locationObj.id) return null
     let copyArray = imagesArray.slice(0,5)
+    let reviewsArray = Object.values(reviewObj)
+    console.log("here", reviewsArray)
+    let props = {
+        'location': locationObj,
+        'reviews': reviewsArray
+    }
 
 
 
@@ -42,8 +48,9 @@ const LocationDetails = () => {
             ))}
         </div>
         <div className='over-images'>
-            <MiniLocation location={locationObj} />
-            <AllImages location={locationObj} reviews={reviewObj} />
+            <MiniLocation location={locationObj} reviews={reviewsArray}/>
+            {/* <MiniLocation props={props}/> */}
+            <AllImages location={locationObj} />
         </div>
         <div className="location-details">
             <div className="details-left">
@@ -66,7 +73,7 @@ const LocationDetails = () => {
             <div className='details-right'>
                 <div className='Website-Section'>
                     <div>https://www.RestaurantName.com</div>
-                    <a onClick={() => window.alert("messages coming soon")}><i className="fa-solid fa-up-right-from-square"></i></a>
+                    <a onClick={() => window.alert("Outside Link coming soon")}><i className="fa-solid fa-up-right-from-square"></i></a>
                 </div>
                 <hr></hr>
                 <div className='phone-section'>

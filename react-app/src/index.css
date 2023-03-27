@@ -121,7 +121,7 @@
 }
 .WriteReview button:hover {
     background-color: rgb(243, 8, 8);
-    transition: .8sec;
+    transition: .8s;
 }
 
 .Website-Section {

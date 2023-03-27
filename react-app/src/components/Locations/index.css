@@ -120,8 +120,8 @@ background-color: red;
 }
 
 .mini-images button:hover {
-    background-color: rgba(245, 245, 245, 0.184);
-    transition: .8s;
+    background-color: rgba(245, 245, 245, 0.584);
+    transition: 1s;
 }
 
 .details-right {

@@ -119,8 +119,15 @@ def locationReviews(id):
     reviews = Review.query.filter(Review.location_id == id).all()
     reviewList = []
     for review in reviews:
-        print(review.to_dict())
-        reviewList.append(review.to_dict())
+        review_obj = review.to_dict()
+        reviewer = review.user
+        images = review.images
+        images_obj = [image.to_dict() for image in images]
+        reviewer_obj = reviewer.to_dict()
+        review_obj['reviewer'] = reviewer_obj
+        review_obj['images'] = images_obj
+        print("REVIEW==========================>", review_obj)
+        reviewList.append(review_obj)
     return {'reviews': reviewList}
 
 
@@ -140,5 +147,5 @@ def createLocationImage(id):
 
     db.session.add(new_image)
     db.session.commit()
-    print("IMAGE RETURN", new_image.to_dict())
+    # print("IMAGE RETURN", new_image.to_dict())
     return new_image.to_dict()

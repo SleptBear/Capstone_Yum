@@ -1,7 +1,7 @@
 const ADD_REVIEW = 'reviews/addReview'
-const READ_LOCATIONS_REVIEWS = 'reviews/readReview'
+const READ_LOCATIONS_REVIEWS = 'reviews/readLocationReviews'
 const DELETE_REVIEW = 'reviews/deleteReview'
-const EDIT_REVIEW = 'reviews/editReviews' // editing/update a review
+const EDIT_REVIEW = 'reviews/editReview' // editing/update a review
 
 
 const actionAddReview = (review) => ({

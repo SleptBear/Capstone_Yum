@@ -16,7 +16,7 @@
     position: absolute;
     top: 1px;
     width: 100%;
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 .background img {
@@ -45,16 +45,6 @@
     color:red;
 }
 
-.grub-finder {
-    color: red;
-}
-
-.nav-modals {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-
 
 .details-container {
     display: flex;
@@ -75,19 +65,22 @@
     display: flex;
     flex-direction: row;
     /* color: red; */
-    background-color: indigo;
+    /* background-color: indigo; */
     justify-content: center;
     /* height: 80rem; */
 }
 
 .details-right {
-    background-color: rgb(138, 91, 5);
+    /* background-color: rgb(138, 91, 5); */
     width: 20%;
     height: fit-content;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 2rem;
     position: sticky;
+    top: 4rem;
+    border-radius: 4px;
+    border: 1px solid #ebebeb;
 }
 .details-left {
     /* background-color: orange; */
@@ -105,6 +98,8 @@
     flex-direction: row;
     gap: 15px;
     padding-bottom: 1.5rem;
+    border-radius: 4px;
+    border-bottom: 1px solid #ebebeb;
 }
 
 .topLeft button {
@@ -115,6 +110,10 @@
     color: rgba(45,46,47,1);
     padding-left: 15px;
     padding-right: 15px;
+    border-color: #ebebeb;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 4px;
 }
 
 .WriteReview button {

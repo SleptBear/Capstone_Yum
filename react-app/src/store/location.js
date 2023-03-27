@@ -3,7 +3,7 @@ const LOAD_LOCATIONS = 'location/loadLocation'
 const EDIT_LOCATION = 'location/editLocation'
 const DELETE_LOCATION = 'location/deleteLocation'
 const LOAD_ONE_LOCATION = 'location/loadOneLocation'
-// const ADD_IMAGE = 'product/addImage'
+const ADD_IMAGE = 'location/addImage'
 
 export const actionCreateLocation = (location) => ({
     type: NEW_LOCATION,
@@ -25,6 +25,26 @@ export const actionDeleteLocation = (id) => ({
     type: DELETE_LOCATION,
     id
 })
+export const actionAddImage = (img) => ({
+    type: ADD_IMAGE,
+    payload: img
+})
+
+export const addImage = (locationId, imgData) => async dispatch => {
+    console.log(locationId)
+    console.log(imgData)
+    const res = await fetch(`/api/locations/${locationId}/images`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(imgData)
+    })
+
+
+    let data = await res.json()
+    return data
+}
 
 export const getLocations = () => async dispatch => {
     const res = await fetch('/api/locations');
@@ -129,6 +149,7 @@ export const updateLocation = (location, locationId) => async dispatch => {
 
 
 export const deleteLocation = (locationId) => async dispatch => {
+    console.log(locationId)
     const res = await fetch(`/api/locations/${locationId}`, {
         method: 'DELETE'})
         let data;
@@ -138,7 +159,8 @@ export const deleteLocation = (locationId) => async dispatch => {
             // dispatch(actionReadSpots())
             //todo for all thunks return data to send back to component for error handeling
         }
-        return data
+        console.log(data)
+    return res.json()
 }
 
 const initialState = { locations: {}, location: {} }

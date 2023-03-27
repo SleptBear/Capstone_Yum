@@ -11,6 +11,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/HomePage";
 import Footer from "./components/Footer";
+import AddImage from "./components/Forms/AddImage";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route exact path="/locations/:id/edit">
             <EditLocation />
+          </Route>
+          <Route exact path="/locations/:id/photo">
+            <AddImage />
           </Route>
           <Route exact path="/locations">
             <LocationsIndex />

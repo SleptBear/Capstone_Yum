@@ -123,3 +123,7 @@ background-color: red;
     background-color: rgba(245, 245, 245, 0.184);
     transition: .8s;
 }
+
+.details-right {
+    margin-top: 1.8rem;
+}

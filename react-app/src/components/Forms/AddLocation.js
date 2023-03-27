@@ -24,9 +24,9 @@ const AddLocation = () => {
     const history = useHistory()
     const price = parseInt(stringprice)
 
-    if(!user) {
-       return <h4>User not logged in</h4>
-    }
+    // if(!user) {
+    //    return <h4>User not logged in</h4>
+    // }
 
 
     const handleSubmit = async (e) => {

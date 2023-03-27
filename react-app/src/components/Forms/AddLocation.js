@@ -57,7 +57,7 @@ const AddLocation = () => {
           });
     }
 
-    return(
+    return (
         <div className= "addLocationMain">
 
             <form className="addLocationform" onSubmit={handleSubmit}>

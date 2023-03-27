@@ -23,7 +23,7 @@ const NavSearch = () => {
   return (
     <div className="search-bar">
         <input type="input" className="inputbar" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} onKeyDown={enterKey}/>
-        <button className="searchbutton"onClick={handleSearch}><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button className="searchbutton"onClick={handleSearch}><i className="fa-solid fa-magnifying-glass"></i></button>
 
       </div>
   );

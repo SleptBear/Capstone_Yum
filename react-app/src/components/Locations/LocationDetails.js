@@ -22,7 +22,7 @@ const LocationDetails = () => {
     if(!locationObj.id) return null
     let copyArray = imagesArray.slice(0,5)
     let reviewsArray = Object.values(reviewObj)
-    console.log("here", reviewsArray)
+    // console.log("here", reviewsArray)
     let props = {
         'location': locationObj,
         'reviews': reviewsArray
@@ -49,7 +49,6 @@ const LocationDetails = () => {
         </div>
         <div className='over-images'>
             <MiniLocation location={locationObj} reviews={reviewsArray}/>
-            {/* <MiniLocation props={props}/> */}
             <AllImages location={locationObj} />
         </div>
         <div className="location-details">

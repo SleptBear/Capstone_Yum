@@ -72,7 +72,7 @@ background-color: red;
 .mini-container {
     display: flex;
     flex-direction: column;
-    width: 30rem;
+    width: 35rem;
     height: 15rem;
     /* background-color: pink; */
     /* background-color: rgba(245, 245, 245, 0.139); */
@@ -126,4 +126,8 @@ background-color: red;
 
 .details-right {
     margin-top: 1.8rem;
+}
+
+.mini-reviews {
+    display: flex;
 }

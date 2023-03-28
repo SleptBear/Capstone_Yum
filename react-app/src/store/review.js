@@ -27,15 +27,14 @@ const actionDeleteReview = (reviewId) => ({
 //THUNKS
 export const addReview = (id, review) => async (dispatch) => {
 
-    // console.log("REVIEW", review)
-    // console.log("ID", id)
-    const response = await fetch(`/api/locations/${id}/reviews` , {
+    console.log("REVIEW", review)
+    console.log("ID", id)
+    const response = await fetch(`/api/reviews` , {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            user_id: review.userId,
             location_id: id,
             review: review.review,
             rating: review.rating
@@ -44,9 +43,12 @@ export const addReview = (id, review) => async (dispatch) => {
     // console.log("RESPONSE", response)
     if (response.ok) {
         const review = await response.json();
-        dispatch(addReview(review))
-        return review
+        console.log("good review", review)
+        // dispatch(addReview(review))
+
     }
+    console.log("review return response", response)
+    return response
 }
 
 export const readReviews = (locationId) => async (dispatch) => {

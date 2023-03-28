@@ -60,7 +60,7 @@ const LocationDetails = () => {
             <div className="details-left">
                 <div className='topLeft'>
                     <div className='WriteReview'>
-                    <button onClick={() => window.alert("Coming Soon")}><i className="fa-regular fa-star"></i> Write a Review</button>
+                    <button onClick={() => history.push(`/locations/${locationId}/review/new`)}><i className="fa-regular fa-star"></i> Write a Review</button>
                     </div>
 
                     <button onClick={() => history.push(`/locations/${locationId}/photo`)}><i className="fa-solid fa-camera"></i> Add Photo</button>

@@ -40,15 +40,15 @@ export const addReview = (id, review) => async (dispatch) => {
             rating: review.rating
         })
     })
-    // console.log("RESPONSE", response)
+    let data = response.json()
     if (response.ok) {
-        const review = await response.json();
-        console.log("good review", review)
+        console.log("good review", data)
         // dispatch(addReview(review))
-
+        return data
+    } else {
+        console.log("review return response", response)
+        return data
     }
-    console.log("review return response", response)
-    return response
 }
 
 export const readReviews = (locationId) => async (dispatch) => {
@@ -113,7 +113,8 @@ let initialState = {
             newState = {...state}
             let newStateCopy = {...newState.LocationReviews}
             newStateCopy[action.payload.id] = action.payload
-            newState.allLocations = newStateCopy
+            // newState.LocationReviews = newStateCopy
+            console.log("add review return state", newState)
             return newState
 
         case EDIT_REVIEW:

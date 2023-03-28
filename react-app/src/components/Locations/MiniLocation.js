@@ -11,18 +11,25 @@ function MiniLocation(props) {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(state => state.session?.user)
+    const reviewObj = useSelector(state => state.review.LocationReviews)
+    const locationObj = useSelector(state => state.location.location)
     const revArray = useState([])
     const [showEdit, setShowEdit] = useState(true)
 
     useEffect(() => {
-        dispatch(getLocation(props?.location.id))
+        // dispatch(getLocation(props?.location.id))
+        dispatch(readReviews(props?.location.id))
         if(props.location.owner_id == user?.id) setShowEdit(true)
         if(props.location.owner_id != user?.id) setShowEdit(false)
-    }, [dispatch, user, showEdit])
-    if(!props?.location['id']) return null
+    }, [dispatch, showEdit])
+
+
+    if(!locationObj['id']) return null
+    // if(!props?.location['id']) return null
     if(!props?.reviews) return null
     console.log("props", props)
-    let reviewsArray = Object.values(props.reviews)
+    let reviewsArray = Object.values(reviewObj)
+    console.log("review array", reviewsArray)
     // if(!reviewsArray[0]) return null
 
 
@@ -34,11 +41,11 @@ function MiniLocation(props) {
             count += 1
         });
         // console.log("BEFORE", averageRating)
-        let averageRating = Number(avg/count)
-        console.log("Average", averageRating)
         if(reviewsArray.length == 0) {
         return <Stars rating={0.1}/>
         }
+        let averageRating = Number(avg/count)
+        console.log("Average", averageRating)
         return <Stars rating={averageRating}/>
     }
 

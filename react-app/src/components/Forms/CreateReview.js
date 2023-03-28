@@ -27,15 +27,16 @@ const CreateReview = () => {
         dispatch(addReview(Number(locationId), ReviewData))
         .then(async (res) => {
             const data = await res;
+            console.log("Return review data in react", data)
             if(data && data.errors) setErrors([data.errors])
             if (res.ok) {
                 history.push(`/locations/${locationId}`)
             }
         })
-        .catch(async (res) => {
-            const data = await res.json();
-            if(data && data.errors) setErrors([data.errors])
-        })
+        // .catch(async (res) => {
+        //     const data = await res.json();
+        //     if(data && data.errors) setErrors([data.errors])
+        // })
 
 
     }

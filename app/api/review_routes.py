@@ -28,10 +28,10 @@ def createReview():
     # form['csrf_token'].data = request.cookies['csrf_token'] # makes a csrf_token in form object
     if True:
     # if form.validate_on_submit():
-        old_review = Review.query.filter_by(location_id=data["location_id"], user_id=current_user.id).first()
-        print("old review===============>>>", old_review)
-        if old_review:
-            return {"message": "You have reviewed this location. You can't submit another review"}, 400
+        # old_review = Review.query.filter_by(location_id=data["location_id"], user_id=current_user.id).first()
+        # print("old review===============>>>", old_review)
+        # if old_review:
+        #     return {"message": "You have reviewed this location. You can't submit another review"}, 400
         new_review = Review(
             review = data["review"],
             rating = data["rating"],
@@ -39,11 +39,20 @@ def createReview():
             user_id=current_user.id,
             # created_at=date
         )
-        print(new_review.to_dict())
+        # print(new_review.to_dict())
         db.session.add(new_review)
         db.session.commit()
+        new_review_obj = new_review.to_dict()
+        reviewer = new_review.user
+        images = new_review.images
+        images_obj = [image.to_dict() for image in images]
+        reviewer_obj = reviewer.to_dict()
+        new_review_obj['reviewer'] = reviewer_obj
+        new_review_obj['images'] = images_obj
+        print("REVIEW==========================>", new_review_obj)
 
-        return new_review.to_dict()
+
+        return new_review_obj
     else:
         return {"message": "Bad data, try again"}, 400
 

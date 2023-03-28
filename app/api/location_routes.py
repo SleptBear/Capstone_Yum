@@ -116,7 +116,7 @@ def updateLocation(id):
     else:
         return {"errors": "Location Does not Exist"}
 
-
+# read location's reviews
 @location_routes.route('/<int:id>/reviews')
 def locationReviews(id):
     # print("ID========>", id)

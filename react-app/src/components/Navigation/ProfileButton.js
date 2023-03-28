@@ -4,9 +4,11 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { useHistory } from "react-router-dom";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
 
@@ -48,9 +50,9 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li><i className="fa-solid fa-user-large"></i> About {user.first_name} {user.last_name}</li>
-            <li><i className="fa-solid fa-user-group"></i> Find Friends</li>
-            <li><i className="fa-solid fa-gear"></i> Account Settings</li>
+            <li onClick={() => history.push('user/home')}><i className="fa-solid fa-user-large"></i> About {user.first_name} {user.last_name}</li>
+            <li onClick={() => window.alert('Coming Soon')}><i className="fa-solid fa-user-group"></i> Find Friends</li>
+            <li onClick={() => window.alert('Coming Soon')}><i className="fa-solid fa-gear"></i> Account Settings</li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>

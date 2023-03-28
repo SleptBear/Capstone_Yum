@@ -61,7 +61,8 @@ def createLocation():
         zipcode = data["zipcode"],
         price = data["price"],
         operating_hours = data["operating_hours"],
-        owner_id = current_user.id
+        category = data["category"],
+        owner_id = current_user.id,
     )
 
     db.session.add(new_location)
@@ -78,7 +79,7 @@ def removeLocation(id):
         return ("Location not found"), 404
 
     if location.owner_id != current_user.id:
-        return ("Not authorized"), 401
+        return {"errors": "Not authorized User"}, 401
 
     db.session.delete(location)
     db.session.commit()
@@ -91,6 +92,9 @@ def removeLocation(id):
 def updateLocation(id):
     location = Location.query.get(id)
     data = request.get_json()
+
+    if location.owner.id != current_user.id:
+        return {"errors": "Not Authorized User"}, 401
     # setup conditional to check if request data has value or not:
     # add in any additional relationship data after commit line 80
     if location:
@@ -110,7 +114,7 @@ def updateLocation(id):
 
         return location.to_dict()
     else:
-        return {"error": "Location Does not Exist"}
+        return {"errors": "Location Does not Exist"}
 
 
 @location_routes.route('/<int:id>/reviews')

@@ -12,6 +12,8 @@ import Navigation from "./components/Navigation";
 import Home from "./components/HomePage";
 import Footer from "./components/Footer";
 import AddImage from "./components/Forms/AddImage";
+import CreateReview from "./components/Forms/CreateReview";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,6 +51,12 @@ function App() {
           </Route>
           <Route exact path="/locations/:id">
             <LocationDetails />
+          </Route>
+          <Route exact path="/locations/:id/review/new">
+            <CreateReview />
+          </Route>
+          <Route exact path="/user/home">
+            <ProfilePage />
           </Route>
         </Switch>
 

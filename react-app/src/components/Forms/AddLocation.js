@@ -7,17 +7,17 @@ import "./forms.css"
 const AddLocation = () => {
     const user = useSelector(state => state.session.user)
     // console.log("USERSELECTOR", user)
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-    const [phone, setPhone] = useState('')
-    const [stringprice, setstringPrice] = useState('')
-    const [city, setCity] = useState('')
-    const [state, setState ] = useState('')
-    const [address, setAddress] = useState('')
-    const [zipcode, setZipcode] = useState('')
-    const [category, setCategory] = useState('')
-    const [operating_hours, setOperating_hours] = useState('')
-    const [image, setImage] = useState('')
+    const [name, setName] = useState('Example Place')
+    const [description, setDescription] = useState('Description practice that is all.')
+    const [phone, setPhone] = useState('949-226-4444')
+    const [stringprice, setstringPrice] = useState(15)
+    const [city, setCity] = useState('San Juan')
+    const [state, setState ] = useState('California')
+    const [address, setAddress] = useState('12 West St')
+    const [zipcode, setZipcode] = useState('15648')
+    const [category, setCategory] = useState('fast')
+    const [operating_hours, setOperating_hours] = useState('9am-5pm')
+    const [image, setImage] = useState('https://s3-media0.fl.yelpcdn.com/bphoto/hiprQ3a-icgVoLnOEWLPag/348s.jpg')
     const [errors, setErrors] = useState([]);
 
     const dispatch = useDispatch()
@@ -76,8 +76,8 @@ const AddLocation = () => {
             value={name}
             placeholder="Name"
             maxLength={50}
-            pattern="[a-zA-Z ]*"
-            title="No Symbols, numbers, or special characters"
+            pattern="[a-zA-Z0-9 ]*"
+            title="No Symbols, or special characters"
             onChange={(e) => {
                 setName(e.target.value)
             }}

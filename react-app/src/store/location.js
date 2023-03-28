@@ -116,34 +116,12 @@ export const updateLocation = (location, locationId) => async dispatch => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(location)
     })
-    // console.log("response", res)
-    const data = await res.json();
+    console.log("response", res)
+    // const data = await res.json();
     // console.log('updated spot', data)
     // console.log('res status', res.ok)
-
-
-    // if (res.ok && imgData.url.length > 5) {
-        // data.Owner = spot.Owner
-        // data.SpotImages = spot.SpotImages
-
-        // const res2 = await csrfFetch(`/api/spots/${spotId}/images`, {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(imgData)
-        // })
-    // }
-    //todo dispatch update with correct data types and value instead of read
-    if (res.ok) {
-    // dispatch(actionReadLocation(locationId))
-
-            // console.log("new image res", data2)
-            // data.SpotImages.push(data2)
-            // console.log("updatedaction spot datas", data, data2)
-
-
-        dispatch(actionUpdateLocation(data))
-    }
-    return data
+    // console.log("update data", data)
+    return res
 }
 
 
@@ -152,15 +130,15 @@ export const deleteLocation = (locationId) => async dispatch => {
     console.log(locationId)
     const res = await fetch(`/api/locations/${locationId}`, {
         method: 'DELETE'})
-        let data;
+        // let data;
         if (res.ok) {
-            data = await res.json();
+            // data = await res.json();
             dispatch(actionDeleteLocation(locationId))
             // dispatch(actionReadSpots())
             //todo for all thunks return data to send back to component for error handeling
         }
-        console.log(data)
-    return res.json()
+    console.log("res", res)
+    return res
 }
 
 const initialState = { locations: {}, location: {} }
@@ -180,6 +158,7 @@ export default function locationReducer(state = initialState, action) {
 
         case LOAD_LOCATIONS:
             newState.locations = {...action.locations}
+            newState.location = {}
             // newState.spot = {}
             return newState
 

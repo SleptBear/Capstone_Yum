@@ -5,6 +5,7 @@ import { getLocation } from '../../store/location'
 import MiniLocation from './MiniLocation'
 import LocationReviews from '../Reviews/LocationReviews'
 import AllImages from './Images/images'
+import { readReviews } from '../../store/review'
 
 
 const LocationDetails = () => {
@@ -18,14 +19,18 @@ const LocationDetails = () => {
 
     useEffect(() => {
         dispatch(getLocation(locationId))
-    }, [dispatch, locationId])
+        // dispatch(readReviews(locationId))
+    }, [dispatch, locationId, reviewObj])
+
+
     if(!locationObj.id) return null
+    if(!reviewObj) return null
     let copyArray = imagesArray.slice(0,5)
     let reviewsArray = Object.values(reviewObj)
     // console.log("here", reviewsArray)
     let props = {
         'location': locationObj,
-        'reviews': reviewsArray
+        'reviews': reviewObj
     }
 
 
@@ -42,23 +47,23 @@ const LocationDetails = () => {
     // width: "2000px"}}
     >
             {copyArray.map(image => (
-            <div className='individual-image'>
-                <img src={image.img_url} key={image.id} alt='not found' ></img>
+            <div className='individual-image' key={image.id}>
+                <img src={image.img_url} alt='not found' ></img>
             </div>
             ))}
         </div>
         <div className='over-images'>
-            <MiniLocation location={locationObj} reviews={reviewsArray}/>
+            <MiniLocation location={locationObj} reviews={reviewObj}/>
             <AllImages location={locationObj} />
         </div>
         <div className="location-details">
             <div className="details-left">
                 <div className='topLeft'>
                     <div className='WriteReview'>
-                    <button onClick={() => window.alert("Coming Soon")}><i className="fa-regular fa-star"></i> Write a Review</button>
+                    <button onClick={() => history.push(`/locations/${locationId}/review/new`)}><i className="fa-regular fa-star"></i> Write a Review</button>
                     </div>
 
-                    <button onClick={() => history.push(`/locations/${locationId}/photo`)}><i class="fa-solid fa-camera"></i> Add Photo</button>
+                    <button onClick={() => history.push(`/locations/${locationId}/photo`)}><i className="fa-solid fa-camera"></i> Add Photo</button>
                     <button onClick={() => window.alert("Coming Soon")}><i className="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
                     <button onClick={() => window.alert("Coming Soon")}><i className="fa-regular fa-bookmark"></i> Save</button>
                     <button onClick={() => window.alert("Coming Soon")}><i className="fa-solid fa-plus"></i> Follow</button>

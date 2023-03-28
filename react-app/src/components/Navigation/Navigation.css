@@ -99,6 +99,11 @@
 .profile-dropdown li {
   padding-top: 20px;
 }
+.profile-dropdown li:hover {
+    background-color: rgb(216, 215, 215);
+    transition: .5s;
+    cursor: pointer;
+}
 
 .in-or-out {
   display: flex;

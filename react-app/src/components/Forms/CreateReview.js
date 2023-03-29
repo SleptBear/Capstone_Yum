@@ -30,7 +30,7 @@ const CreateReview = () => {
             console.log("Return review data in react", data)
             if(data && data.errors) setErrors([data.errors])
             if (res.ok) {
-                history.push(`/locations/${locationId}`)
+                history.push(`/user/home`)
             }
         })
         // .catch(async (res) => {

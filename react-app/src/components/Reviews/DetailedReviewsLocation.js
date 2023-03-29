@@ -5,6 +5,7 @@ import Stars from "./Stars"
 import './reviews.css'
 import { useDispatch } from "react-redux"
 // import DynamicStars from "./DynamicStars"
+import ReactStars from 'react-rating-stars-component';
 
 
 function DetailedReviewsLocation(review) {
@@ -17,6 +18,7 @@ function DetailedReviewsLocation(review) {
                 <Reviewer review={rev}/>
             </div>
             <div id="rating">
+                {/* <ReactStars /> */}
                 <Stars rating={review.review.rating}/>
             {rev.updated_at.slice(0, 17)}
             </div>

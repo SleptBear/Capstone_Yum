@@ -51,6 +51,8 @@ def allLocations():
 @location_routes.route('/<int:id>')
 def oneLocation(id):
     location = Location.query.get(id)
+    reviews = location.reviews
+    reviews_obj = [review.to_dict() for review in reviews]
     # print("location =========>", location)
     # print("location =========>", location.owner)
     # print("location =========>", location.images)
@@ -59,6 +61,8 @@ def oneLocation(id):
     location_obj = location.to_dict()
     # location_objs = [location.to_dict() for location in locations]
     location_obj['images'] = images_obj
+    location_obj['reviews'] = reviews_obj
+
     return location_obj
 
 # Create

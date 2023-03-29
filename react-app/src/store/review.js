@@ -45,13 +45,13 @@ export const addReview = (id, review) => async (dispatch) => {
             rating: review.rating
         })
     })
-    let data
+    // let data;
     if (response.ok) {
-        data = response.json()
+        // data = response.json()
 
-        console.log("good review", data)
+        // console.log("good review", data)
         // dispatch(addReview(review))
-        return data
+        return response
     } else {
         // console.log("review return response", data)
         return response

@@ -9,7 +9,7 @@ import './images.css'
 function AllImages(location) {
     const dispatch= useDispatch()
     const [showMenu, setShowMenu] = useState(false);
-    console.log("prop", location?.location)
+    // console.log("prop", location?.location)
     if(!location?.location.id) return null
 
     const closeMenu = () => setShowMenu(false);

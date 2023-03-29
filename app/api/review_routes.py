@@ -44,7 +44,7 @@ def createReview():
     # form['csrf_token'].data = request.cookies['csrf_token'] # makes a csrf_token in form object
     if True:
     # if form.validate_on_submit():
-        # old_review = Review.query.filter_by(location_id=data["location_id"], user_id=current_user.id).first()
+        old_review = Review.query.filter_by(location_id=data["location_id"], user_id=current_user.id).first()
         # print("old review===============>>>", old_review)
         if old_review:
             return {"errors": "You have reviewed this location. You can't submit another review"}, 400
@@ -118,6 +118,6 @@ def deleteReview(id):
         return {"error": "You can't delete this review."}, 401
 
     db.session.delete(review)
-    # db.session.commit()
+    db.session.commit()
 
     return {"Review successfully Deleted": id}

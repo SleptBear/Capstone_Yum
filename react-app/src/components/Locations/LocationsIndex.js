@@ -7,17 +7,17 @@ import './index.css'
 
 const LocationsIndex = () => {
     const dispatch = useDispatch();
-    const locationsObj = useSelector(state => state.location.locations)
-    const locations = Object.values(locationsObj)
+    const locationsObj = useSelector(state => state.location)
+    const locations = Object.values(locationsObj.locations)
 
     useEffect(() => {
         dispatch(getLocations())
     }, [dispatch])
 
-    // console.log("state Locations", locationsObj)
     // console.log("locations array", locations)
 
     if(!locations[0]) return null
+    console.log("state Locations", locationsObj)
 
     return (
         <>

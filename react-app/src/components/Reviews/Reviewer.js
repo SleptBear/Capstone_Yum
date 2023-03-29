@@ -9,7 +9,7 @@ const Reviewer = (props) => {
         </div>
         <div>
             <div>
-                User: {rev.reviewer.first_name} {rev.reviewer.last_name}
+                User: {rev.reviewer?.first_name} {rev.reviewer?.last_name}
             </div>
             <div>
                 city, state

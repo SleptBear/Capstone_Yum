@@ -5,7 +5,7 @@ import Stars from "./Stars"
 import './reviews.css'
 import { useDispatch } from "react-redux"
 import { deleteReview } from "../../store/review"
-// import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 // import DynamicStars from "./DynamicStars"
 
 
@@ -39,9 +39,11 @@ function DetailedReview(review) {
                 {rev.review}
             </p>
             <div id="rev-mutate">
+                <Link to={`/reviews/${rev.id}/edit`}>
                 <button>
                 <i className="fa-regular fa-pen-to-square"></i>
                 </button>
+                </Link>
                 <button onClick={() => handleDelete()}>
                 <i className="fa-regular fa-trash-can"></i>
                 </button>

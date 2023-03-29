@@ -19,9 +19,9 @@ const actionReadUserReviews = (reviews) => ({
     payload: reviews
 })
 
-export const actionUpdateReview = (reviews) => ({
+export const actionUpdateReview = (review) => ({
     type: EDIT_REVIEW,
-    payload: reviews
+    payload: review
 })
 
 const actionDeleteReview = (reviewId) => ({
@@ -71,17 +71,19 @@ export const readUserReviews = (userId) => async (dispatch) => {
     return reviews
 }
 
-export const editReview = (updatedReview) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/${updatedReview.id}`, {
+export const editReview = (reviewId, updatedReview) => async (dispatch) => {
+    console.log("thunk", updatedReview)
+    const response = await fetch(`/api/reviews/${reviewId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedReview)
     })
+    const data = await response.json()
     if (response.ok) {
-        const data = await response.json()
+        console.log("before action", data)
         dispatch(actionUpdateReview(data))
-        return data
     }
+    return data
 }
 
 
@@ -141,9 +143,11 @@ let initialState = {
             return newState
 
         case EDIT_REVIEW:
-            const updatedReviews = { ...state.reviews }
-            updatedReviews[action.payload.id] = action.payload
-            return { ...state, reviews: updatedReviews }
+            newState = {...state}
+            let copyReviews = { ...newState.UserReviews }
+            console.log(copyReviews)
+            copyReviews[action.payload.id] = action.payload
+            return { ...state, UserReviews: copyReviews }
         case DELETE_REVIEW:
             newState = {...state}
             let reviewCopy = {...newState.UserReviews}

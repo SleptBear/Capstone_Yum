@@ -13,6 +13,7 @@ import Home from "./components/HomePage";
 import Footer from "./components/Footer";
 import AddImage from "./components/Forms/AddImage";
 import CreateReview from "./components/Forms/CreateReview";
+import EditReview from "./components/Forms/EditReview";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 function App() {
@@ -57,6 +58,9 @@ function App() {
           </Route>
           <Route exact path="/user/home">
             <ProfilePage />
+          </Route>
+          <Route exact path="/reviews/:id/edit">
+            <EditReview />
           </Route>
         </Switch>
 

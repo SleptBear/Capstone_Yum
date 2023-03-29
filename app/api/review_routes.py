@@ -79,7 +79,7 @@ def createReview():
 def editReview(id):
     date = datetime.datetime.now()
     data = request.get_json()
-    form = ReviewForm()
+    # form = ReviewForm()
     review = Review.query.filter_by(id=id).first()
 
     if review is None:
@@ -88,12 +88,14 @@ def editReview(id):
     if review.user_id != current_user.id:
         return "You can't edit this review", 401
 
-    if form.validate_on_submit():
+    print("check here=========================>", data)
+
+    if True:
+    # if form.validate_on_submit():
         review.review = data["review"]
         review.rating = data["rating"]
-        review.product_id = data["product_id"]
-        review.user_id = data["user_id"]
-        review.created_at = date
+
+        review.updated_at = date
 
         db.session.commit()
 
@@ -116,6 +118,6 @@ def deleteReview(id):
         return {"error": "You can't delete this review."}, 401
 
     db.session.delete(review)
-    db.session.commit()
+    # db.session.commit()
 
     return {"Review successfully Deleted": id}

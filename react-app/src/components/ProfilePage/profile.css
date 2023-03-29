@@ -1,7 +1,62 @@
 .prof-main {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: red; */
+    height:100rem;
+}
+
+.prof-container {
+    /* background-color: blue; */
+    width: 100%;
+    display: flex;
     justify-content: center;
-    background-color: red;
-    height:50rem;
+    height: 16rem;
+    font-size: x-large;
+    background: #f5f5f5;
+    gap: 2rem;
+    align-items: center;
+}
+
+.prof-center {
+    display: flex;
+    flex-direction: column;
+    padding-right: 15rem;
+}
+
+.prof-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    /* height: 130rem; */
+    /* background-color: blue; */
+}
+
+.rev-card {
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+#each-rev {
+    width: 100%;
+}
+
+#rev-mutate {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+#rev-mutate button {
+    background-color: transparent;
+    border-color: transparent;
+}
+#rev-mutate button:hover {
+    background-color: rgb(207, 219, 219);
 }

@@ -15,6 +15,22 @@ def allReviews():
         print(review.to_dict())
         reviewList.append(review.to_dict())
     return {'reviews': reviewList}
+# get all Users reviews, mainly for testing
+@review_routes.route('/users')
+def allUserReviews():
+    reviews = Review.query.filter_by(user_id=current_user.id).all()
+    reviewList = []
+    for review in reviews:
+        print(review.to_dict())
+        review_obj = review.to_dict()
+        reviewer = review.user
+        images = review.images
+        images_obj = [image.to_dict() for image in images]
+        reviewer_obj = reviewer.to_dict()
+        review_obj['reviewer'] = reviewer_obj
+        review_obj['images'] = images_obj
+        reviewList.append(review_obj)
+    return {'reviews': reviewList}
 
 # create a review
 @review_routes.route('', methods=['POST'])
@@ -30,8 +46,8 @@ def createReview():
     # if form.validate_on_submit():
         # old_review = Review.query.filter_by(location_id=data["location_id"], user_id=current_user.id).first()
         # print("old review===============>>>", old_review)
-        # if old_review:
-        #     return {"message": "You have reviewed this location. You can't submit another review"}, 400
+        if old_review:
+            return {"errors": "You have reviewed this location. You can't submit another review"}, 400
         new_review = Review(
             review = data["review"],
             rating = data["rating"],

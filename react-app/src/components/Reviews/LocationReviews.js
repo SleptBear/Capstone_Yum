@@ -18,14 +18,15 @@ function LocationReviews() {
     // console.log("reviews Array", reviewsArray)
     if (!reviewsArray[0]) return null
     return (
-        <>
+        <div className="review-container">
         <h2>Recommended Reviews</h2>
         <div>
             {reviewsArray.map(review => (
                 <DetailedReview review={review} key={review.id}/>
                 ))}
+
         </div>
-        </>
+        </div>
     )
 }
 

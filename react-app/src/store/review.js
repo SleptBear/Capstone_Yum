@@ -2,7 +2,7 @@ const ADD_REVIEW = 'reviews/addReview'
 const READ_LOCATIONS_REVIEWS = 'reviews/readLocationReviews'
 const DELETE_REVIEW = 'reviews/deleteReview'
 const EDIT_REVIEW = 'reviews/editReview' // editing/update a review
-
+const READ_USER_REVIEWS = 'reviews/users'
 
 const actionAddReview = (review) => ({
     type: ADD_REVIEW,
@@ -11,6 +11,11 @@ const actionAddReview = (review) => ({
 
 const actionReadReview = (reviews) => ({
     type: READ_LOCATIONS_REVIEWS,
+    payload: reviews
+})
+
+const actionReadUserReviews = (reviews) => ({
+    type: READ_USER_REVIEWS,
     payload: reviews
 })
 
@@ -40,14 +45,16 @@ export const addReview = (id, review) => async (dispatch) => {
             rating: review.rating
         })
     })
-    let data = response.json()
+    let data
     if (response.ok) {
+        data = response.json()
+
         console.log("good review", data)
         // dispatch(addReview(review))
         return data
     } else {
-        console.log("review return response", response)
-        return data
+        // console.log("review return response", data)
+        return response
     }
 }
 
@@ -55,7 +62,13 @@ export const readReviews = (locationId) => async (dispatch) => {
     const response = await fetch(`/api/locations/${locationId}/reviews`)
     const reviews = await response.json()
     if (response.ok) dispatch(actionReadReview(reviews))
-    return response
+    return reviews
+}
+export const readUserReviews = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/reviews/users`)
+    const reviews = await response.json()
+    if (response.ok) dispatch(actionReadUserReviews(reviews))
+    return reviews
 }
 
 export const editReview = (updatedReview) => async (dispatch) => {
@@ -108,6 +121,15 @@ let initialState = {
                 reviewsCopy[review.id] = review
             })
             newState.LocationReviews = reviewsCopy
+            return newState
+        case READ_USER_REVIEWS:
+            newState = { ...state}
+            let reviewsCopy1 = {}
+
+            action.payload.reviews.forEach(review => {
+                reviewsCopy1[review.id] = review
+            })
+            newState.UserReviews = reviewsCopy1
             return newState
         case ADD_REVIEW:
             newState = {...state}

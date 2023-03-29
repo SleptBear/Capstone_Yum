@@ -10,7 +10,7 @@ const colors =  {
 function Stars(rating) {
     const stars = Array(5).fill(0);
     const [currentRating, setCurrentRating] = useState(Math.floor(rating.rating));
-    console.log("inside stars", rating.rating)
+    // console.log("inside stars", rating.rating)
 
     if(!rating?.rating) return null
     return (

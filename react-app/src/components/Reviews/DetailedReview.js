@@ -3,12 +3,14 @@
 import Reviewer from "./Reviewer"
 import Stars from "./Stars"
 import './reviews.css'
+import { useDispatch } from "react-redux"
+import { deleteReview } from "../../store/review"
 // import { useParams } from "react-router-dom"
 // import DynamicStars from "./DynamicStars"
 
 
 function DetailedReview(review) {
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
     // const id = useParams()
     // console.log("ID------", id)
     const rev = review?.review
@@ -17,6 +19,12 @@ function DetailedReview(review) {
 
     // console.log(id.id == String)
     // let ulIdName = 'rev-mutate' + (!id?.id == String ? "" : " hidden");
+
+    const handleDelete = async (e) => {
+        dispatch(deleteReview(rev.id))
+        return null
+    }
+
 
     return (
         <div className="rev-card">
@@ -32,9 +40,9 @@ function DetailedReview(review) {
             </p>
             <div id="rev-mutate">
                 <button>
-                <i class="fa-regular fa-pen-to-square"></i>
+                <i className="fa-regular fa-pen-to-square"></i>
                 </button>
-                <button>
+                <button onClick={() => handleDelete()}>
                 <i className="fa-regular fa-trash-can"></i>
                 </button>
             </div>

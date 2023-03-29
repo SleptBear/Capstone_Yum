@@ -19,10 +19,21 @@
     align-items: center;
 }
 
+.prof-container img {
+    border: 1px solid rgba(128, 128, 128, 0.39);
+    border-radius: .5rem;
+    margin-top: 6rem;
+}
+
 .prof-center {
     display: flex;
     flex-direction: column;
     padding-right: 15rem;
+}
+
+.prof-right {
+    border-left: 1px solid;
+    padding-left: 1rem;
 }
 
 .prof-reviews {

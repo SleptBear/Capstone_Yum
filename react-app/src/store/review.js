@@ -96,7 +96,8 @@ export const deleteReview = (id) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(actionDeleteReview(data))
+        console.log("return deleted review data", data)
+        dispatch(actionDeleteReview(id))
         return data
     }
 }
@@ -145,9 +146,12 @@ let initialState = {
             return { ...state, reviews: updatedReviews }
         case DELETE_REVIEW:
             newState = {...state}
-            let reviewCopy = {...newState.LocationReviews}
-            delete reviewCopy[action.payload.id]
-            newState.LocationReviews = reviewCopy
+            let reviewCopy = {...newState.UserReviews}
+            console.log("reviewCopy", reviewCopy)
+            console.log(action.payload)
+            delete reviewCopy[action.payload]
+            console.log("reviewCopyAfter", reviewCopy)
+            newState.UserReviews = reviewCopy
             return newState
         default:
             return state;

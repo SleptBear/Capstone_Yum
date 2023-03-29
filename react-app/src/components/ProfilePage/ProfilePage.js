@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link, NavLink } from 'react-router-dom'
 
 import { readUserReviews } from '../../store/review'
 import DetailedReview from '../Reviews/DetailedReview'
@@ -35,8 +36,18 @@ const ProfilePage = () => {
                         <i className="fa-solid fa-camera"></i> Photos {' '}
                         </div>
                     </div>
-                    <div>
-                        placeholder
+                    <div className='prof-right'>
+                        <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home'>
+                        <div><i className="fa-solid fa-camera"></i> Change Profile Photo</div>
+                        </Link>
+                        <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home'>
+                        <div><i className="fa-solid fa-address-card"></i> Update Your Profile</div>
+
+                        </Link>
+                        <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home'>
+                        <div><i className="fa-solid fa-user-group"></i> Find Friends</div>
+
+                        </Link>
                     </div>
                 </div>
 

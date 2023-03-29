@@ -1,21 +1,27 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
-import { addReview } from "../../store/review";
+import { editReview, readUserReviews } from "../../store/review";
 
 
 
-const CreateReview = () => {
+const EditReview = () => {
     const dispatch = useDispatch();
+    const id = useParams()
+    const reviewId = id.id
     const history = useHistory();
     const user = useSelector(state => state.session?.user)
-    const [rating, setRating] = useState(1);
-    const [review, setReview] = useState('');
-    const id = useParams()
-    const locationId = id.id
+    const currentReview = useSelector(state => state.review?.UserReviews[reviewId])
+    console.log("current", currentReview)
+    const [rating, setRating] = useState(currentReview?.rating);
+    const [review, setReview] = useState(currentReview?.review);
 
     const [errors, setErrors] = useState([]);
+
+    useEffect(() => {
+        dispatch(readUserReviews(user.id))
+    }, [dispatch])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -24,23 +30,21 @@ const CreateReview = () => {
             "rating": rating
         }
 
-        dispatch(addReview(Number(locationId), ReviewData))
+        dispatch(editReview(Number(reviewId), ReviewData))
         .then(async (res) => {
-            const data = await res.json();
+            const data = await res;
+            console.log("Return review data in react", res)
             console.log("Return review data in react", data)
             if(data && data.errors) setErrors([data.errors])
-            if (res.ok) {
-                history.push(`/locations/${locationId}`)
+            else {
+                history.push(`/user/home`)
             }
         })
         // .catch(async (res) => {
         //     const data = await res.json();
         //     if(data && data.errors) setErrors([data.errors])
         // })
-
-
     }
-
 
     return (
         <div className= "addLocationMain">
@@ -105,4 +109,4 @@ const CreateReview = () => {
 }
 
 
-export default CreateReview
+export default EditReview

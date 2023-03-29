@@ -28,5 +28,6 @@ class Review(db.Model):
             'user_id': self.user_id,
             'location_id': self.location_id,
             # 'created_at': self.created_at,
-            'updated_at': self.created_at
+            'updated_at': self.created_at,
+            'location': self.location.to_dict()
         }

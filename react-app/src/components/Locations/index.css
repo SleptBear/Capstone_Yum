@@ -103,7 +103,7 @@ background-color: red;
 
 .mini-images {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .mini-images button {
@@ -127,6 +127,34 @@ background-color: red;
 .details-right {
     margin-top: 1.8rem;
 }
+
+/* .details-left {
+    background-color: blue;
+} */
+
+.leftReviews-container {
+    /* background-color: purple; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-content: center;
+}
+
+/* .rev-card {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+} */
 
 .mini-reviews {
     display: flex;

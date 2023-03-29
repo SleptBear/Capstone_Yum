@@ -1,5 +1,5 @@
 const NEW_LOCATION = 'location/newLocation'
-const LOAD_LOCATIONS = 'location/loadLocation'
+const LOAD_LOCATIONS = 'location/loadLocations'
 const EDIT_LOCATION = 'location/editLocation'
 const DELETE_LOCATION = 'location/deleteLocation'
 const LOAD_ONE_LOCATION = 'location/loadOneLocation'

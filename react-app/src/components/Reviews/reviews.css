@@ -1,3 +1,38 @@
 input[type="radio"] {
     display: none;
 }
+
+.rev-card {
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+#rating {
+    display: flex;
+    align-items: center;
+}
+
+.rev-card p {
+    overflow: hidden;
+    /* width: 70%; */
+}
+
+#reviewer {
+    display: flex;
+    gap: 1rem;
+
+}
+
+#reviewer img {
+    height: 3rem;
+    border-radius: 2rem;
+}
+
+#add-ons {
+    display: flex;
+    gap: .5rem;
+}

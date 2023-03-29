@@ -15,6 +15,22 @@ def allReviews():
         print(review.to_dict())
         reviewList.append(review.to_dict())
     return {'reviews': reviewList}
+# get all Users reviews, mainly for testing
+@review_routes.route('/users')
+def allUserReviews():
+    reviews = Review.query.filter_by(user_id=current_user.id).all()
+    reviewList = []
+    for review in reviews:
+        print(review.to_dict())
+        review_obj = review.to_dict()
+        reviewer = review.user
+        images = review.images
+        images_obj = [image.to_dict() for image in images]
+        reviewer_obj = reviewer.to_dict()
+        review_obj['reviewer'] = reviewer_obj
+        review_obj['images'] = images_obj
+        reviewList.append(review_obj)
+    return {'reviews': reviewList}
 
 # create a review
 @review_routes.route('', methods=['POST'])
@@ -28,10 +44,10 @@ def createReview():
     # form['csrf_token'].data = request.cookies['csrf_token'] # makes a csrf_token in form object
     if True:
     # if form.validate_on_submit():
-        old_review = Review.query.filter_by(location_id=data["location_id"], user_id=current_user.id).first()
-        print("old review===============>>>", old_review)
+        # old_review = Review.query.filter_by(location_id=data["location_id"], user_id=current_user.id).first()
+        # print("old review===============>>>", old_review)
         if old_review:
-            return {"message": "You have reviewed this location. You can't submit another review"}, 400
+            return {"errors": "You have reviewed this location. You can't submit another review"}, 400
         new_review = Review(
             review = data["review"],
             rating = data["rating"],
@@ -39,11 +55,20 @@ def createReview():
             user_id=current_user.id,
             # created_at=date
         )
-        print(new_review.to_dict())
+        # print(new_review.to_dict())
         db.session.add(new_review)
         db.session.commit()
+        new_review_obj = new_review.to_dict()
+        reviewer = new_review.user
+        images = new_review.images
+        images_obj = [image.to_dict() for image in images]
+        reviewer_obj = reviewer.to_dict()
+        new_review_obj['reviewer'] = reviewer_obj
+        new_review_obj['images'] = images_obj
+        print("REVIEW==========================>", new_review_obj)
 
-        return new_review.to_dict()
+
+        return new_review_obj
     else:
         return {"message": "Bad data, try again"}, 400
 
@@ -54,7 +79,7 @@ def createReview():
 def editReview(id):
     date = datetime.datetime.now()
     data = request.get_json()
-    form = ReviewForm()
+    # form = ReviewForm()
     review = Review.query.filter_by(id=id).first()
 
     if review is None:
@@ -63,12 +88,14 @@ def editReview(id):
     if review.user_id != current_user.id:
         return "You can't edit this review", 401
 
-    if form.validate_on_submit():
+    print("check here=========================>", data)
+
+    if True:
+    # if form.validate_on_submit():
         review.review = data["review"]
         review.rating = data["rating"]
-        review.product_id = data["product_id"]
-        review.user_id = data["user_id"]
-        review.created_at = date
+
+        review.updated_at = date
 
         db.session.commit()
 
@@ -91,6 +118,6 @@ def deleteReview(id):
         return {"error": "You can't delete this review."}, 401
 
     db.session.delete(review)
-    db.session.commit()
+    # db.session.commit()
 
     return {"Review successfully Deleted": id}

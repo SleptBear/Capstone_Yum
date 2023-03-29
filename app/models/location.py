@@ -43,4 +43,5 @@ class Location(db.Model):
             'price': self.price,
             'category': self.category,
             'operating_hours': self.operating_hours,
+            # 'avgRating': sum([review.to_dict() for review in self.reviews])/len(self.reviews)
         }

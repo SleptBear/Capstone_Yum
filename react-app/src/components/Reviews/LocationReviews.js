@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { readReviews } from "../../store/review"
-import DetailedReview from "./DetailedReview"
+import DetailedReviewsLocation from "./DetailedReviewsLocation"
 
 
 function LocationReviews() {
@@ -22,7 +22,7 @@ function LocationReviews() {
         <h2>Recommended Reviews</h2>
         <div>
             {reviewsArray.map(review => (
-                <DetailedReview review={review} key={review.id}/>
+                <DetailedReviewsLocation review={review} key={review.id}/>
                 ))}
 
         </div>

@@ -14,8 +14,8 @@ const LocationsIndex = () => {
         dispatch(getLocations())
     }, [dispatch])
 
-    console.log("state Locations", locationsObj)
-    console.log("locations array", locations)
+    // console.log("state Locations", locationsObj)
+    // console.log("locations array", locations)
 
     if(!locations[0]) return null
 
@@ -32,7 +32,7 @@ const LocationsIndex = () => {
 
         {
             locations.map(location => (
-                <Link key={location.id} to={`/locations/${location.id}`}>
+                <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>
                     <LocationCard location={location} />
                 </Link>
                 ))

@@ -1,6 +1,7 @@
 // import { useEffect } from "react"
 // import { useDispatch } from "react-redux"
 import Reviewer from "./Reviewer"
+import RevLocation from "./RevLocation"
 import Stars from "./Stars"
 import './reviews.css'
 import { useDispatch } from "react-redux"
@@ -29,7 +30,7 @@ function DetailedReview(review) {
     return (
         <div className="rev-card">
             <div id="reviewer">
-                <Reviewer review={rev}/>
+                <RevLocation review={rev}/>
             </div>
             <div id="rating">
                 <Stars rating={review.review.rating}/>

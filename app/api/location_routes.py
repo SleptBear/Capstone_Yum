@@ -10,6 +10,13 @@ def allLocations():
     locations = Location.query.all()
     # print("locations =========>", locations)
     # print(locations[0].images)
+    reviews = [location.reviews for location in locations]
+    # print('reviews=====================>', reviews)
+    # reviews_obj = [review[0].to_dict() for review in reviews]
+    # print('reviews=====================>', reviews_obj)
+
+
+
     images = [location.images for location in locations]
     images_obj = [image[0].to_dict() for image in images]
     # print("images==========>", images)
@@ -23,6 +30,16 @@ def allLocations():
     i = 0
     while i < len(locations):
         location_objs[i]['preview'] = image_only[i]
+        reviews_obj = [review.to_dict() for review in reviews[i]]
+        print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK", reviews_obj)
+        location_objs[i]['reviews'] = reviews_obj
+        # if reviews_obj[0]:
+        #     Ratings = [(rating) for rating in reviews[i]]
+        #     # avgRating = sum(Ratings)/(len(reviews_obj))
+        #     # location_objs[i]['avgRating'] = avgRating
+        # else:
+        #     location_objs[i]['reviews'] = []
+        #     location_objs[i]['avgRating'] = 0
         i += 1
 
 

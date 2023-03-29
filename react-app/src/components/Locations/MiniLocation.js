@@ -42,7 +42,7 @@ function MiniLocation(props) {
         });
         // console.log("BEFORE", averageRating)
         if(reviewsArray.length == 0) {
-        return <Stars rating={0.1}/>
+        return <Stars rating={0}/>
         }
         let averageRating = Number(avg/count)
         console.log("Average", averageRating)

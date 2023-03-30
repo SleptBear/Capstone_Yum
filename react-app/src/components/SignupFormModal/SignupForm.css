@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.signup-modal {
+    width:30rem
+}
+
 .form {
     display: flex;
     flex-wrap: wrap;
@@ -15,7 +19,10 @@
 .signuperrors {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    /* width: 100%; */
+    color: red;
+    list-style: none;
+    align-items: center;
 }
 
 .form-label {
@@ -50,8 +57,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: max-content;
+    /* min-height: max-content; */
     /* margin-top: 20px; */
+}
+
+.signup-modal > form {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.signup-modal > form > ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.signup-modal> form > label {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error-message {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.error-text {
+    color: red;
+    font-weight: bold;
 }
 
 .submit-button {

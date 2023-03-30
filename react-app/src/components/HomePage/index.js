@@ -28,7 +28,7 @@ function HomePage() {
             <h1>
                 Recent Activity Container
             </h1>
-            <h2>Latest/Local reviews displayed here</h2>
+            <h2>Latest/Local reviews will be displayed here</h2>
             </div>
             {/* <hr style={{width: '100%', color: 'light-gray'}}></hr> */}
                 <h1>Categories</h1>

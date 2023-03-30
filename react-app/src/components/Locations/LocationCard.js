@@ -54,7 +54,7 @@ import './Card.css'
     return (
         <div className="card-container">
             <div className="image-container">
-                <img src={location.preview} alt='NOT FOUND'></img>
+                <img src={location.preview} alt='https://cdn.pixabay.com/photo/2017/11/10/05/24/add-2935429_1280.png'></img>
             </div>
             {/* <br></br> */}
         <div className="card-info">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import NavSearch from './NavSearch.js';
@@ -8,6 +8,9 @@ import './Navigation.css';
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 	const history = useHistory();
+	const params = useParams()
+
+	// const ulClassName = 'nav-modals' + ()
 
 	return (
 		<div className='navStart'>
@@ -31,7 +34,7 @@ function Navigation({ isLoaded }){
 
         		<div className='nav-modals'>
 					<button onClick={() => history.push('/locations/new')}>
-						Add your Location
+						Add Location
 					</button>
 					<button onClick={() => history.push('/locations')}>
 						Find Grub

@@ -64,15 +64,26 @@
 .nav-modals {
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  gap: 20px;
+  border-radius: 2px;
 }
 
 .nav-modals button {
+  display: flex;
+  align-items: center;
+  width: max-content;
   background-color: transparent;
   border-color: transparent;
   color: rgba(45,46,47,1);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
+  color: rgba(224,7,7,1);
+  border-radius: 4px;
+}
+
+.nav-modals button:hover {
+    background-color: rgba(190, 190, 190, 0.584);
+    transition: 1s;
 }
 
 
@@ -80,7 +91,7 @@
 
   position: absolute;
   top: 4rem;
-  right: 5rem;
+  right: 3%;
   list-style: none;
   background-color: white;
   box-shadow: 0 0 8px rgba(10, 0, 10, 0.30);
@@ -108,6 +119,14 @@
 .in-or-out {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.in-or-out button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .in-or-out button:hover {
@@ -121,11 +140,14 @@
   align-items: center;
   justify-content: center;
   padding-left: 3rem;
-
 }
 
 .user-menu button {
   font-size: 30px
+}
+
+.user-menu button:hover {
+  background-color: transparent;
 }
 
 /* .fa-circle-user {
@@ -140,12 +162,15 @@
   border-radius: 2rem;
 }
 
+.search-container {
+  width: 80%;
+}
 
 .search-bar {
   display: flex;
   justify-content: center;
   height: 3rem;
-  width: 60rem;
+  width: 100%;
   /* background-color: black; */
 }
 

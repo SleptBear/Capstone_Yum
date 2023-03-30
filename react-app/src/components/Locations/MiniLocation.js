@@ -10,53 +10,48 @@ import Stars from "../Reviews/Stars"
 function MiniLocation(props) {
     const dispatch = useDispatch();
     const history = useHistory();
-    const user = useSelector(state => state.session?.user)
-    const reviewObj = useSelector(state => state.review.LocationReviews)
-    const locationObj = useSelector(state => state.location.location)
-    const revArray = useState([])
+    const session = useSelector(state => state.session)
+    const user = session.user
+    const locationObj = props?.location
+    const reviewsObj = locationObj?.reviews
     const [showEdit, setShowEdit] = useState(true)
 
     useEffect(() => {
         // dispatch(getLocation(props?.location.id))
-        dispatch(readReviews(props?.location.id))
         if(props.location.owner_id == user?.id) setShowEdit(true)
         if(props.location.owner_id != user?.id) setShowEdit(false)
-    }, [dispatch, showEdit])
-
+        dispatch(readReviews(props?.location.id))
+    }, [dispatch, showEdit, user])
 
     if(!locationObj['id']) return null
     // if(!props?.location['id']) return null
-    if(!props?.reviews) return null
+    // if(!props?.reviews) return null
     console.log("props", props)
-    let reviewsArray = Object.values(reviewObj)
-    console.log("review array", reviewsArray)
+    // let reviewsArray = Object.values(reviewObj.LocationReviews)
+    console.log("review array", reviewsObj)
     // if(!reviewsArray[0]) return null
-
-
     const handleReviews = () => {
         let avg = 0
         let count = 0
-        reviewsArray.forEach(review => {
+        reviewsObj.forEach(review => {
             avg += review?.rating
             count += 1
         });
         // console.log("BEFORE", averageRating)
-        if(reviewsArray.length == 0) {
+        if(reviewsObj.length == 0) {
         return <Stars rating={0}/>
         }
         let averageRating = Number(avg/count)
         console.log("Average", averageRating)
         return <Stars rating={averageRating}/>
     }
-
     const ulClassName = "edit-button" + (showEdit ? "" : " hidden");
-    const ulClassName1 = "mini-reviews" + (reviewsArray[0] ? "" : " hidden");
-
+    const ulClassName1 = "mini-reviews" + (reviewsObj[0] ? "" : " hidden");
     return (
         <div className="mini-container">
             <h3>{props.location.name}</h3>
 
-            <div className={ulClassName1}> {handleReviews()} {props?.reviews.length} Reviews</div>
+            <div className='mini-reviews'> {handleReviews()} {reviewsObj.length} Reviews</div>
 
             <div>Category: {props.location.category}</div>
             <div id="hours-edit">
@@ -66,6 +61,4 @@ function MiniLocation(props) {
         </div>
     )
 }
-
-
 export default MiniLocation

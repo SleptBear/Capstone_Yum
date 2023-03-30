@@ -1,35 +1,53 @@
 import React from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getLocation } from "../../store/location";
 import { readReviews } from "../../store/review";
 import Stars from "../Reviews/Stars";
 import './Card.css'
 
 function LocationCard({location}) {
-    const dispatch = useDispatch();
-    const reviews = useSelector(state => state.review.LocationReviews)
-    const reviewsArray = Object.values(reviews)
-    useEffect(() => {
-        // dispatch(getLocation(location?.id))
-        dispatch(readReviews(location?.id))
-    }, [dispatch])
+    // const dispatch = useDispatch();
+    const reviews = useSelector(state => state.review)
+    // const reviewsArray = Object.values(reviews.LocationReviews)
+    const reviewsArray = location.reviews
+
+    console.log("location card props", location)
+    // useEffect(() => {
+    //     // dispatch(getLocation(location?.id))
+    //     dispatch(readReviews(location?.id))
+    // }, [dispatch])
+
+
+    const handleReviews = () => {
+        let avg = 0
+        let count = 0
+        reviewsArray.forEach(review => {
+            avg += review?.rating
+            count += 1
+        });
+        // console.log("BEFORE", averageRating)
+        if(reviewsArray.length == 0) {
+        return <Stars rating={0}/>
+        }
+        let averageRating = Number(avg/count)
+        console.log("Average", averageRating)
+        return <Stars rating={averageRating}/>
+    }
 
 
     function getAvgRating(allReviews) {
+        let sum = 0
+        let count = 0
         if(reviewsArray.length == 0) {
             return 0
             }
-        let sum = 0
-        let count = 0
         allReviews.forEach(review => {
             sum += review?.rating
             count += 1
         });
         let averageRating = Number(sum/count)
         console.log("calculated Average", Math.floor(averageRating))
-        return Math.floor(averageRating)
+        return <Stars rating={averageRating}/>
     }
 
     function getRandomInt(max) {
@@ -49,7 +67,14 @@ function LocationCard({location}) {
                 <h2>{location.id}. {location.name}</h2>
             </div>
             <div className="card-rating">
-                <Stars rating={getAvgRating(reviewsArray)}/> {reviewsArray.length}
+                <div>
+                {handleReviews()}
+
+                </div>
+                <div id="numReview">
+                {reviewsArray.length}
+
+                </div>
 
             </div>
             <br></br>

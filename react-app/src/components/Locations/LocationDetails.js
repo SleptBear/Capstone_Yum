@@ -11,27 +11,29 @@ import { readReviews } from '../../store/review'
 const LocationDetails = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const locationObj = useSelector(state => state.location.location)
-    const reviewObj = useSelector(state => state.review.LocationReviews)
+    const location = useSelector(state => state.location)
+    const locationObj = location.location
+    const review = useSelector(state => state.review)
+    const reviewObj = review.LocationReviews
     const id = useParams()
     const locationId = id.id
     const imagesArray = locationObj.images
 
     useEffect(() => {
         dispatch(getLocation(locationId))
-        // dispatch(readReviews(locationId))
+        // .then(dispatch(readReviews(locationId)))
     }, [dispatch, locationId, reviewObj])
 
 
     if(!locationObj.id) return null
-    if(!reviewObj) return null
+    // if(!reviewObj) return null
     let copyArray = imagesArray.slice(0,5)
-    let reviewsArray = Object.values(reviewObj)
+    // let reviewsArray = Object.values(reviewObj)
     // console.log("here", reviewsArray)
-    let props = {
-        'location': locationObj,
-        'reviews': reviewObj
-    }
+    // let props = {
+    //     'location': locationObj,
+    //     'reviews': reviewObj
+    // }
 
 
 
@@ -53,7 +55,7 @@ const LocationDetails = () => {
             ))}
         </div>
         <div className='over-images'>
-            <MiniLocation location={locationObj} reviews={reviewObj}/>
+            <MiniLocation location={locationObj}/>
             <AllImages location={locationObj} />
         </div>
         <div className="location-details">

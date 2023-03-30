@@ -24,6 +24,7 @@ function Navigation({ isLoaded }){
 						<i className="fa-solid fa-utensils"></i>
         			</NavLink> */}
         			<NavLink exact to="/">
+						{/* <h1>Yum!</h1> */}
 						<i className="fa-solid fa-utensils"></i>
         			</NavLink>
       			</div>

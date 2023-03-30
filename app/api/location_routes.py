@@ -4,6 +4,19 @@ from app.forms.location_form import LocationForm
 from flask_login import login_required, current_user
 
 location_routes = Blueprint('locations', __name__)
+
+
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{error}')
+    return errorMessages
+
+
 # GET ALL
 @location_routes.route('')
 def allLocations():
@@ -72,24 +85,25 @@ def createLocation():
     data = request.get_json()
     form = LocationForm()
     form['csrf_token'].data = request.cookies['csrf_token'] # makes a csrf_token in form object
-    new_location = Location(
-        name = data["name"],
-        description= data["description"],
-        phone = data["phone"],
-        city = data["city"],
-        state = data["state"],
-        address = data["address"],
-        zipcode = data["zipcode"],
-        price = data["price"],
-        operating_hours = data["operating_hours"],
-        category = data["category"],
-        owner_id = current_user.id,
-    )
+    if form.validate_on_submit():
+        new_location = Location(
+            name = form.data["name"],
+            description= form.data["description"],
+            phone = form.data["phone"],
+            city = form.data["city"],
+            state = form.data["state"],
+            address = form.data["address"],
+            zipcode = form.data["zipcode"],
+            price = form.data["price"],
+            operating_hours = form.data["operating_hours"],
+            category = form.data["category"],
+            owner_id = current_user.id
+        )
+        db.session.add(new_location)
+        db.session.commit()
+        return new_location.to_dict()
 
-    db.session.add(new_location)
-    db.session.commit()
-
-    return new_location.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # DELETE Location
 @location_routes.route('/<int:id>', methods=["DELETE"])

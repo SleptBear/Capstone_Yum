@@ -79,7 +79,7 @@ export const getLocation = (locationId) => async dispatch => {
 
 
 export const createLocation = (location, imgData) => async dispatch => {
-    console.log("locationData", location)
+    // console.log("locationData", location)
     const res = await fetch('/api/locations', {
         method: 'POST',
         headers: {
@@ -88,8 +88,9 @@ export const createLocation = (location, imgData) => async dispatch => {
         body: JSON.stringify(location)
 })
 
-const data = await res.json()
+let data =await res.json()
 if (res.ok) {
+    
     const res2 = await fetch(`/api/locations/${data.id}/images`, {
         method: 'POST',
         headers: {
@@ -104,8 +105,15 @@ if (res.ok) {
 
     // dispatch(getSpot(data.id))
     dispatch(actionCreateLocation(data))
+    console.log("DATA=========>", data)
+    return data
 }
-console.log("DATA=========>", data)
+// if (data.errors) {
+    //     return data.errors;
+    // }
+    console.log('test')
+    console.log("RES=========>", res)
+    console.log("DATA=========>", data)
 return data
 }
 

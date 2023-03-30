@@ -48,13 +48,22 @@ const AddLocation = () => {
         image_url: image
     }
 
-        dispatch(createLocation(LocationData, imgData))
+        const data = await dispatch(createLocation(LocationData, imgData));
+        if (data && data.errors) {
+            console.log(data)
+            setErrors(data.errors);
+        } else {
+            history.push(`/locations/${data.id}`)
+        }
 
-        .then(async (res) => history.push(`/locations/${res.id}`))
-        .catch(async (res) => {
-            const data = await res.json();
-            if (data && data.errors) setErrors(data.errors)
-          });
+        // .then(async (res) => history.push(`/locations/${res.id}`))
+
+        // .catch(async (res) => {
+        //     console.log(res)
+        //     const data = await res;
+        //     console.log(data)
+        //     if (data && data.errors) setErrors(data.errors)
+        //   });
     }
 
     return (
@@ -122,7 +131,7 @@ const AddLocation = () => {
             value={stringprice}
             placeholder="Price"
             maxLength={20}
-            pattern="[0-9]*"
+            pattern="[0-9.]*"
             title="No Symbols or Characters"
             onChange={(e) => {
                 setstringPrice(e.target.value)

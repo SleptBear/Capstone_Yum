@@ -40,6 +40,8 @@
 .logo button{
   /* font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif; */
   /* font-family: 'Kanit', sans-serif */
+  display: flex;
+  flex-direction: row;
   font-family: 'Kanit', sans-serif;
   font-weight: 600;
   color: rgba(45,46,47,1);
@@ -47,7 +49,7 @@
   text-decoration: none;
   background-color: transparent;
   border-color: transparent;
-  font-size: 30px;
+  /* font-size: 30px; */
 
 }
 

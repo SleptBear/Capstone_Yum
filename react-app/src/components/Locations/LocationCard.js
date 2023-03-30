@@ -1,52 +1,47 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { getLocation } from "../../store/location";
 import { readReviews } from "../../store/review";
 import Stars from "../Reviews/Stars";
 import './Card.css'
 
-function LocationCard({location}) {
-    // const dispatch = useDispatch();
-    const reviews = useSelector(state => state.review)
-    // const reviewsArray = Object.values(reviews.LocationReviews)
-    const reviewsArray = location.reviews
+// const dispatch = useDispatch();
+// const reviews = useSelector(state => state.review)
+// console.log('card reviews', reviews)
+// const reviewsArray = Object.values(reviews.LocationReviews)
 
-    console.log("location card props", location)
+// useEffect(() => {
+    //     dispatch(readReviews(location?.id))
+    // }, [dispatch])
+
     // useEffect(() => {
     //     // dispatch(getLocation(location?.id))
     //     dispatch(readReviews(location?.id))
     // }, [dispatch])
 
+    function LocationCard({location}) {
+
+    if(!location?.reviews) return null
+    const reviewsArray = location?.reviews
+
+    console.log("location card props", location)
+
 
     const handleReviews = () => {
-        let avg = 0
-        let count = 0
+        let sum = 0
+        // let count = 0
+        let length = reviewsArray?.length
         reviewsArray.forEach(review => {
-            avg += review?.rating
-            count += 1
+            // console.log("Rating before sum", review?.rating)
+            sum += review?.rating
+            // count += 1
         });
-        // console.log("BEFORE", averageRating)
-        if(reviewsArray.length == 0) {
+        // console.log("arrayLength", length)
+        if(length === 0) {
         return <Stars rating={0}/>
         }
-        let averageRating = Number(avg/count)
+        let averageRating = Number(sum/length)
         console.log("Average", averageRating)
-        return <Stars rating={averageRating}/>
-    }
-
-
-    function getAvgRating(allReviews) {
-        let sum = 0
-        let count = 0
-        if(reviewsArray.length == 0) {
-            return 0
-            }
-        allReviews.forEach(review => {
-            sum += review?.rating
-            count += 1
-        });
-        let averageRating = Number(sum/count)
-        console.log("calculated Average", Math.floor(averageRating))
         return <Stars rating={averageRating}/>
     }
 

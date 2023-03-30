@@ -37,21 +37,59 @@
 
 }
 
-.logo button{
-  /* font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif; */
-  /* font-family: 'Kanit', sans-serif */
+.logo {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.logo NavLink {
+  text-decoration: none;
+}
+
+.home-select {
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  color: red;
+  text-decoration: none;
+}
+
+.home-select h1 {
+   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Kanit', sans-serif;
   display: flex;
   flex-direction: row;
   font-family: 'Kanit', sans-serif;
   font-weight: 600;
   color: rgba(45,46,47,1);
-  /* list-style: none; */
+  width: 5rem;
+  list-style: none;
   text-decoration: none;
   background-color: transparent;
   border-color: transparent;
-  /* font-size: 30px; */
-
+  font-size: 30px;
 }
+
+/* .logo button{
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Kanit', sans-serif
+  display: flex;
+  flex-direction: row;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 600;
+  color: rgba(45,46,47,1);
+  width: 5rem;
+  list-style: none;
+  text-decoration: none;
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 30px;
+
+} */
 
 .fa-utensils {
   /* background-color: red; */

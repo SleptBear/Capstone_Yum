@@ -67,7 +67,14 @@ function LocationCard({location}) {
                 <h2>{location.id}. {location.name}</h2>
             </div>
             <div className="card-rating">
-                {handleReviews()} {reviewsArray.length}
+                <div>
+                {handleReviews()}
+
+                </div>
+                <div id="numReview">
+                {reviewsArray.length}
+
+                </div>
 
             </div>
             <br></br>

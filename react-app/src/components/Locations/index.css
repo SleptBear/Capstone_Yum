@@ -19,7 +19,7 @@ a:hover {
 
 .filters {
 width: 20%;
-background-color: red;
+background-color: gray;
 }
 
 .all-cards-container {
@@ -31,18 +31,20 @@ background-color: red;
 
 .maps-api-container {
     width: 25%;
+    overflow: hidden;
 }
 
 .maps-api-container img {
     height: 100%;
+    overflow: hidden;
 }
 
 .some-images {
     display: flex;
     height: 25rem;
     width: 100%;
-    background-color: red;
-    /* justify-content: center; */
+    background-color: lightgray;
+    justify-content: center;
 }
 .some-images img {
     display: flex;
@@ -123,14 +125,6 @@ background-color: red;
     background-color: rgba(245, 245, 245, 0.584);
     transition: 1s;
 }
-
-.details-right {
-    margin-top: 1.8rem;
-}
-
-/* .details-left {
-    background-color: blue;
-} */
 
 .leftReviews-container {
     /* background-color: purple; */

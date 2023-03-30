@@ -1,11 +1,19 @@
 // import React from "react"
-
+import ActiveLife from "./ActiveLife"
+import RestaurantCategory from "./RestaurantCategory"
+import ShoppingCategory from "./ShoppingCategory"
+import Nightlife from "./Nightlife"
+import Beauty from "./Beauty"
+import Automotive from "./Automotive"
+import HomeServices from "./HomeServices"
+import More from "./More"
 
 
 
 
 
 function HomePage() {
+
 
 
     return (
@@ -17,10 +25,24 @@ function HomePage() {
                 </img>
             </div>
             <div className="recent-activity">
-                Activity Container
+            <h1>
+                Recent Activity Container
+            </h1>
+            <h2>Latest/Local reviews displayed here</h2>
             </div>
+            {/* <hr style={{width: '100%', color: 'light-gray'}}></hr> */}
+                <h1>Categories</h1>
+                <br></br>
             <div className="Categories">
-                Categories Container
+                    <RestaurantCategory />
+                    <ShoppingCategory />
+                    <Nightlife />
+                    <ActiveLife />
+                    <Beauty />
+                    <Automotive />
+                    <HomeServices />
+                    <More />
+
             </div>
         </div>
     )

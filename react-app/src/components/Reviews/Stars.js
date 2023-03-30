@@ -19,11 +19,11 @@ function Stars(rating) {
         <ReactStars
    count={5}
    value={currentRating}
-   size={20}
+   size={25}
    isHalf={true}
    edit={false}
    activeColor="#ffd700"
-   
+
                           />
         // <div>
         //     {stars.map((_, index) => {

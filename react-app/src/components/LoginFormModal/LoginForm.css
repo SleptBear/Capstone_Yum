@@ -1,8 +1,9 @@
 .login {
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* justify-content: center; */
 }
 
 
@@ -10,14 +11,18 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-top: 20px;
 }
 
 .loginformerrors {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    /* width: 100%; */
+    color: red;
+    list-style: none;
+    align-items: center;
+    padding-right: 3rem;
 }
 
 .form-label2 {
@@ -25,7 +30,7 @@
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .submit-button {

@@ -14,6 +14,8 @@ const LocationsIndex = () => {
         dispatch(getLocations())
     }, [dispatch])
 
+    console.log("Locations Index Render")
+
     // console.log("locations array", locations)
 
     if(!locations[0]) return null

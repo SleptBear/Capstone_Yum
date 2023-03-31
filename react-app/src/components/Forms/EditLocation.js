@@ -212,9 +212,10 @@ const EditLocation = () => {
             type="text"
             value={zipcode}
             placeholder="Zipcode"
+            minLength={5}
             maxLength={5}
             pattern="[0-9]*"
-            title="No Symbols or Characters"
+            title="No Symbols or Characters, must be length 5"
             onChange={(e) => {
                 setZipcode(e.target.value)
             }}

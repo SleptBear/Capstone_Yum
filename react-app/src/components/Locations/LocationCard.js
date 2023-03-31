@@ -20,18 +20,34 @@ import './Card.css'
     // }, [dispatch])
 
     function LocationCard({location}) {
+        const  dispatch = useDispatch();
+        const stateReviews = useSelector(state => state.review)
+        const locationReviews = stateReviews?.LocationReviews
+        const stateRevArray = Object.values(locationReviews)
+        // console.log("useEffect reviews", locationReviews)
+        // console.log("useEffect reviews", stateRevArray)
+
+         useEffect(() => {
+        dispatch(readReviews(location?.id))
+    }, [dispatch])
+
+    console.log("Location Card Render")
+    console.log("location Card Props", location)
 
     if(!location?.reviews) return null
+    if(!locationReviews) return null
+    if(!stateRevArray[0]) return null
     const reviewsArray = location?.reviews
 
-    console.log("location card props", location)
 
 
     const handleReviews = () => {
         let sum = 0
         // let count = 0
         let length = reviewsArray?.length
+        // let length = stateRevArray?.length
         reviewsArray.forEach(review => {
+        // stateRevArray.forEach(review => {
             // console.log("Rating before sum", review?.rating)
             sum += review?.rating
             // count += 1
@@ -41,7 +57,7 @@ import './Card.css'
         return <Stars rating={0}/>
         }
         let averageRating = Number(sum/length)
-        console.log("Average", averageRating)
+        // console.log("Average", averageRating)
         return <Stars rating={averageRating}/>
     }
 

@@ -1,6 +1,7 @@
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
+const CHANGE_PROF_PIC = "session/CHANGE_PROF_PIC"
 
 const setUser = (user) => ({
 	type: SET_USER,
@@ -11,7 +12,31 @@ const removeUser = () => ({
 	type: REMOVE_USER,
 });
 
+const actionChangeProfilePic = (user) => ({
+	type: CHANGE_PROF_PIC,
+	payload: user
+})
+
 const initialState = { user: null };
+
+export const changeProfilePic = (imgData) => async (dispatch) => {
+	console.log(imgData)
+	const response = await fetch("/api/users/profile-pic", {
+		method: 'POST',
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(imgData)
+	});
+	console.log(response)
+
+	let data = await response.json()
+	console.log(data)
+	if(response.ok) {
+		dispatch(actionChangeProfilePic(data))
+	}
+	return data
+}
 
 export const authenticate = () => async (dispatch) => {
 	const response = await fetch("/api/auth/", {
@@ -101,6 +126,8 @@ export default function reducer(state = initialState, action) {
 			return { user: action.payload };
 		case REMOVE_USER:
 			return { user: null };
+		case CHANGE_PROF_PIC:
+			return { user: action.payload}
 		default:
 			return state;
 	}

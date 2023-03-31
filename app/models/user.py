@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
     # username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    prof_pic = db.Column(db.String(255))
     # Relationships
     locations = db.relationship("Location", back_populates="owner")
     images = db.relationship("Image", back_populates="user")
@@ -37,5 +38,7 @@ class User(db.Model, UserMixin):
             # 'username': self.username,
             'first_name': self.first_name,
             'last_name': self.last_name,
-            'email': self.email
+            'email': self.email,
+            'prof_pic': self.prof_pic,
+            'images': [image.to_dict() for image in self.images]
         }

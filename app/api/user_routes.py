@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify
-from flask_login import login_required
-from app.models import User
+from flask import Blueprint, jsonify, request
+from flask_login import login_required, current_user
+from app.models import User, db
 
 user_routes = Blueprint('users', __name__)
 
@@ -22,4 +22,17 @@ def user(id):
     Query for a user by id and returns that user in a dictionary
     """
     user = User.query.get(id)
+    return user.to_dict()
+
+@user_routes.route('/profile-pic', methods=['POST'])
+@login_required
+def changePicture():
+    print(request)
+    data = request.get_json()
+    print("DATA===============================", data)
+    user = User.query.get(current_user.id)
+
+    user.prof_pic = data['image_url']
+    db.session.commit()
+
     return user.to_dict()

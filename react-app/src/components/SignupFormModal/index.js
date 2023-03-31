@@ -7,7 +7,8 @@ import "./SignupForm.css";
 function SignupFormModal() {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
-	const [username, setUsername] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
@@ -16,7 +17,7 @@ function SignupFormModal() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
+			const data = await dispatch(signUp(firstName, lastName, email, password));
 			if (data) {
 				setErrors(data);
 			} else {
@@ -24,7 +25,7 @@ function SignupFormModal() {
 			}
 		} else {
 			setErrors([
-				"Confirm Password field must be the same as the Password field",
+				"Passwords must match",
 			]);
 		}
 	};
@@ -43,18 +44,34 @@ function SignupFormModal() {
 				<label className="form-label">
 					Email
 					<input
-						type="text"
+						type="email"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+						title='Please use a valid email'
 						required
 						/>
 				</label>
 				<label className="form-label">
-					Username
+					First Name
 					<input
 						type="text"
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
+						value={firstName}
+						onChange={(e) => setFirstName(e.target.value)}
+						pattern="[a-zA-Z ]*"
+						maxLength={15}
+						title='First Name must only include characters'
+						required
+						/>
+				</label>
+				<label className="form-label">
+					Last Name
+					<input
+						type="text"
+						value={lastName}
+						onChange={(e) => setLastName(e.target.value)}
+						pattern="[a-zA-Z0-9 ]*"
+						maxLength={15}
+						title='Last Name must only include characters'
 						required
 						/>
 				</label>

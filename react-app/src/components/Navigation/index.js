@@ -23,8 +23,12 @@ function Navigation({ isLoaded }){
         			<NavLink exact to="/">
 						<i className="fa-solid fa-utensils"></i>
         			</NavLink> */}
-        			<NavLink exact to="/">
+        			<NavLink className='home-select' exact to="/">
+						{/* <div className='home-select'> */}
+						<h1>Yum!</h1>
 						<i className="fa-solid fa-utensils"></i>
+
+						{/* </div> */}
         			</NavLink>
       			</div>
 

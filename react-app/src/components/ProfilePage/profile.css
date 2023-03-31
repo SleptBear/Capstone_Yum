@@ -23,6 +23,11 @@
     border: 1px solid rgba(128, 128, 128, 0.39);
     border-radius: .5rem;
     margin-top: 6rem;
+    /* background-color: blue; */
+    /* width: 100%; */
+    height: 100%;
+    width: 20%;
+    aspect-ratio: 3/2;
 }
 
 .prof-center {

@@ -3,15 +3,15 @@ import { FaStar } from "react-icons/fa"
 import ReactStars from 'react-rating-stars-component';
 import './reviews.css'
 
-const colors =  {
-    orange: "#FFBA5A",
-    grey: "#a9a9a9"
-}
+// const colors =  {
+//     orange: "#FFBA5A",
+//     grey: "#a9a9a9"
+// }
 
 function Stars(rating) {
     // const stars = Array(5).fill(0);
-    const [currentRating, setCurrentRating] = useState(rating.rating);
     console.log("inside stars props", rating)
+    const [currentRating, setCurrentRating] = useState(rating.rating);
     // // console.log("inside stars currentRating", currentRating)
 
     // if(!rating?.rating) return null

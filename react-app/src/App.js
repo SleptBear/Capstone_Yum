@@ -12,6 +12,7 @@ import Navigation from "./components/Navigation";
 import Home from "./components/HomePage";
 import Footer from "./components/Footer";
 import AddImage from "./components/Forms/AddImage";
+import ChangeProfilePic from "./components/Forms/ChangeProfilePic";
 import CreateReview from "./components/Forms/CreateReview";
 import EditReview from "./components/Forms/EditReview";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
@@ -46,6 +47,9 @@ function App() {
           </Route>
           <Route exact path="/locations/:id/photo">
             <AddImage />
+          </Route>
+          <Route exact path="/user/home/addImage">
+            <ChangeProfilePic />
           </Route>
           <Route exact path="/locations">
             <LocationsIndex />

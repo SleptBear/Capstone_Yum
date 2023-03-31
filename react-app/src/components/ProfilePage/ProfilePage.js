@@ -10,6 +10,8 @@ const ProfilePage = () => {
     const dispatch = useDispatch()
     const reviewsObj = useSelector(state => state.review.UserReviews)
     const user = useSelector(state => state.session?.user)
+    const profilePic = user.prof_pic
+    console.log("profile pic", profilePic)
     const reviewsArray = Object.values(reviewsObj)
 
 
@@ -22,7 +24,8 @@ const ProfilePage = () => {
         <>
             <div className="prof-main">
                 <div className='prof-container'>
-                    <img src='https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png' alt='none'></img>
+                    <img src={profilePic} alt='none'></img>
+                    {/* <img src='https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png' alt='none'></img> */}
                     <div className='prof-center'>
                         <div>
                             {user.first_name} {user.last_name}
@@ -31,13 +34,13 @@ const ProfilePage = () => {
                             From City, State
                         </div>
                         <div>
-                        <i className="fa-regular fa-user"></i> Friends {' '}
-                        <i className="fa-regular fa-star"></i> Reviews {' '}
-                        <i className="fa-solid fa-camera"></i> Photos {' '}
+                        <i className="fa-regular fa-user"></i> 0 {' '}
+                        <i className="fa-regular fa-star"></i> {reviewsArray.length} {' '}
+                        <i className="fa-solid fa-camera"></i> {user.images.length} {' '}
                         </div>
                     </div>
                     <div className='prof-right'>
-                        <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home'>
+                        <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home/addImage'>
                         <div><i className="fa-solid fa-camera"></i> Change Profile Photo</div>
                         </Link>
                         <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home'>

@@ -1,4 +1,6 @@
 .error-message {
+    display: flex;
+    flex-direction: column;
     color: red;
     list-style: none;
     display: flex;
@@ -46,9 +48,11 @@
 .addLocationMain {
 
     display: flex;
+
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    min-height: 70rem;
 
 }
 .UpdateLocationMain {

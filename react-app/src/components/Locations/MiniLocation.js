@@ -26,9 +26,9 @@ function MiniLocation(props) {
     if(!locationObj['id']) return null
     // if(!props?.location['id']) return null
     // if(!props?.reviews) return null
-    console.log("props", props)
+    // console.log("props", props)
     // let reviewsArray = Object.values(reviewObj.LocationReviews)
-    console.log("review array", reviewsObj)
+    // console.log("review array", reviewsObj)
     // if(!reviewsArray[0]) return null
     const handleReviews = () => {
         let avg = 0
@@ -42,7 +42,7 @@ function MiniLocation(props) {
         return <Stars rating={0}/>
         }
         let averageRating = Number(avg/count)
-        console.log("Average", averageRating)
+        // console.log("Average", averageRating)
         return <Stars rating={averageRating}/>
     }
     const ulClassName = "edit-button" + (showEdit ? "" : " hidden");

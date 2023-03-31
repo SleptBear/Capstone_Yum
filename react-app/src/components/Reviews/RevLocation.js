@@ -1,6 +1,6 @@
 const RevLocation = (props) => {
     const rev = props.review
-    console.log("inside rev", rev)
+    // console.log("inside rev", rev)
     return (
     <>
         <div>

@@ -31,7 +31,7 @@ export const changeProfilePic = (imgData) => async (dispatch) => {
 	console.log(response)
 
 	let data = await response.json()
-	console.log(data)
+	// console.log(data)
 	if(response.ok) {
 		dispatch(actionChangeProfilePic(data))
 	}

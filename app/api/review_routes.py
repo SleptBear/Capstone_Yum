@@ -13,7 +13,14 @@ def allReviews():
     reviewList = []
     for review in reviews:
         print(review.to_dict())
-        reviewList.append(review.to_dict())
+        review_obj = review.to_dict()
+        reviewer = review.user
+        images = review.images
+        images_obj = [image.to_dict() for image in images]
+        reviewer_obj = reviewer.to_dict()
+        review_obj['reviewer'] = reviewer_obj
+        review_obj['images'] = images_obj
+        reviewList.append(review_obj)
     return {'reviews': reviewList}
 # get all Users reviews, mainly for testing
 @review_routes.route('/users')

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import ReactStars from 'react-rating-stars-component'
+
 
 import { editReview, readUserReviews } from "../../store/review";
 
@@ -13,7 +15,7 @@ const EditReview = () => {
     const history = useHistory();
     const user = useSelector(state => state.session?.user)
     const currentReview = useSelector(state => state.review?.UserReviews[reviewId])
-    console.log("current", currentReview)
+    // console.log("current", currentReview)
     const [rating, setRating] = useState(currentReview?.rating);
     const [review, setReview] = useState(currentReview?.review);
 
@@ -33,8 +35,8 @@ const EditReview = () => {
         dispatch(editReview(Number(reviewId), ReviewData))
         .then(async (res) => {
             const data = await res;
-            console.log("Return review data in react", res)
-            console.log("Return review data in react", data)
+            // console.log("Return review data in react", res)
+            // console.log("Return review data in react", data)
             if(data && data.errors) setErrors([data.errors])
             else {
                 history.push(`/user/home`)
@@ -74,20 +76,31 @@ const EditReview = () => {
 
             ></textarea>
             </label>
-            <label className="Label">
-                rating
-              <select className="size-form"
+            <label className="Label" style={{alignItems: 'center'}}>
+                {/* rating */}
+                <ReactStars
+                        count={5}
+                        value={rating}
+                        onChange={setRating}
+                        size={22}
+                        isHalf={true}
+                        emptyIcon={<i className="far fa-star"></i>}
+                        halfIcon={<i className="fa fa-star-half-alt"></i>}
+                        fullIcon={<i className="fa fa-star"></i>}
+                        activeColor="#ffd700"
+                    />
+              {/* <select className="size-form"
 
                 value={rating}
                 required
-                onChange={(e) => setRating(Number(e.target.value))}
+                // onChange={(e) => setRating(Number(e.target.value))}
             >
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
                 <option value={4}>4</option>
                 <option value={5}>5</option>
-              </select>
+              </select> */}
             </label>
             {/* <label className="Label">
                 Image

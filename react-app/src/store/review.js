@@ -1,3 +1,5 @@
+import { getLocations } from "./location"
+
 const ADD_REVIEW = 'reviews/addReview'
 const READ_LOCATIONS_REVIEWS = 'reviews/readLocationReviews'
 const DELETE_REVIEW = 'reviews/deleteReview'
@@ -32,8 +34,8 @@ const actionDeleteReview = (reviewId) => ({
 //THUNKS
 export const addReview = (id, review) => async (dispatch) => {
 
-    console.log("REVIEW", review)
-    console.log("ID", id)
+    // console.log("REVIEW", review)
+    // console.log("ID", id)
     const response = await fetch(`/api/reviews` , {
         method: 'POST',
         headers: {
@@ -45,17 +47,16 @@ export const addReview = (id, review) => async (dispatch) => {
             rating: review.rating
         })
     })
-    // let data;
+    // let data = await response.json()
     if (response.ok) {
-        // data = response.json()
-
         // console.log("good review", data)
-        // dispatch(addReview(review))
-        return response
-    } else {
+        // dispatch(addReview(data))
+        dispatch(getLocations())
+        // return response
+    // } else {
         // console.log("review return response", data)
-        return response
     }
+    return response
 }
 
 export const readReviews = (locationId) => async (dispatch) => {
@@ -72,7 +73,7 @@ export const readUserReviews = (userId) => async (dispatch) => {
 }
 
 export const editReview = (reviewId, updatedReview) => async (dispatch) => {
-    console.log("thunk", updatedReview)
+    // console.log("thunk", updatedReview)
     const response = await fetch(`/api/reviews/${reviewId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -80,8 +81,9 @@ export const editReview = (reviewId, updatedReview) => async (dispatch) => {
     })
     const data = await response.json()
     if (response.ok) {
-        console.log("before action", data)
+        // console.log("before action", data)
         dispatch(actionUpdateReview(data))
+        dispatch(getLocations())
     }
     return data
 }
@@ -98,8 +100,9 @@ export const deleteReview = (id) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        console.log("return deleted review data", data)
+        // console.log("return deleted review data", data)
         dispatch(actionDeleteReview(id))
+        dispatch(getLocations())
         return data
     }
 }
@@ -139,23 +142,26 @@ let initialState = {
             let newStateCopy = {...newState.LocationReviews}
             newStateCopy[action.payload.id] = action.payload
             // newState.LocationReviews = newStateCopy
-            console.log("add review return state", newState)
+            // console.log("add review return state", newState)
             return newState
 
         case EDIT_REVIEW:
             newState = {...state}
             let copyReviews = { ...newState.UserReviews }
-            console.log(copyReviews)
+            // console.log("newState start", newState)
+            // console.log("Still has old review", copyReviews)
             copyReviews[action.payload.id] = action.payload
+            // console.log("changed Review", copyReviews)
             return { ...state, UserReviews: copyReviews }
         case DELETE_REVIEW:
             newState = {...state}
             let reviewCopy = {...newState.UserReviews}
-            console.log("reviewCopy", reviewCopy)
-            console.log(action.payload)
+            // console.log("reviewCopy", reviewCopy)
+            // console.log(action.payload)
             delete reviewCopy[action.payload]
-            console.log("reviewCopyAfter", reviewCopy)
+            // console.log("reviewCopyAfter", reviewCopy)
             newState.UserReviews = reviewCopy
+            // console.log("delete review return state")
             return newState
         default:
             return state;

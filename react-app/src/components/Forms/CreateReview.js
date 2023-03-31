@@ -11,7 +11,7 @@ const CreateReview = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(state => state.session?.user)
-    const [rating, setRating] = useState(1);
+    const [rating, setRating] = useState(0);
     const [review, setReview] = useState('');
     const id = useParams()
     const locationId = id.id
@@ -28,7 +28,7 @@ const CreateReview = () => {
         dispatch(addReview(Number(locationId), ReviewData))
         .then(async (res) => {
             const data = await res.json();
-            console.log("Return review data in react", data)
+            // console.log("Return review data in react", data)
             if(data && data.errors) setErrors([data.errors])
             if (res.ok) {
                 history.push(`/user/home`)
@@ -71,7 +71,7 @@ const CreateReview = () => {
 
             ></textarea>
             </label>
-            <label className="Label">
+            <label className="Label" style={{alignItems: 'center'}}>
                 {/* rating */}
                 <ReactStars
                         count={5}

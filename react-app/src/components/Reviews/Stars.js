@@ -10,7 +10,7 @@ import './reviews.css'
 
 function Stars(rating) {
     // const stars = Array(5).fill(0);
-    console.log("inside stars props", rating)
+    // console.log("inside stars props", rating)
     const [currentRating, setCurrentRating] = useState(rating.rating);
     // // console.log("inside stars currentRating", currentRating)
 

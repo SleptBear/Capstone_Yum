@@ -28,7 +28,7 @@ const CreateReview = () => {
         dispatch(addReview(Number(locationId), ReviewData))
         .then(async (res) => {
             const data = await res.json();
-            console.log("Return review data in react", data)
+            // console.log("Return review data in react", data)
             if(data && data.errors) setErrors([data.errors])
             if (res.ok) {
                 history.push(`/user/home`)

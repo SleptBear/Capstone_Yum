@@ -7,7 +7,7 @@ import "./forms.css"
 const AddImage = () => {
     const id = useParams()
     const locationId = id?.id
-    console.log(locationId)
+    // console.log(locationId)
 
     const [image, setImage] = useState('')
     const [errors, setErrors] = useState([]);

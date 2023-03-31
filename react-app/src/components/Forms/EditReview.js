@@ -15,7 +15,7 @@ const EditReview = () => {
     const history = useHistory();
     const user = useSelector(state => state.session?.user)
     const currentReview = useSelector(state => state.review?.UserReviews[reviewId])
-    console.log("current", currentReview)
+    // console.log("current", currentReview)
     const [rating, setRating] = useState(currentReview?.rating);
     const [review, setReview] = useState(currentReview?.review);
 
@@ -35,8 +35,8 @@ const EditReview = () => {
         dispatch(editReview(Number(reviewId), ReviewData))
         .then(async (res) => {
             const data = await res;
-            console.log("Return review data in react", res)
-            console.log("Return review data in react", data)
+            // console.log("Return review data in react", res)
+            // console.log("Return review data in react", data)
             if(data && data.errors) setErrors([data.errors])
             else {
                 history.push(`/user/home`)

@@ -31,8 +31,8 @@ export const actionAddImage = (img) => ({
 })
 
 export const addImage = (locationId, imgData) => async dispatch => {
-    console.log(locationId)
-    console.log(imgData)
+    // console.log(locationId)
+    // console.log(imgData)
     const res = await fetch(`/api/locations/${locationId}/images`, {
         method: 'POST',
         headers: {
@@ -90,7 +90,7 @@ export const createLocation = (location, imgData) => async dispatch => {
 
 let data =await res.json()
 if (res.ok) {
-    
+
     const res2 = await fetch(`/api/locations/${data.id}/images`, {
         method: 'POST',
         headers: {
@@ -105,15 +105,15 @@ if (res.ok) {
 
     // dispatch(getSpot(data.id))
     dispatch(actionCreateLocation(data))
-    console.log("DATA=========>", data)
+    // console.log("DATA=========>", data)
     return data
 }
 // if (data.errors) {
     //     return data.errors;
     // }
-    console.log('test')
-    console.log("RES=========>", res)
-    console.log("DATA=========>", data)
+    // console.log('test')
+    // console.log("RES=========>", res)
+    // console.log("DATA=========>", data)
 return data
 }
 
@@ -124,7 +124,7 @@ export const updateLocation = (location, locationId) => async dispatch => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(location)
     })
-    console.log("response", res)
+    // console.log("response", res)
     // const data = await res.json();
     // console.log('updated spot', data)
     // console.log('res status', res.ok)
@@ -145,7 +145,7 @@ export const deleteLocation = (locationId) => async dispatch => {
             // dispatch(actionReadSpots())
             //todo for all thunks return data to send back to component for error handeling
         }
-    console.log("res", res)
+    // console.log("res", res)
     return res
 }
 

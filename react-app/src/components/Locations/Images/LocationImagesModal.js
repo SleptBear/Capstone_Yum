@@ -8,7 +8,7 @@ function LocationImagesModal(location) {
   const { closeModal } = useModal();
   const locationObj = location.location.location
   const imagesArray = locationObj.images
-  console.log("test", location.location.location)
+  // console.log("test", location.location.location)
 
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();

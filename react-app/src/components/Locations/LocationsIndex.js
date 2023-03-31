@@ -14,7 +14,7 @@ const LocationsIndex = () => {
         dispatch(getLocations())
     }, [dispatch])
 
-    console.log("Locations Index Render")
+    // console.log("Locations Index Render")
 
     // console.log("locations array", locations)
 

@@ -31,8 +31,8 @@ import './Card.css'
         dispatch(readReviews(location?.id))
     }, [dispatch])
 
-    console.log("Location Card Render")
-    console.log("location Card Props", location)
+    // console.log("Location Card Render")
+    // console.log("location Card Props", location)
 
     if(!location?.reviews) return null
     if(!locationReviews) return null

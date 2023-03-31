@@ -39,12 +39,12 @@ const EditLocation = () => {
 
         .then(async (res) => {
             const data = await res.json();
-            console.log(res)
-            console.log(data)
+            // console.log(res)
+            // console.log(data)
             if (data && data.errors) setErrors([data.errors])
             if(res.ok) {
             history.push(`/`)
-            window.alert("Location Unlisted")
+            // window.alert("Location Unlisted")
             }
         })
         // .catch(async (res) => {
@@ -70,7 +70,7 @@ const EditLocation = () => {
     dispatch(updateLocation(LocationData, locationId))
     .then(async (res) => {
         const data = await res.json();
-        console.log("return data in catch", data)
+        // console.log("return data in catch", data)
 
         if (data && data.errors) setErrors([data.errors])
         if(res.ok) history.push(`/locations/${locationId}`)

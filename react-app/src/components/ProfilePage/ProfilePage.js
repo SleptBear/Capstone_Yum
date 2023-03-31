@@ -11,7 +11,7 @@ const ProfilePage = () => {
     const reviewsObj = useSelector(state => state.review.UserReviews)
     const user = useSelector(state => state.session?.user)
     const profilePic = user.prof_pic
-    console.log("profile pic", profilePic)
+    // console.log("profile pic", profilePic)
     const reviewsArray = Object.values(reviewsObj)
 
 

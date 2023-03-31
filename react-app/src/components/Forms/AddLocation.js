@@ -50,7 +50,7 @@ const AddLocation = () => {
 
         const data = await dispatch(createLocation(LocationData, imgData));
         if (data && data.errors) {
-            console.log(data)
+            // console.log(data)
             setErrors(data.errors);
         } else {
             history.push(`/locations/${data.id}`)

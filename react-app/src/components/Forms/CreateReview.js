@@ -11,7 +11,7 @@ const CreateReview = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(state => state.session?.user)
-    const [rating, setRating] = useState(1);
+    const [rating, setRating] = useState(0);
     const [review, setReview] = useState('');
     const id = useParams()
     const locationId = id.id
@@ -71,7 +71,7 @@ const CreateReview = () => {
 
             ></textarea>
             </label>
-            <label className="Label">
+            <label className="Label" style={{alignItems: 'center'}}>
                 {/* rating */}
                 <ReactStars
                         count={5}

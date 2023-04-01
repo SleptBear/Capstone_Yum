@@ -5,6 +5,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { NavLink, useHistory } from "react-router-dom";
+import './Navigation.css'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -33,7 +34,9 @@ function ProfileButton({ user }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
+    history.push(`/`);
     dispatch(logout());
+    // closeMenu()
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -50,11 +53,13 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li><NavLink style={{ textDecoration: 'none', color: 'black'}} exact to='/user/home'><i className="fa-solid fa-user-large"></i> About {user.first_name} {user.last_name}</NavLink></li>
+            <li><NavLink style={{ textDecoration: 'none', color: 'black'}} exact to='/user/home'><i className="fa-solid fa-user-large"></i>About {user.first_name} {user.last_name}</NavLink></li>
             <li onClick={() => window.alert('Coming Soon')}><i className="fa-solid fa-user-group"></i> Find Friends</li>
             <li onClick={() => window.alert('Coming Soon')}><i className="fa-solid fa-gear"></i> Account Settings</li>
-            <li>
-              <button onClick={handleLogout}>Log Out</button>
+            <li onClick={() => handleLogout()} id='logout-button'>
+            <i class="fa-solid fa-right-from-bracket"></i>
+              Logout
+              {/* <button onClick={handleLogout}><i class="fa-solid fa-right-from-bracket"></i>Log Out</button> */}
             </li>
           </>
         ) : (

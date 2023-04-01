@@ -27,9 +27,9 @@ const LocationsIndex = () => {
 
 <section className="body-container">
     <div className="body-container-items">
-        <div className="filters">
+        {/* <div className="filters">
             filter component in development
-        </div>
+        </div> */}
         <div className="all-cards-container">
 
         {

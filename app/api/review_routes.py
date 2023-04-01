@@ -7,7 +7,7 @@ from flask_login import login_required, current_user
 review_routes = Blueprint('reviews', __name__)
 
 # get all reviews, mainly for testing
-@review_routes.route('')
+@review_routes.route('/recent')
 def allReviews():
     reviews = Review.query.all()
     reviewList = []

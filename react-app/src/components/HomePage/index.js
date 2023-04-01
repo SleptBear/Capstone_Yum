@@ -1,4 +1,5 @@
-// import React from "react"
+// import ReviewsIndexCard from "../Reviews/ReviewsIndexCard"
+import ReviewsIndex from "../Reviews/ReviewsIndex"
 import ActiveLife from "./ActiveLife"
 import RestaurantCategory from "./RestaurantCategory"
 import ShoppingCategory from "./ShoppingCategory"
@@ -14,8 +15,6 @@ import More from "./More"
 
 function HomePage() {
 
-
-
     return (
         <div className="Home">
             <div className="background">
@@ -26,10 +25,13 @@ function HomePage() {
             </div>
             <div className="recent-activity">
             <h1>
-                Recent Activity Container
+                Recently Rated Grub Spots
             </h1>
-            <h2>Latest/Local reviews will be displayed here</h2>
+            <div className="all-reviews">
+                <ReviewsIndex />
             </div>
+            </div>
+
             {/* <hr style={{width: '100%', color: 'light-gray'}}></hr> */}
                 <h1>Categories</h1>
                 <br></br>

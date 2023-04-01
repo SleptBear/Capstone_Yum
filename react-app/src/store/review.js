@@ -2,9 +2,12 @@ import { getLocations } from "./location"
 
 const ADD_REVIEW = 'reviews/addReview'
 const READ_LOCATIONS_REVIEWS = 'reviews/readLocationReviews'
+const READ_ALL_REVIEWS = 'reviews/readAllReviews'
 const DELETE_REVIEW = 'reviews/deleteReview'
 const EDIT_REVIEW = 'reviews/editReview' // editing/update a review
 const READ_USER_REVIEWS = 'reviews/users'
+
+
 
 const actionAddReview = (review) => ({
     type: ADD_REVIEW,
@@ -13,6 +16,11 @@ const actionAddReview = (review) => ({
 
 const actionReadReview = (reviews) => ({
     type: READ_LOCATIONS_REVIEWS,
+    payload: reviews
+})
+
+const actionReadAllReviews = (reviews) => ({
+    type: READ_ALL_REVIEWS,
     payload: reviews
 })
 
@@ -65,6 +73,16 @@ export const readReviews = (locationId) => async (dispatch) => {
     if (response.ok) dispatch(actionReadReview(reviews))
     return reviews
 }
+export const readAllReviews = () => async (dispatch) => {
+    const response = await fetch(`/api/reviews/recent`)
+    const reviews = await response.json()
+    if (response.ok) dispatch(actionReadAllReviews(reviews))
+    // console.log("thunk return", reviews)
+    return reviews
+}
+
+
+
 export const readUserReviews = (userId) => async (dispatch) => {
     const response = await fetch(`/api/reviews/users`)
     const reviews = await response.json()
@@ -127,6 +145,17 @@ let initialState = {
                 reviewsCopy[review.id] = review
             })
             newState.LocationReviews = reviewsCopy
+            return newState
+        case READ_ALL_REVIEWS:
+            newState = { ...state}
+            let allReviewsCopy = {}
+
+            action.payload.reviews.forEach(review => {
+                // console.log("reviews loop", review)
+                allReviewsCopy[review.id] = review
+            })
+            newState.AllReviews = allReviewsCopy
+            // console.log("newState", newState)
             return newState
         case READ_USER_REVIEWS:
             newState = { ...state}

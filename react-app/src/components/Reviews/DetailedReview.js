@@ -36,6 +36,8 @@ function DetailedReview(review) {
                 <Stars rating={review.review.rating}/>
             {rev.updated_at.slice(0, 17)}
             </div>
+            <div id="rev-and-mutate">
+
             <p>
                 {rev.review}
             </p>
@@ -48,6 +50,7 @@ function DetailedReview(review) {
                 <button onClick={() => handleDelete()}>
                 <i className="fa-regular fa-trash-can"></i>
                 </button>
+            </div>
             </div>
 
             <hr style={{width: '100%'}}></hr>

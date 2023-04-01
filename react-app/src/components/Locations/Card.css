@@ -1,15 +1,20 @@
+.outside {
+    margin-bottom: 5rem;
+}
+
 .card-container {
     display: flex;
     flex-direction: row;
     /* justify-content: space-between; */
     /* background-color: red; */
+
     /* border-style: double; */
     /* border-color: blue; */
     border-width: 1px;
     height: 17rem;
     max-height: 17rem;
     width: 97%;
-    padding-top: 10px;
+    /* padding-top: 10px; */
     /* box-shadow: 0px 0px 15px -5px; */
 
     /* justify-items: center; */
@@ -40,6 +45,8 @@
 }
 
 .image-container {
+    display: flex;
+    align-items: center;
     /* background-color: red; */
     /* border-style: double; */
     /* border-width: 1px; */
@@ -72,12 +79,12 @@
     /* flex-grow: 1; */
     max-height: 100%;
     /* box-shadow: 0px 0px 15px -5px; */
-    border-radius: 6px;
+    border-radius: 8px;
     /* max-width: 100%; */
     /* max-height: 100%; */
     object-fit: fill;
     aspect-ratio: 3/2;
-    padding-left: 10%;
-    padding-top: 3px;
+    margin-left: 10%;
+    /* margin-top: 3px; */
 
 }

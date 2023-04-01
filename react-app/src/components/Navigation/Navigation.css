@@ -6,6 +6,10 @@
   display: none;
 }
 
+#badLink:hover {
+  cursor: not-allowed !important;
+}
+
 .navStart {
   /* background-color: red; */
   /* align-content: center; */
@@ -237,6 +241,9 @@
   box-shadow: 0 0 8px rgba(10, 0, 10, 0.30);
   background-color: #ffffff;
   border-color: transparent;
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+
 
 }
 
@@ -249,6 +256,8 @@
   border-color: transparent;
   width: 3.5rem;
   font-size: 20px;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
 
 }
 .search-bar button:hover {

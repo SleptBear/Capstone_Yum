@@ -11,13 +11,16 @@ const RevLocation = (props) => {
                 {rev.location?.name}
             </div>
             <div>
-                {rev.location?.city}, {rev.location?.state}
+                {rev.location.address}
             </div>
-            <div id="add-ons">
+            <div>
+                {rev.location?.city}, {rev.location?.state} {rev.location?.zipcode}
+            </div>
+            {/* <div id="add-ons">
                 <i className="fa-regular fa-user"></i> Friends
                 <i className="fa-regular fa-star"></i> Reviews
                 <i className="fa-solid fa-camera"></i> Photos
-            </div>
+            </div> */}
         </div>
     </>
     )

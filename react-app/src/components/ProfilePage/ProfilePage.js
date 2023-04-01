@@ -27,10 +27,10 @@ const ProfilePage = () => {
                     <img src={profilePic} alt='none'></img>
                     {/* <img src='https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png' alt='none'></img> */}
                     <div className='prof-center'>
-                        <div>
+                        <div id='prof-name'>
                             {user.first_name} {user.last_name}
                         </div>
-                        <div>
+                        <div id='city-state'>
                             From City, State
                         </div>
                         <div>
@@ -44,11 +44,11 @@ const ProfilePage = () => {
                         <div><i className="fa-solid fa-camera"></i> Change Profile Photo</div>
                         </Link>
                         <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home'>
-                        <div><i className="fa-solid fa-address-card"></i> Update Your Profile</div>
+                        <div id='badLink'><i className="fa-solid fa-address-card"></i> Update Your Profile</div>
 
                         </Link>
                         <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home'>
-                        <div><i className="fa-solid fa-user-group"></i> Find Friends</div>
+                        <div id='badLink'><i className="fa-solid fa-user-group"></i> Find Friends</div>
 
                         </Link>
                     </div>

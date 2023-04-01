@@ -54,8 +54,8 @@ function ProfileButton({ user }) {
         {user ? (
           <>
             <li><NavLink style={{ textDecoration: 'none', color: 'black'}} exact to='/user/home'><i className="fa-solid fa-user-large"></i>About {user.first_name} {user.last_name}</NavLink></li>
-            <li onClick={() => window.alert('Coming Soon')}><i className="fa-solid fa-user-group"></i> Find Friends</li>
-            <li onClick={() => window.alert('Coming Soon')}><i className="fa-solid fa-gear"></i> Account Settings</li>
+            <li id='badLink' onClick={() => window.alert('Coming Soon')}><i className="fa-solid fa-user-group"></i> Find Friends</li>
+            <li id='badLink' onClick={() => window.alert('Coming Soon')}><i className="fa-solid fa-gear"></i> Account Settings</li>
             <li onClick={() => handleLogout()} id='logout-button'>
             <i class="fa-solid fa-right-from-bracket"></i>
               Logout

@@ -15,23 +15,29 @@ a:hover {
     display: flex;
     /* background-color: gray; */
     width: 100%;
-}
-
-.filters {
-width: 20%;
-background-color: gray;
+    height: 82rem;
 }
 
 .all-cards-container {
     display: flex;
     flex-direction: column;
     /* background-color: blue; */
-    width: 55%;
+    width: 65%;
+    height: 100%;
+    /* -ms-overflow-style: none; for Internet Explorer, Edge */
+    /* scrollbar-width: none; for Firefox */
+    overflow-y: auto;
+}
+
+.all-cards-container::-webkit-scrollbar{
+    scroll-behavior: smooth;
 }
 
 .maps-api-container {
-    width: 45%;
+    width: 35%;
     overflow: hidden;
+    /* background-color: blue; */
+    height: fit-content;
 }
 
 .maps-api-container img {
@@ -39,6 +45,10 @@ background-color: gray;
     overflow: hidden;
 }
 
+.filters {
+width: 20%;
+background-color: gray;
+}
 .some-images {
     display: flex;
     height: 25rem;

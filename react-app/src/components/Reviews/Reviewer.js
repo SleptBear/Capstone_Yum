@@ -12,7 +12,7 @@ const Reviewer = (props) => {
                 User: {rev.reviewer?.first_name} {rev.reviewer?.last_name}
             </div>
             <div>
-                city, state
+                {rev.reviewer?.city}, {rev.reviewer?.state}
             </div>
             <div id="add-ons">
                 <i className="fa-regular fa-user"></i> Friends

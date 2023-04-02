@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
 #root {
     min-width: 1080px;
+    overflow-x: hidden;
 }
 
 

@@ -22,8 +22,8 @@ import './Card.css'
     function LocationCard({location}) {
         const  dispatch = useDispatch();
         const stateReviews = useSelector(state => state.review)
-        const locationReviews = stateReviews?.LocationReviews
-        const stateRevArray = Object.values(locationReviews)
+        // const locationReviews = stateReviews?.LocationReviews
+        // const stateRevArray = Object.values(locationReviews)
         // console.log("useEffect reviews", locationReviews)
         // console.log("useEffect reviews", stateRevArray)
 
@@ -35,8 +35,8 @@ import './Card.css'
     // console.log("location Card Props", location)
 
     if(!location?.reviews) return null
-    if(!locationReviews) return null
-    if(!stateRevArray[0]) return null
+    // if(!locationReviews) return null
+    // if(!stateRevArray[0]) return null
     const reviewsArray = location?.reviews
 
 

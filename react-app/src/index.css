@@ -17,6 +17,7 @@
     justify-content: center;
     align-items: center;
     height: 40rem;
+    max-width: 120rem;
     /* background-color: blue; */
     position: absolute;
     top: 1px;
@@ -25,10 +26,12 @@
 }
 
 .background img {
+    min-width: 70rem;
     height: 100%;
     width: 100%;
-    object-fit: fill;
+    /* object-fit: fill; */
     aspect-ratio: 3/2;
+    overflow: hidden;
 }
 
 .recent-activity {

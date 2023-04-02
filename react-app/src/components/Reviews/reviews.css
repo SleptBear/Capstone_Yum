@@ -13,9 +13,11 @@ input[type="radio"] {
 
 .splash-Reviews {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  /* grid-gap: 20px; */
   /* justify-content: center; */
+  justify-items: center;
   /* align-items: center; */
 }
 

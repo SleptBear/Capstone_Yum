@@ -28,11 +28,11 @@ function LoginFormModal() {
       <h1 className="login">Log In</h1>
 
       <form className="form" onSubmit={handleSubmit}>
-        <ul className="loginformerrors">
+        <div className="loginformerrors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
             ))}
-        </ul>
+        </div>
         <label className="form-label2">
           Email
           <input

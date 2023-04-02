@@ -33,7 +33,7 @@ function ProfileButton({ user }) {
   }, [showMenu]);
 
   const handleLogout = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     history.push(`/`);
     dispatch(logout());
     // closeMenu()
@@ -57,7 +57,7 @@ function ProfileButton({ user }) {
             <li id='badLink' onClick={() => window.alert('Coming Soon')}><i className="fa-solid fa-user-group"></i> Find Friends</li>
             <li id='badLink' onClick={() => window.alert('Coming Soon')}><i className="fa-solid fa-gear"></i> Account Settings</li>
             <li onClick={() => handleLogout()} id='logout-button'>
-            <i class="fa-solid fa-right-from-bracket"></i>
+            <i className="fa-solid fa-right-from-bracket"></i>
               Logout
               {/* <button onClick={handleLogout}><i class="fa-solid fa-right-from-bracket"></i>Log Out</button> */}
             </li>

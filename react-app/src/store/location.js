@@ -124,6 +124,9 @@ export const updateLocation = (location, locationId) => async dispatch => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(location)
     })
+    if(res.ok) {
+        console.log(res)
+    }
     // console.log("response", res)
     // const data = await res.json();
     // console.log('updated spot', data)

@@ -143,6 +143,7 @@ def updateLocation(id):
         # location.lat = data['lat']
         # location.lng = data['lng']
         location.price = data['price']
+        location.category = data['category']
         location.operating_hours = data['operating_hours']
         db.session.commit()
         # print("RETURN=====>", location.to_dict())

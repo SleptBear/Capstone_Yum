@@ -64,6 +64,7 @@ const EditLocation = () => {
             address,
             zipcode,
             price,
+            category,
             operating_hours,
         };
 
@@ -102,7 +103,7 @@ const EditLocation = () => {
             type="text"
             value={name}
             placeholder="Name"
-            maxLength={50}
+            maxLength={20}
             pattern="[a-zA-Z0-9 ]*"
             title="No Symbols, or special characters"
             onChange={(e) => {
@@ -245,7 +246,7 @@ const EditLocation = () => {
             type="text"
             value={operating_hours}
             placeholder="Hours of Operation"
-            maxLength={50}
+            maxLength={10}
             pattern="[-a-zA-Z0-9 ]*"
             title='Format as #am-#pm'
             onChange={(e) => {

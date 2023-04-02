@@ -7,16 +7,16 @@ import "./forms.css"
 const AddLocation = () => {
     const user = useSelector(state => state.session.user)
     // console.log("USERSELECTOR", user)
-    const [name, setName] = useState('Example Place')
-    const [description, setDescription] = useState('Description practice that is all.')
-    const [phone, setPhone] = useState('949-226-4444')
-    const [stringprice, setstringPrice] = useState(15)
-    const [city, setCity] = useState('San Juan')
-    const [state, setState ] = useState('California')
-    const [address, setAddress] = useState('12 West St')
-    const [zipcode, setZipcode] = useState('15648')
-    const [category, setCategory] = useState('fast')
-    const [operating_hours, setOperating_hours] = useState('9am-5pm')
+    const [name, setName] = useState('')
+    const [description, setDescription] = useState('')
+    const [phone, setPhone] = useState('')
+    const [stringprice, setstringPrice] = useState()
+    const [city, setCity] = useState('')
+    const [state, setState ] = useState('')
+    const [address, setAddress] = useState('')
+    const [zipcode, setZipcode] = useState('')
+    const [category, setCategory] = useState('')
+    const [operating_hours, setOperating_hours] = useState('')
     const [image, setImage] = useState('https://s3-media0.fl.yelpcdn.com/bphoto/hiprQ3a-icgVoLnOEWLPag/348s.jpg')
     const [errors, setErrors] = useState([]);
 
@@ -84,7 +84,7 @@ const AddLocation = () => {
             type="text"
             value={name}
             placeholder="Name"
-            maxLength={50}
+            maxLength={20}
             pattern="[a-zA-Z0-9 ]*"
             title="No Symbols, or special characters"
             onChange={(e) => {
@@ -101,7 +101,7 @@ const AddLocation = () => {
             type="text"
             value={description}
             pattern="[-a-zA-Z0-9 .,;:?! ]*"
-            placeholder="Describe your Location here"
+            placeholder="Describe your Location here..."
             maxLength={255}
             onChange={(e) => {
                 setDescription(e.target.value)
@@ -115,8 +115,8 @@ const AddLocation = () => {
             <input className="Phone-form"
             type="text"
             value={phone}
-            placeholder="Phone"
-            maxLength={20}
+            placeholder="### - ### - ####"
+            maxLength={12}
             onChange={(e) => {
                 setPhone(e.target.value)
             }}
@@ -125,13 +125,13 @@ const AddLocation = () => {
             ></input>
             </label>
             <label className="Label">
-                Price
+                Price Range ($)
             <input className="price-form"
             type="text"
             value={stringprice}
-            placeholder="Price"
+            placeholder="12.99 - 20.00"
             maxLength={20}
-            pattern="[0-9.]*"
+            pattern="[0-9.- ]*"
             title="No Symbols or Characters"
             onChange={(e) => {
                 setstringPrice(e.target.value)
@@ -177,7 +177,7 @@ const AddLocation = () => {
             <input className="Address-form"
             type="text"
             value={address}
-            placeholder="Address"
+            placeholder="## Street Name"
             maxLength={50}
             pattern="[a-zA-Z0-9 ]*"
             title="No Symbols or special characters"
@@ -193,7 +193,7 @@ const AddLocation = () => {
             <input className="Zipcode-form"
             type="text"
             value={zipcode}
-            placeholder="Zipcode"
+            placeholder="#####"
             minLength={5}
             maxLength={5}
             pattern="[0-9]*"
@@ -226,8 +226,8 @@ const AddLocation = () => {
             <input className="Operating_hours-form"
             type="text"
             value={operating_hours}
-            placeholder="Hours of Operation"
-            maxLength={50}
+            placeholder="E.x: 9am-5pm"
+            maxLength={10}
             pattern="[-a-zA-Z0-9 ]*"
             title='Format as #am-#pm'
             onChange={(e) => {
@@ -242,7 +242,7 @@ const AddLocation = () => {
             <input className="size-form"
             type="url"
             value={image}
-            placeholder="Image"
+            placeholder="Image URL"
             required
             onChange={(e) => {
                 setImage(e.target.value)

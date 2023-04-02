@@ -18,11 +18,12 @@
 .loginformerrors {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     /* width: 100%; */
     color: red;
     list-style: none;
     align-items: center;
-    padding-right: 3rem;
+    /* margin-right: 3rem; */
 }
 
 .form-label2 {
@@ -87,6 +88,7 @@
 .login-modal > form {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     width: 100%;
     margin-bottom: 10px;

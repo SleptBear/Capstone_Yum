@@ -28,7 +28,7 @@ const ReviewsIndex = () => {
                 <ReviewsIndexCard review={latestArray[4]} key={latestArray[4]?.id}/>
                 <ReviewsIndexCard review={latestArray[5]} key={latestArray[5]?.id}/>
         </div>
-                {/* // ))} */}
+        <br></br>
 
         </div>
     )

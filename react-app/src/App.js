@@ -16,6 +16,7 @@ import ChangeProfilePic from "./components/Forms/ChangeProfilePic";
 import CreateReview from "./components/Forms/CreateReview";
 import EditReview from "./components/Forms/EditReview";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
+import ScrollToTop from "./context/ScrollToTop";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
-
+      <ScrollToTop>
         <Switch>
           <Route exact path='/'>
             <Home />
@@ -67,6 +68,7 @@ function App() {
             <EditReview />
           </Route>
         </Switch>
+      </ScrollToTop>
 
       )}
       <Footer />

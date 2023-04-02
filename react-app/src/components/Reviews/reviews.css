@@ -18,6 +18,7 @@ input[type="radio"] {
   /* grid-gap: 20px; */
   /* justify-content: center; */
   justify-items: center;
+  row-gap: 2rem;
   /* align-items: center; */
 }
 
@@ -33,6 +34,7 @@ input[type="radio"] {
   width: 75%;
   /* box-shadow:  4px 4px 4px 6px rgba(0, 0, 0, 0.1); */
 }
+
 
 .all-rev-card img {
     /* height: 15rem; */
@@ -66,7 +68,8 @@ input[type="radio"] {
     overflow: hidden;
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size:small;
+    font-size:medium;
+    font-weight: 500;
     color: rgba(45,46,47,1);
 }
 

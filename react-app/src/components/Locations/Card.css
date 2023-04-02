@@ -32,6 +32,14 @@
     /* background-color: blue; */
 
 }
+
+#category {
+    background-color: rgb(218, 214, 214);
+    width: fit-content;
+    border-radius: 3px;
+    font-size: small;
+    padding: 3px;
+}
 .card-container:hover {
     box-shadow: 0px 0px 15px -5px;
     transition: .8s;
@@ -48,13 +56,20 @@
 .card-title {
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
 .card-title h3 {
-    height: .5rem;
+    height: 1.5rem;
+    overflow-y: hidden;
 }
 
-.card-title p {
+#random-rev-logo {
+    display: flex;
+
+}
+
+#random-rev {
     display: flex;
     /* align-items: flex-start; */
 
@@ -62,18 +77,25 @@
     /* align-items: center; */
     overflow-y: scroll;
     overflow-wrap: break-word;
-    height: 2.5rem;
+    height: 3.5rem;
 }
 
-.card-title p::-webkit-scrollbar{
+#random-rev::-webkit-scrollbar{
     display: none;
+}
+
+.card-name h2 {
+    margin-bottom: 1px;
+}
+.card-name h2:hover {
+    text-decoration: underline;
 }
 
 
 #card-comment {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: .2rem;
     /* height: 2.5rem; */

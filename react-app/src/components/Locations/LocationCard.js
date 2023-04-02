@@ -75,7 +75,7 @@ import './Card.css'
             {/* <br></br> */}
         <div className="card-info">
             <div className="card-name">
-                <h2>{location.id}. {location.name}</h2>
+                <h2>{location.name}</h2>
             </div>
             <div className="card-rating">
                 <div>
@@ -89,7 +89,7 @@ import './Card.css'
 
             </div>
             <br></br>
-            <div>
+            <div id="category">
                 {location?.category}
             </div>
             <br></br>
@@ -100,12 +100,12 @@ import './Card.css'
             <div className="card-title">
                 <h3>{location.city}, {location.state} </h3>
                 <div id="card-comment">
-                    <div>
+                    <div id="random-rev-logo">
                         <i className="fa-regular fa-comment"></i>
                     </div>
-                    <p>
+                    <div id="random-rev">
                         {reviewsArray[randomRev]?.review}
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>

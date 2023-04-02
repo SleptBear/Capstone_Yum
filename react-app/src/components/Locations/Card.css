@@ -11,8 +11,8 @@
     /* border-style: double; */
     /* border-color: blue; */
     border-width: 1px;
-    height: 17rem;
-    max-height: 17rem;
+    height: 18rem;
+    max-height: 18rem;
     width: 97%;
     /* padding-top: 10px; */
     /* box-shadow: 0px 0px 15px -5px; */
@@ -41,7 +41,42 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    padding-left: 10%;
+    padding-left: 5%;
+}
+
+
+.card-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title h3 {
+    height: .5rem;
+}
+
+.card-title p {
+    display: flex;
+    /* align-items: flex-start; */
+
+    /* justify-content: center; */
+    /* align-items: center; */
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+    height: 2.5rem;
+}
+
+.card-title p::-webkit-scrollbar{
+    display: none;
+}
+
+
+#card-comment {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .2rem;
+    /* height: 2.5rem; */
 }
 
 .image-container {

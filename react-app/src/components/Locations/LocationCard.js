@@ -99,14 +99,14 @@ import './Card.css'
 
             <div className="card-title">
                 <h3>{location.city}, {location.state} </h3>
-                <i className="fa-regular fa-comment"></i> {reviewsArray[randomRev]?.review}
-                {/* <h3>{checkStar()} {checkAvg()}</h3> */}
-            </div>
-            <div>
-            </div>
-            {/* <br></br> */}
-            <div className="card-body">
-                {/* <div>$ {checkPrice()} night</div> */}
+                <div id="card-comment">
+                    <div>
+                        <i className="fa-regular fa-comment"></i>
+                    </div>
+                    <p>
+                        {reviewsArray[randomRev]?.review}
+                    </p>
+                </div>
             </div>
         </div>
        </div>

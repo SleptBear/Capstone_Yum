@@ -44,5 +44,6 @@ class User(db.Model, UserMixin):
             'state': self.state,
             'email': self.email,
             'prof_pic': self.prof_pic,
-            'images': [image.to_dict() for image in self.images]
+            'images': [image.to_dict() for image in self.images],
+            "num_reviews": len([review for review in self.reviews])
         }

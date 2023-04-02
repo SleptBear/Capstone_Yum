@@ -10,7 +10,7 @@ const ProfilePage = () => {
     const dispatch = useDispatch()
     const reviewsObj = useSelector(state => state.review.UserReviews)
     const user = useSelector(state => state.session?.user)
-    const profilePic = user.prof_pic
+    let profilePic = user.prof_pic
     // console.log("profile pic", profilePic)
     const reviewsArray = Object.values(reviewsObj)
 
@@ -20,6 +20,7 @@ const ProfilePage = () => {
     }, [dispatch, user])
     if(!user?.id) return <div>Please Log in or Sign-up</div>
     if(!reviewsObj) return null
+    if (profilePic === null) profilePic = "https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png"
     return (
         <>
             <div className="prof-main">
@@ -31,7 +32,7 @@ const ProfilePage = () => {
                             {user.first_name} {user.last_name}
                         </div>
                         <div id='city-state'>
-                            From City, State
+                            From {user.city}, {user.state}
                         </div>
                         <div>
                         <i className="fa-regular fa-user"></i> 0 {' '}

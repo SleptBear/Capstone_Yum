@@ -6,281 +6,114 @@ import datetime
 def seed_reviews():
     reviews = [
         Review(
-            user_id=1, location_id=1, review='GREAT PRODUCT 10/10 would buy again', rating=5,
+            user_id=2, location_id=1, review='GREAT spot!! 10/10 I recommend to anyone', rating=5,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=2, location_id=1, review='THE GOOD', rating=3,
+            user_id=3, location_id=1, review='Average place, average experience', rating=3,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=3, location_id=1, review='THE BAD 1', rating=1,
-            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
-        ),
-       Review(
-            user_id=1, location_id=2, review='GREAT PRODUCT 10/10 would buy again', rating=5,
+            user_id=4, location_id=1, review='Waiter spit in my food...enough said', rating=1,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=2, location_id=2, review='THE GOOD', rating=4,
+            user_id=1, location_id=2, review="GREAT, it is a must try!", rating=5,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=3, location_id=2, review='Terrible product, dont buy it', rating=1,
+            user_id=4, location_id=2, review='Awesome, affordable, and has entertainment nearby.', rating=4,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=1, location_id=3, review='GREAT PRODUCT 10/10 would buy again', rating=5,
+            user_id=3, location_id=2, review='Terrible,  do not even bother unless starving.', rating=2,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=2, location_id=3, review='THE GOOD', rating=3,
+            user_id=1, location_id=3, review='GREAT 10/10', rating=5,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=3, location_id=3, review='Terrible product, dont buy it', rating=1,
+            user_id=2, location_id=3, review='THE GOOD STUFF', rating=3,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
-        # Review(
-        #     user_id=1, location_id=4, review='terrible would not buy again', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=4, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=4, review='its meh', rating=3,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=5, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=5, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=5, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=6, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=6, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=6, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=7, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=7, review='THE GOOD', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=7, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=8, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=8, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=8, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=9, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=9, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=9, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=10, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=10, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=10, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=11, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=11, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=11, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=12, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=12, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=12, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=13, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=13, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=13, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=14, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=14, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=14, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=15, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=15, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=15, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=16, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=16, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=16, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=17, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=17, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=17, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=18, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=18, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=18, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=19, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=19, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=19, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=22, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=22, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=22, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=21, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=21, review='THE GOOD', rating=4,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=21, review='Terrible product, dont buy it', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=20, review='DAY MAN (AH-AH-AH) ', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=20, review='FIGHTER OF THE NIGHTMAN (AH-AH-AH)', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=20, review='DAYMAN (AH-AH-AH)', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=1, location_id=23, review='GREAT PRODUCT 10/10 would buy again', rating=5,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=2, location_id=23, review='i wish it came with scissors', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
-        # Review(
-        #     user_id=3, location_id=23, review='should have gotten shorts', rating=1,
-        #     created_at=datetime.datetime.now()
-        # ),
+        Review(
+            user_id=4, location_id=3, review='Had to give this place 5 stars.', rating=5,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=1, location_id=4, review='GREAT food and dirt cheap drink. I go every week.', rating=5,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=2, location_id=4, review='THE GOOD STUFF', rating=3,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=3, location_id=4, review='Had to give this place 5 stars.', rating=5,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=6, location_id=5, review='Amazing taste in both food and asthetic', rating=5,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=7, location_id=5, review='THE GOOD STUFF', rating=4,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=8, location_id=5, review='Had to give this place 5 stars.', rating=5,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=6, location_id=7, review='Amazing taste in both food and asthetic', rating=5,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=8, location_id=7, review='THE GOOD STUFF', rating=4,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=9, location_id=7, review='Had to give this place 5 stars.', rating=5,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=7, location_id=8, review='Amazing taste in both food and asthetic', rating=5,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=9, location_id=8, review='THE GOOD STUFF', rating=4,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=6, location_id=8, review='Had to give this place 5 stars.', rating=5,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=7, location_id=9, review='Amazing taste in both food and asthetic', rating=5,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=8, location_id=9, review='THE MOST EVIL PLACE...BEWARE', rating=1,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=10, location_id=9, review='Had to give this place 2 stars.', rating=2,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=7, location_id=10, review='Average taste in both food and asthetic', rating=3,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=8, location_id=10, review='THE GOOD STUFF', rating=4,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=9, location_id=10, review='Had to give this place 5 stars.', rating=5,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+
     ]
 
     for review in reviews:

@@ -16,7 +16,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   z-index: 1;
+  max-width: 120rem;
   }
 
   .navbar {
@@ -35,8 +37,8 @@
     /* border: solid; */
     /* border-bottom: 2px solid rgba(128, 128, 128, 0.408); */
     /* border-bottom: 2px solid lightgrey; */
-    padding-left: 10%;
-    padding-right: 9%;
+    padding-left: 6%;
+    padding-right: 6%;
     z-index: 100;
 
 }

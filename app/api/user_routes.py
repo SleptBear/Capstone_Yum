@@ -29,7 +29,7 @@ def user(id):
 def changePicture():
     print(request)
     data = request.get_json()
-    print("DATA===============================", data)
+    # print("DATA===============================", data)
     user = User.query.get(current_user.id)
 
     user.prof_pic = data['image_url']

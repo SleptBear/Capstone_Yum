@@ -44,7 +44,7 @@ def allLocations():
     while i < len(locations):
         location_objs[i]['preview'] = image_only[i]
         reviews_obj = [review.to_dict() for review in reviews[i]]
-        print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK", reviews_obj)
+        # print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK", reviews_obj)
         location_objs[i]['reviews'] = reviews_obj
         # if reviews_obj[0]:
         #     Ratings = [(rating) for rating in reviews[i]]
@@ -166,7 +166,7 @@ def locationReviews(id):
         reviewer_obj = reviewer.to_dict()
         review_obj['reviewer'] = reviewer_obj
         review_obj['images'] = images_obj
-        print("REVIEW==========================>", review_obj)
+        # print("REVIEW==========================>", review_obj)
         reviewList.append(review_obj)
     return {'reviews': reviewList}
 
@@ -176,7 +176,7 @@ def locationReviews(id):
 @login_required
 def createLocationImage(id):
     data = request.get_json()
-    print("LOOOOK", data)
+    # print("LOOOOK", data)
     # form = LocationForm()
     # form['csrf_token'].data = request.cookies['csrf_token'] # makes a csrf_token in form object
     new_image = Image(

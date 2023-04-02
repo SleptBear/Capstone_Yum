@@ -16,7 +16,7 @@ const LocationsIndex = () => {
 
     // console.log("Locations Index Render")
 
-    // console.log("locations array", locations)
+    // console.log("locations reversed array", Locations)
 
     if(!locations[0]) return null
     // console.log("state Locations", locationsObj)

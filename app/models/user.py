@@ -12,6 +12,8 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(40), nullable=False)
     last_name = db.Column(db.String(40), nullable=False)
+    city = db.Column(db.String(50), nullable=False)
+    state = db.Column(db.String(50), nullable=False)
     # username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
@@ -38,7 +40,10 @@ class User(db.Model, UserMixin):
             # 'username': self.username,
             'first_name': self.first_name,
             'last_name': self.last_name,
+            'city': self.city,
+            'state': self.state,
             'email': self.email,
             'prof_pic': self.prof_pic,
-            'images': [image.to_dict() for image in self.images]
+            'images': [image.to_dict() for image in self.images],
+            "num_reviews": len([review for review in self.reviews])
         }

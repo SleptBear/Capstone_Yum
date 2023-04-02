@@ -2,61 +2,162 @@ from app.models import db, Image, environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_location_images():
-    image1 = Image(
+
+    images = [
+    Image(
         img_url='https://s3-media0.fl.yelpcdn.com/bphoto/tZsAdTClHKTuMdFctSIBIA/348s.jpg',
         location_id=1,
         user_id=1,
-    )
-    image2 = Image(
-        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/ZUgWmrJw3gAOmyqR6dSBhw/348s.jpg',
-        location_id=2,
-        user_id=2,
-    )
-    image3 = Image(
-        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/tFVNb6smvDgC73EpYMQl0A/348s.jpg',
-        location_id=3,
-        user_id=3,
-    )
-    image4 = Image(
+    ),
+    Image(
         img_url='https://s3-media0.fl.yelpcdn.com/bphoto/D1h9IZztEAFRqLTgYZxlIQ/348s.jpg',
         location_id=1,
         user_id=1,
-    )
-    image5 = Image(
+    ),
+    Image(
         img_url='https://s3-media0.fl.yelpcdn.com/bphoto/L8fJ120FAJdykpsfcesHEA/348s.jpg',
         location_id=1,
         user_id=1,
-    )
-    image6 = Image(
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/ZUgWmrJw3gAOmyqR6dSBhw/348s.jpg',
+        location_id=2,
+        user_id=2,
+    ),
+    Image(
         img_url='https://s3-media0.fl.yelpcdn.com/bphoto/8dSSqJMGaMmNi2sHcIIQ0w/348s.jpg',
         location_id=2,
         user_id=2,
-    )
-    image7 = Image(
+    ),
+    Image(
         img_url='https://s3-media0.fl.yelpcdn.com/bphoto/aUvbdeRhgz7klYyewFcQXA/348s.jpg',
         location_id=2,
         user_id=2,
-    )
-    image8 = Image(
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/tFVNb6smvDgC73EpYMQl0A/348s.jpg',
+        location_id=3,
+        user_id=3,
+    ),
+    Image(
         img_url='https://s3-media0.fl.yelpcdn.com/bphoto/lmBv5gPsBXZqJ-7ELE4XMA/348s.jpg',
         location_id=3,
         user_id=3,
-    )
-    image9 = Image(
+    ),
+    Image(
         img_url='https://s3-media0.fl.yelpcdn.com/bphoto/bar0P91_K3RM_stLbHG9wQ/348s.jpg',
         location_id=3,
         user_id=3,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/NGSqReCS02gfGWRxpOc0vw/348s.jpg',
+        location_id=4,
+        user_id=4,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/Dyjh_D1vdlAD1eO1tIB2cQ/348s.jpg',
+        location_id=4,
+        user_id=4,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/F-ZUVbaYQxvt1aRp8TTiGA/348s.jpg',
+        location_id=4,
+        user_id=4,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/tVhfDeT-AA8wVl0s7pBK3A/348s.jpg',
+        location_id=5,
+        user_id=5,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/Srw-kVtZgmINJXsccogREA/348s.jpg',
+        location_id=5,
+        user_id=5,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/q6DSc3XZ0K9hvBWoTMZJcQ/348s.jpg',
+        location_id=5,
+        user_id=5,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/9UghUSh6YGODYrARgzkm7Q/348s.jpg',
+        location_id=6,
+        user_id=6,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/RJDfxmS3U-M92Y9BG0TDNw/348s.jpg',
+        location_id=6,
+        user_id=6,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/iLxGua0dzFW4e7UKlq9Uvg/348s.jpg',
+        location_id=6,
+        user_id=6,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/BlFf5yj7HYRoipsmpMcQPA/348s.jpg',
+        location_id=7,
+        user_id=7,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/ghzY3L_NIKNnRpJ67ec-hg/348s.jpg',
+        location_id=7,
+        user_id=7,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/D3Ppmur_Db_ptRP1h9opkg/348s.jpg',
+        location_id=7,
+        user_id=7,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/-Eh5CjbqtRDVH6C7w2CeSA/348s.jpg',
+        location_id=8,
+        user_id=8,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/g-0bC6nOX4sgXT1REclvCA/348s.jpg',
+        location_id=8,
+        user_id=8,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/ybwJMyoQqhgbxo-e0AS1xw/348s.jpg',
+        location_id=8,
+        user_id=8,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/AQeXiqRDnkeHUjBjP2IYug/348s.jpg',
+        location_id=9,
+        user_id=9,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/pG-tw_hKjlZj9TWFlUldag/348s.jpg',
+        location_id=9,
+        user_id=9,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/vsUCzrSQIArIqACauhUUkA/348s.jpg',
+        location_id=9,
+        user_id=9,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/5zLUSO0VPFfv4fGIXZ0VJg/348s.jpg',
+        location_id=10,
+        user_id=10,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/mw2B2RH2QtgXE1tvJSE5Ag/348s.jpg',
+        location_id=10,
+        user_id=10,
+    ),
+    Image(
+        img_url='https://s3-media0.fl.yelpcdn.com/bphoto/ReHRnShcXTJ3ST4d9D6fHA/348s.jpg',
+        location_id=10,
+        user_id=10,
     )
+    ]
 
-    db.session.add(image1)
-    db.session.add(image2)
-    db.session.add(image3)
-    db.session.add(image4)
-    db.session.add(image5)
-    db.session.add(image6)
-    db.session.add(image7)
-    db.session.add(image8)
-    db.session.add(image9)
+    for image in images:
+        db.session.add(image)
 
     db.session.commit()
 

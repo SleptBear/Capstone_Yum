@@ -8,14 +8,36 @@ const ReviewsIndex = () => {
     const allReviewsState = useSelector(state => state.review)
     const reviewsSlice = allReviewsState?.AllReviews
     const reviewsArray = Object.values(reviewsSlice)
-    const latestArray = reviewsArray.reverse().slice(0,6)
+
+
 
     useEffect(() => {
         dispatch(readAllReviews())
     }, [dispatch])
     // console.log(allReviewsState)
-    console.log(latestArray)
     if(!reviewsArray[0]) return null
+    // console.log(latestArray)
+
+    const sortByDate = (arr) => {
+        const sorter = (a, b) => {
+            return new Date(a.updated_at).getTime() - new Date(b.updated_at).getTime();
+        }
+        arr.sort(sorter);
+    };
+    // console.log("before", latestArray);
+    sortByDate(reviewsArray);
+    const latestArray = reviewsArray.reverse().slice(0,6)
+     console.log("after", latestArray);
+
+
+
+    // function getRandomInt(max) {
+    //     return Math.floor(Math.random() * max);
+    //   }
+
+    // let randomRev = getRandomInt(reviewsArray.length)
+
+
     return (
 
         <div className="review-container">
@@ -27,6 +49,12 @@ const ReviewsIndex = () => {
                 <ReviewsIndexCard review={latestArray[3]} key={latestArray[3]?.id}/>
                 <ReviewsIndexCard review={latestArray[4]} key={latestArray[4]?.id}/>
                 <ReviewsIndexCard review={latestArray[5]} key={latestArray[5]?.id}/>
+                {/* <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/>
+                <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/>
+                <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/>
+                <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/>
+                <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/>
+                <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/> */}
         </div>
         <br></br>
 

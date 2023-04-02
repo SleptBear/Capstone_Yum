@@ -28,7 +28,7 @@ function HomePage() {
             </div>
             <div className="recent-activity">
             <h1>
-                Recently Rated Grub Spots
+                What people have been saying
             </h1>
             <div className="all-reviews">
                 <ReviewsIndex />

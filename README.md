@@ -1,6 +1,21 @@
-# Flask React Project
+# About Yum!
 
-This is the starter for the Flask React project.
+![image](https://user-images.githubusercontent.com/107887726/229393553-e1139d94-8c35-4b77-86d4-eab5ee9ff5cd.png)
+
+- Yum! is a collaborative foody review site that lets users from any universe share their food based businesses as well as their thoughts. At the moment users can easily create a new user or utlize the demo user to navigate to our splash page, user profile page, restaurant listings page, and more form pages to create their own locations, reviews, or post images.
+
+Checkout the current live version of this build with this link: https://capstone-yum.onrender.com
+
+# Technologies used: 
+- Javascript
+ -Python
+ - React
+ - Redux
+ - Flask
+ - NodeJS
+ - CSS
+ - Database: PostgreSQL
+ - Hosting: Render
 
 ## Getting started
 1. Clone this repository (only this branch)

@@ -150,8 +150,8 @@ const EditLocation = () => {
             value={stringprice}
             placeholder="Price"
             maxLength={20}
-            pattern="[0-9]*"
-            title="No Symbols or Characters"
+            pattern="[0-9.-]*"
+            title="No Special Symbols or Characters"
             onChange={(e) => {
                 setstringPrice(e.target.value)
             }}

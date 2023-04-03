@@ -133,7 +133,7 @@ const AddLocation = () => {
             placeholder="12.99 - 20.00"
             maxLength={20}
             pattern="[0-9.- ]*"
-            title="No Symbols or Characters"
+            title="No Special Symbols or Characters"
             onChange={(e) => {
                 setstringPrice(e.target.value)
             }}

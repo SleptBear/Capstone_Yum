@@ -8,13 +8,13 @@ Checkout the current live version of this build with this link: https://capstone
 
 # Technologies used: 
 
-[![HTML][html.js]][html-url]
-[![CSS][css.js]][css-url]
-[![Javascript][javascript.js]][javascript-url]
-[![React][react.js]][react-url]
-[![Redux][redux.js]][redux-url]
-[![Python][python.js]][python-url]
-[![Flask][flask.js]][flask-url]
+ - Javascript
+ - Python
+ - React
+ - Redux
+ - Flask
+ - NodeJS
+ - CSS
  - Database: PostgreSQL
  - Hosting: Render
 

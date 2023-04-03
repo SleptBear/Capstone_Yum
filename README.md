@@ -175,6 +175,10 @@ your site just below the name of the Web Service at the top of the page.
 ## Sign-up:
 ![image](https://user-images.githubusercontent.com/107887726/229395219-d1012a7d-6518-4ccf-9408-328b624ab69d.png)
 
+## Splash Page:
+### Shows recent activity from users leaving reviews
+![image](https://user-images.githubusercontent.com/107887726/229396146-d4cc8502-2474-40ef-8c92-8bb2f63560f9.png)
+
 ## List of all current listings (Maps integration coming soon)
 ![image](https://user-images.githubusercontent.com/107887726/229395350-aeff7003-3da8-4c8e-b73b-4f5d4146851c.png)
 
@@ -191,6 +195,10 @@ your site just below the name of the Web Service at the top of the page.
 
 ## User Profile Page can be used to manage reviews and update profile photo
 ![image](https://user-images.githubusercontent.com/107887726/229395760-2bc30e39-b10b-4253-8595-5b0c1a30b493.png)
+
+# Features Coming Soon
+## Google maps api integration
+## Filtered Search on navbar and locations listing page.
 
 
 

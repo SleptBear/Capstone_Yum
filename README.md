@@ -7,6 +7,7 @@
 Checkout the current live version of this build with this link: https://capstone-yum.onrender.com
 
 # Technologies used: 
+
 [![HTML][html.js]][html-url]
 [![CSS][css.js]][css-url]
 [![Javascript][javascript.js]][javascript-url]

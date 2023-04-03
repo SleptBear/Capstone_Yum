@@ -126,13 +126,13 @@ const AddLocation = () => {
             ></input>
             </label>
             <label className="Label">
-                Price Range ($)
+                Avg Price in Dollars ($)
             <input className="price-form"
             type="text"
             value={stringprice}
-            placeholder="12.99 - 20.00"
+            placeholder="12"
             maxLength={20}
-            pattern="[0-9.- ]*"
+            pattern="[0-9]*"
             title="No Special Symbols or Characters"
             onChange={(e) => {
                 setstringPrice(e.target.value)

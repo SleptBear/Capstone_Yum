@@ -144,13 +144,13 @@ const EditLocation = () => {
             ></input>
             </label>
             <label className="Label">
-                Price
+                Average Price
                 <input className="price-form"
             type="text"
             value={stringprice}
             placeholder="Price"
             maxLength={20}
-            pattern="[0-9.-]*"
+            pattern="[0-9]*"
             title="No Special Symbols or Characters"
             onChange={(e) => {
                 setstringPrice(e.target.value)

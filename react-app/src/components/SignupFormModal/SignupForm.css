@@ -90,6 +90,14 @@
     align-items: center;
 }
 
+.signup-modal > form > label > select {
+    width: 37%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .error-message {
     text-align: center;
     list-style: none;

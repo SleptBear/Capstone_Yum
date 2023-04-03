@@ -21,15 +21,15 @@ import './Card.css'
 
     function LocationCard({location}) {
         const  dispatch = useDispatch();
-        const stateReviews = useSelector(state => state.review)
+        // const stateReviews = useSelector(state => state.review)
         // const locationReviews = stateReviews?.LocationReviews
         // const stateRevArray = Object.values(locationReviews)
         // console.log("useEffect reviews", locationReviews)
         // console.log("useEffect reviews", stateRevArray)
 
-         useEffect(() => {
-        dispatch(readReviews(location?.id))
-    }, [dispatch])
+    //      useEffect(() => {
+    //     dispatch(readReviews(location?.id))
+    // }, [dispatch])
 
     // console.log("Location Card Render")
     // console.log("location Card Props", location)
@@ -66,7 +66,7 @@ import './Card.css'
       }
 
     let randomRev = getRandomInt(reviewsArray.length)
-
+      console.log("location card render cycle")
     return (
         <div className="card-container">
             <div className="image-container">
@@ -104,7 +104,7 @@ import './Card.css'
                         <i className="fa-regular fa-comment"></i>
                     </div>
                     <div id="random-rev">
-                        {reviewsArray[randomRev]?.review}
+                        {reviewsArray[getRandomInt(reviewsArray.length)]?.review}
                     </div>
                 </div>
             </div>

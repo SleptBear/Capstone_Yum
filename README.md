@@ -7,13 +7,13 @@
 Checkout the current live version of this build with this link: https://capstone-yum.onrender.com
 
 # Technologies used: 
-- Javascript
- -Python
- - React
- - Redux
- - Flask
- - NodeJS
- - CSS
+[![HTML][html.js]][html-url]
+[![CSS][css.js]][css-url]
+[![Javascript][javascript.js]][javascript-url]
+[![React][react.js]][react-url]
+[![Redux][redux.js]][redux-url]
+[![Python][python.js]][python-url]
+[![Flask][flask.js]][flask-url]
  - Database: PostgreSQL
  - Hosting: Render
 

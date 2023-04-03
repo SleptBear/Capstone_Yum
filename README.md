@@ -162,3 +162,63 @@ your site just below the name of the Web Service at the top of the page.
 
 [Render.com]: https://render.com/
 [Dashboard]: https://dashboard.render.com/
+
+
+# Features Directions:
+
+### Checkout the illustrations below depicting how users can interact with basic CRUD functionality for specific features
+
+## Demo User/Log in
+### Some functionality of site is locked behind a user needing to be logged in. Create a new one or use our demo user when trying to log in.
+![image](https://user-images.githubusercontent.com/107887726/229395163-776ec16f-ef50-40fe-bb20-891e49de97af.png)
+
+## Sign-up:
+![image](https://user-images.githubusercontent.com/107887726/229395219-d1012a7d-6518-4ccf-9408-328b624ab69d.png)
+
+## List of all current listings (Maps integration coming soon)
+![image](https://user-images.githubusercontent.com/107887726/229395350-aeff7003-3da8-4c8e-b73b-4f5d4146851c.png)
+
+## Create your buisnesses listing on our site
+![image](https://user-images.githubusercontent.com/107887726/229395391-1f826983-2bbe-40c9-8f1c-75944a392968.png)
+
+## View details of any location, start a review, and more to come.
+![image](https://user-images.githubusercontent.com/107887726/229395550-4a91a6a8-541f-4cc7-b687-240e134fede1.png)
+
+## Create your own review about a location.
+![image](https://user-images.githubusercontent.com/107887726/229395628-98d7952d-fa9e-440d-8c01-b5abb9e236a3.png)
+
+## Bonus Feature
+
+## User Profile Page can be used to manage reviews and update profile photo
+![image](https://user-images.githubusercontent.com/107887726/229395760-2bc30e39-b10b-4253-8595-5b0c1a30b493.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

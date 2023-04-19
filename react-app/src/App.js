@@ -17,6 +17,7 @@ import CreateReview from "./components/Forms/CreateReview";
 import EditReview from "./components/Forms/EditReview";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import ScrollToTop from "./context/ScrollToTop";
+import MapsHome from "./components/Gmaps/MapsHome";
 
 function App() {
   const dispatch = useDispatch();
@@ -66,6 +67,9 @@ function App() {
           </Route>
           <Route exact path="/reviews/:id/edit">
             <EditReview />
+          </Route>
+          <Route exact path="/map">
+            <MapsHome />
           </Route>
         </Switch>
       </ScrollToTop>

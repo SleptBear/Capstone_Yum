@@ -66,9 +66,9 @@ const LocationDetails = () => {
                     </div>
 
                     <button onClick={() => history.push(`/locations/${locationId}/photo`)}><i className="fa-solid fa-camera"></i> Add Photo</button>
-                    <button onClick={() => window.alert("Coming Soon")}><i className="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
-                    <button onClick={() => window.alert("Coming Soon")}><i className="fa-regular fa-bookmark"></i> Save</button>
-                    <button onClick={() => window.alert("Coming Soon")}><i className="fa-solid fa-plus"></i> Follow</button>
+                    <button id='not-allowed' onClick={() => window.alert("Share currently in development")}><i className="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
+                    <button id='not-allowed' onClick={() => window.alert("Bookmars currently in development")}><i className="fa-regular fa-bookmark"></i> Save</button>
+                    <button id='not-allowed' onClick={() => window.alert("Follow currently in development")}><i className="fa-solid fa-plus"></i> Follow</button>
                 </div>
                 {/* <br></br> */}
                 {/* <hr style={{width: "90%", height: "1px", color: "#ebebeb"}}></hr> */}

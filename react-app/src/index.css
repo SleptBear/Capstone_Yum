@@ -87,6 +87,10 @@
     cursor: not-allowed;
 }
 
+#not-allowed:hover {
+    cursor: not-allowed;
+}
+
 
 
 .details-container {

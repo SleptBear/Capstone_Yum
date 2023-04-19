@@ -34,7 +34,7 @@ import './Card.css'
     // console.log("Location Card Render")
     // console.log("location Card Props", location)
 
-    if(!location?.reviews) return null
+    // if(!location?.reviews) return null
     // if(!locationReviews) return null
     // if(!stateRevArray[0]) return null
     const reviewsArray = location?.reviews
@@ -46,6 +46,9 @@ import './Card.css'
         // let count = 0
         let length = reviewsArray?.length
         // let length = stateRevArray?.length
+        if(length === 0) {
+        return <Stars rating={0}/>
+        }
         reviewsArray.forEach(review => {
         // stateRevArray.forEach(review => {
             // console.log("Rating before sum", review?.rating)
@@ -53,9 +56,6 @@ import './Card.css'
             // count += 1
         });
         // console.log("arrayLength", length)
-        if(length === 0) {
-        return <Stars rating={0}/>
-        }
         let averageRating = Number(sum/length)
         // console.log("Average", averageRating)
         return <Stars rating={averageRating}/>
@@ -66,7 +66,7 @@ import './Card.css'
       }
 
     let randomRev = getRandomInt(reviewsArray.length)
-      console.log("location card render cycle")
+    //   console.log("location card render cycle")
     return (
         <div className="card-container">
             <div className="image-container">

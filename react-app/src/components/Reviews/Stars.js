@@ -14,7 +14,7 @@ function Stars(rating) {
     const [currentRating, setCurrentRating] = useState(rating.rating);
     // // console.log("inside stars currentRating", currentRating)
 
-    // if(!rating?.rating) return null
+    if(!rating?.rating) return null
     return (
         <ReactStars
    count={5}

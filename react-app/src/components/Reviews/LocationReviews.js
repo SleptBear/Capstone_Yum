@@ -11,11 +11,11 @@ function LocationReviews() {
     const id = useParams();
     const reviewsArray = Object.values(reviewsObj)
 
-    // useEffect(() => {
-    //     dispatch(readReviews(id?.id))
-    // }, [dispatch, id.id])
+    useEffect(() => {
+        dispatch(readReviews(id?.id))
+    }, [dispatch, id.id])
 
-    // console.log("reviews Array", reviewsArray)
+    console.log("reviews Array", reviewsArray)
     if (!reviewsArray[0]) return null
     return (
         <div className="review-container">

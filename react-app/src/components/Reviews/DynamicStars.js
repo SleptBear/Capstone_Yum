@@ -35,6 +35,7 @@ function DynamicStars() {
                     onClick={() => setCurrentRating(index + 1)}
                     onMouseEnter={() => setHoverValue(index + 1)}
                     onMouseLeave={() => setHoverValue(undefined)}
+                    isHalf={true}
                     />
 
                     </label>

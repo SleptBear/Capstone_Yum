@@ -181,7 +181,7 @@ let initialState = {
             // console.log("Still has old review", copyReviews)
             copyReviews[action.payload.id] = action.payload
             // console.log("changed Review", copyReviews)
-            return { ...state, UserReviews: copyReviews }
+            return { ...state, UserReviews: copyReviews, LocationReviews: {} }
         case DELETE_REVIEW:
             newState = {...state}
             let reviewCopy = {...newState.UserReviews}

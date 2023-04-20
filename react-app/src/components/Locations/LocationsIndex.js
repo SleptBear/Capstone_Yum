@@ -8,6 +8,8 @@ import './index.css'
 const LocationsIndex = () => {
     const dispatch = useDispatch();
     const locationsObj = useSelector(state => state.location)
+    const searchObj = useSelector(state => state.search)
+    const filteredLocations = Object.values(searchObj)
     const locations = Object.values(locationsObj?.locations)
 
     useEffect(() => {
@@ -19,7 +21,11 @@ const LocationsIndex = () => {
     // console.log("locations reversed array", Locations)
 
     if(!locations[0]) return null
-    // console.log("state Locations", locationsObj)
+    console.log("all Locations", locations)
+    console.log("search Locations", filteredLocations)
+    let data = locations
+    // if (filteredLocations[0]) data = filteredLocations
+
 
     return (
         <>
@@ -33,12 +39,12 @@ const LocationsIndex = () => {
         <div className="all-cards-container">
 
         {
-            locations.map(location => (
+            data.map(location => (
                 <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>
                     <LocationCard location={location} />
                 </Link>
                 ))
-            }
+        }
 
         </div>
         <div className="maps-api-container">

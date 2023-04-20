@@ -21,30 +21,20 @@ def validation_errors_to_error_messages(validation_errors):
 @location_routes.route('')
 def allLocations():
     locations = Location.query.all()
-    # print("locations =========>", locations)
-    # print(locations[0].images)
+
     reviews = [location.reviews for location in locations]
-    # print('reviews=====================>', reviews)
-    # reviews_obj = [review[0].to_dict() for review in reviews]
-    # print('reviews=====================>', reviews_obj)
-
-
 
     images = [location.images for location in locations]
     images_obj = [image[0].to_dict() for image in images]
-    # print("images==========>", images)
+
     image_only = [image['img_url'] for image in images_obj]
-    # print("images_obj==========>", images_obj)
-    # print("images_only==========>", image_only)
+
     location_objs = [location.to_dict() for location in locations]
-    # print("LOOOOOOOOOOOOOOK", len(locations))
-    # print("LOOOOOOOOOOOOOOK", location_objs[0])
-    # print("LOOOOOOOOOOOOOOK", image_only[0])
+
     i = 0
     while i < len(locations):
         location_objs[i]['preview'] = image_only[i]
         reviews_obj = [review.to_dict() for review in reviews[i]]
-        # print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK", reviews_obj)
         location_objs[i]['reviews'] = reviews_obj
         # if reviews_obj[0]:
         #     Ratings = [(rating) for rating in reviews[i]]
@@ -54,11 +44,6 @@ def allLocations():
         #     location_objs[i]['reviews'] = []
         #     location_objs[i]['avgRating'] = 0
         i += 1
-
-
-
-    # location_images = [location['images'] = ]
-    # print(location_objs)
     return location_objs
 # GET
 @location_routes.route('/<int:id>')

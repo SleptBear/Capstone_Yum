@@ -174,7 +174,7 @@ export default function locationReducer(state = initialState, action) {
             return newState
 
         case LOAD_ONE_LOCATION:
-            newState = { ...state, locations: {...state.locations}, location: {...state.location} }
+            newState = { ...state, locations: {}, location: {...state.location} }
             newState.location = action.location
             // newState.spots = {}
             return newState

@@ -15,7 +15,7 @@ function LocationReviews() {
         dispatch(readReviews(id?.id))
     }, [dispatch, id.id])
 
-    console.log("reviews Array", reviewsArray)
+    // console.log("reviews Array", reviewsArray)
     if (!reviewsArray[0]) return null
     return (
         <div className="review-container">

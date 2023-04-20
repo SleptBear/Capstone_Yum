@@ -21,8 +21,8 @@ const LocationsIndex = () => {
     // console.log("locations reversed array", Locations)
 
     if(!locations[0]) return null
-    console.log("all Locations", locations)
-    console.log("search Locations", filteredLocations)
+    // console.log("all Locations", locations)
+    // console.log("search Locations", filteredLocations)
     let data = locations
     // if (filteredLocations[0]) data = filteredLocations
 

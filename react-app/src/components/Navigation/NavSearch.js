@@ -5,23 +5,19 @@ import { useHistory } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 const NavSearch = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(undefined);
   // const searchResult = useSelector(state => state);
   const dispatch = useDispatch();
   const history = useHistory()
 
 //   console.log("SEARCH" , searchResult)
   const handleSearch = async () => {
-    dispatch(searchThunk(searchTerm))
-    .then(() => {
-      history.push('/search')
-      setSearchTerm('')
-      // clearSearchThunk()
+    if (searchTerm.length < 1) {
+    return history.push('/locations')
     }
-    )
-    // (() => clearSearchThunk())
-
-    // window.alert("Search Feature in Development")
+    dispatch(searchThunk(searchTerm))
+    .then(() => history.push('/search'))
+      setSearchTerm('')
   };
 
   const enterKey = (e) => {
@@ -29,7 +25,6 @@ const NavSearch = () => {
       handleSearch()
     }
   }
-
   return (
     <div className="search-bar">
         <input
@@ -39,6 +34,7 @@ const NavSearch = () => {
         // readOnly
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyDown={enterKey}
+        required
         />
         <button className="searchbutton"onClick={handleSearch}><i className="fa-solid fa-magnifying-glass"></i></button>
 

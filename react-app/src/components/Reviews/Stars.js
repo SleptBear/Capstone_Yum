@@ -12,10 +12,10 @@ function Stars(rating) {
     // const stars = Array(5).fill(0);
     // console.log("inside stars props", rating)
     const [currentRating, setCurrentRating] = useState(rating.rating);
-    console.log("inside stars currentRating", currentRating)
+    // console.log("inside stars currentRating", currentRating)
 
     // if(!rating?.rating) return null
-    console.log("inside stars after null check", currentRating)
+    // console.log("inside stars after null check", currentRating)
     return (
         <ReactStars
    count={5}

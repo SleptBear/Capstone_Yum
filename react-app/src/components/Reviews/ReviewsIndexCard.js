@@ -18,7 +18,7 @@ function ReviewsIndexCard(review) {
     //     dispatch(readAllReviews())
     // }, [dispatch])
 
-    console.log(review)
+    // console.log(review)
 
     return (
         <div className="all-rev-card">

@@ -27,7 +27,7 @@ const ReviewsIndex = () => {
     // console.log("before", latestArray);
     sortByDate(reviewsArray);
     const latestArray = reviewsArray.reverse().slice(0,6)
-     console.log("after", latestArray);
+    //  console.log("after", latestArray);
 
 
 

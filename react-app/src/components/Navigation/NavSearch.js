@@ -8,7 +8,7 @@ const NavSearch = () => {
   const [searchTerm, setSearchTerm] = useState(undefined);
   // const searchResult = useSelector(state => state);
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
 
 //   console.log("SEARCH" , searchResult)
   const handleSearch = async () => {

@@ -7,7 +7,8 @@ search_routes = Blueprint('search', __name__)
 def get_search(search):
     locations = Location.query.filter(
         (Location.name.ilike(f'%%{search}%%')) |
-        (Location.category.ilike(f'%%{search}%%'))
+        (Location.category.ilike(f'%%{search}%%')) |
+        (Location.description.ilike(f'%%{search}%%'))
         # (Location.price.like(f'%%{search}%%'))
     ).all()
     # query_dict = [q.to_dict() for q in search_result]

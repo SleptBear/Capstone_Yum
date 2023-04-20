@@ -3,14 +3,13 @@ import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import NavSearch from './NavSearch.js';
+import AddLocationButton from './AddLocationButton';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 	const history = useHistory();
 	const params = useParams()
-
-	// const ulClassName = 'nav-modals' + ()
 
 	return (
 		<div className='navStart'>
@@ -37,9 +36,7 @@ function Navigation({ isLoaded }){
 	  			</div>
 
         		<div className='nav-modals'>
-					<button onClick={() => history.push('/locations/new')}>
-						Add Location
-					</button>
+					<AddLocationButton user={sessionUser}/>
 					<button onClick={() => history.push('/locations')}>
 						Find Grub
 					</button>

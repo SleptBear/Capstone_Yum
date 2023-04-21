@@ -29,7 +29,7 @@ const NavSearch = () => {
     <div className="search-bar">
         <input
         type="input" className="inputbar"
-        placeholder='Search Feature Testing'
+        // placeholder='Search Feature Testing'
         value={searchTerm}
         // readOnly
         onChange={(e) => setSearchTerm(e.target.value)}

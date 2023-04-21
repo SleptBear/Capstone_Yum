@@ -84,7 +84,7 @@
 
 .category-box:hover {
     box-shadow: 0px 0px 10px -2px;
-    cursor: not-allowed;
+    cursor: pointer;
 }
 
 #not-allowed:hover {

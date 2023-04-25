@@ -14,7 +14,7 @@ def seed_reviews():
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=4, location_id=1, review='Waiter spit in my food...enough said', rating=1,
+            user_id=4, location_id=1, review='Waiter spit in my food...enough said', rating=1.5,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
@@ -34,7 +34,7 @@ def seed_reviews():
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=2, location_id=3, review='THE GOOD STUFF', rating=3,
+            user_id=2, location_id=3, review='THE GOOD STUFF', rating=3.5,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
@@ -70,7 +70,7 @@ def seed_reviews():
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=8, location_id=7, review='THE GOOD STUFF', rating=4,
+            user_id=8, location_id=7, review='THE GOOD STUFF', rating=4.5,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(

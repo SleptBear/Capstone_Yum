@@ -25,7 +25,7 @@ def newFavorite(id):
     print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOK2", only_locations)
     for location in only_locations:
         if(location["id"] == id):
-            return {'errors': 'Spot already saved'}
+            return {'errors': 'Spot already saved'}, 404
             continue
     print("NEW LOcation===================>", new_location)
     db_favorite = favorites[0]
@@ -60,4 +60,4 @@ def delFavorite(id):
             return db_favorite.locations
             continue
 
-    return {'errors': 'Spot not favorited'}
+    return {'errors': 'Spot not favorited'}, 404

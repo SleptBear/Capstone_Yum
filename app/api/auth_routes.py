@@ -24,7 +24,14 @@ def authenticate():
     Authenticates a user.
     """
     if current_user.is_authenticated:
-        return current_user.to_dict()
+        user_obj = current_user.to_dict()
+        # # print("CURRENT USER ================>", current_user.to_dict())
+        user = User.query.filter(User.id == current_user.id).first()
+        favorites = user.favorites
+        favorites_obj = [favorite.to_dict() for favorite in favorites]
+        user_obj["favorites"] = favorites_obj
+        # return current_user.to_dict()
+        return user_obj
     return {'errors': ['Unauthorized']}
 
 

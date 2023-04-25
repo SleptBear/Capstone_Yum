@@ -34,9 +34,10 @@ def newFavorite(id):
     db_favorite.locations.append(new_location)
     db.session.commit()
     print("CHECKING AFTER========>", db_favorite.to_dict())
-
+    fav_obj = db_favorite.to_dict()
+    just_locations = fav_obj['locations']
     # create store state to determine return value here
-    return only_locations
+    return just_locations
 
 
 @favorite_routes.route('/<int:id>', methods=["DELETE"])
@@ -55,9 +56,10 @@ def delFavorite(id):
         # print("EACH LOCAL ===============>", location)
         if(location["id"] == int(id)):
             db_favorite.locations.remove(old_location)
-            # print("AFTER REMOVAL ============>", users_favorites)
+            print("AFTER REMOVAL ============>", db_favorite.locations)
             db.session.commit()
-            return db_favorite.locations
+            return db_favorite.locations[0].to_dict()
+            # return []
             continue
 
     return {'errors': 'Spot not favorited'}, 404

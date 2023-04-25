@@ -35,6 +35,11 @@ const LocationDetails = () => {
     //     'reviews': reviewObj
     // }
 
+    const handleBookmark = async (e) => {
+        e.preventDefault()
+        window.alert("TEST")
+        return
+    }
 
 
 
@@ -67,7 +72,7 @@ const LocationDetails = () => {
 
                     <button onClick={() => history.push(`/locations/${locationId}/photo`)}><i className="fa-solid fa-camera"></i> Add Photo</button>
                     <button id='not-allowed' onClick={() => window.alert("Share currently in development")}><i className="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
-                    <button id='not-allowed' onClick={() => window.alert("Bookmars currently in development")}><i className="fa-regular fa-bookmark"></i> Save</button>
+                    <button onClick={handleBookmark}><i className="fa-regular fa-bookmark"></i> Save</button>
                     <button id='not-allowed' onClick={() => window.alert("Follow currently in development")}><i className="fa-solid fa-plus"></i> Follow</button>
                 </div>
                 {/* <br></br> */}

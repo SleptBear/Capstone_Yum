@@ -19,7 +19,7 @@ export const searchThunk = (search) => async (dispatch) => {
     if (response.ok){
         const data = await response.json()
         dispatch(createSearch(data))
-        console.log(data)
+        // console.log(data)
         // dispatch(clearSearchThunk())
         return data
     }

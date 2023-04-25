@@ -19,13 +19,13 @@ const actionChangeProfilePic = (user) => ({
 	payload: user
 })
 
-const actionAddFav = (location) => ({
+const actionAddFav = (locations) => ({
 	type: ADD_FAVORITE,
-	payload: location
+	payload: locations
 })
-const actionRemoveFav = (location) => ({
+const actionRemoveFav = (locations) => ({
 	type: ADD_FAVORITE,
-	payload: location
+	payload: locations
 })
 
 
@@ -178,10 +178,12 @@ export default function reducer(state = initialState, action) {
 			return { user: action.payload}
 		case ADD_FAVORITE:
 			newState = {...state, user: {...state.user}}
-			// newState.user
-			return
+			newState.user.favorites = action.payload
+			return newState
 		case REMOVE_FAVORITE:
-			return
+			newState = {...state, user: {...state.user}}
+			newState.user.favorites = action.payload
+			return newState
 		default:
 			return state;
 	}

@@ -5,6 +5,7 @@ import { getLocation } from '../../store/location'
 import MiniLocation from './MiniLocation'
 import LocationReviews from '../Reviews/LocationReviews'
 import AllImages from './Images/images'
+import UserBar from './UserBar'
 import { readReviews } from '../../store/review'
 
 
@@ -14,7 +15,9 @@ const LocationDetails = () => {
     const location = useSelector(state => state.location)
     const locationObj = location.location
     const review = useSelector(state => state.review)
+    const session = useSelector(state => state.session)
     const reviewObj = review.LocationReviews
+    const userObj = session?.user
     const id = useParams()
     const locationId = id.id
     const imagesArray = locationObj.images
@@ -22,7 +25,7 @@ const LocationDetails = () => {
     useEffect(() => {
         dispatch(getLocation(locationId))
         // .then(dispatch(readReviews(locationId)))
-    }, [dispatch, locationId, reviewObj])
+    }, [dispatch, locationId, reviewObj, session])
 
 
     if(!locationObj.id) return null
@@ -65,7 +68,7 @@ const LocationDetails = () => {
         </div>
         <div className="location-details">
             <div className="details-left">
-                <div className='topLeft'>
+                {/* <div className='topLeft'>
                     <div className='WriteReview'>
                     <button onClick={() => history.push(`/locations/${locationId}/review/new`)}><i className="fa-regular fa-star"></i> Write a Review</button>
                     </div>
@@ -74,7 +77,8 @@ const LocationDetails = () => {
                     <button id='not-allowed' onClick={() => window.alert("Share currently in development")}><i className="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
                     <button onClick={handleBookmark}><i className="fa-regular fa-bookmark"></i> Save</button>
                     <button id='not-allowed' onClick={() => window.alert("Follow currently in development")}><i className="fa-solid fa-plus"></i> Follow</button>
-                </div>
+                </div> */}
+                <UserBar locationId={locationId} user={userObj}/>
                 {/* <br></br> */}
                 {/* <hr style={{width: "90%", height: "1px", color: "#ebebeb"}}></hr> */}
                 <div className='leftReviews-container'>

@@ -29,7 +29,8 @@ def authenticate():
         user = User.query.filter(User.id == current_user.id).first()
         favorites = user.favorites
         favorites_obj = [favorite.to_dict() for favorite in favorites]
-        user_obj["favorites"] = favorites_obj
+        print("CHECK FAV_OBJS ===============>", favorites_obj)
+        user_obj["favorites"] = favorites_obj[0]['locations']
         # return current_user.to_dict()
         return user_obj
     return {'errors': ['Unauthorized']}
@@ -53,7 +54,7 @@ def login():
         favorites = user.favorites
         favorites_obj = [favorite.to_dict() for favorite in favorites]
         print("TESTING FAVORITE lIST HERE===========================>", favorites_obj[0]['locations'])
-        user_obj["favorites"] = favorites_obj
+        user_obj["favorites"] = favorites_obj[0]['locations']
         # user_obj["favorites"] = favorites.to_dict()
         login_user(user)
         # return user.to_dict()

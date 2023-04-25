@@ -7,22 +7,22 @@ import { useEffect } from "react"
 
 const UserBar = (props) => {
     const history = useHistory()
-    const dispatch = useDispatch
-    console.log(props)
+    const dispatch = useDispatch()
+    // console.log(props)
     let locationId = props.locationId
     let bookmarkName = "fa-regular fa-bookmark"
 
     const handleBookmark = async (e) => {
         e.preventDefault()
-        // if (bookmarkName === 'fa-regular fa-bookmark') {
-        //     window.alert("not saved to saved")
-        //     await dispatch(AddFavorite(locationId))
-        // }
-        // if (bookmarkName === 'fa-solid fa-bookmark') {
-        //     window.alert("saved to not saved")
-        //     await dispatch(RemoveFavorite(locationId))
-        // }
-        dispatch(RemoveFavorite(locationId));
+        if (bookmarkName === 'fa-regular fa-bookmark') {
+            // window.alert("not saved to saved")
+            await dispatch(AddFavorite(locationId))
+        }
+        if (bookmarkName === 'fa-solid fa-bookmark') {
+            // window.alert("saved to not saved")
+            await dispatch(RemoveFavorite(locationId))
+        }
+        // dispatch(RemoveFavorite(locationId));
 
     }
 

@@ -24,7 +24,15 @@ def authenticate():
     Authenticates a user.
     """
     if current_user.is_authenticated:
-        return current_user.to_dict()
+        user_obj = current_user.to_dict()
+        # # print("CURRENT USER ================>", current_user.to_dict())
+        user = User.query.filter(User.id == current_user.id).first()
+        favorites = user.favorites
+        favorites_obj = [favorite.to_dict() for favorite in favorites]
+        print("CHECK FAV_OBJS ===============>", favorites_obj)
+        user_obj["favorites"] = favorites_obj[0]['locations']
+        # return current_user.to_dict()
+        return user_obj
     return {'errors': ['Unauthorized']}
 
 
@@ -40,8 +48,17 @@ def login():
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
+        print("TESTING USER HERE===========================>", user.favorites)
+        print("TESTING FAVORITE HERE===========================>", user.favorites[0].to_dict())
+        user_obj = user.to_dict()
+        favorites = user.favorites
+        favorites_obj = [favorite.to_dict() for favorite in favorites]
+        print("TESTING FAVORITE lIST HERE===========================>", favorites_obj[0]['locations'])
+        user_obj["favorites"] = favorites_obj[0]['locations']
+        # user_obj["favorites"] = favorites.to_dict()
         login_user(user)
-        return user.to_dict()
+        # return user.to_dict()
+        return user_obj
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
@@ -62,7 +79,7 @@ def sign_up():
 
     form = SignUpForm()
     data = request.get_json()
-    print("DAAAAAAAAAAAAAAAAAAAAAAAAATTTTTTTAAAAAAAAAAAA", data)
+    # print("DAAAAAAAAAAAAAAAAAAAAAAAAATTTTTTTAAAAAAAAAAAA", data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User(

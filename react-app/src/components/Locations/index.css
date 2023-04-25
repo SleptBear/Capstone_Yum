@@ -142,6 +142,7 @@ background-color: gray;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-top: solid 1px rgb(167, 167, 167);
 }
 
 .review-container {

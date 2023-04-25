@@ -5,6 +5,7 @@ import { getLocation } from '../../store/location'
 import MiniLocation from './MiniLocation'
 import LocationReviews from '../Reviews/LocationReviews'
 import AllImages from './Images/images'
+import UserBar from './UserBar'
 import { readReviews } from '../../store/review'
 
 
@@ -14,7 +15,9 @@ const LocationDetails = () => {
     const location = useSelector(state => state.location)
     const locationObj = location.location
     const review = useSelector(state => state.review)
+    const session = useSelector(state => state.session)
     const reviewObj = review.LocationReviews
+    const userObj = session?.user
     const id = useParams()
     const locationId = id.id
     const imagesArray = locationObj.images
@@ -22,7 +25,7 @@ const LocationDetails = () => {
     useEffect(() => {
         dispatch(getLocation(locationId))
         // .then(dispatch(readReviews(locationId)))
-    }, [dispatch, locationId, reviewObj])
+    }, [dispatch, locationId, reviewObj, session])
 
 
     if(!locationObj.id) return null
@@ -35,6 +38,11 @@ const LocationDetails = () => {
     //     'reviews': reviewObj
     // }
 
+    const handleBookmark = async (e) => {
+        e.preventDefault()
+        window.alert("TEST")
+        return
+    }
 
 
 
@@ -60,16 +68,17 @@ const LocationDetails = () => {
         </div>
         <div className="location-details">
             <div className="details-left">
-                <div className='topLeft'>
+                {/* <div className='topLeft'>
                     <div className='WriteReview'>
                     <button onClick={() => history.push(`/locations/${locationId}/review/new`)}><i className="fa-regular fa-star"></i> Write a Review</button>
                     </div>
 
                     <button onClick={() => history.push(`/locations/${locationId}/photo`)}><i className="fa-solid fa-camera"></i> Add Photo</button>
                     <button id='not-allowed' onClick={() => window.alert("Share currently in development")}><i className="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
-                    <button id='not-allowed' onClick={() => window.alert("Bookmars currently in development")}><i className="fa-regular fa-bookmark"></i> Save</button>
+                    <button onClick={handleBookmark}><i className="fa-regular fa-bookmark"></i> Save</button>
                     <button id='not-allowed' onClick={() => window.alert("Follow currently in development")}><i className="fa-solid fa-plus"></i> Follow</button>
-                </div>
+                </div> */}
+                <UserBar locationId={locationId} user={userObj}/>
                 {/* <br></br> */}
                 {/* <hr style={{width: "90%", height: "1px", color: "#ebebeb"}}></hr> */}
                 <div className='leftReviews-container'>
@@ -79,7 +88,7 @@ const LocationDetails = () => {
             <div className='details-right'>
                 <div className='Website-Section'>
                     <div>https://www.RestaurantName.com</div>
-                    <a onClick={() => window.alert("Outside Link coming soon")}><i className="fa-solid fa-up-right-from-square"></i></a>
+                    <a id="not-allowed" onClick={() => window.alert("Outside Link coming soon")}><i className="fa-solid fa-up-right-from-square"></i></a>
                 </div>
                 <hr></hr>
                 <div className='phone-section'>
@@ -89,7 +98,7 @@ const LocationDetails = () => {
                 <hr></hr>
                 <div className='message-section'>
                     <div>Message the Business</div>
-                    <a onClick={() => window.alert("messages coming soon")}><i className="fa-solid fa-comment-dots"></i></a>
+                    <a id="not-allowed" onClick={() => window.alert("messages coming soon")}><i className="fa-solid fa-comment-dots"></i></a>
 
                 </div>
             </div>

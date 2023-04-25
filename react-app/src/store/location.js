@@ -180,8 +180,8 @@ export default function locationReducer(state = initialState, action) {
             return newState
 
         case EDIT_LOCATION:
-            newState = { ...state, locations: {...state.locations}, loclocations: {...state.loclocations} }
-            newState.locations = action.locations
+            newState = { ...state, locations: {...state.locations}, location: {...state.location} }
+            newState.location = action.location
             // console.log("UPDATE TEST", newState)
             return newState
 

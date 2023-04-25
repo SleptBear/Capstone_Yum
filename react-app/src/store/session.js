@@ -2,6 +2,8 @@
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 const CHANGE_PROF_PIC = "session/CHANGE_PROF_PIC"
+const ADD_FAVORITE = "session/ADD_FAV"
+const REMOVE_FAVORITE = "session/REMOVE_FAV"
 
 const setUser = (user) => ({
 	type: SET_USER,
@@ -17,7 +19,47 @@ const actionChangeProfilePic = (user) => ({
 	payload: user
 })
 
-const initialState = { user: null };
+const actionAddFav = (locations) => ({
+	type: ADD_FAVORITE,
+	payload: locations
+})
+const actionRemoveFav = (locations) => ({
+	type: ADD_FAVORITE,
+	payload: locations
+})
+
+
+export const AddFavorite = (locationId) => async (dispatch) => {
+	const response = await fetch(`/api/favorites/${locationId}`, {
+		method: 'POST',
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(locationId)
+	});
+	let data = await response.json()
+	// console.log(data)
+	if(response.ok) {
+		dispatch(actionAddFav(data))
+	}
+	return data
+}
+export const RemoveFavorite = (locationId) => async (dispatch) => {
+	const response = await fetch(`/api/favorites/${locationId}`, {
+		method: 'DELETE',
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(locationId)
+	});
+	let data = await response.json()
+	// console.log(data)
+	if(response.ok) {
+		dispatch(actionRemoveFav(data))
+	}
+	return data
+}
+
 
 export const changeProfilePic = (imgData) => async (dispatch) => {
 	console.log(imgData)
@@ -123,7 +165,10 @@ export const signUp = (firstName, lastName, city, state, email, password) => asy
 	}
 };
 
+const initialState = { user: null };
+
 export default function reducer(state = initialState, action) {
+	let newState = {...state}
 	switch (action.type) {
 		case SET_USER:
 			return { user: action.payload };
@@ -131,6 +176,14 @@ export default function reducer(state = initialState, action) {
 			return { user: null };
 		case CHANGE_PROF_PIC:
 			return { user: action.payload}
+		case ADD_FAVORITE:
+			newState = {...state, user: {...state.user}}
+			newState.user.favorites = action.payload
+			return newState
+		case REMOVE_FAVORITE:
+			newState = {...state, user: {...state.user}}
+			newState.user.favorites = action.payload
+			return newState
 		default:
 			return state;
 	}

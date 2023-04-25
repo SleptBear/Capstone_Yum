@@ -6,6 +6,7 @@ favorite_routes = Blueprint('favorites', __name__)
 
 
 @favorite_routes.route('')
+@login_required
 def allFavorites():
     user = current_user
     favorites = Favorite.query.filter(Favorite.user_id == current_user.id).all()
@@ -15,17 +16,19 @@ def allFavorites():
     return users_favorites[0]['locations']
 
 @favorite_routes.route('/<int:id>', methods=["POST"])
+@login_required
 def newFavorite(id):
     user = current_user
     new_location = Location.query.get(id)
     favorites = Favorite.query.filter(Favorite.user_id == current_user.id).all()
     users_favorites = [favorite.to_dict() for favorite in favorites]
-    # print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOK", users_favorites)
+    print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOK", users_favorites)
     only_locations = users_favorites[0]['locations']
-    # print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOK2", only_locations)
+    print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOK2", only_locations)
     for location in only_locations:
-        if(location["id"] == id):
-            return {'errors': 'Spot already saved'}, 404
+        print("TRUTHY=================================>>>>>>>>>>>>>>>>>>", (location["id"] == id))
+        if location["id"] == id:
+            return {'errors': 'Favorites POST Route Endpoint'}, 404
             continue
     # print("NEW LOcation===================>", new_location)
     db_favorite = favorites[0]
@@ -41,6 +44,7 @@ def newFavorite(id):
 
 
 @favorite_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
 def delFavorite(id):
     # print("NUMBER=================>", id)
     user = current_user
@@ -65,4 +69,4 @@ def delFavorite(id):
             # return []
             continue
 
-    return {'errors': 'Spot not favorited'}, 404
+    return {'errors': 'Favorites Delete Route Endpoint'}, 404

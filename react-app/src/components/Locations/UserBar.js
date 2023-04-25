@@ -32,12 +32,11 @@ const UserBar = (props) => {
 
         let favorites = props.user?.favorites
         if(favorites) {
+            console.log("USERS FAVORITES", favorites)
 
             for (let i = 0; i < favorites.length; i++) {
-                if (favorites[i].id === Number(locationId)) {
+                if (favorites[i]?.id === Number(locationId)) {
                     bookmarkName = "fa-solid fa-bookmark"
-                } else {
-                    bookmarkName = "fa-regular fa-bookmark"
                 }
             }
         }

@@ -29,13 +29,13 @@ const actionRemoveFav = (locations) => ({
 })
 
 
-export const AddFavorite = (location) => async (dispatch) => {
-	const response = await fetch(`/api/favorites/${location.id}`, {
+export const AddFavorite = (locationId) => async (dispatch) => {
+	const response = await fetch(`/api/favorites/${locationId}`, {
 		method: 'POST',
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify(location)
+		body: JSON.stringify(locationId)
 	});
 	let data = await response.json()
 	// console.log(data)
@@ -44,13 +44,13 @@ export const AddFavorite = (location) => async (dispatch) => {
 	}
 	return data
 }
-export const RemoveFavorite = (location) => async (dispatch) => {
-	const response = await fetch(`/api/favorites/${location.id}`, {
+export const RemoveFavorite = (locationId) => async (dispatch) => {
+	const response = await fetch(`/api/favorites/${locationId}`, {
 		method: 'DELETE',
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify(location)
+		body: JSON.stringify(locationId)
 	});
 	let data = await response.json()
 	// console.log(data)

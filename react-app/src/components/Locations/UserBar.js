@@ -1,15 +1,33 @@
 import { useHistory } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { AddFavorite, RemoveFavorite } from "../../store/session"
+import { useEffect } from "react"
 
 
 
 const UserBar = (props) => {
     const history = useHistory()
+    const dispatch = useDispatch
     console.log(props)
     let locationId = props.locationId
-
-
     let bookmarkName = "fa-regular fa-bookmark"
-    // const checkFavorites = () => {
+
+    const handleBookmark = async (e) => {
+        e.preventDefault()
+        // if (bookmarkName === 'fa-regular fa-bookmark') {
+        //     window.alert("not saved to saved")
+        //     await dispatch(AddFavorite(locationId))
+        // }
+        // if (bookmarkName === 'fa-solid fa-bookmark') {
+        //     window.alert("saved to not saved")
+        //     await dispatch(RemoveFavorite(locationId))
+        // }
+        dispatch(RemoveFavorite(locationId));
+
+    }
+
+    // useEffect(() => {
+
         if(!props?.user?.id) bookmarkName = "fa-regular fa-bookmark"
 
         let favorites = props.user?.favorites
@@ -23,25 +41,21 @@ const UserBar = (props) => {
                 }
             }
         }
-    // }
 
-    const handleBookmark = async (e) => {
-        e.preventDefault()
-        // window.alert("TEST")
-        // checkFavorites()
-        return
-    }
+    // }, [dispatch, props.user ])
 
+
+    // if(!props.user?.id) return null
     return (
         <div className='topLeft'>
                     <div className='WriteReview'>
                     <button onClick={() => history.push(`/locations/${locationId}/review/new`)}><i className="fa-regular fa-star"></i> Write a Review</button>
                     </div>
 
-                    <button onClick={() => history.push(`/locations/${locationId}/photo`)}><i className={bookmarkName}></i> Add Photo</button>
-                    <button id='not-allowed' onClick={() => window.alert("Share currently in development")}><i className="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
-                    <button onClick={handleBookmark}><i className="fa-regular fa-bookmark"></i> Save</button>
-                    <button id='not-allowed' onClick={() => window.alert("Follow currently in development")}><i className="fa-solid fa-plus"></i> Follow</button>
+                    <button onClick={() => history.push(`/locations/${locationId}/photo`)}><i className="fa-solid fa-camera"></i> Add Photo</button>
+                    {/* <button id='not-allowed' onClick={() => window.alert("Share currently in development")}><i className="fa-solid fa-arrow-up-from-bracket"></i> Share</button> */}
+                    <button onClick={handleBookmark}><i className={bookmarkName}></i> Save</button>
+                    {/* <button id='not-allowed' onClick={() => window.alert("Follow currently in development")}><i className="fa-solid fa-plus"></i> Follow</button> */}
                 </div>
     )
 }

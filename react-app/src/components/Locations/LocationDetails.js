@@ -88,7 +88,7 @@ const LocationDetails = () => {
             <div className='details-right'>
                 <div className='Website-Section'>
                     <div>https://www.RestaurantName.com</div>
-                    <a onClick={() => window.alert("Outside Link coming soon")}><i className="fa-solid fa-up-right-from-square"></i></a>
+                    <a id="not-allowed" onClick={() => window.alert("Outside Link coming soon")}><i className="fa-solid fa-up-right-from-square"></i></a>
                 </div>
                 <hr></hr>
                 <div className='phone-section'>
@@ -98,7 +98,7 @@ const LocationDetails = () => {
                 <hr></hr>
                 <div className='message-section'>
                     <div>Message the Business</div>
-                    <a onClick={() => window.alert("messages coming soon")}><i className="fa-solid fa-comment-dots"></i></a>
+                    <a id="not-allowed" onClick={() => window.alert("messages coming soon")}><i className="fa-solid fa-comment-dots"></i></a>
 
                 </div>
             </div>

@@ -16,11 +16,11 @@ const UserBar = (props) => {
         e.preventDefault()
         if (bookmarkName === 'fa-regular fa-bookmark') {
             // window.alert("not saved to saved")
-            await dispatch(AddFavorite(locationId))
+            dispatch(AddFavorite(locationId))
         }
         if (bookmarkName === 'fa-solid fa-bookmark') {
             // window.alert("saved to not saved")
-            await dispatch(RemoveFavorite(locationId))
+            dispatch(RemoveFavorite(locationId))
         }
         // dispatch(RemoveFavorite(locationId));
 

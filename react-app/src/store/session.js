@@ -24,18 +24,21 @@ const actionAddFav = (locations) => ({
 	payload: locations
 })
 const actionRemoveFav = (locations) => ({
-	type: ADD_FAVORITE,
+	type: REMOVE_FAVORITE,
 	payload: locations
 })
 
 
 export const AddFavorite = (locationId) => async (dispatch) => {
-	const response = await fetch(`/api/favorites/${locationId}`, {
+	console.log(typeof Number(locationId))
+	let locId = Number(locationId)
+	console.log(locId)
+	const response = await fetch(`/api/favorites/${locId}`, {
 		method: 'POST',
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify(locationId)
+		body: JSON.stringify(locId)
 	});
 	let data = await response.json()
 	// console.log(data)
@@ -45,12 +48,15 @@ export const AddFavorite = (locationId) => async (dispatch) => {
 	return data
 }
 export const RemoveFavorite = (locationId) => async (dispatch) => {
-	const response = await fetch(`/api/favorites/${locationId}`, {
+	console.log(typeof Number(locationId))
+	let locId = Number(locationId)
+	console.log(locId)
+	const response = await fetch(`/api/favorites/${locId}`, {
 		method: 'DELETE',
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify(locationId)
+		body: JSON.stringify(locId)
 	});
 	let data = await response.json()
 	// console.log(data)
@@ -97,6 +103,8 @@ export const authenticate = () => async (dispatch) => {
 };
 
 export const login = (email, password) => async (dispatch) => {
+	console.log(email)
+	console.log(password)
 	const response = await fetch("/api/auth/login", {
 		method: "POST",
 		headers: {

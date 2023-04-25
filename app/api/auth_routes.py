@@ -93,7 +93,9 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        return user.to_dict()
+        user_obj = user.to_dict()
+        user_obj['favorites'] = []
+        return user_obj
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

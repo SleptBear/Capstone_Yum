@@ -39,3 +39,25 @@ def newFavorite(id):
     return only_locations
 
 
+@favorite_routes.route('/<int:id>', methods=["DELETE"])
+def delFavorite(id):
+    # print("NUMBER=================>", id)
+    user = current_user
+    old_location = Location.query.get(id)
+    favorites = Favorite.query.filter(Favorite.user_id == current_user.id).all()
+    print("query results ==========>", favorites)
+    db_favorite = favorites[0]
+    print("DB FAVORITES for USER ==========>", db_favorite.locations)
+    users_favorites = [favorite.to_dict() for favorite in favorites]
+    only_locations = users_favorites[0]['locations']
+    # print("ONLY LOCATIONS BEFORE============>", only_locations)
+    for location in only_locations:
+        # print("EACH LOCAL ===============>", location)
+        if(location["id"] == int(id)):
+            db_favorite.locations.remove(old_location)
+            # print("AFTER REMOVAL ============>", users_favorites)
+            db.session.commit()
+            return db_favorite.locations
+            continue
+
+    return {'errors': 'Spot not favorited'}

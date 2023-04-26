@@ -28,6 +28,16 @@ const actionRemoveFav = (locations) => ({
 	payload: locations
 })
 
+export const CreateFav = () => async (dispatch) => {
+	const response = await fetch("/api/favorites/create", {
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+}
+
+
+
 
 export const AddFavorite = (locationId) => async (dispatch) => {
 	console.log(typeof Number(locationId))
@@ -162,6 +172,7 @@ export const signUp = (firstName, lastName, city, state, email, password) => asy
 	if (response.ok) {
 		const data = await response.json();
 		dispatch(setUser(data));
+		dispatch(CreateFav());
 		return null;
 	} else if (response.status < 500) {
 		const data = await response.json();

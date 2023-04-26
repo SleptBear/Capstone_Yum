@@ -15,6 +15,17 @@ def allFavorites():
     # print("USER FAVORITES ===============>", users_favorites)
     return users_favorites[0]['locations']
 
+@favorite_routes.route('/create')
+def createFavorites():
+    user = current_user
+    new_favorite_list = Favorite(
+        user_id = user.id
+    )
+    db.session.add(new_favorite_list)
+    db.session.commit()
+
+    return {'message': "Success"}
+
 @favorite_routes.route('/<int:id>', methods=["POST"])
 @login_required
 def newFavorite(id):

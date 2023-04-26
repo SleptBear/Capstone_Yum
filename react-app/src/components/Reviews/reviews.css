@@ -22,6 +22,10 @@ input[type="radio"] {
   /* align-items: center; */
 }
 
+.prof-reviews {
+    min-height: 40rem;
+}
+
 .all-rev-card {
   display: flex;
   flex-direction: column;

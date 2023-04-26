@@ -50,6 +50,10 @@
     padding-left: 1rem;
 }
 
+.prof-tabs {
+    display: flex;
+}
+
 .prof-reviews {
     display: flex;
     flex-direction: column;

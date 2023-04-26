@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getLocations } from "../../store/location";
 import LocationCard from "./LocationCard";
@@ -7,13 +7,16 @@ import './index.css'
 
 const LocationsIndex = () => {
     const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState(false)
     const locationsObj = useSelector(state => state.location)
     const searchObj = useSelector(state => state.search)
     const filteredLocations = Object.values(searchObj)
     const locations = Object.values(locationsObj?.locations)
 
     useEffect(() => {
-        dispatch(getLocations())
+        setIsLoading(true);
+        dispatch(getLocations());
+        setIsLoading(false);
     }, [dispatch])
 
     // console.log("Locations Index Render")
@@ -29,7 +32,10 @@ const LocationsIndex = () => {
 
     return (
         <>
-        <div className="outside">
+        {isLoading ? (<p>Loading...</p>
+        ) : (
+
+            <div className="outside">
 
 <section className="body-container">
     <div className="body-container-items">
@@ -54,6 +60,7 @@ const LocationsIndex = () => {
 
 </section>
 </div>
+                )}
         </>
     )
 

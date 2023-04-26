@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { clearSearchThunk, searchThunk } from '../../store/search';
+import { useDispatch } from 'react-redux';
+import { searchThunk } from '../../store/search';
 import { useHistory } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const NavSearch = () => {
 //   console.log("SEARCH" , searchResult)
   const handleSearch = async () => {
     if (searchTerm.length < 1) {
-    return history.push('/locations')
+    return history.push('/search')
     }
     dispatch(searchThunk(searchTerm))
     .then(() => history.push('/search'))

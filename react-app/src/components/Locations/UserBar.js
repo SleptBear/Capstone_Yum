@@ -44,7 +44,7 @@ const UserBar = (props) => {
     // }, [dispatch, props.user ])
 
 
-    // if(!props.user?.id) return null
+    if(!props.user?.id) return null
     return (
         <div className='topLeft'>
                     <div className='WriteReview'>

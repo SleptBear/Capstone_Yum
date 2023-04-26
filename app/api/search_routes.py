@@ -12,7 +12,7 @@ def get_search(search):
         # (Location.price.like(f'%%{search}%%'))
     ).all()
     # query_dict = [q.to_dict() for q in search_result]
-
+    print("SEARCH RESULTS=====================>", locations)
     reviews = [location.reviews for location in locations]
 
     images = [location.images for location in locations]

@@ -33,7 +33,7 @@ const Search = () => {
 //       )}
 //     </div>
 //   );
-if (!filteredLocations[0]) history.push('/locations')
+if (!filteredLocations[0]) history.push('/notfound')
 return (
     <>
     <div className="outside">

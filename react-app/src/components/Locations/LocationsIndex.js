@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getLocations } from "../../store/location";
 import LocationCard from "./LocationCard";
+import Footer from "../Footer";
 import './index.css'
 
 const LocationsIndex = () => {
@@ -61,6 +62,7 @@ const LocationsIndex = () => {
 </section>
 </div>
                 )}
+                <Footer /> 
         </>
     )
 

@@ -6,6 +6,8 @@ import MiniLocation from './MiniLocation'
 import LocationReviews from '../Reviews/LocationReviews'
 import AllImages from './Images/images'
 import UserBar from './UserBar'
+import Footer from '../Footer'
+
 import { readReviews } from '../../store/review'
 
 
@@ -111,6 +113,7 @@ const LocationDetails = () => {
                 </div>
             </div>
         </div>
+        <Footer />
     </div>
 
 )

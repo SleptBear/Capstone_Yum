@@ -6,6 +6,14 @@
     /* background-color: red; */
     height:80rem;
     height: fit-content;
+
+}
+
+.prof-details-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 9rem;
 }
 
 .prof-container {
@@ -62,9 +70,41 @@
 }
 
 .prof-fav-container {
-    width: 50%;
+    width: 30%;
     min-height: 40rem;
+    height: fit-content;
 }
+
+.prof-page-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.prof-page-buttons button {
+    height: 2.5rem;
+    width: 15rem;
+    background-color: white;
+    border-style: solid;
+    border-top-width: 2;
+    /* border-bottom-width: 1; */
+    border-left-width: 0;
+    border-right-width: 0;
+    /* color: rgba(45,46,47,1); */
+    padding-left: 15px;
+    padding-right: 15px;
+    border-color: #e6e6e6;
+    border-collapse: collapse;
+    border-spacing: 0;
+    /* border-radius: 4px; */
+}
+
+/* .prof-page-buttons button:active {
+    background-color: #e5e5e5;
+} */
+/* .prof-page-buttons button:hover {
+    background-color: rgba(224,7,7,1);
+    transition: 1s;
+} */
 
 .rev-card {
     display: flex;

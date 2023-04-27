@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import ReactStars from 'react-rating-stars-component'
+import Footer from '../Footer'
+
 
 import { addReview } from "../../store/review";
 
@@ -112,6 +114,7 @@ const CreateReview = () => {
             </label> */}
             <button className="submit-form" type="Submit" >Submit</button>
             </form>
+            <Footer />
         </div>
     )
 }

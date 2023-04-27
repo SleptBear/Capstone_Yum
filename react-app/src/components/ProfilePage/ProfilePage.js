@@ -5,6 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { readUserReviews } from '../../store/review'
 import DetailedReview from '../Reviews/DetailedReview'
 import FavoritesCard from './FavoritesCard'
+import Footer from '../Footer'
 import './profile.css'
 
 const ProfilePage = () => {
@@ -26,7 +27,7 @@ const ProfilePage = () => {
     if(!user?.id) return <div>Please Log in or Sign-up</div>
     if(!reviews) return null
     if (profilePic === null) profilePic = "https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png"
-    console.log(userFavorites)
+    // console.log(userFavorites)
     return (
         <>
             <div className="prof-main">
@@ -60,10 +61,15 @@ const ProfilePage = () => {
                         </Link>
                     </div>
                 </div>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+                <div className='prof-details-container'>
 
-                    <div>
-                        <button onClick={() => (setPage(true))}>Reviews</button>
-                        <button onClick={() => (setPage(false))}>Favorites</button>
+                    <div className='prof-page-buttons'>
+                        <button style={{backgroundColor: !page ? "#f5f5f5" : "#e5e5e5"}} onClick={() => (setPage(true))}>Reviews</button>
+                        <button style={{backgroundColor: page ? "#f5f5f5" : "#e5e5e5"}}onClick={() => (setPage(false))}>Favorites</button>
                     </div>
                 {page ? (
 
@@ -91,6 +97,8 @@ const ProfilePage = () => {
                     )
                 }
 
+                </div>
+                <Footer />
             </div>
 
 

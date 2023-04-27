@@ -8,6 +8,7 @@ import Beauty from "./SeaFood"
 import Automotive from "./Delivery"
 import HomeServices from "./Coffee"
 import More from "./More"
+import Footer from "../Footer"
 import "./YumHome.png"
 
 
@@ -49,6 +50,7 @@ function HomePage() {
                     <More />
 
             </div>
+            <Footer />
         </div>
     )
 }

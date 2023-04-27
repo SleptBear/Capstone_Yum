@@ -1,9 +1,9 @@
 import './footer.css'
 
-function Footer () {
-
+function Footer ({isLoaded}) {
+    // if(!isLoaded) return null
     return (
-        <footer>
+        <div className='footer'>
             <div>Developer Info</div>
             <div className='Footer-div'>
                 <div className='dev'>
@@ -14,7 +14,9 @@ function Footer () {
 
 
             </div>
-        </footer>
+
+        </div>
+
     )
 }
 

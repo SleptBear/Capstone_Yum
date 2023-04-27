@@ -7,7 +7,7 @@ const Nightlife = () => {
     const history = useHistory();
 
     const handleSearch = async () => {
-        dispatch(searchThunk("drink"))
+        dispatch(searchThunk("bar"))
         .then(() => history.push('/search'))
       };
 

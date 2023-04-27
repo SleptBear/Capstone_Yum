@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import { NavLink, Switch, Route, useHistory, useParams } from 'react-router-dom'
 import { updateLocation, getLocation, deleteLocation } from '../../store/location'
+import OpenModalButton from '../OpenModalButton'
+import { useModal } from '../../context/Modal'
+import RemoveLocationButton from './RemoveLocationButton'
 import Footer from '../Footer'
 
 import "./forms.css"
@@ -22,6 +25,7 @@ const EditLocation = () => {
     const [operating_hours, setOperating_hours] = useState(location.operating_hours)
     // const [image, setImage] = useState('')
     const [errors, setErrors] = useState([]);
+    const { closeModal } = useModal();
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -46,6 +50,7 @@ const EditLocation = () => {
             if (data && data.errors) setErrors([data.errors])
             if(res.ok) {
             history.push(`/`)
+            closeModal()
             // window.alert("Location Unlisted")
             }
         })
@@ -320,16 +325,30 @@ const EditLocation = () => {
             <button className="submit-form" type="Submit" >Submit</button>
             <br></br>
             </form>
+            <h2>Or Remove.</h2>
+            <br></br>
 
-                <button onClick={() => handleRemove()} className="submit-form" style={{backgroundColor: 'dark red'}}>Remove Location</button>
-            {/* <button className="demo-add-item"
-            onClick={() => dispatch(createLocationThunk(({name: "Demo Pants",description: "This is a description",price: 19.99, category: "pants" , color: "Demo Color", size: "Demo Size", seller: user?.id},
-            {
-                image: "https://target.scene7.com/is/image/Target/GUEST_b42925ba-d115-4575-b10d-c354a55bfaca?wid=1000&hei=1000&qlt=80&fmt=webp",
-                preview: true
-            }
-            )))}
-            >Demo Add Item</button> */}
+                {/* <button
+                onClick={() => handleRemove()}
+                className="submit-form"
+                style={{backgroundColor: 'dark red'}}>
+                    Remove Location
+                </button> */}
+                {/* <button
+                onClick={() => handleRemove()}
+                className="submit-form"
+                style={{backgroundColor: 'dark red'}}>
+                    Remove Location
+                </button> */}
+
+                <div className='remove-button'>
+
+                <OpenModalButton
+                modalComponent={<RemoveLocationButton locationId={locationId}/>}
+                buttonText={<i className="fa-regular fa-trash-can"></i>}
+                >
+                </OpenModalButton>
+                    </div>
             <Footer />
         </div>
     )

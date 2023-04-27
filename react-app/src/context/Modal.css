@@ -37,3 +37,19 @@
 #modal-content::-webkit-scrollbar{
   display: none;
 }
+
+.loc-rem-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+}
+
+.loc-rem-modal button {
+  /* display: flex; */
+  /* align-items: center; */
+  justify-content: center;
+  margin-left: 8px;
+  width: 100%;
+}

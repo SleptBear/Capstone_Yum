@@ -95,3 +95,7 @@
 .description-form {
     max-width: 21.5rem;
 }
+
+.remove-button {
+    background-color: darkred;
+}

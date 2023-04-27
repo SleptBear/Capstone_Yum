@@ -7,6 +7,8 @@ import './reviews.css'
 import { useDispatch } from "react-redux"
 import { deleteReview } from "../../store/review"
 import { useParams, Link } from "react-router-dom"
+import OpenModalButton from "../OpenModalButton"
+import RemoveReviewButton from "../Forms/RemoveReviewButton"
 // import DynamicStars from "./DynamicStars"
 
 
@@ -47,9 +49,15 @@ function DetailedReview(review) {
                 <i className="fa-regular fa-pen-to-square"></i>
                 </button>
                 </Link>
-                <button onClick={() => handleDelete()}>
+                {/* <button onClick={() => handleDelete()}>
                 <i className="fa-regular fa-trash-can"></i>
-                </button>
+                </button> */}
+                <OpenModalButton
+                modalComponent={<RemoveReviewButton rev={rev}/>}
+                buttonText={<i className="fa-regular fa-trash-can"></i>}
+                // style={{backgroundColor: 'dark red'}}
+                >
+                </OpenModalButton>
             </div>
             </div>
 

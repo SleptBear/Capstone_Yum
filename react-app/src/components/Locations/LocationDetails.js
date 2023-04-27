@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { getLocation } from '../../store/location'
@@ -12,6 +12,7 @@ import { readReviews } from '../../store/review'
 const LocationDetails = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    // const [isLoading, setIsLoading] = useState(false)
     const location = useSelector(state => state.location)
     const locationObj = location.location
     const review = useSelector(state => state.review)
@@ -23,7 +24,9 @@ const LocationDetails = () => {
     const imagesArray = locationObj.images
 
     useEffect(() => {
+        // setIsLoading(true)
         dispatch(getLocation(locationId))
+        // setIsLoading(false)
         // .then(dispatch(readReviews(locationId)))
     }, [dispatch, locationId, reviewObj, session])
 
@@ -48,20 +51,25 @@ const LocationDetails = () => {
 
     return (
 
+
         <div className='details-container'>
-        <div className='some-images'
-    //     style={{
-    // backgroundImage: `url(${imagesArray[0].img_url})`,
-    // backgroundRepeat: "no-repeat",
-    // backgroundSize: "stretch",
-    // width: "2000px"}}
-    >
+            {/* {isLoading ? (<p>Loadiing...</p>
+            ) : ( */}
+
+                <div className='some-images'
+                //     style={{
+                    // backgroundImage: `url(${imagesArray[0].img_url})`,
+                    // backgroundRepeat: "no-repeat",
+                    // backgroundSize: "stretch",
+                    // width: "2000px"}}
+                    >
             {copyArray.map(image => (
-            <div className='individual-image' key={image.id}>
+                <div className='individual-image' key={image.id}>
                 <img src={image.img_url} alt='not found' ></img>
             </div>
             ))}
         </div>
+            {/* )} */}
         <div className='over-images'>
             <MiniLocation location={locationObj}/>
             <AllImages location={locationObj} />

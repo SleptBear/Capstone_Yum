@@ -50,6 +50,8 @@
     padding-left: 1rem;
 }
 
+
+
 .prof-reviews {
     display: flex;
     flex-direction: column;
@@ -57,6 +59,11 @@
     width: 30%;
     /* height: 130rem; */
     /* background-color: blue; */
+}
+
+.prof-fav-container {
+    width: 50%;
+    min-height: 40rem;
 }
 
 .rev-card {

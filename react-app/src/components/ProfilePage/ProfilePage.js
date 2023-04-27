@@ -1,15 +1,20 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 
 import { readUserReviews } from '../../store/review'
 import DetailedReview from '../Reviews/DetailedReview'
+import FavoritesCard from './FavoritesCard'
 import './profile.css'
 
 const ProfilePage = () => {
     const dispatch = useDispatch()
-    const reviewsObj = useSelector(state => state.review.UserReviews)
+    const reviews = useSelector(state => state.review)
+    const reviewsObj = reviews.UserReviews
+    const [page, setPage] = useState(true)
+
     const user = useSelector(state => state.session?.user)
+    const userFavorites = user?.favorites
     let profilePic = user.prof_pic
     // console.log("profile pic", profilePic)
     const reviewsArray = Object.values(reviewsObj)
@@ -19,8 +24,9 @@ const ProfilePage = () => {
         dispatch(readUserReviews(user?.id))
     }, [dispatch, user])
     if(!user?.id) return <div>Please Log in or Sign-up</div>
-    if(!reviewsObj) return null
+    if(!reviews) return null
     if (profilePic === null) profilePic = "https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png"
+    console.log(userFavorites)
     return (
         <>
             <div className="prof-main">
@@ -55,7 +61,13 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                <div className='prof-reviews'>
+                    <div>
+                        <button onClick={() => (setPage(true))}>Reviews</button>
+                        <button onClick={() => (setPage(false))}>Favorites</button>
+                    </div>
+                {page ? (
+
+                    <div className='prof-reviews'>
                 <h2>User Reviews</h2>
                 <hr style={{width: "100%"}}></hr>
         <div id='each-rev'>
@@ -64,6 +76,21 @@ const ProfilePage = () => {
                 ))}
         </div>
                 </div>
+                ) : (
+                    <div className='prof-fav-container'>
+                        <br></br>
+                        <br></br>
+                    {
+                        userFavorites.map(location => (
+                            <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>
+                            <FavoritesCard location={location} />
+                        </Link>
+                            ))
+                        }
+                    </div>
+                    )
+                }
+
             </div>
 
 

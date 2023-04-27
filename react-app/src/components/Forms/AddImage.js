@@ -2,7 +2,6 @@ import { useState } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import { Route, useHistory, useParams } from 'react-router-dom'
 import { addImage } from '../../store/location'
-import Footer from '../Footer'
 
 import "./forms.css"
 
@@ -62,7 +61,7 @@ const AddImage = () => {
             </label>
             <button className="submit-form" type="Submit" >Submit</button>
             </form>
-                <Footer />
+                {/* <Footer /> */}
         </div>
     )
 }

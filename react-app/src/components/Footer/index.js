@@ -1,5 +1,3 @@
-import './footer.css'
-
 function Footer ({isLoaded}) {
     // if(!isLoaded) return null
     return (
@@ -11,8 +9,6 @@ function Footer ({isLoaded}) {
                     <a href='https://github.com/SleptBear' target='_blank'>GitHub</a>
                     <a href='https://www.linkedin.com/in/kian-seyedjafari-6a381216b' target='_blank'>LinkedIn</a>
                 </div>
-
-
             </div>
 
         </div>

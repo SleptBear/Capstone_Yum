@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { searchThunk } from '../../store/search';
 import { Link, useHistory } from 'react-router-dom';
 import LocationCard from '../Locations/LocationCard';
-import Footer from '../Footer'
 
 
 const Search = () => {
@@ -18,23 +17,6 @@ const Search = () => {
     dispatch(searchThunk(searchTerm));
   };
 
-//   return (
-//     <div>
-//       {/* <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-//       <button onClick={handleSearch}>Search</button> */}
-//       {searchResult && Object.keys(searchResult).length > 0 ? (
-//         Object.values(searchResult).map((location) => (
-//           <div key={location.id}>
-//             <h3>{location.name}</h3>
-//             <p>{location.description}</p>
-//             <p>{location.price}</p>
-//           </div>
-//         ))
-//       ) : (
-//         <p>No search results found.</p>
-//       )}
-//     </div>
-//   );
 if (!filteredLocations[0]) history.push('/notfound')
 return (
     <>
@@ -63,7 +45,6 @@ return (
 
 </section>
 </div>
-{/* <Footer /> */}
     </>
 )
 };

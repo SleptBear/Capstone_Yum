@@ -5,7 +5,6 @@ import { updateLocation, getLocation, deleteLocation } from '../../store/locatio
 import OpenModalButton from '../OpenModalButton'
 import { useModal } from '../../context/Modal'
 import RemoveLocationButton from './RemoveLocationButton'
-import Footer from '../Footer'
 
 import "./forms.css"
 // import "./addproduct.css"
@@ -349,7 +348,7 @@ const EditLocation = () => {
                 >
                 </OpenModalButton>
                     </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { getLocation } from '../../store/location'
@@ -6,10 +6,6 @@ import MiniLocation from './MiniLocation'
 import LocationReviews from '../Reviews/LocationReviews'
 import AllImages from './Images/images'
 import UserBar from './UserBar'
-import Footer from '../Footer'
-
-import { readReviews } from '../../store/review'
-
 
 const LocationDetails = () => {
     const dispatch = useDispatch();
@@ -102,7 +98,7 @@ const LocationDetails = () => {
                 </div>
             </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
     </div>
 
 )

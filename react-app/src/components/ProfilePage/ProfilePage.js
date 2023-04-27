@@ -84,8 +84,7 @@ const ProfilePage = () => {
                 </div>
                 ) : (
                     <div className='prof-fav-container'>
-                        <br></br>
-                        <br></br>
+                        
                     {
                         userFavorites.map(location => (
                             <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>

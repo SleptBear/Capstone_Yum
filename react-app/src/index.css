@@ -1,7 +1,7 @@
 /* TODO Add site wide styles */
 #root {
     min-width: 1080px;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 
@@ -98,6 +98,7 @@
     flex-direction: column;
     /* background-color: purple; */
     height: 100rem;
+    align-items: normal;
 }
 
 /* .some-images {
@@ -111,26 +112,29 @@
 .location-details {
     display: flex;
     flex-direction: row;
-    /* color: red; */
     /* background-color: indigo; */
     justify-content: center;
     height: 80rem;
+    align-items: normal;
 }
 
 .details-right {
     /* background-color: rgb(138, 91, 5); */
+    /* align-self: normal; */
     position: sticky;
+    position: -webkit-sticky;
+    top: 70px;
     width: 20%;
     height: fit-content;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 2rem;
-    top: 1px;
     border-radius: 4px;
     border: 1px solid #ebebeb;
     margin-top: 1.8rem;
     margin-left: 1rem;
     min-width: 250px;
+    /* padding-top: 35px; */
 }
 .details-left {
     /* background-color: orange; */
@@ -149,7 +153,7 @@
     gap: 15px;
     padding-bottom: 1.5rem;
     border-radius: 4px;
-    border-bottom: 1px solid #ebebeb;
+    /* border-bottom: 1px solid #ebebeb; */
 }
 
 .topLeft button {

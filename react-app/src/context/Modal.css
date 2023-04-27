@@ -30,5 +30,10 @@
   display: flex;
   justify-content: center;
   z-index: 10;
+  overflow-y: scroll;
   /* background-color: black; */
+}
+
+#modal-content::-webkit-scrollbar{
+  display: none;
 }

@@ -63,6 +63,14 @@ def login():
         if len(user.favorites) > 0:
 
             favorites = user.favorites
+            # print("favorites", favorites[0])
+            # favorite = favorites[0]
+            # print("LOOOOOOOOOOOOOOOOOOOK@@@@@@@@@", favorite.locations)
+            # loc_list = [location.to_dict() for location in favorite.locations]
+            # print("LOOOOOOOOOOOOOOOOOOOK@@@@@@@@@", loc_list)
+
+            # locations = [location for location in fav_list]
+            # print("LOOOOOOOOOOOOOOOOOOOOOOOK", locations)
             # locations = user.locations
             # print("LOCATIONS=============================>", locations)
             # print("LOCATIONS Preview=============================>", locations[0].images[0].img_url)

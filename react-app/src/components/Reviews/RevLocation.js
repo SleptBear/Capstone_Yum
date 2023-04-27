@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom"
 const RevLocation = (props) => {
     const rev = props.review
-    // console.log("inside rev", rev)
+    console.log("inside rev", rev)
 
     // if(!rev?.location) return null
     return (
@@ -11,7 +12,9 @@ const RevLocation = (props) => {
         </div>
         <div>
             <div>
+                <Link to={`/locations/${rev.location.id}`}>
                 {rev.location?.name}
+                </Link>
             </div>
             <div>
                 {rev.location.address}

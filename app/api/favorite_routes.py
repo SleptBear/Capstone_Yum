@@ -35,6 +35,8 @@ def newFavorite(id):
     users_favorites = [favorite.to_dict() for favorite in favorites]
     print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOK", users_favorites)
     only_locations = users_favorites[0]['locations']
+    reviews = [location.reviews for location in user.favorites[0].locations]
+    print('REVIEWS=============>', reviews)
     print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOK2", only_locations)
     for location in only_locations:
         print("TRUTHY=================================>>>>>>>>>>>>>>>>>>", (location["id"] == id))
@@ -49,6 +51,7 @@ def newFavorite(id):
     db.session.commit()
     # print("CHECKING AFTER========>", db_favorite.to_dict())
     fav_obj = db_favorite.to_dict()
+    # reviews_obj = [review.to_dict() for review in reviews[i]]
     just_locations = fav_obj['locations']
     # create store state to determine return value here
     return just_locations

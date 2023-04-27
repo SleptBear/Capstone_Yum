@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 import { readUserReviews } from '../../store/review'
 import DetailedReview from '../Reviews/DetailedReview'
-import FavoritesCard from './ProfileFavorites'
+import FavoritesCard from './FavoritesCard'
 import './profile.css'
 
 const ProfilePage = () => {
@@ -77,8 +77,9 @@ const ProfilePage = () => {
         </div>
                 </div>
                 ) : (
-                    <div>
-
+                    <div className='prof-fav-container'>
+                        <br></br>
+                        <br></br>
                     {
                         userFavorites.map(location => (
                             <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>

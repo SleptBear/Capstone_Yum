@@ -7,7 +7,7 @@ const HomeServices = () => {
     const history = useHistory();
 
     const handleSearch = async () => {
-        dispatch(searchThunk("cof"))
+        dispatch(searchThunk("coffee"))
         .then(() => history.push('/search'))
       };
 

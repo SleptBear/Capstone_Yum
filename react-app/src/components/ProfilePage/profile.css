@@ -85,17 +85,12 @@
     width: 15rem;
     background-color: white;
     border-style: solid;
-    border-top-width: 2;
-    /* border-bottom-width: 1; */
     border-left-width: 0;
     border-right-width: 0;
-    /* color: rgba(45,46,47,1); */
     padding-left: 15px;
     padding-right: 15px;
     border-color: #e6e6e6;
     border-collapse: collapse;
-    border-spacing: 0;
-    /* border-radius: 4px; */
 }
 
 /* .prof-page-buttons button:active {
@@ -131,4 +126,9 @@
 }
 #rev-mutate button:hover {
     background-color: rgb(207, 219, 219);
+}
+
+#fav-header {
+    display: flex;
+    justify-content: center;
 }

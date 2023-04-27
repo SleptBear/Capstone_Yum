@@ -9,6 +9,8 @@ function FavoritesCard({location}) {
     console.log("location data", location)
 
     return (
+        <>
+        <h2 id="fav-header">Favorites</h2>
         <div className="card-container" style={{minWidth: '530px', height: '40%'}}>
             <div className="image-container" style={{paddingTop: '25px'}}>
                 <img src={location.images[0].img_url} alt='Image Not Found' style={{height: '90%', minHeight: '80%'}}></img>
@@ -42,16 +44,17 @@ function FavoritesCard({location}) {
                 <h3>{location.city}, {location.state} </h3>
                 {/* <div id="card-comment">
                     <div id="random-rev-logo">
-                        <i className="fa-regular fa-comment"></i>
+                    <i className="fa-regular fa-comment"></i>
                     </div>
                     <div id="random-rev">
-                        {reviewsArray[getRandomInt(reviewsArray.length)]?.review}
+                    {reviewsArray[getRandomInt(reviewsArray.length)]?.review}
                     </div>
                 </div> */}
             </div>
         </div>
 
        </div>
+                </>
     )
 }
 

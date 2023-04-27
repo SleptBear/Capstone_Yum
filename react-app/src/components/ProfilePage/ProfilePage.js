@@ -6,7 +6,6 @@ import { authenticate } from '../../store/session'
 import { readUserReviews } from '../../store/review'
 import DetailedReview from '../Reviews/DetailedReview'
 import FavoritesCard from './FavoritesCard'
-import Footer from '../Footer'
 import './profile.css'
 
 const ProfilePage = () => {
@@ -20,6 +19,16 @@ const ProfilePage = () => {
     let profilePic = user.prof_pic
     // console.log("profile pic", profilePic)
     const reviewsArray = Object.values(reviewsObj)
+
+    const sortByDate = (arr) => {
+        const sorter = (a, b) => {
+            return new Date(a.updated_at).getTime() - new Date(b.updated_at).getTime();
+        }
+        arr.sort(sorter);
+    };
+    // console.log("before", latestArray);
+    sortByDate(reviewsArray);
+    reviewsArray.reverse()
 
 
     useEffect(() => {
@@ -99,7 +108,7 @@ const ProfilePage = () => {
                 }
 
                 </div>
-                <Footer />
+                {/* <Footer /> */}
             </div>
 
 

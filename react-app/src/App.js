@@ -11,7 +11,6 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Search from "./components/Navigation/Search";
 import Home from "./components/HomePage";
-import Footer from "./components/Footer";
 import AddImage from "./components/Forms/AddImage";
 import ChangeProfilePic from "./components/Forms/ChangeProfilePic";
 import CreateReview from "./components/Forms/CreateReview";
@@ -77,58 +76,15 @@ function App() {
           </Route>
         </Switch>
       </ScrollToTop>
-
       )}
-      {/* {isLoaded && <Footer isLoaded={isLoaded}/>} */}
-
     </>
   );
 }
 
 function NotFound() {
-
   return (
     <div>
-      {/* <h1>404 Not Found</h1> */}
       <p>Sorry, no results found.</p>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <Footer />
     </div>
   );
 }

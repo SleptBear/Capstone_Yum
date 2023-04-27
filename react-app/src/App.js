@@ -22,6 +22,7 @@ import ScrollToTop from "./context/ScrollToTop";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isContent, setIsContent] = useState(false)
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -78,7 +79,8 @@ function App() {
       </ScrollToTop>
 
       )}
-      <Footer />
+      {/* {isLoaded && <Footer isLoaded={isLoaded}/>} */}
+
     </>
   );
 }
@@ -87,7 +89,7 @@ function NotFound() {
 
   return (
     <div>
-      <h1>404 Not Found</h1>
+      {/* <h1>404 Not Found</h1> */}
       <p>Sorry, no results found.</p>
       <br></br>
       <br></br>
@@ -122,7 +124,11 @@ function NotFound() {
       <br></br>
       <br></br>
       <br></br>
-
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <Footer />
     </div>
   );
 }

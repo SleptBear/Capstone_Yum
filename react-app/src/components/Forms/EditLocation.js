@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import { NavLink, Switch, Route, useHistory, useParams } from 'react-router-dom'
 import { updateLocation, getLocation, deleteLocation } from '../../store/location'
+import Footer from '../Footer'
+
 import "./forms.css"
 // import "./addproduct.css"
 const EditLocation = () => {
@@ -328,7 +330,7 @@ const EditLocation = () => {
             }
             )))}
             >Demo Add Item</button> */}
-
+            <Footer />
         </div>
     )
 }

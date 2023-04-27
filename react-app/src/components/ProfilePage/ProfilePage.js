@@ -5,6 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { readUserReviews } from '../../store/review'
 import DetailedReview from '../Reviews/DetailedReview'
 import FavoritesCard from './FavoritesCard'
+import Footer from '../Footer'
 import './profile.css'
 
 const ProfilePage = () => {
@@ -97,6 +98,7 @@ const ProfilePage = () => {
                 }
 
                 </div>
+                <Footer />
             </div>
 
 

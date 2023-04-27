@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { searchThunk } from '../../store/search';
 import { Link, useHistory } from 'react-router-dom';
 import LocationCard from '../Locations/LocationCard';
+import Footer from '../Footer'
+
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -61,6 +63,7 @@ return (
 
 </section>
 </div>
+{/* <Footer /> */}
     </>
 )
 };

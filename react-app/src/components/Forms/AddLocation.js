@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import { NavLink, Switch, Route, useHistory } from 'react-router-dom'
 import { createLocation } from '../../store/location'
+import Footer from '../Footer'
 import "./forms.css"
 // import "./addproduct.css"
 const AddLocation = () => {
@@ -324,7 +325,7 @@ const AddLocation = () => {
             }
             )))}
             >Demo Add Item</button> */}
-
+            <Footer />
         </div>
     )
 }

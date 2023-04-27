@@ -1,18 +1,15 @@
-footer {
+.footer {
     background-color: #f7f7f7;
     color: black;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     font-size: 14px;
-    /* margin-top: auto; */
-    width: 140%;
-    margin-left: -22%;
-    /* padding-top: 20rem; */
-    /* margin-top: 5rem; */
-    font-size: 14px;
+    width: 100%;
+    margin-top: 6rem;
+    font-size: 18px;
   }
 
   .Footer-div {

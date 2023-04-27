@@ -18,11 +18,15 @@ def seed_reviews():
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=4, location_id=2, review='Awesome, affordable, and has entertainment nearby.', rating=4,
+            user_id=1, location_id=2, review="GREAT, it is a must try!", rating=5,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
             user_id=3, location_id=2, review='Terrible,  do not even bother unless starving.', rating=2,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=1, location_id=3, review='GREAT 10/10', rating=5,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
@@ -62,10 +66,6 @@ def seed_reviews():
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=7, location_id=8, review='Amazing taste in both food and asthetic', rating=5,
-            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
-        ),
-        Review(
             user_id=9, location_id=8, review='THE GOOD STUFF', rating=4,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
@@ -102,15 +102,15 @@ def seed_reviews():
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=1, location_id=3, review='GREAT 10/10', rating=5,
-            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
-        ),
-        Review(
             user_id=3, location_id=4, review='Had to give this place 5 stars.', rating=5,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
         Review(
-            user_id=1, location_id=2, review="GREAT, it is a must try!", rating=5,
+            user_id=4, location_id=2, review='Awesome, affordable, and has entertainment nearby.', rating=4,
+            created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
+        ),
+        Review(
+            user_id=7, location_id=8, review='Amazing taste in both food and asthetic', rating=5,
             created_at=datetime.datetime.now(), updated_at=datetime.datetime.now()
         ),
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
+import { authenticate } from '../../store/session'
 
 import { readUserReviews } from '../../store/review'
 import DetailedReview from '../Reviews/DetailedReview'
@@ -23,6 +24,7 @@ const ProfilePage = () => {
 
     useEffect(() => {
         dispatch(readUserReviews(user?.id))
+        // dispatch(authenticate())
     }, [dispatch, user])
     if(!user?.id) return <div>Please Log in or Sign-up</div>
     if(!reviews) return null
@@ -84,7 +86,7 @@ const ProfilePage = () => {
                 </div>
                 ) : (
                     <div className='prof-fav-container'>
-                        
+
                     {
                         userFavorites.map(location => (
                             <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>

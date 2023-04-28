@@ -31,14 +31,20 @@ export const actionAddImage = (img) => ({
 })
 
 export const addImage = (locationId, imgData) => async dispatch => {
-    // console.log(locationId)
-    // console.log(imgData)
+    console.log(locationId)
+    console.log(imgData.image)
+    const formData = new FormData();
+    console.log(formData)
+    formData.append("image", imgData.image);
+    // formData["image"] = imgData.image;
+    console.log('formData', formData)
+
     const res = await fetch(`/api/locations/${locationId}/images`, {
         method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(imgData)
+        // headers: {
+        //     "Content-Type": ''
+        // },
+        body: formData
     })
 
 
@@ -91,12 +97,15 @@ export const createLocation = (location, imgData) => async dispatch => {
 let data =await res.json()
 if (res.ok) {
 
+    const formData = new FormData();
+    console.log(formData)
+    formData.append("image", imgData.image);
+    // formData["image"] = imgData.image;
+    console.log('formData', formData)
+
     const res2 = await fetch(`/api/locations/${data.id}/images`, {
         method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(imgData)
+        body: formData
     })
     if(res2.ok) {
         const data2 = await res2.json();
@@ -104,8 +113,8 @@ if (res.ok) {
     }
 
     // dispatch(getSpot(data.id))
+    console.log("DATA=========>", data)
     dispatch(actionCreateLocation(data))
-    // console.log("DATA=========>", data)
     return data
 }
 // if (data.errors) {

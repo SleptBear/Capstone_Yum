@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms.fields import (StringField, SubmitField, IntegerField, DateTimeField)
 from wtforms.validators import DataRequired, ValidationError
 from app.models import Location
+from flask_wtf.file import FileField, FileAllowed, FileRequired
 
 
 

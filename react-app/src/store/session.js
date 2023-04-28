@@ -78,13 +78,15 @@ export const RemoveFavorite = (locationId) => async (dispatch) => {
 
 
 export const changeProfilePic = (imgData) => async (dispatch) => {
-	console.log(imgData)
+    console.log(imgData.image)
+    const formData = new FormData();
+    console.log(formData)
+    formData.append("image", imgData.image);
+    // formData["image"] = imgData.image;
+    console.log('formData', formData)
 	const response = await fetch("/api/users/profile-pic", {
 		method: 'POST',
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(imgData)
+		body: formData
 	});
 	console.log(response)
 

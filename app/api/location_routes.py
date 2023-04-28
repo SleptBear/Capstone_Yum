@@ -1,7 +1,10 @@
+from flask_wtf import FlaskForm
 from flask import Blueprint, jsonify, request
 from app.models import Location, db, Review, Image
 from app.forms.location_form import LocationForm
+from app.forms.image_form import ImageForm
 from flask_login import login_required, current_user
+from .aws_upload import get_unique_filename, upload_file_to_s3
 
 location_routes = Blueprint('locations', __name__)
 
@@ -160,12 +163,25 @@ def locationReviews(id):
 @location_routes.route('/<int:id>/images', methods=['POST'])
 @login_required
 def createLocationImage(id):
-    data = request.get_json()
-    # print("LOOOOK", data)
+    # data = request.get_json()
+    print("request===============>", request)
+    data = request.files
+    print("LOOOOK==================>", data)
+
+    image = data['image']
+    print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK", image)
+    image.filename = get_unique_filename(image.filename)
+    upload = upload_file_to_s3(image)
+    print("UPLOAD", upload)
+
+    if "url" not in upload:
+        return {'errors': "Not a valid file image file type"}
     # form = LocationForm()
     # form['csrf_token'].data = request.cookies['csrf_token'] # makes a csrf_token in form object
+    url = upload['url']
+
     new_image = Image(
-        img_url = data["image_url"],
+        img_url = url,
         user_id = current_user.id,
         location_id = id
     )

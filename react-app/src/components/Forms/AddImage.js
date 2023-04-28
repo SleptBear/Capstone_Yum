@@ -6,37 +6,38 @@ import { addImage } from '../../store/location'
 import "./forms.css"
 
 const AddImage = () => {
+    const dispatch = useDispatch()
+    const history = useHistory()
     const id = useParams()
     const locationId = id?.id
     // console.log(locationId)
-
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState(null)
+    // const [imageLoading, setImageLoading] = useState(null)
     const [errors, setErrors] = useState([]);
-
-    const dispatch = useDispatch()
-    const history = useHistory()
-
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
     const imgData = {
-        image_url: image
+        image
     }
+    // setImageLoading(true)
 
         dispatch(addImage(locationId, imgData))
 
         .then(async (res) => history.push(`/locations/${locationId}`))
+
         // .catch(async (res) => {
         //     const data = await res.json();
         //     if (data && data.errors) setErrors(data.errors)
         //   });
+
     }
 
     return (
         <div className= "addLocationMain">
 
-            <form className="addLocationform" onSubmit={handleSubmit}>
+            <form className="addLocationform" onSubmit={handleSubmit} encType='multipart/form-data'>
                 <h1 className='Form-Title'>Add an Image</h1>
                 <ul className="error-message">
                 {errors.map((error, idx) => (
@@ -48,7 +49,13 @@ const AddImage = () => {
 
             <label className="Label">
                 Image
-            <input className="size-form"
+                <input
+                type='file'
+                accept='image/*'
+                onChange={(e) => setImage(e.target.files[0])}
+                >
+                </input>
+            {/* <input className="size-form"
             type="url"
             value={image}
             placeholder="Image"
@@ -57,11 +64,11 @@ const AddImage = () => {
                 setImage(e.target.value)
             }}
 
-            ></input>
+            ></input> */}
             </label>
             <button className="submit-form" type="Submit" >Submit</button>
+            {/* {(imageLoading) && <p>Loading...</p>} */}
             </form>
-                {/* <Footer /> */}
         </div>
     )
 }

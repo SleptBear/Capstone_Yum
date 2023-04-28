@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 1rem;
+  z-index: 100;
 }
 
 #modal-background {
@@ -29,7 +30,7 @@
   max-height: 70%;
   display: flex;
   justify-content: center;
-  z-index: 10;
+  /* z-index: 10; */
   overflow-y: scroll;
   /* background-color: black; */
 }

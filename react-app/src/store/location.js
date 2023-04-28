@@ -31,14 +31,20 @@ export const actionAddImage = (img) => ({
 })
 
 export const addImage = (locationId, imgData) => async dispatch => {
-    // console.log(locationId)
-    // console.log(imgData)
+    console.log(locationId)
+    console.log(imgData.image)
+    const formData = new FormData();
+    console.log(formData)
+    formData.append("image", imgData.image);
+    // formData["image"] = imgData.image;
+    console.log('formData', formData)
+
     const res = await fetch(`/api/locations/${locationId}/images`, {
         method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(imgData)
+        // headers: {
+        //     "Content-Type": ''
+        // },
+        body: formData
     })
 
 

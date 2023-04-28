@@ -10,7 +10,6 @@ function FavoritesCard({location}) {
 
     return (
         <>
-        <h2 id="fav-header">Favorites</h2>
         <div className="card-container" style={{minWidth: '530px', height: '40%'}}>
             <div className="image-container" style={{paddingTop: '25px'}}>
                 <img src={location.images[0].img_url} alt='Image Not Found' style={{height: '90%', minHeight: '80%'}}></img>

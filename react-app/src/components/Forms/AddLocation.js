@@ -302,7 +302,7 @@ const AddLocation = () => {
             ></input>
             </label>
             <label className="Label">
-                Image
+                Preview Image
                 <input
                 type='file'
                 accept='image/*'

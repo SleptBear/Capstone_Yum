@@ -12,7 +12,7 @@ const AddImage = () => {
     const locationId = id?.id
     // console.log(locationId)
     const [image, setImage] = useState(null)
-    const [imageLoading, setImageLoading] = useState(null)
+    // const [imageLoading, setImageLoading] = useState(null)
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
@@ -21,11 +21,11 @@ const AddImage = () => {
     const imgData = {
         image
     }
-    setImageLoading(true)
+    // setImageLoading(true)
 
         dispatch(addImage(locationId, imgData))
 
-        // .then(async (res) => history.push(`/locations/${locationId}`))
+        .then(async (res) => history.push(`/locations/${locationId}`))
 
         // .catch(async (res) => {
         //     const data = await res.json();
@@ -67,7 +67,7 @@ const AddImage = () => {
             ></input> */}
             </label>
             <button className="submit-form" type="Submit" >Submit</button>
-            {(imageLoading) && <p>Loading...</p>}
+            {/* {(imageLoading) && <p>Loading...</p>} */}
             </form>
         </div>
     )

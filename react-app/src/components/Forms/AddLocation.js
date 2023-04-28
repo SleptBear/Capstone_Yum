@@ -10,14 +10,14 @@ const AddLocation = () => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [phone, setPhone] = useState('')
-    const [stringprice, setstringPrice] = useState()
+    const [stringprice, setstringPrice] = useState('')
     const [city, setCity] = useState('')
     const [state, setState ] = useState('')
     const [address, setAddress] = useState('')
     const [zipcode, setZipcode] = useState('')
     const [category, setCategory] = useState('')
     const [operating_hours, setOperating_hours] = useState('')
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState(null)
     const [errors, setErrors] = useState([]);
 
     const dispatch = useDispatch()
@@ -46,7 +46,7 @@ const AddLocation = () => {
     };
 
     const imgData = {
-        image_url: image
+        image
     }
 
         const data = await dispatch(createLocation(LocationData, imgData));
@@ -303,7 +303,13 @@ const AddLocation = () => {
             </label>
             <label className="Label">
                 Image
-            <input className="size-form"
+                <input
+                type='file'
+                accept='image/*'
+                onChange={(e) => setImage(e.target.files[0])}
+                >
+                </input>
+            {/* <input className="size-form"
             type="url"
             value={image}
             placeholder="Image URL"
@@ -312,7 +318,7 @@ const AddLocation = () => {
                 setImage(e.target.value)
             }}
 
-            ></input>
+            ></input> */}
             </label>
             <button className="submit-form" type="Submit" >Submit</button>
             </form>

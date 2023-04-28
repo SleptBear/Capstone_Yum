@@ -307,6 +307,8 @@ const AddLocation = () => {
                 type='file'
                 accept='image/*'
                 onChange={(e) => setImage(e.target.files[0])}
+                title='Please add Image of location'
+                required
                 >
                 </input>
             {/* <input className="size-form"

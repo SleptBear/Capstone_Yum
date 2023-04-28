@@ -9,14 +9,14 @@ const ChangeProfilePic = () => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState(null)
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
     const imgData = {
-        image_url: image
+        image
     }
 
         dispatch(changeProfilePic(imgData))
@@ -43,7 +43,13 @@ const ChangeProfilePic = () => {
 
             <label className="Label">
                 Image
-            <input className="size-form"
+                <input
+                type='file'
+                accept='image/*'
+                onChange={(e) => setImage(e.target.files[0])}
+                >
+                </input>
+            {/* <input className="size-form"
             type="url"
             value={image}
             placeholder="Image"
@@ -52,7 +58,7 @@ const ChangeProfilePic = () => {
                 setImage(e.target.value)
             }}
 
-            ></input>
+            ></input> */}
             </label>
             <button className="submit-form" type="Submit" >Submit</button>
             </form>

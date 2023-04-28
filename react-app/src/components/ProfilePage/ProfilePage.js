@@ -95,6 +95,8 @@ const ProfilePage = () => {
                 </div>
                 ) : (
                     <div className='prof-fav-container'>
+                        <h2 id="fav-header">Favorites</h2>
+                        <hr style={{width: "100%"}}></hr>
 
                     {
                         userFavorites.map(location => (

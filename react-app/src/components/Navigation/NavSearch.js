@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 const NavSearch = () => {
-  const [searchTerm, setSearchTerm] = useState(undefined);
+  const [searchTerm, setSearchTerm] = useState('');
   // const searchResult = useSelector(state => state);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -13,9 +13,10 @@ const NavSearch = () => {
 //   console.log("SEARCH" , searchResult)
   const handleSearch = async () => {
     if (searchTerm.length < 1) {
-    return history.push('/search')
+    // return history.push('/search')
+    return
     }
-    dispatch(searchThunk(searchTerm))
+    dispatch(searchThunk(searchTerm.trim()))
     .then(() => history.push('/search'))
       setSearchTerm('')
   };

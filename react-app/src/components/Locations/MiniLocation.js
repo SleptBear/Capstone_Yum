@@ -21,9 +21,11 @@ function MiniLocation(props) {
         if(props.location.owner_id == user?.id) setShowEdit(true)
         if(props.location.owner_id != user?.id) setShowEdit(false)
         dispatch(readReviews(props?.location.id))
-    }, [dispatch, showEdit, user])
+    }, [dispatch, showEdit, user, reviewsObj])
 
     if(!locationObj['id']) return null
+    // console.log("mini  location props", props)
+    // console.log("mini  location reviewsObj", reviewsObj)
     // if(!props?.location['id']) return null
     // if(!props?.reviews) return null
     // console.log("props", props)

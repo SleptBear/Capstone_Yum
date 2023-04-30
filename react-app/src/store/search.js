@@ -1,3 +1,5 @@
+import { getLocations } from "./location"
+
 const CREATE_SEARCH = "search/create"
 const CLEAR_SEARCH = "search/clear"
 
@@ -19,6 +21,7 @@ export const searchThunk = (search) => async (dispatch) => {
     if (response.ok){
         const data = await response.json()
         dispatch(createSearch(data))
+        dispatch(getLocations())
         // console.log(data)
         // dispatch(clearSearchThunk())
         return data

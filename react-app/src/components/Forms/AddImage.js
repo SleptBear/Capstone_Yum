@@ -33,7 +33,6 @@ const AddImage = () => {
         //   });
 
     }
-
     return (
         <div className= "addLocationMain">
 
@@ -47,25 +46,22 @@ const AddImage = () => {
                 ))}
                 </ul>
 
-            <label className="Label">
-                Image
+            <label className="Label" id='file-input'>
+
                 <input
+                className='custom-file-upload'
+                id='file-input'
                 type='file'
                 accept='image/*'
                 onChange={(e) => setImage(e.target.files[0])}
                 required
                 >
                 </input>
-            {/* <input className="size-form"
-            type="url"
-            value={image}
-            placeholder="Image"
-            required
-            onChange={(e) => {
-                setImage(e.target.value)
-            }}
-
-            ></input> */}
+                    {/* <label htmlFor='file-input'><i className="fa-solid fa-file-arrow-up"></i> Choose File...</label>
+                <div id='file-display'>
+                <strong>Chosen File: </strong>
+                <div>{image?.name || "None"}</div>
+                </div> */}
             </label>
             <button className="submit-form" type="Submit" >Submit</button>
             {/* {(imageLoading) && <p>Loading...</p>} */}

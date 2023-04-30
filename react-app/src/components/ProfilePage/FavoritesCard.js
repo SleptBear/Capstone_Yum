@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux"
 
 function FavoritesCard({location}) {
     const dispatch = useDispatch()
-    console.log("location data", location)
+    // console.log("location data", location)
 
     return (
         <>

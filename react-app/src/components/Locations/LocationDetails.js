@@ -26,7 +26,7 @@ const LocationDetails = () => {
         dispatch(getLocation(locationId))
         // setIsLoading(false)
         // .then(dispatch(readReviews(locationId)))
-    }, [dispatch, locationId, reviewObj, session])
+    }, [dispatch, locationId, session])
 
 
     if(!locationObj.id) return null
@@ -77,7 +77,7 @@ const LocationDetails = () => {
                 <UserBar locationId={locationId} user={userObj}/>
 
                 <div className='leftReviews-container'>
-                    <LocationReviews />
+                    <LocationReviews location={locationObj}/>
                 </div>
             </div>
             <div className='details-right'>

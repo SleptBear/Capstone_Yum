@@ -305,11 +305,13 @@ const AddLocation = () => {
                 Preview Image
                 <input
                 type='file'
+                className='custom-file-upload'
                 accept='image/*'
                 onChange={(e) => setImage(e.target.files[0])}
                 title='Please add Image of location'
                 required
                 >
+                    {/* <i class="fa-solid fa-file-arrow-up"></i> */}
                 </input>
             {/* <input className="size-form"
             type="url"

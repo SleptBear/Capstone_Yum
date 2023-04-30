@@ -42,9 +42,10 @@ const ChangeProfilePic = () => {
                 </ul>
 
             <label className="Label">
-                Image
+
                 <input
                 type='file'
+                className='custom-file-upload'
                 accept='image/*'
                 onChange={(e) => setImage(e.target.files[0])}
                 >

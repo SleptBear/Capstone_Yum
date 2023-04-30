@@ -24,8 +24,8 @@ function MiniLocation(props) {
     }, [dispatch, showEdit, user, reviewsObj])
 
     if(!locationObj['id']) return null
-    console.log("mini  location props", props)
-    console.log("mini  location reviewsObj", reviewsObj)
+    // console.log("mini  location props", props)
+    // console.log("mini  location reviewsObj", reviewsObj)
     // if(!props?.location['id']) return null
     // if(!props?.reviews) return null
     // console.log("props", props)

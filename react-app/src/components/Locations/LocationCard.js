@@ -38,7 +38,7 @@ import './Card.css'
     // if(!locationReviews) return null
     // if(!stateRevArray[0]) return null
     const reviewsArray = location?.reviews
-    console.log("location card reviews", reviewsArray)
+    // console.log("location card reviews", reviewsArray)
 
 
 

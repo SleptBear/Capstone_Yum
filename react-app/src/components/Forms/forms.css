@@ -99,3 +99,35 @@
 .remove-button {
     background-color: darkred;
 }
+
+/* input#file-input {
+    display: none;
+} */
+
+input#file-input + label {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background-color: rgb(148, 135, 135);
+    padding: 8px;
+    color: rgb(255, 255, 255);
+    border: 2px solid gray;
+    cursor: pointer;
+    /* border-radius: 9px; */
+}
+
+#file-display {
+    display: flex;
+
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}

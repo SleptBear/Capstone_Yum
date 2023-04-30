@@ -68,8 +68,10 @@ export const addReview = (id, review) => async (dispatch) => {
 }
 
 export const readReviews = (locationId) => async (dispatch) => {
+    // console.log("Spot ID", locationId)
     const response = await fetch(`/api/locations/${locationId}/reviews`)
     const reviews = await response.json()
+    // console.log("Reviews Array", reviews)
     if (response.ok) dispatch(actionReadReview(reviews))
     return reviews
 }

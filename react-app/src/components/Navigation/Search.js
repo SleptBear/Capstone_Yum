@@ -12,7 +12,7 @@ const Search = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  console.log("SEARCH" , searchResult)
+//   console.log("SEARCH" , searchResult)
   const handleSearch = async () => {
     dispatch(searchThunk(searchTerm));
   };

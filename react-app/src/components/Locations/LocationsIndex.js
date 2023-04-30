@@ -10,7 +10,7 @@ const LocationsIndex = () => {
     const [isLoading, setIsLoading] = useState(false)
     const locationsObj = useSelector(state => state.location)
     const searchObj = useSelector(state => state.search)
-    const filteredLocations = Object.values(searchObj)
+    // const filteredLocations = Object.values(searchObj)
     const locations = Object.values(locationsObj?.locations)
 
     useEffect(() => {

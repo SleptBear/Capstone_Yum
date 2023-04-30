@@ -27,9 +27,9 @@ import './Card.css'
         // console.log("useEffect reviews", locationReviews)
         // console.log("useEffect reviews", stateRevArray)
 
-    //      useEffect(() => {
-    //     dispatch(readReviews(location?.id))
-    // }, [dispatch])
+         useEffect(() => {
+        dispatch(readReviews(location?.id))
+    }, [dispatch])
 
     // console.log("Location Card Render")
     // console.log("location Card Props", location)
@@ -38,6 +38,7 @@ import './Card.css'
     // if(!locationReviews) return null
     // if(!stateRevArray[0]) return null
     const reviewsArray = location?.reviews
+    console.log("location card reviews", reviewsArray)
 
 
 

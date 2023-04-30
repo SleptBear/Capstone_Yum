@@ -162,6 +162,7 @@ let initialState = {
         case READ_USER_REVIEWS:
             newState = { ...state}
             let reviewsCopy1 = {}
+            console.log(newState)
 
             action.payload.reviews.forEach(review => {
                 reviewsCopy1[review.id] = review

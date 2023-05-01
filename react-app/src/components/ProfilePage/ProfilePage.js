@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, NavLink } from 'react-router-dom'
-import { getLocations } from '../../store/location'
-import { authenticate } from '../../store/session'
+import { Link } from 'react-router-dom'
+import { clearLocation } from '../../store/location'
+
+// import { authenticate } from '../../store/session'
 
 import { readUserReviews } from '../../store/review'
 import DetailedReview from '../Reviews/DetailedReview'
@@ -34,7 +35,7 @@ const ProfilePage = () => {
 
     useEffect(() => {
         dispatch(readUserReviews(user?.id))
-        dispatch(getLocations())
+        dispatch(clearLocation())
         // dispatch(authenticate())
     }, [dispatch, user])
     if(!user?.id) return <div>Please Log in or Sign-up</div>

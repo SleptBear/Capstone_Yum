@@ -44,10 +44,10 @@ export const addImage = (locationId, imgData) => async dispatch => {
     // console.log(locationId)
     // console.log(imgData.image)
     const formData = new FormData();
-    console.log(formData)
+    // console.log(formData)
     formData.append("image", imgData.image);
     // formData["image"] = imgData.image;
-    console.log('formData', formData)
+    // console.log('formData', formData)
 
     const res = await fetch(`/api/locations/${locationId}/images`, {
         method: 'POST',
@@ -108,10 +108,10 @@ let data =await res.json()
 if (res.ok) {
 
     const formData = new FormData();
-    console.log(formData)
+    // console.log(formData)
     formData.append("image", imgData.image);
     // formData["image"] = imgData.image;
-    console.log('formData', formData)
+    // console.log('formData', formData)
 
     const res2 = await fetch(`/api/locations/${data.id}/images`, {
         method: 'POST',
@@ -123,7 +123,7 @@ if (res.ok) {
     }
 
     // dispatch(getSpot(data.id))
-    console.log("DATA=========>", data)
+    // console.log("DATA=========>", data)
     dispatch(actionCreateLocation(data))
     return data
 }
@@ -137,14 +137,14 @@ return data
 }
 
 export const updateLocation = (location, locationId) => async dispatch => {
-    console.log(location)
+    // console.log(location)
     const res = await fetch(`/api/locations/${locationId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(location)
     })
     if(res.ok) {
-        console.log(res)
+        // console.log(res)
     }
     // console.log("response", res)
     // const data = await res.json();
@@ -157,7 +157,7 @@ export const updateLocation = (location, locationId) => async dispatch => {
 
 
 export const deleteLocation = (locationId) => async dispatch => {
-    console.log(locationId)
+    // console.log(locationId)
     const res = await fetch(`/api/locations/${locationId}`, {
         method: 'DELETE'})
         // let data;
@@ -208,7 +208,7 @@ export default function locationReducer(state = initialState, action) {
             newState = {...state, locations: {...state.locations}, location: {...state.location}}
             newState.location = {}
             return newState
-            
+
         case DELETE_LOCATION:
             // newState = { ...state, spots: {...state.spots}, spot: {...state.spot}
             newState = {...state, locations: {...state.locations}, location: {...state.location}}

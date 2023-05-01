@@ -131,9 +131,9 @@ const AddLocation = () => {
             type="text"
             value={stringprice}
             placeholder="12"
-            maxLength={20}
+            maxLength={4}
             pattern="[0-9]*"
-            title="No Special Symbols or Characters"
+            title="No Special Symbols or Characters and under 5 digits"
             onChange={(e) => {
                 setstringPrice(e.target.value)
             }}

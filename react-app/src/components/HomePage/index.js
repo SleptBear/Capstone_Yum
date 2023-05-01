@@ -1,4 +1,6 @@
 // import ReviewsIndexCard from "../Reviews/ReviewsIndexCard"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
 import ReviewsIndex from "../Reviews/ReviewsIndex"
 import ActiveLife from "./Indoors"
 import RestaurantCategory from "./FastFood"
@@ -9,9 +11,16 @@ import Automotive from "./Delivery"
 import HomeServices from "./Coffee"
 import More from "./More"
 import "./YumHome.png"
+import { clearLocation } from "../../store/location"
 
 
 function HomePage() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(clearLocation())
+
+    }, [dispatch])
 
     return (
         <div className="Home">

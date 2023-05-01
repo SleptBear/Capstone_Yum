@@ -34,15 +34,16 @@ export const CreateFav = () => async (dispatch) => {
 			"Content-Type": "application/json",
 		},
 	});
+	return response
 }
 
 
 
 
 export const AddFavorite = (locationId) => async (dispatch) => {
-	console.log(typeof Number(locationId))
+	// console.log(typeof Number(locationId))
 	let locId = Number(locationId)
-	console.log(locId)
+	// console.log(locId)
 	const response = await fetch(`/api/favorites/${locId}`, {
 		method: 'POST',
 		headers: {
@@ -58,9 +59,9 @@ export const AddFavorite = (locationId) => async (dispatch) => {
 	return data
 }
 export const RemoveFavorite = (locationId) => async (dispatch) => {
-	console.log(typeof Number(locationId))
+	// console.log(typeof Number(locationId))
 	let locId = Number(locationId)
-	console.log(locId)
+	// console.log(locId)
 	const response = await fetch(`/api/favorites/${locId}`, {
 		method: 'DELETE',
 		headers: {
@@ -78,12 +79,12 @@ export const RemoveFavorite = (locationId) => async (dispatch) => {
 
 
 export const changeProfilePic = (imgData) => async (dispatch) => {
-    console.log(imgData.image)
+    // console.log(imgData.image)
     const formData = new FormData();
-    console.log(formData)
+    // console.log(formData)
     formData.append("image", imgData.image);
     // formData["image"] = imgData.image;
-    console.log('formData', formData)
+    // console.log('formData', formData)
 	const response = await fetch("/api/users/profile-pic", {
 		method: 'POST',
 		body: formData
@@ -115,8 +116,8 @@ export const authenticate = () => async (dispatch) => {
 };
 
 export const login = (email, password) => async (dispatch) => {
-	console.log(email)
-	console.log(password)
+	// console.log(email)
+	// console.log(password)
 	const response = await fetch("/api/auth/login", {
 		method: "POST",
 		headers: {
@@ -155,7 +156,7 @@ export const logout = () => async (dispatch) => {
 };
 
 export const signUp = (firstName, lastName, city, state, email, password) => async (dispatch) => {
-	console.log(firstName, lastName, city, state, email, password)
+	// console.log(firstName, lastName, city, state, email, password)
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {

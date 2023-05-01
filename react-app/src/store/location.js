@@ -4,6 +4,12 @@ const EDIT_LOCATION = 'location/editLocation'
 const DELETE_LOCATION = 'location/deleteLocation'
 const LOAD_ONE_LOCATION = 'location/loadOneLocation'
 const ADD_IMAGE = 'location/addImage'
+const CLEAR_LOCATION = 'location/clear'
+
+export const actionClearLocation = () => ({
+    type: CLEAR_LOCATION,
+    payload: {}
+})
 
 export const actionCreateLocation = (location) => ({
     type: NEW_LOCATION,
@@ -30,9 +36,13 @@ export const actionAddImage = (img) => ({
     payload: img
 })
 
+export const clearLocation = () => async dispatch => {
+    dispatch(actionClearLocation())
+}
+
 export const addImage = (locationId, imgData) => async dispatch => {
-    console.log(locationId)
-    console.log(imgData.image)
+    // console.log(locationId)
+    // console.log(imgData.image)
     const formData = new FormData();
     console.log(formData)
     formData.append("image", imgData.image);
@@ -194,6 +204,11 @@ export default function locationReducer(state = initialState, action) {
             // console.log("UPDATE TEST", newState)
             return newState
 
+        case CLEAR_LOCATION:
+            newState = {...state, locations: {...state.locations}, location: {...state.location}}
+            newState.location = {}
+            return newState
+            
         case DELETE_LOCATION:
             // newState = { ...state, spots: {...state.spots}, spot: {...state.spot}
             newState = {...state, locations: {...state.locations}, location: {...state.location}}

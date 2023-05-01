@@ -157,6 +157,7 @@ let initialState = {
                 allReviewsCopy[review.id] = review
             })
             newState.AllReviews = allReviewsCopy
+            newState.LocationReviews = {}
             // console.log("newState", newState)
             return newState
         case READ_USER_REVIEWS:

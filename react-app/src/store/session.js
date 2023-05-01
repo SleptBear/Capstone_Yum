@@ -89,7 +89,7 @@ export const changeProfilePic = (imgData) => async (dispatch) => {
 		method: 'POST',
 		body: formData
 	});
-	console.log(response)
+	// console.log(response)
 
 	let data = await response.json()
 	// console.log(data)

@@ -21,7 +21,7 @@ import ScrollToTop from "./context/ScrollToTop";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isContent, setIsContent] = useState(false)
+  // const [isContent, setIsContent] = useState(false)
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -71,8 +71,11 @@ function App() {
           <Route exact path='/search'>
             <Search />
           </Route>
-          <Route path='*'>
+          <Route exact path='/notfound'>
             <NotFound />
+          </Route>
+          <Route>
+            <PageNotFound path='*'/>
           </Route>
         </Switch>
       </ScrollToTop>
@@ -84,7 +87,15 @@ function App() {
 function NotFound() {
   return (
     <div>
-      <p>Sorry, no results found.</p>
+      <p>Sorry, no results.</p>
+    </div>
+  );
+}
+
+function PageNotFound() {
+  return (
+    <div>
+      <p>404, Not Found</p>
     </div>
   );
 }

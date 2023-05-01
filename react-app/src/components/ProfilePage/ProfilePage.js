@@ -9,6 +9,7 @@ import { readUserReviews } from '../../store/review'
 import DetailedReview from '../Reviews/DetailedReview'
 import FavoritesCard from './FavoritesCard'
 import './profile.css'
+import { authenticate } from '../../store/session'
 
 const ProfilePage = () => {
     const dispatch = useDispatch()
@@ -34,10 +35,11 @@ const ProfilePage = () => {
 
 
     useEffect(() => {
+        dispatch(authenticate())
         dispatch(readUserReviews(user?.id))
         dispatch(clearLocation())
         // dispatch(authenticate())
-    }, [dispatch, user])
+    }, [dispatch])
     if(!user?.id) return <div>Please Log in or Sign-up</div>
     if(!reviews) return null
     if (profilePic === null) profilePic = "https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png"

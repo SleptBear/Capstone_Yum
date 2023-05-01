@@ -75,7 +75,7 @@ const LocationDetails = () => {
         <div className="location-details">
             <div className="details-left">
                 <UserBar locationId={locationId} user={userObj}/>
-
+                
                 <div className='leftReviews-container'>
                     <LocationReviews location={locationObj}/>
                 </div>

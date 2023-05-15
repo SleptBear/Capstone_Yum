@@ -87,7 +87,7 @@ const ProfilePage = () => {
                     <div className='prof-page-buttons'>
                         <button style={{backgroundColor: page !== 1 ? "#f5f5f5" : "#e5e5e5"}} onClick={() => (setPage(1))}>Reviews</button>
                         <button style={{backgroundColor: page !== 2 ? "#f5f5f5" : "#e5e5e5"}}onClick={() => (setPage(2))}>Favorites</button>
-                        <button style={{backgroundColor: page !== 3 ? "#f5f5f5" : "#e5e5e5"}}onClick={() => (setPage(3))}>Your Locations</button>
+                        <button style={{backgroundColor: page !== 3 ? "#f5f5f5" : "#e5e5e5"}}onClick={() => (setPage(3))}>Your Restaurants</button>
 
                     </div>
                 {page === 1 ? (
@@ -125,7 +125,7 @@ const ProfilePage = () => {
 
                 (
                     <div className='prof-fav-container'>
-                        <h2 id="fav-header">Favorites</h2>
+                        <h2 id="fav-header">My Restaurants</h2>
                         <hr style={{width: "100%"}}></hr>
 
                     {

@@ -267,3 +267,13 @@
   transition: 1s;
   cursor: pointer;
 }
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found img {
+  max-width: 50%;
+}

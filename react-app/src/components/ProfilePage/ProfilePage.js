@@ -15,10 +15,11 @@ const ProfilePage = () => {
     const dispatch = useDispatch()
     const reviews = useSelector(state => state.review)
     const reviewsObj = reviews.UserReviews
-    const [page, setPage] = useState(true)
+    const [page, setPage] = useState(1)
 
     const user = useSelector(state => state.session?.user)
     const userFavorites = user?.favorites
+    const userLocations = user?.owned_locations
     let profilePic = user.prof_pic
     // console.log("profile pic", profilePic)
     const reviewsArray = Object.values(reviewsObj)
@@ -84,10 +85,12 @@ const ProfilePage = () => {
                 <div className='prof-details-container'>
 
                     <div className='prof-page-buttons'>
-                        <button style={{backgroundColor: !page ? "#f5f5f5" : "#e5e5e5"}} onClick={() => (setPage(true))}>Reviews</button>
-                        <button style={{backgroundColor: page ? "#f5f5f5" : "#e5e5e5"}}onClick={() => (setPage(false))}>Favorites</button>
+                        <button style={{backgroundColor: page !== 1 ? "#f5f5f5" : "#e5e5e5"}} onClick={() => (setPage(1))}>Reviews</button>
+                        <button style={{backgroundColor: page !== 2 ? "#f5f5f5" : "#e5e5e5"}}onClick={() => (setPage(2))}>Favorites</button>
+                        <button style={{backgroundColor: page !== 3 ? "#f5f5f5" : "#e5e5e5"}}onClick={() => (setPage(3))}>Your Restaurants</button>
+
                     </div>
-                {page ? (
+                {page === 1 ? (
 
                     <div className='prof-reviews'>
                 <h2>User Reviews</h2>
@@ -98,7 +101,12 @@ const ProfilePage = () => {
                 ))}
         </div>
                 </div>
-                ) : (
+                ) : null
+
+            }
+            {page === 2 ?
+
+                (
                     <div className='prof-fav-container'>
                         <h2 id="fav-header">Favorites</h2>
                         <hr style={{width: "100%"}}></hr>
@@ -111,7 +119,24 @@ const ProfilePage = () => {
                             ))
                         }
                     </div>
-                    )
+                    ) : null
+                }
+            {page === 3 ?
+
+                (
+                    <div className='prof-fav-container'>
+                        <h2 id="fav-header">My Restaurants</h2>
+                        <hr style={{width: "100%"}}></hr>
+
+                    {
+                        userLocations.map(location => (
+                            <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>
+                            <FavoritesCard location={location} />
+                        </Link>
+                            ))
+                        }
+                    </div>
+                    ) : null
                 }
 
                 </div>

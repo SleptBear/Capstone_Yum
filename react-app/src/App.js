@@ -17,6 +17,7 @@ import CreateReview from "./components/Forms/CreateReview";
 import EditReview from "./components/Forms/EditReview";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import ScrollToTop from "./context/ScrollToTop";
+import PageNotFound from "./components/Navigation/PageNotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -72,7 +73,7 @@ function App() {
             <Search />
           </Route>
           <Route exact path='/notfound'>
-            <NotFound />
+            <PageNotFound />
           </Route>
           <Route>
             <PageNotFound path='*'/>
@@ -84,20 +85,20 @@ function App() {
   );
 }
 
-function NotFound() {
-  return (
-    <div>
-      <p>Sorry, no results.</p>
-    </div>
-  );
-}
+// function NotFound() {
+//   return (
+//     <div>
+//       <p>Sorry, no results.</p>
+//     </div>
+//   );
+// }
 
-function PageNotFound() {
-  return (
-    <div>
-      <p>404, Not Found</p>
-    </div>
-  );
-}
+// function PageNotFound() {
+//   return (
+//     <div>
+//       <p>404, Not Found</p>
+//     </div>
+//   );
+// }
 
 export default App;

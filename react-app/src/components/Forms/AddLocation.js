@@ -69,6 +69,9 @@ const AddLocation = () => {
 
     return (
         <div className= "addLocationMain">
+            <br></br>
+            <br></br>
+            <br></br>
 
             <form className="addLocationform" onSubmit={handleSubmit}>
                 <h1 className='Form-Title'>Add a Location</h1>

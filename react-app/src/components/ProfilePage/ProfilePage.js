@@ -65,14 +65,14 @@ const ProfilePage = () => {
                         </div>
                     </div>
                     <div className='prof-right'>
-                        <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home/addImage'>
+                        <Link style={{ textDecoration: 'none', color: '#0073bb'}} to='/user/home/addImage'>
                         <div><i className="fa-solid fa-camera"></i> Change Profile Photo</div>
                         </Link>
-                        <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home'>
+                        <Link style={{ textDecoration: 'none', color: '#0073bb'}} to='/user/home'>
                         <div id='badLink'><i className="fa-solid fa-address-card"></i> Update Your Profile</div>
 
                         </Link>
-                        <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home'>
+                        <Link style={{ textDecoration: 'none', color: '#0073bb'}} to='/user/home'>
                         <div id='badLink'><i className="fa-solid fa-user-group"></i> Find Friends</div>
 
                         </Link>

@@ -133,7 +133,7 @@
 
 .nav-modals button:hover {
     background-color: rgba(190, 190, 190, 0.584);
-    transition: 1s;
+    transition: .5s;
 }
 
 

@@ -30,7 +30,11 @@ const ChangeProfilePic = () => {
 
     return (
         <div className= "addLocationMain">
-
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <form className="addLocationform" onSubmit={handleSubmit}>
                 <h1 className='Form-Title'>Change Profile Pic</h1>
                 <ul className="error-message">
@@ -61,6 +65,7 @@ const ChangeProfilePic = () => {
 
             ></input> */}
             </label>
+            <br></br>
             <button className="submit-form" type="Submit" >Submit</button>
             </form>
             {/* <Footer /> */}

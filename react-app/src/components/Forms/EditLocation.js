@@ -93,9 +93,12 @@ const EditLocation = () => {
 
     return(
         <div className= "UpdateLocationMain">
-
+<br></br>
+<br></br>
+<br></br>
+<br></br>
             <form className="UpdateLocationform" onSubmit={handleSubmit}>
-                <h1 className='Form-Title'>Update a Location</h1>
+                <h1 className='Form-Title'>Updated Information</h1>
                 <ul className="error-message">
                 {errors.map((error, idx) => (
                 <li key={idx} className="error-text">
@@ -339,6 +342,7 @@ const EditLocation = () => {
 
             ></input>
             // </label> */}
+            <br></br>
             <button className="submit-form" type="Submit" >Submit</button>
             <br></br>
             </form>

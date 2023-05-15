@@ -345,6 +345,7 @@ const AddLocation = () => {
 
             ></input> */}
             </label>
+            <br></br>
             <button className="submit-form" type="Submit" >Submit</button>
             </form>
             {/* <button className="demo-add-item"

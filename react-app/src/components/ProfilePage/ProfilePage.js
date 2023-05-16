@@ -59,9 +59,9 @@ const ProfilePage = () => {
                             From {user.city}, {user.state}
                         </div>
                         <div>
-                        <i className="fa-regular fa-user"></i> 0 {' '}
-                        <i className="fa-regular fa-star"></i> {reviewsArray.length} {' '}
-                        <i className="fa-solid fa-camera"></i> {user.images.length} {' '}
+                        <i className="fa-regular fa-user" style={{color: 'rgba(224,7,7,1)'}}></i> 0 {' '}
+                        <i className="fa-regular fa-star" style={{color: 'rgba(224,7,7,1)'}}></i> {reviewsArray.length} {' '}
+                        <i className="fa-solid fa-camera" style={{color: 'rgba(224,7,7,1)'}}></i> {user.images.length} {' '}
                         </div>
                     </div>
                     <div className='prof-right'>

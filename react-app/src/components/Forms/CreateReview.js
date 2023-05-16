@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import ReactStars from 'react-rating-stars-component'
@@ -12,6 +12,8 @@ const CreateReview = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector(state => state.session?.user)
+    // const location = useSelector(state => state.location)
+    // const currentLocation = location.location
     const [rating, setRating] = useState(0);
     const [review, setReview] = useState('');
     const id = useParams()
@@ -47,6 +49,12 @@ const CreateReview = () => {
 
     return (
         <div className= "addLocationMain">
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
 
             <form className="addLocationform" onSubmit={handleSubmit}>
                 <h1 className='Form-Title'>Thoughts?</h1>
@@ -58,13 +66,13 @@ const CreateReview = () => {
                 ))}
                 </ul>
                 <label className="Label">
-                Review Details
+
                 <textarea
             className="description-form"
             type="text"
             value={review}
             pattern="[-a-zA-Z0-9 .,;:?! ]*"
-            placeholder="Give us your thoughts."
+            placeholder="Leave review here..."
             maxLength={255}
             onChange={(e) => {
                 setReview(e.target.value)
@@ -79,7 +87,7 @@ const CreateReview = () => {
                         count={5}
                         value={rating}
                         onChange={setRating}
-                        size={22}
+                        size={40}
                         isHalf={true}
                         emptyIcon={<i className="far fa-star"></i>}
                         halfIcon={<i className="fa fa-star-half-alt"></i>}

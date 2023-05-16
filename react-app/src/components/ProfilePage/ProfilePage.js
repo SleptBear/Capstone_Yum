@@ -59,20 +59,20 @@ const ProfilePage = () => {
                             From {user.city}, {user.state}
                         </div>
                         <div>
-                        <i className="fa-regular fa-user"></i> 0 {' '}
-                        <i className="fa-regular fa-star"></i> {reviewsArray.length} {' '}
-                        <i className="fa-solid fa-camera"></i> {user.images.length} {' '}
+                        <i className="fa-regular fa-user" style={{color: 'rgba(224,7,7,1)'}}></i> 0 {' '}
+                        <i className="fa-regular fa-star" style={{color: 'rgba(224,7,7,1)'}}></i> {reviewsArray.length} {' '}
+                        <i className="fa-solid fa-camera" style={{color: 'rgba(224,7,7,1)'}}></i> {user.images.length} {' '}
                         </div>
                     </div>
                     <div className='prof-right'>
-                        <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home/addImage'>
+                        <Link style={{ textDecoration: 'none', color: '#0073bb'}} to='/user/home/addImage'>
                         <div><i className="fa-solid fa-camera"></i> Change Profile Photo</div>
                         </Link>
-                        <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home'>
+                        <Link style={{ textDecoration: 'none', color: '#0073bb'}} to='/user/home'>
                         <div id='badLink'><i className="fa-solid fa-address-card"></i> Update Your Profile</div>
 
                         </Link>
-                        <Link style={{ textDecoration: 'none', color: 'blue'}} to='/user/home'>
+                        <Link style={{ textDecoration: 'none', color: '#0073bb'}} to='/user/home'>
                         <div id='badLink'><i className="fa-solid fa-user-group"></i> Find Friends</div>
 
                         </Link>

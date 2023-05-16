@@ -18,7 +18,7 @@ function AllImages(location) {
             {/* <button onClick={() => window.alert("Photo Modal Coming Soon")}>See all Photos</button> */}
             {/* <button onClick={() => OpenModalButton({LocationImagesModal}) }>See all Photos</button> */}
             <OpenModalButton
-              buttonText="All Photos"
+              buttonText="See All Photos"
               onItemClick={closeMenu}
               modalComponent={<LocationImagesModal location={location}/>}
             />

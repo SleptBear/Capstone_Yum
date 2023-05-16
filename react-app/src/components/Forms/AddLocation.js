@@ -69,6 +69,9 @@ const AddLocation = () => {
 
     return (
         <div className= "addLocationMain">
+            <br></br>
+            <br></br>
+            <br></br>
 
             <form className="addLocationform" onSubmit={handleSubmit}>
                 <h1 className='Form-Title'>Add a Location</h1>
@@ -271,7 +274,25 @@ const AddLocation = () => {
             </label>
             <label className="Label">
                 Category
-            <input className="Category-form"
+                <select className="State-form"
+  value={category}
+  onChange={(e) => {
+    setCategory(e.target.value)
+  }}
+  required
+  >
+    <option value="" disabled>Select a category</option>
+    <option value={'Chinese'}>Chinese</option>
+    <option value={'Japanese'}>Japanese</option>
+    <option value={'Seafood'}>Seafood</option>
+    <option value={'Italian'}>Italian</option>
+    <option value={'Mexican'}>Mexican</option>
+    <option value={'American'}>American</option>
+    <option value={'Bar'}>Bar</option>
+    <option value={'Diner'}>Diner</option>
+    <option value={'Take-out'}>Take-out</option>
+                </select>
+            {/* <input className="Category-form"
             type="text"
             value={category}
             placeholder="Category"
@@ -283,7 +304,7 @@ const AddLocation = () => {
             }}
             required
 
-            ></input>
+            ></input> */}
             </label>
             <label className="Label">
                 Operating_hours
@@ -324,6 +345,7 @@ const AddLocation = () => {
 
             ></input> */}
             </label>
+            <br></br>
             <button className="submit-form" type="Submit" >Submit</button>
             </form>
             {/* <button className="demo-add-item"

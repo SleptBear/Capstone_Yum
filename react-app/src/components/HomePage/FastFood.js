@@ -7,7 +7,7 @@ const RestaurantCategory = () => {
     const history = useHistory();
 
     const handleSearch = async () => {
-        dispatch(searchThunk("fast"))
+        dispatch(searchThunk("take-out"))
         .then(() => history.push('/search'))
       };
 

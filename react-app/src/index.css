@@ -136,6 +136,7 @@
     padding-top: 1%;
     /* background-color: red; */
     height: 10rem;
+    transition: .5s;
 }
 
 .category-box:hover {

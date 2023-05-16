@@ -35,7 +35,11 @@ const AddImage = () => {
     }
     return (
         <div className= "addLocationMain">
-
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
             <form className="addLocationform" onSubmit={handleSubmit} encType='multipart/form-data'>
                 <h1 className='Form-Title'>Add an Image</h1>
                 <ul className="error-message">
@@ -63,6 +67,7 @@ const AddImage = () => {
                 <div>{image?.name || "None"}</div>
                 </div> */}
             </label>
+            <br></br>
             <button className="submit-form" type="Submit" >Submit</button>
             {/* {(imageLoading) && <p>Loading...</p>} */}
             </form>

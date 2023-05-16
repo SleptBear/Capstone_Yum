@@ -24,7 +24,7 @@ function Navigation({ isLoaded }){
         			</NavLink> */}
         			<NavLink className='home-select' exact to="/">
 						{/* <div className='home-select'> */}
-						<h1>Yum!</h1>
+						<h1 style={{color: 'gray'}}>Yum!</h1>
 						<i className="fa-solid fa-utensils"></i>
 
 						{/* </div> */}

@@ -58,18 +58,32 @@ background-color: gray;
     width: 100%;
     background-color: lightgray;
     justify-content: center;
+    background-image:
+        linear-gradient(
+         transparent, black
+    );
+    /* &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to bottom, transparent 0%, black 100%);
+    } */
 }
 .some-images img {
     display: flex;
     height: 25rem;
     width: 100%;
-    /* background-color: red; */
+
 }
 
 .individual-image {
     display: flex;
     width: 33.33%;
-    /* max-width: 100% */
+    opacity: .8;
+
 }
 
 .over-images {
@@ -128,7 +142,7 @@ background-color: gray;
     height: 3rem;
     border-radius: 5px;
     width: 15rem;
-    color: white;
+    color: rgba(255, 255, 255, 1);
     font-size: x-large;
     background-color: transparent;
     border-color: white;

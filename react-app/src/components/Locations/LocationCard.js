@@ -67,7 +67,7 @@ import './Card.css'
       }
 
     let randomRev = getRandomInt(reviewsArray.length)
-    //   console.log("location card render cycle")
+      console.log("location card render cycle")
     return (
         <div className="card-container">
             <div className="image-container">

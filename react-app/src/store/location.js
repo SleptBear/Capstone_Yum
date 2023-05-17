@@ -5,9 +5,14 @@ const DELETE_LOCATION = 'location/deleteLocation'
 const LOAD_ONE_LOCATION = 'location/loadOneLocation'
 const ADD_IMAGE = 'location/addImage'
 const CLEAR_LOCATION = 'location/clear'
+const CLEAR_LOCATIONS = 'location/clearAll'
 
 export const actionClearLocation = () => ({
     type: CLEAR_LOCATION,
+    payload: {}
+})
+export const actionClearLocations = () => ({
+    type: CLEAR_LOCATIONS,
     payload: {}
 })
 
@@ -38,6 +43,10 @@ export const actionAddImage = (img) => ({
 
 export const clearLocation = () => async dispatch => {
     dispatch(actionClearLocation())
+}
+
+export const clearLocations = () => async dispatch => {
+    dispatch(actionClearLocations())
 }
 
 export const addImage = (locationId, imgData) => async dispatch => {
@@ -207,6 +216,10 @@ export default function locationReducer(state = initialState, action) {
         case CLEAR_LOCATION:
             newState = {...state, locations: {...state.locations}, location: {...state.location}}
             newState.location = {}
+            return newState
+        case CLEAR_LOCATIONS:
+            newState = {...state, locations: {...state.locations}, location: {...state.location}}
+            newState.locations = {}
             return newState
 
         case DELETE_LOCATION:

@@ -76,11 +76,11 @@ function App() {
           <Route exact path='/notfound'>
             <PageNotFound />
           </Route>
-          <Route>
-            <PageNotFound path='*'/>
-          </Route>
           <Route exact path="/map">
             <MapsHome/>
+          </Route>
+          <Route>
+            <PageNotFound path='*'/>
           </Route>
         </Switch>
       </ScrollToTop>

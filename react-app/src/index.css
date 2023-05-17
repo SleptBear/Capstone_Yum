@@ -137,6 +137,7 @@
     /* background-color: red; */
     height: 10rem;
     transition: .5s;
+    border-radius: 5px;
 }
 
 .category-box:hover {

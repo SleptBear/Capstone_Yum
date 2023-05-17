@@ -27,6 +27,8 @@ a:hover {
     /* background-color: blue; */
     width: 65%;
     height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
     /* -ms-overflow-style: none; for Internet Explorer, Edge */
     /* scrollbar-width: none; for Firefox */
     overflow-y: auto;

@@ -36,7 +36,30 @@ input[type="radio"] {
   border-width: 1px;
   border-style: solid;
   width: 75%;
+  min-height: 24rem;
+  max-height: 40rem;
+  text-decoration: none;
+  box-shadow: 0px 0px 10px -5px;
+  transition: .5s;
+  border-radius: 5px;
+  /* padding-right: 1rem;
+  padding-left: 1rem; */
   /* box-shadow:  4px 4px 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.all-rev-card:hover {
+    text-decoration: none;
+    box-shadow: 0px 0px 10px -2px;
+}
+
+#rating-name {
+    padding-left: 1rem;
+    font-size: larger;
+    color: rgba(2,122,151,1);
+}
+
+#rating-name:hover {
+    text-decoration: underline;
 }
 
 
@@ -48,14 +71,14 @@ input[type="radio"] {
 }
 
 #name-on-rating {
-    padding-top: 1rem;
-    padding-left: 1.3rem;
+    /* padding-top: 1rem; */
+    /* padding-left: 1.3rem; */
     text-decoration: none;
-    color: rgba(2,122,151,1);
+    /* color: rgba(2,122,151,1); */
 }
 
 #name-on-rating:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 #rating {
@@ -95,6 +118,7 @@ input[type="radio"] {
   /* background-color: red; */
   /* border-bottom: 1px solid #e5e5e5; */
   gap: 1rem;
+  text-decoration: none;
 }
 
 #all-reviewer img {

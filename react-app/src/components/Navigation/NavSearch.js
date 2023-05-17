@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-// import { searchThunk } from '../../store/search';
+import { useDispatch } from 'react-redux';
+import { searchThunk } from '../../store/search';
+import { useHistory } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 const NavSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const searchResult = useSelector(state => state);
+  // const searchResult = useSelector(state => state);
   const dispatch = useDispatch();
+  const history = useHistory();
 
 //   console.log("SEARCH" , searchResult)
   const handleSearch = async () => {
-    // dispatch(searchThunk(searchTerm));
-    window.alert("Search Feature in Development")
+    if (searchTerm.length < 1) {
+    // return history.push('/search')
+    return
+    }
+    dispatch(searchThunk(searchTerm.trim()))
+    .then(() => history.push('/search'))
+      setSearchTerm('')
   };
 
   const enterKey = (e) => {
@@ -19,16 +26,16 @@ const NavSearch = () => {
       handleSearch()
     }
   }
-
   return (
     <div className="search-bar">
         <input
         type="input" className="inputbar"
-        placeholder='Search Feature in Development'
+        // placeholder='Search Feature Testing'
         value={searchTerm}
-        readOnly
-        // onChange={(e) => setSearchTerm(e.target.value)}
-        // onKeyDown={enterKey}
+        // readOnly
+        onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyDown={enterKey}
+        required
         />
         <button className="searchbutton"onClick={handleSearch}><i className="fa-solid fa-magnifying-glass"></i></button>
 

@@ -6,6 +6,9 @@ a:hover {
     cursor: pointer;
 }
 
+.outside {
+    min-height: 1000px;
+}
 
 .body-container {
     width: 100%;
@@ -24,6 +27,8 @@ a:hover {
     /* background-color: blue; */
     width: 65%;
     height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
     /* -ms-overflow-style: none; for Internet Explorer, Edge */
     /* scrollbar-width: none; for Firefox */
     overflow-y: auto;
@@ -55,18 +60,32 @@ background-color: gray;
     width: 100%;
     background-color: lightgray;
     justify-content: center;
+    background-image:
+        linear-gradient(
+         transparent, black
+    );
+    /* &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to bottom, transparent 0%, black 100%);
+    } */
 }
 .some-images img {
     display: flex;
     height: 25rem;
     width: 100%;
-    /* background-color: red; */
+
 }
 
 .individual-image {
     display: flex;
     width: 33.33%;
-    /* max-width: 100% */
+    opacity: .8;
+
 }
 
 .over-images {
@@ -125,7 +144,7 @@ background-color: gray;
     height: 3rem;
     border-radius: 5px;
     width: 15rem;
-    color: white;
+    color: rgba(255, 255, 255, 1);
     font-size: x-large;
     background-color: transparent;
     border-color: white;
@@ -142,6 +161,7 @@ background-color: gray;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-top: solid 1px rgb(167, 167, 167);
 }
 
 .review-container {

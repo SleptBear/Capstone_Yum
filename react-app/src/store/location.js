@@ -4,6 +4,12 @@ const EDIT_LOCATION = 'location/editLocation'
 const DELETE_LOCATION = 'location/deleteLocation'
 const LOAD_ONE_LOCATION = 'location/loadOneLocation'
 const ADD_IMAGE = 'location/addImage'
+const CLEAR_LOCATION = 'location/clear'
+
+export const actionClearLocation = () => ({
+    type: CLEAR_LOCATION,
+    payload: {}
+})
 
 export const actionCreateLocation = (location) => ({
     type: NEW_LOCATION,
@@ -30,15 +36,25 @@ export const actionAddImage = (img) => ({
     payload: img
 })
 
+export const clearLocation = () => async dispatch => {
+    dispatch(actionClearLocation())
+}
+
 export const addImage = (locationId, imgData) => async dispatch => {
     // console.log(locationId)
-    // console.log(imgData)
+    // console.log(imgData.image)
+    const formData = new FormData();
+    // console.log(formData)
+    formData.append("image", imgData.image);
+    // formData["image"] = imgData.image;
+    // console.log('formData', formData)
+
     const res = await fetch(`/api/locations/${locationId}/images`, {
         method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(imgData)
+        // headers: {
+        //     "Content-Type": ''
+        // },
+        body: formData
     })
 
 
@@ -91,12 +107,15 @@ export const createLocation = (location, imgData) => async dispatch => {
 let data =await res.json()
 if (res.ok) {
 
+    const formData = new FormData();
+    // console.log(formData)
+    formData.append("image", imgData.image);
+    // formData["image"] = imgData.image;
+    // console.log('formData', formData)
+
     const res2 = await fetch(`/api/locations/${data.id}/images`, {
         method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(imgData)
+        body: formData
     })
     if(res2.ok) {
         const data2 = await res2.json();
@@ -104,8 +123,8 @@ if (res.ok) {
     }
 
     // dispatch(getSpot(data.id))
-    dispatch(actionCreateLocation(data))
     // console.log("DATA=========>", data)
+    dispatch(actionCreateLocation(data))
     return data
 }
 // if (data.errors) {
@@ -118,14 +137,14 @@ return data
 }
 
 export const updateLocation = (location, locationId) => async dispatch => {
-    console.log(location)
+    // console.log(location)
     const res = await fetch(`/api/locations/${locationId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(location)
     })
     if(res.ok) {
-        console.log(res)
+        // console.log(res)
     }
     // console.log("response", res)
     // const data = await res.json();
@@ -138,7 +157,7 @@ export const updateLocation = (location, locationId) => async dispatch => {
 
 
 export const deleteLocation = (locationId) => async dispatch => {
-    console.log(locationId)
+    // console.log(locationId)
     const res = await fetch(`/api/locations/${locationId}`, {
         method: 'DELETE'})
         // let data;
@@ -174,15 +193,20 @@ export default function locationReducer(state = initialState, action) {
             return newState
 
         case LOAD_ONE_LOCATION:
-            newState = { ...state, locations: {...state.locations}, location: {...state.location} }
+            newState = { ...state, locations: {}, location: {...state.location} }
             newState.location = action.location
             // newState.spots = {}
             return newState
 
         case EDIT_LOCATION:
-            newState = { ...state, locations: {...state.locations}, loclocations: {...state.loclocations} }
-            newState.locations = action.locations
+            newState = { ...state, locations: {...state.locations}, location: {...state.location} }
+            newState.location = action.location
             // console.log("UPDATE TEST", newState)
+            return newState
+
+        case CLEAR_LOCATION:
+            newState = {...state, locations: {...state.locations}, location: {...state.location}}
+            newState.location = {}
             return newState
 
         case DELETE_LOCATION:

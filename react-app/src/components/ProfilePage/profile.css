@@ -6,6 +6,14 @@
     /* background-color: red; */
     height:80rem;
     height: fit-content;
+
+}
+
+.prof-details-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 9rem;
 }
 
 .prof-container {
@@ -50,6 +58,8 @@
     padding-left: 1rem;
 }
 
+
+
 .prof-reviews {
     display: flex;
     flex-direction: column;
@@ -58,6 +68,39 @@
     /* height: 130rem; */
     /* background-color: blue; */
 }
+
+.prof-fav-container {
+    width: 30%;
+    min-height: 40rem;
+    height: fit-content;
+}
+
+.prof-page-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.prof-page-buttons button {
+    height: 2.5rem;
+    width: 15rem;
+    background-color: white;
+    border-style: solid;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-color: #e6e6e6;
+    border-collapse: collapse;
+}
+
+/* .prof-page-buttons button:active {
+    background-color: #e5e5e5;
+} */
+/* .prof-page-buttons button:hover {
+    background-color: rgba(224,7,7,1);
+    transition: 1s;
+} */
 
 .rev-card {
     display: flex;
@@ -84,4 +127,9 @@
 }
 #rev-mutate button:hover {
     background-color: rgb(207, 219, 219);
+}
+
+#fav-header {
+    display: flex;
+    justify-content: center;
 }

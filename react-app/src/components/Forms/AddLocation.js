@@ -3,21 +3,21 @@ import {useDispatch, useSelector} from "react-redux"
 import { NavLink, Switch, Route, useHistory } from 'react-router-dom'
 import { createLocation } from '../../store/location'
 import "./forms.css"
-// import "./addproduct.css"
+
 const AddLocation = () => {
     const user = useSelector(state => state.session.user)
     // console.log("USERSELECTOR", user)
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [phone, setPhone] = useState('')
-    const [stringprice, setstringPrice] = useState()
+    const [stringprice, setstringPrice] = useState('')
     const [city, setCity] = useState('')
     const [state, setState ] = useState('')
     const [address, setAddress] = useState('')
     const [zipcode, setZipcode] = useState('')
     const [category, setCategory] = useState('')
     const [operating_hours, setOperating_hours] = useState('')
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState(null)
     const [errors, setErrors] = useState([]);
 
     const dispatch = useDispatch()
@@ -46,7 +46,7 @@ const AddLocation = () => {
     };
 
     const imgData = {
-        image_url: image
+        image
     }
 
         const data = await dispatch(createLocation(LocationData, imgData));
@@ -69,6 +69,9 @@ const AddLocation = () => {
 
     return (
         <div className= "addLocationMain">
+            <br></br>
+            <br></br>
+            <br></br>
 
             <form className="addLocationform" onSubmit={handleSubmit}>
                 <h1 className='Form-Title'>Add a Location</h1>
@@ -131,9 +134,9 @@ const AddLocation = () => {
             type="text"
             value={stringprice}
             placeholder="12"
-            maxLength={20}
+            maxLength={4}
             pattern="[0-9]*"
-            title="No Special Symbols or Characters"
+            title="No Special Symbols or Characters and under 5 digits"
             onChange={(e) => {
                 setstringPrice(e.target.value)
             }}
@@ -149,7 +152,7 @@ const AddLocation = () => {
             placeholder="City"
             maxLength={50}
             pattern="[a-zA-Z ]*"
-            title="No Symbols or special characters"
+            title="No Symbols or special characters or numbers"
             onChange={(e) => {
                 setCity(e.target.value)
             }}
@@ -271,7 +274,25 @@ const AddLocation = () => {
             </label>
             <label className="Label">
                 Category
-            <input className="Category-form"
+                <select className="State-form"
+  value={category}
+  onChange={(e) => {
+    setCategory(e.target.value)
+  }}
+  required
+  >
+    <option value="" disabled>Select a category</option>
+    <option value={'Chinese'}>Chinese</option>
+    <option value={'Japanese'}>Japanese</option>
+    <option value={'Seafood'}>Seafood</option>
+    <option value={'Italian'}>Italian</option>
+    <option value={'Mexican'}>Mexican</option>
+    <option value={'American'}>American</option>
+    <option value={'Bar'}>Bar</option>
+    <option value={'Diner'}>Diner</option>
+    <option value={'Take-out'}>Take-out</option>
+                </select>
+            {/* <input className="Category-form"
             type="text"
             value={category}
             placeholder="Category"
@@ -283,7 +304,7 @@ const AddLocation = () => {
             }}
             required
 
-            ></input>
+            ></input> */}
             </label>
             <label className="Label">
                 Operating_hours
@@ -302,8 +323,18 @@ const AddLocation = () => {
             ></input>
             </label>
             <label className="Label">
-                Image
-            <input className="size-form"
+                Preview Image
+                <input
+                type='file'
+                className='custom-file-upload'
+                accept='image/*'
+                onChange={(e) => setImage(e.target.files[0])}
+                title='Please add Image of location'
+                required
+                >
+                    {/* <i class="fa-solid fa-file-arrow-up"></i> */}
+                </input>
+            {/* <input className="size-form"
             type="url"
             value={image}
             placeholder="Image URL"
@@ -312,8 +343,9 @@ const AddLocation = () => {
                 setImage(e.target.value)
             }}
 
-            ></input>
+            ></input> */}
             </label>
+            <br></br>
             <button className="submit-form" type="Submit" >Submit</button>
             </form>
             {/* <button className="demo-add-item"
@@ -324,7 +356,7 @@ const AddLocation = () => {
             }
             )))}
             >Demo Add Item</button> */}
-
+            {/* <Footer /> */}
         </div>
     )
 }

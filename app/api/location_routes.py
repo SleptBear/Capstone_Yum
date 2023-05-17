@@ -1,7 +1,10 @@
+from flask_wtf import FlaskForm
 from flask import Blueprint, jsonify, request
 from app.models import Location, db, Review, Image
 from app.forms.location_form import LocationForm
+from app.forms.image_form import ImageForm
 from flask_login import login_required, current_user
+from .aws_upload import get_unique_filename, upload_file_to_s3
 
 location_routes = Blueprint('locations', __name__)
 
@@ -21,30 +24,20 @@ def validation_errors_to_error_messages(validation_errors):
 @location_routes.route('')
 def allLocations():
     locations = Location.query.all()
-    # print("locations =========>", locations)
-    # print(locations[0].images)
+
     reviews = [location.reviews for location in locations]
-    # print('reviews=====================>', reviews)
-    # reviews_obj = [review[0].to_dict() for review in reviews]
-    # print('reviews=====================>', reviews_obj)
-
-
 
     images = [location.images for location in locations]
     images_obj = [image[0].to_dict() for image in images]
-    # print("images==========>", images)
+
     image_only = [image['img_url'] for image in images_obj]
-    # print("images_obj==========>", images_obj)
-    # print("images_only==========>", image_only)
+
     location_objs = [location.to_dict() for location in locations]
-    # print("LOOOOOOOOOOOOOOK", len(locations))
-    # print("LOOOOOOOOOOOOOOK", location_objs[0])
-    # print("LOOOOOOOOOOOOOOK", image_only[0])
+
     i = 0
     while i < len(locations):
         location_objs[i]['preview'] = image_only[i]
         reviews_obj = [review.to_dict() for review in reviews[i]]
-        # print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK", reviews_obj)
         location_objs[i]['reviews'] = reviews_obj
         # if reviews_obj[0]:
         #     Ratings = [(rating) for rating in reviews[i]]
@@ -54,11 +47,6 @@ def allLocations():
         #     location_objs[i]['reviews'] = []
         #     location_objs[i]['avgRating'] = 0
         i += 1
-
-
-
-    # location_images = [location['images'] = ]
-    # print(location_objs)
     return location_objs
 # GET
 @location_routes.route('/<int:id>')
@@ -175,12 +163,25 @@ def locationReviews(id):
 @location_routes.route('/<int:id>/images', methods=['POST'])
 @login_required
 def createLocationImage(id):
-    data = request.get_json()
-    # print("LOOOOK", data)
+    # data = request.get_json()
+    print("request===============>", request)
+    data = request.files
+    print("LOOOOK==================>", data)
+
+    image = data['image']
+    print("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK", image)
+    image.filename = get_unique_filename(image.filename)
+    upload = upload_file_to_s3(image)
+    print("UPLOAD", upload)
+
+    if "url" not in upload:
+        return {'errors': "Not a valid file image file type"}
     # form = LocationForm()
     # form['csrf_token'].data = request.cookies['csrf_token'] # makes a csrf_token in form object
+    url = upload['url']
+
     new_image = Image(
-        img_url = data["image_url"],
+        img_url = url,
         user_id = current_user.id,
         location_id = id
     )

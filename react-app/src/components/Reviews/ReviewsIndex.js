@@ -27,16 +27,8 @@ const ReviewsIndex = () => {
     // console.log("before", latestArray);
     sortByDate(reviewsArray);
     const latestArray = reviewsArray.reverse().slice(0,6)
-     console.log("after", latestArray);
-
-
-
-    // function getRandomInt(max) {
-    //     return Math.floor(Math.random() * max);
-    //   }
-
-    // let randomRev = getRandomInt(reviewsArray.length)
-
+    //  console.log("after", latestArray);
+    // TODO add a alg to remove logged in users reviews
 
     return (
 
@@ -49,12 +41,7 @@ const ReviewsIndex = () => {
                 <ReviewsIndexCard review={latestArray[3]} key={latestArray[3]?.id}/>
                 <ReviewsIndexCard review={latestArray[4]} key={latestArray[4]?.id}/>
                 <ReviewsIndexCard review={latestArray[5]} key={latestArray[5]?.id}/>
-                {/* <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/>
-                <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/>
-                <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/>
-                <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/>
-                <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/>
-                <ReviewsIndexCard review={reviewsArray[getRandomInt(reviewsArray.length)]} key={reviewsArray?.id}/> */}
+                
         </div>
         <br></br>
 

@@ -2,6 +2,8 @@
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 const CHANGE_PROF_PIC = "session/CHANGE_PROF_PIC"
+const ADD_FAVORITE = "session/ADD_FAV"
+const REMOVE_FAVORITE = "session/REMOVE_FAV"
 
 const setUser = (user) => ({
 	type: SET_USER,
@@ -17,18 +19,77 @@ const actionChangeProfilePic = (user) => ({
 	payload: user
 })
 
-const initialState = { user: null };
+const actionAddFav = (locations) => ({
+	type: ADD_FAVORITE,
+	payload: locations
+})
+const actionRemoveFav = (locations) => ({
+	type: REMOVE_FAVORITE,
+	payload: locations
+})
 
-export const changeProfilePic = (imgData) => async (dispatch) => {
-	console.log(imgData)
-	const response = await fetch("/api/users/profile-pic", {
+export const CreateFav = () => async (dispatch) => {
+	const response = await fetch("/api/favorites/create", {
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+	return response
+}
+
+
+
+
+export const AddFavorite = (locationId) => async (dispatch) => {
+	// console.log(typeof Number(locationId))
+	let locId = Number(locationId)
+	// console.log(locId)
+	const response = await fetch(`/api/favorites/${locId}`, {
 		method: 'POST',
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify(imgData)
+		body: JSON.stringify(locId)
 	});
-	console.log(response)
+	let data = await response.json()
+	// console.log(data)
+	if(response.ok) {
+		dispatch(actionAddFav(data))
+	}
+	return data
+}
+export const RemoveFavorite = (locationId) => async (dispatch) => {
+	// console.log(typeof Number(locationId))
+	let locId = Number(locationId)
+	// console.log(locId)
+	const response = await fetch(`/api/favorites/${locId}`, {
+		method: 'DELETE',
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(locId)
+	});
+	let data = await response.json()
+	// console.log(data)
+	if(response.ok) {
+		dispatch(actionRemoveFav(data))
+	}
+	return data
+}
+
+
+export const changeProfilePic = (imgData) => async (dispatch) => {
+    // console.log(imgData.image)
+    const formData = new FormData();
+    // console.log(formData)
+    formData.append("image", imgData.image);
+    // formData["image"] = imgData.image;
+    // console.log('formData', formData)
+	const response = await fetch("/api/users/profile-pic", {
+		method: 'POST',
+		body: formData
+	});
+	// console.log(response)
 
 	let data = await response.json()
 	// console.log(data)
@@ -55,6 +116,8 @@ export const authenticate = () => async (dispatch) => {
 };
 
 export const login = (email, password) => async (dispatch) => {
+	// console.log(email)
+	// console.log(password)
 	const response = await fetch("/api/auth/login", {
 		method: "POST",
 		headers: {
@@ -93,7 +156,7 @@ export const logout = () => async (dispatch) => {
 };
 
 export const signUp = (firstName, lastName, city, state, email, password) => async (dispatch) => {
-	console.log(firstName, lastName, city, state, email, password)
+	// console.log(firstName, lastName, city, state, email, password)
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
@@ -112,6 +175,7 @@ export const signUp = (firstName, lastName, city, state, email, password) => asy
 	if (response.ok) {
 		const data = await response.json();
 		dispatch(setUser(data));
+		dispatch(CreateFav());
 		return null;
 	} else if (response.status < 500) {
 		const data = await response.json();
@@ -123,7 +187,10 @@ export const signUp = (firstName, lastName, city, state, email, password) => asy
 	}
 };
 
+const initialState = { user: null };
+
 export default function reducer(state = initialState, action) {
+	let newState = {...state}
 	switch (action.type) {
 		case SET_USER:
 			return { user: action.payload };
@@ -131,6 +198,14 @@ export default function reducer(state = initialState, action) {
 			return { user: null };
 		case CHANGE_PROF_PIC:
 			return { user: action.payload}
+		case ADD_FAVORITE:
+			newState = {...state, user: {...state.user}}
+			newState.user.favorites = action.payload
+			return newState
+		case REMOVE_FAVORITE:
+			newState = {...state, user: {...state.user}}
+			newState.user.favorites = action.payload
+			return newState
 		default:
 			return state;
 	}

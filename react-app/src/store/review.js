@@ -68,8 +68,10 @@ export const addReview = (id, review) => async (dispatch) => {
 }
 
 export const readReviews = (locationId) => async (dispatch) => {
+    // console.log("Spot ID", locationId)
     const response = await fetch(`/api/locations/${locationId}/reviews`)
     const reviews = await response.json()
+    // console.log("Reviews Array", reviews)
     if (response.ok) dispatch(actionReadReview(reviews))
     return reviews
 }
@@ -155,6 +157,7 @@ let initialState = {
                 allReviewsCopy[review.id] = review
             })
             newState.AllReviews = allReviewsCopy
+            newState.LocationReviews = {}
             // console.log("newState", newState)
             return newState
         case READ_USER_REVIEWS:
@@ -181,7 +184,7 @@ let initialState = {
             // console.log("Still has old review", copyReviews)
             copyReviews[action.payload.id] = action.payload
             // console.log("changed Review", copyReviews)
-            return { ...state, UserReviews: copyReviews, LocationReviews: {} }
+            return { ...state, UserReviews: copyReviews, LocationReviews: {}, AllReviews: {} }
         case DELETE_REVIEW:
             newState = {...state}
             let reviewCopy = {...newState.UserReviews}

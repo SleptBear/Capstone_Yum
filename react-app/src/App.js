@@ -9,19 +9,21 @@ import AddLocation from "./components/Forms/AddLocation";
 import EditLocation from "./components/Forms/EditLocation";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import Search from "./components/Navigation/Search";
 import Home from "./components/HomePage";
-import Footer from "./components/Footer";
 import AddImage from "./components/Forms/AddImage";
 import ChangeProfilePic from "./components/Forms/ChangeProfilePic";
 import CreateReview from "./components/Forms/CreateReview";
 import EditReview from "./components/Forms/EditReview";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import ScrollToTop from "./context/ScrollToTop";
+import PageNotFound from "./components/Navigation/PageNotFound";
 import MapsHome from "./components/Gmaps/MapsHome";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  // const [isContent, setIsContent] = useState(false)
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -68,16 +70,23 @@ function App() {
           <Route exact path="/reviews/:id/edit">
             <EditReview />
           </Route>
+          <Route exact path='/search'>
+            <Search />
+          </Route>
+          <Route exact path='/notfound'>
+            <PageNotFound />
+          </Route>
+          <Route>
+            <PageNotFound path='*'/>
+          </Route>
           <Route exact path="/map">
-            <MapsHome />
+            <MapsHome/>
           </Route>
         </Switch>
       </ScrollToTop>
-
       )}
-      <Footer />
     </>
   );
 }
 
-export default App;
+export default App

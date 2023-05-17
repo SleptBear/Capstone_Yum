@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom"
 const RevLocation = (props) => {
     const rev = props.review
-    console.log("inside rev", rev)
+    // console.log("inside rev", rev)
 
     // if(!rev?.location) return null
     return (
@@ -10,8 +11,10 @@ const RevLocation = (props) => {
             {/* <img src="https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png" alt="prof pic"></img> */}
         </div>
         <div>
-            <div>
+            <div id="location-link">
+                <Link to={`/locations/${rev.location.id}`} style={{ textDecoration: 'none', color: '#0073bb'}}>
                 {rev.location?.name}
+                </Link>
             </div>
             <div>
                 {rev.location.address}

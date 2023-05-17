@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getLocations } from "../../store/location";
 import LocationCard from "./LocationCard";
@@ -7,11 +7,16 @@ import './index.css'
 
 const LocationsIndex = () => {
     const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState(false)
     const locationsObj = useSelector(state => state.location)
+    const searchObj = useSelector(state => state.search)
+    // const filteredLocations = Object.values(searchObj)
     const locations = Object.values(locationsObj?.locations)
 
     useEffect(() => {
-        dispatch(getLocations())
+        setIsLoading(true);
+        dispatch(getLocations());
+        setIsLoading(false);
     }, [dispatch])
 
     // console.log("Locations Index Render")
@@ -19,11 +24,18 @@ const LocationsIndex = () => {
     // console.log("locations reversed array", Locations)
 
     if(!locations[0]) return null
-    // console.log("state Locations", locationsObj)
+    // console.log("all Locations", locations)
+    // console.log("search Locations", filteredLocations)
+    let data = locations
+    // if (filteredLocations[0]) data = filteredLocations
+
 
     return (
         <>
-        <div className="outside">
+        {isLoading ? (<p>Loading...</p>
+        ) : (
+
+            <div className="outside">
 
 <section className="body-container">
     <div className="body-container-items">
@@ -33,12 +45,12 @@ const LocationsIndex = () => {
         <div className="all-cards-container">
 
         {
-            locations.map(location => (
+            data.map(location => (
                 <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>
                     <LocationCard location={location} />
                 </Link>
                 ))
-            }
+        }
 
         </div>
         <div className="maps-api-container">
@@ -48,6 +60,8 @@ const LocationsIndex = () => {
 
 </section>
 </div>
+                )}
+                {/* <Footer />  */}
         </>
     )
 

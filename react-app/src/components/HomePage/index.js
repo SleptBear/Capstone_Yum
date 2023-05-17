@@ -1,20 +1,26 @@
 // import ReviewsIndexCard from "../Reviews/ReviewsIndexCard"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
 import ReviewsIndex from "../Reviews/ReviewsIndex"
-import ActiveLife from "./ActiveLife"
-import RestaurantCategory from "./RestaurantCategory"
-import ShoppingCategory from "./ShoppingCategory"
-import Nightlife from "./Nightlife"
-import Beauty from "./Beauty"
-import Automotive from "./Automotive"
-import HomeServices from "./HomeServices"
+import ActiveLife from "./Indoors"
+import RestaurantCategory from "./FastFood"
+import ShoppingCategory from "./Outdoors"
+import Nightlife from "./Bars"
+import Beauty from "./SeaFood"
+import Automotive from "./Delivery"
+import HomeServices from "./Coffee"
 import More from "./More"
 import "./YumHome.png"
-
-
-
+import { clearLocation } from "../../store/location"
 
 
 function HomePage() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(clearLocation())
+
+    }, [dispatch])
 
     return (
         <div className="Home">
@@ -49,6 +55,7 @@ function HomePage() {
                     <More />
 
             </div>
+            {/* <Footer /> */}
         </div>
     )
 }

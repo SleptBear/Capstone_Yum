@@ -15,7 +15,9 @@
 
 .image-modal h1 {
     /* background-color: black; */
+    display: flex;
     width: 100%;
+    justify-content: center;
 }
 
 
@@ -32,10 +34,15 @@
 .all-images-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
+    grid-gap: 5px;
     grid-auto-rows: minmax(100px, auto);
     width: 100%;
     background-color: whitesmoke;
+    overflow: scroll;
+}
+
+.all-images-container::-webkit-scrollbar{
+    display: none;
 }
 
 .all-images-container img {
@@ -46,6 +53,7 @@
     margin-bottom: 15px;
     margin-left: 15px;
     margin-right: 15px;
-    max-width: 100%;
+    max-width: 90%;
     max-height: 100%;
+    border-radius: .5rem;
 }

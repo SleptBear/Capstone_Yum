@@ -5,18 +5,28 @@ import { readReviews } from "../../store/review"
 import DetailedReviewsLocation from "./DetailedReviewsLocation"
 
 
-function LocationReviews() {
+function LocationReviews({location}) {
     const dispatch = useDispatch()
     const reviewsObj = useSelector(state => state.review.LocationReviews)
     const id = useParams();
     const reviewsArray = Object.values(reviewsObj)
+    // console.log("location reviews prop", location)
+
+    const sortByDate = (arr) => {
+        const sorter = (a, b) => {
+            return new Date(a.updated_at).getTime() - new Date(b.updated_at).getTime();
+        }
+        arr.sort(sorter);
+    };
+    sortByDate(reviewsArray);
 
     useEffect(() => {
         dispatch(readReviews(id?.id))
-    }, [dispatch, id.id])
+    }, [dispatch])
 
-    console.log("reviews Array", reviewsArray)
-    if (!reviewsArray[0]) return null
+    if (!location.reviews[0]) return null
+    reviewsArray.reverse()
+    // console.log(reviewsArray)
     return (
         <div className="review-container">
         <h2>Recommended Reviews</h2>

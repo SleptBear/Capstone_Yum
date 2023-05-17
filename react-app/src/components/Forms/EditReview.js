@@ -2,11 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import ReactStars from 'react-rating-stars-component'
-
-
 import { editReview, readUserReviews } from "../../store/review";
-
-
 
 const EditReview = () => {
     const dispatch = useDispatch();
@@ -117,6 +113,8 @@ const EditReview = () => {
             </label> */}
             <button className="submit-form" type="Submit" >Submit</button>
             </form>
+
+            {/* <Footer /> */}
         </div>
     )
 }

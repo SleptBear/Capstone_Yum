@@ -1,4 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+from app.models.favorite import favoriteJoined
 
 
 class Location(db.Model):
@@ -25,6 +26,7 @@ class Location(db.Model):
     owner = db.relationship("User", back_populates="locations")
     images = db.relationship("Image", back_populates="location", cascade="all, delete")
     reviews = db.relationship("Review", back_populates="location", cascade="all, delete")
+    favoriteJoined = db.relationship("Favorite", back_populates="locations", secondary=favoriteJoined)
 
 
     def to_dict(self):
@@ -43,6 +45,6 @@ class Location(db.Model):
             'price': self.price,
             'category': self.category,
             'operating_hours': self.operating_hours,
-            'images': [picture.to_dict() for picture in self.images]
-            # 'avgRating': sum([review.to_dict() for review in self.reviews])/len(self.reviews)
+            'images': [picture.to_dict() for picture in self.images],
+            # 'avgRating': sum([review.rating for review in self.reviews])/len(self.reviews)
         }

@@ -5,24 +5,28 @@ import { getLocation } from '../../store/location'
 import MiniLocation from './MiniLocation'
 import LocationReviews from '../Reviews/LocationReviews'
 import AllImages from './Images/images'
-import { readReviews } from '../../store/review'
-
+import UserBar from './UserBar'
 
 const LocationDetails = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    // const [isLoading, setIsLoading] = useState(false)
     const location = useSelector(state => state.location)
     const locationObj = location.location
     const review = useSelector(state => state.review)
+    const session = useSelector(state => state.session)
     const reviewObj = review.LocationReviews
+    const userObj = session?.user
     const id = useParams()
     const locationId = id.id
     const imagesArray = locationObj.images
 
     useEffect(() => {
+        // setIsLoading(true)
         dispatch(getLocation(locationId))
+        // setIsLoading(false)
         // .then(dispatch(readReviews(locationId)))
-    }, [dispatch, locationId, reviewObj])
+    }, [dispatch, locationId, session])
 
 
     if(!locationObj.id) return null
@@ -35,51 +39,51 @@ const LocationDetails = () => {
     //     'reviews': reviewObj
     // }
 
+    const handleBookmark = async (e) => {
+        e.preventDefault()
+        window.alert("TEST")
+        return
+    }
 
 
 
     return (
 
+
         <div className='details-container'>
-        <div className='some-images'
-    //     style={{
-    // backgroundImage: `url(${imagesArray[0].img_url})`,
-    // backgroundRepeat: "no-repeat",
-    // backgroundSize: "stretch",
-    // width: "2000px"}}
-    >
+            {/* {isLoading ? (<p>Loadiing...</p>
+            ) : ( */}
+
+                <div className='some-images'
+                //     style={{
+                    // backgroundImage: `url(${imagesArray[0].img_url})`,
+                    // backgroundRepeat: "no-repeat",
+                    // backgroundSize: "stretch",
+                    // width: "2000px"}}
+                    >
             {copyArray.map(image => (
-            <div className='individual-image' key={image.id}>
+                <div className='individual-image' key={image.id}>
                 <img src={image.img_url} alt='not found' ></img>
             </div>
             ))}
         </div>
+            {/* )} */}
         <div className='over-images'>
             <MiniLocation location={locationObj}/>
             <AllImages location={locationObj} />
         </div>
         <div className="location-details">
             <div className="details-left">
-                <div className='topLeft'>
-                    <div className='WriteReview'>
-                    <button onClick={() => history.push(`/locations/${locationId}/review/new`)}><i className="fa-regular fa-star"></i> Write a Review</button>
-                    </div>
-
-                    <button onClick={() => history.push(`/locations/${locationId}/photo`)}><i className="fa-solid fa-camera"></i> Add Photo</button>
-                    <button id='not-allowed' onClick={() => window.alert("Share currently in development")}><i className="fa-solid fa-arrow-up-from-bracket"></i> Share</button>
-                    <button id='not-allowed' onClick={() => window.alert("Bookmars currently in development")}><i className="fa-regular fa-bookmark"></i> Save</button>
-                    <button id='not-allowed' onClick={() => window.alert("Follow currently in development")}><i className="fa-solid fa-plus"></i> Follow</button>
-                </div>
-                {/* <br></br> */}
-                {/* <hr style={{width: "90%", height: "1px", color: "#ebebeb"}}></hr> */}
+                <UserBar locationId={locationId} user={userObj}/>
+                
                 <div className='leftReviews-container'>
-                    <LocationReviews />
+                    <LocationReviews location={locationObj}/>
                 </div>
             </div>
             <div className='details-right'>
                 <div className='Website-Section'>
                     <div>https://www.RestaurantName.com</div>
-                    <a onClick={() => window.alert("Outside Link coming soon")}><i className="fa-solid fa-up-right-from-square"></i></a>
+                    <a id="not-allowed" onClick={() => window.alert("Outside Link coming soon")}><i className="fa-solid fa-up-right-from-square"></i></a>
                 </div>
                 <hr></hr>
                 <div className='phone-section'>
@@ -89,11 +93,12 @@ const LocationDetails = () => {
                 <hr></hr>
                 <div className='message-section'>
                     <div>Message the Business</div>
-                    <a onClick={() => window.alert("messages coming soon")}><i className="fa-solid fa-comment-dots"></i></a>
+                    <a id="not-allowed" onClick={() => window.alert("messages coming soon")}><i className="fa-solid fa-comment-dots"></i></a>
 
                 </div>
             </div>
         </div>
+        {/* <Footer /> */}
     </div>
 
 )

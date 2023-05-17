@@ -27,19 +27,19 @@ def seed_locations():
         price=20, operating_hours='10am-6pm', owner_id=5)
     location6 = Location(
         name="Cheese N' Stuff", phone='555-555-5555', city='Miami', state='FL',
-        address='700 Booming Blvd', zipcode=33139, lat=25.7617, lng=-80.1918, category='take-out', description="Best quick and ready food this side of Mississipi.",
+        address='700 Booming Blvd', zipcode=33139, lat=25.7617, lng=-80.1918, category='take-out', description="Best quick and ready food this side of Mississipi. Secretly has the best coffee",
         price=15, operating_hours='8am-4pm', owner_id=6)
     location7 = Location(
         name="Lupe's", phone='111-111-1111', city='Los Angeles', state='CA',
-        address='567 Pacific Blvd', zipcode=90001, lat=34.0522, lng=-118.2437, category='Mexican', description="Authentic Mexican cuisine that will transport you to Mexico.",
+        address='567 Pacific Blvd', zipcode=90001, lat=34.0522, lng=-118.2437, category='Mexican', description="Authentic Mexican cuisine that will transport you to Mexico. Inside has great bar and entertainment.",
         price=30, operating_hours='11am-7pm', owner_id=7)
     location8 = Location(
         name='Lil Italy', phone='222-222-2222', city='Boston', state='MA',
-        address='890 Beacon St', zipcode=92125, lat=42.3601, lng=-71.0589, category='Italian', description="Classic Italian dishes made with fresh ingredients.",
+        address='890 Beacon St', zipcode=92125, lat=42.3601, lng=-71.0589, category='Italian', description="Classic Italian dishes made with fresh ingredients. Many places to walk to outside.",
         price=25, operating_hours='12pm-8pm', owner_id=8)
     location9 = Location(
         name='Costal Kitchen', phone='333-333-3333', city='Seattle', state='WA',
-        address='246 Pike St', zipcode=98101, lat=47.6062, lng=-122.3321, category='Seafood', description="Fresh seafood that will make your taste buds dance.",
+        address='246 Pike St', zipcode=98101, lat=47.6062, lng=-122.3321, category='Seafood', description="Fresh seafood that will make your taste buds dance. Lovely patio outside.",
         price=35, operating_hours='11am-9pm', owner_id=9)
     location10 = Location(
         name='Hole in the Wall', phone='444-444-4444', city='Chicago', state='IL',

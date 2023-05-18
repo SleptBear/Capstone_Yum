@@ -51,11 +51,17 @@ a:hover {
     overflow: hidden;
 }
 
-.filters {
+.filter-container {
 width: 20%;
-background-color: gray;
+/* background-color: gray; */
 max-height: 85vh;
+display: flex;
+flex-direction: column;
+/* justify-content: center; */
+align-items: center;
 }
+
+
 .some-images {
     display: flex;
     height: 25rem;
@@ -226,10 +232,6 @@ max-height: 85vh;
     justify-content: center;
     align-items: flex-start;
     row-gap: 10px;
-  }
-  .filters {
-    display: flex;
-    flex-direction: column;
   }
 
   .places img {

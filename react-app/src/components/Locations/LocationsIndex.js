@@ -65,25 +65,28 @@ const LocationsIndex = ({ selectedCategory }) => {
 
 <section className="body-container">
     <div className="body-container-items">
-        <div className="filters">
+        <div className="filter-container">
         <h2>Filters</h2>
+        <hr style={{width: "95%"}}></hr>
+        <div className="filters">
+
         <label>
           <input
             type="checkbox"
             onChange={() =>
-              selectedCategoryForPlaces !== "Burgers"
+                selectedCategoryForPlaces !== "Burgers"
                 ? setSelectedCategoryForPlaces("Burgers")
                 : setSelectedCategoryForPlaces(null)
             }
             checked={selectedCategoryForPlaces === "Burgers"}
-          ></input>{" "}
+            ></input>{" "}
           Burgers
         </label>
         <label>
           <input
             type="checkbox"
             onChange={() =>
-              selectedCategoryForPlaces !== "Chinese"
+                selectedCategoryForPlaces !== "Chinese"
                 ? setSelectedCategoryForPlaces("Chinese")
                 : setSelectedCategoryForPlaces(null)
             }
@@ -95,59 +98,61 @@ const LocationsIndex = ({ selectedCategory }) => {
           <input
             type="checkbox"
             onChange={() =>
-              selectedCategoryForPlaces !== "Japanese"
+                selectedCategoryForPlaces !== "Japanese"
                 ? setSelectedCategoryForPlaces("Japanese")
                 : setSelectedCategoryForPlaces(null)
             }
             checked={selectedCategoryForPlaces === "Japanese"}
-          ></input>{" "}
+            ></input>{" "}
           Japanese
         </label>
         <label>
           <input
             type="checkbox"
             onChange={() =>
-              selectedCategoryForPlaces !== "Mexican"
+                selectedCategoryForPlaces !== "Mexican"
                 ? setSelectedCategoryForPlaces("Mexican")
                 : setSelectedCategoryForPlaces(null)
             }
             checked={selectedCategoryForPlaces === "Mexican"}
-          ></input>{" "}
+            ></input>{" "}
           Mexican
         </label>
         <label>
           <input
             type="checkbox"
             onChange={() =>
-              selectedCategoryForPlaces !== "Italian"
+                selectedCategoryForPlaces !== "Italian"
                 ? setSelectedCategoryForPlaces("Italian")
                 : setSelectedCategoryForPlaces(null)
             }
             checked={selectedCategoryForPlaces === "Italian"}
-          ></input>{" "}
+            ></input>{" "}
           Italian
         </label>
         <label>
           <input
             type="checkbox"
             onChange={() =>
-              selectedCategoryForPlaces !== "Seafood"
+                selectedCategoryForPlaces !== "Seafood"
                 ? setSelectedCategoryForPlaces("Seafood")
                 : setSelectedCategoryForPlaces(null)
             }
             checked={selectedCategoryForPlaces === "Seafood"}
-          ></input>{" "}
+            ></input>{" "}
           Seafood
         </label>
+            </div>
+            <hr style={{width: "95%"}}></hr>
         </div>
         <div className="all-cards-container">
 
         {locations?.map((location) => (
-          <div
+            <div
             key={location.id}
             onMouseOver={() => setSelectedPlaceFromAllPlaces(location)}
             onMouseOut={() => setSelectedPlaceFromAllPlaces(null)}
-          >
+            >
             {console.log(location)}
             <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>
             <LocationCard key={location.id} location={location} />
@@ -159,7 +164,7 @@ const LocationsIndex = ({ selectedCategory }) => {
         <div className="maps-api-container">
             {/* <img onClick={() => window.alert("Google Maps API Coming Soon")} src='https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/w_2560%2Cc_limit/GoogleMapTA.jpg' alt="Maps API Container"></img> */}
             {locations?.length ? (
-        <MapsHome
+                <MapsHome
           locations={locations}
           selectedPlaceFromAllPlaces={selectedPlaceFromAllPlaces}
         />

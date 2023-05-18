@@ -131,7 +131,7 @@ export default function MapsPlaces({ selectedCategory }) {
             onMouseOver={() => setSelectedPlaceFromAllPlaces(location)}
             onMouseOut={() => setSelectedPlaceFromAllPlaces(null)}
           >
-            {console.log(location)}
+            {/* {console.log(location)} */}
             <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>
             <LocationCard key={location.id} location={location} />
             </Link>

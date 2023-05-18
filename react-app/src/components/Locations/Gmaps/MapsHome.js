@@ -9,7 +9,7 @@ import {
 } from "@react-google-maps/api";
 import { useSelector } from "react-redux";
 
-const MapsHome = ({ placesArr, selectedPlaceFromAllPlaces }) => {
+const MapsHome = ({ locations, selectedPlaceFromAllPlaces }) => {
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
   const [map, setMap] = useState(null);
@@ -35,7 +35,7 @@ const MapsHome = ({ placesArr, selectedPlaceFromAllPlaces }) => {
 
   const containerStyle = {
     width: "420px",
-    height: "100vh",
+    height: "85vh",
     position: "relative",
     marginTop: "20px",
   };
@@ -93,8 +93,8 @@ const MapsHome = ({ placesArr, selectedPlaceFromAllPlaces }) => {
               icon={iconCurrent}
               streetView={false}
             ></Marker>
-            {placesArr?.length &&
-              placesArr?.map((location) => (
+            {locations?.length &&
+              locations?.map((location) => (
                 <Marker
                   key={location.id}
                   position={{ lat: +location.lat, lng: +location.lng }}

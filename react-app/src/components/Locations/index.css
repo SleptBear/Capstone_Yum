@@ -27,6 +27,7 @@ a:hover {
     /* background-color: blue; */
     width: 65%;
     height: 100%;
+    max-height: 85vh;
     padding-top: 10px;
     padding-bottom: 10px;
     /* -ms-overflow-style: none; for Internet Explorer, Edge */
@@ -53,6 +54,7 @@ a:hover {
 .filters {
 width: 20%;
 background-color: gray;
+max-height: 85vh;
 }
 .some-images {
     display: flex;

@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import {
   GoogleMap,
+  useLoadScript,
   useJsApiLoader,
   Marker,
   InfoWindow,
@@ -12,6 +13,7 @@ const MapsHome = ({ placesArr, selectedPlaceFromAllPlaces }) => {
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
   const [map, setMap] = useState(null);
+  const apiKey = 'AIzaSyBsY8gj4A2wmK_zUZh3LZ0gr10tosNG9tA'
 
   const [selectedPlace, setSelectedPlace] = useState(
     selectedPlaceFromAllPlaces
@@ -27,9 +29,8 @@ const MapsHome = ({ placesArr, selectedPlaceFromAllPlaces }) => {
     lng: +user?.lng || -71.1188488,
   });
 
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API,
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "AIzaSyBsY8gj4A2wmK_zUZh3LZ0gr10tosNG9tA",
   });
 
   const containerStyle = {
@@ -93,37 +94,37 @@ const MapsHome = ({ placesArr, selectedPlaceFromAllPlaces }) => {
               streetView={false}
             ></Marker>
             {placesArr?.length &&
-              placesArr?.map((place) => (
+              placesArr?.map((location) => (
                 <Marker
-                  key={place.id}
-                  position={{ lat: +place.lat, lng: +place.lng }}
-                  title={place.name}
+                  key={location.id}
+                  position={{ lat: +location.lat, lng: +location.lng }}
+                  title={location.name}
                   icon={icon}
                   streetView={false}
                   style={{ cursor: "pointer" }}
-                  onMouseOver={() => setSelectedPlace(place)}
+                  onMouseOver={() => setSelectedPlace(location)}
                   onMouseOut={() => setSelectedPlace(null)}
-                  onClick={() => history.push(`/places/${place.id}`)}
+                  onClick={() => history.push(`/locations/${location.id}`)}
                 >
-                  {selectedPlace?.id === place.id &&
+                  {selectedPlace?.id === location.id &&
                     selectedPlace.lat &&
                     selectedPlace.lng && (
                       <InfoWindow
-                        position={{ lat: +place.lat, lng: +place.lng }}
+                        position={{ lat: +location.lat, lng: +location.lng }}
                         // options={{ closeBox: false }}
                       >
                         <div>
                           <img
-                            src={place.cover_pic}
-                            alt={place.name}
+                            src={location.images[0].img_url}
+                            alt={location.name}
                             style={{ height: "120px", width: "120px" }}
                           />
                           <div style={{ fontWeight: 500, fontSize: "14px" }}>
-                            {place.name}
+                            {location.name}
                           </div>
-                          <div>{place.address}</div>
+                          <div>{location.address}</div>
                           <div>
-                            {place.city}, {place.state}
+                            {location.city}, {location.state}
                           </div>
                         </div>
                       </InfoWindow>

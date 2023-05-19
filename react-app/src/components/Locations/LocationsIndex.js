@@ -11,7 +11,7 @@ const LocationsIndex = ({ selectedCategory }) => {
     const [isLoading, setIsLoading] = useState(false)
     const locationsObj = useSelector(state => state.location)
     const searchObj = useSelector(state => state.search)
-    // const filteredLocations = Object.values(searchObj)
+    const filteredSearch = Object.values(searchObj)
     let locations = Object.values(locationsObj?.locations)
     const [selectedPlaceFromAllPlaces, setSelectedPlaceFromAllPlaces] =
     useState(null);
@@ -27,6 +27,13 @@ const LocationsIndex = ({ selectedCategory }) => {
           };
     }, [dispatch])
 
+    // console.log(searchObj)
+    // console.log(filteredSearch)
+    if (filteredSearch.length) {
+      let filteredPlacesArr = filteredSearch
+      // console.log(filteredPlacesArr)
+      locations = filteredPlacesArr;
+    }
     if (selectedCategoryForPlaces && locations.length) {
         // console.log("filter locations", locations)
         let filteredPlacesArr = locations.filter(
@@ -52,7 +59,7 @@ const LocationsIndex = ({ selectedCategory }) => {
         );
       }
 
-    if(!locations[0]) return null
+    // if(!locations[0]) return null
 
 
 
@@ -144,6 +151,12 @@ const LocationsIndex = ({ selectedCategory }) => {
         </label>
             </div>
             <hr style={{width: "95%"}}></hr>
+            <div>
+              
+            </div>
+        </div>
+        <div>
+
         </div>
         <div className="all-cards-container">
 
@@ -153,7 +166,7 @@ const LocationsIndex = ({ selectedCategory }) => {
             onMouseOver={() => setSelectedPlaceFromAllPlaces(location)}
             onMouseOut={() => setSelectedPlaceFromAllPlaces(null)}
             >
-            {console.log(location)}
+            {/* {console.log(location)} */}
             <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>
             <LocationCard key={location.id} location={location} />
             </Link>

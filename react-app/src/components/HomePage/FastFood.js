@@ -8,7 +8,7 @@ const RestaurantCategory = () => {
 
     const handleSearch = async () => {
         dispatch(searchThunk("take-out"))
-        .then(() => history.push('/search'))
+        .then(() => history.push('/locations'))
       };
 
     return (

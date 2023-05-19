@@ -8,7 +8,7 @@ const HomeServices = () => {
 
     const handleSearch = async () => {
         dispatch(searchThunk("coffee"))
-        .then(() => history.push('/search'))
+        .then(() => history.push('/locations'))
       };
 
     return (

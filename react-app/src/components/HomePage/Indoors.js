@@ -8,7 +8,7 @@ const ActiveLife = () => {
 
     const handleSearch = async () => {
         dispatch(searchThunk("inside"))
-        .then(() => history.push('/search'))
+        .then(() => history.push('/locations'))
       };
 
     return (

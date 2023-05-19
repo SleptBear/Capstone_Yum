@@ -7,7 +7,7 @@ const Automotive = () => {
 
     const handleSearch = async () => {
         dispatch(searchThunk("fast"))
-        .then(() => history.push('/search'))
+        .then(() => history.push('/locations'))
       };
     return (
     <>

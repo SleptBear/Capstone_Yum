@@ -8,7 +8,7 @@ const ShoppingCategory = () => {
 
     const handleSearch = async () => {
         dispatch(searchThunk("outside"))
-        .then(() => history.push('/search'))
+        .then(() => history.push('/locations'))
       };
 
     return (

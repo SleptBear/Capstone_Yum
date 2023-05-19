@@ -74,12 +74,12 @@ function App() {
           <Route exact path='/search'>
             <Search />
           </Route>
-          <Route exact path='/notfound'>
+          {/* <Route exact path='/notfound'>
             <PageNotFound />
-          </Route>
-          <Route exact path="/map">
+          </Route> */}
+          {/* <Route exact path="/map">
             <MapsPlaces/>
-          </Route>
+          </Route> */}
           <Route>
             <PageNotFound path='*'/>
           </Route>

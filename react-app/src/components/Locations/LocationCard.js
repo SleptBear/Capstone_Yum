@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getLocation } from "../../store/location";
 import { readReviews } from "../../store/review";
@@ -21,6 +21,8 @@ import './Card.css'
 
     function LocationCard({location}) {
         const  dispatch = useDispatch();
+        const reviewsArray = location?.reviews
+        const sampReview = useRef(getRandomInt(reviewsArray?.length))
         // const stateReviews = useSelector(state => state.review)
         // const locationReviews = stateReviews?.LocationReviews
         // const stateRevArray = Object.values(locationReviews)
@@ -37,7 +39,6 @@ import './Card.css'
     // if(!location?.reviews) return null
     // if(!locationReviews) return null
     // if(!stateRevArray[0]) return null
-    const reviewsArray = location?.reviews
     // console.log("location card reviews", reviewsArray)
 
 
@@ -66,8 +67,10 @@ import './Card.css'
         return Math.floor(Math.random() * max);
       }
 
-    let randomRev = getRandomInt(reviewsArray.length)
-      console.log("location card render cycle")
+    // let randomRev = getRandomInt(reviewsArray.length)
+    // sampReview.current = randomRev
+    //   console.log("location card render cycle")
+      console.log("ref", sampReview)
     return (
         <div className="card-container">
             <div className="image-container">
@@ -105,7 +108,8 @@ import './Card.css'
                         <i className="fa-regular fa-comment"></i>
                     </div>
                     <div id="random-rev">
-                        {reviewsArray[getRandomInt(reviewsArray.length)]?.review}
+                        {/* {reviewsArray[getRandomInt(reviewsArray.length)]?.review} */}
+                        {reviewsArray[sampReview.current]?.review}
                     </div>
                 </div>
             </div>

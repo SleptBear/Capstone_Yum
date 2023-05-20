@@ -8,7 +8,7 @@ const Nightlife = () => {
 
     const handleSearch = async () => {
         dispatch(searchThunk("bar"))
-        .then(() => history.push('/search'))
+        .then(() => history.push('/locations'))
       };
 
     return (

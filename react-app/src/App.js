@@ -18,6 +18,8 @@ import EditReview from "./components/Forms/EditReview";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import ScrollToTop from "./context/ScrollToTop";
 import PageNotFound from "./components/Navigation/PageNotFound";
+import MapsHome from "./components/Locations/Gmaps/MapsHome";
+import MapsPlaces from "./components/Locations/MapsIndex";
 
 function App() {
   const dispatch = useDispatch();
@@ -72,9 +74,12 @@ function App() {
           <Route exact path='/search'>
             <Search />
           </Route>
-          <Route exact path='/notfound'>
+          {/* <Route exact path='/notfound'>
             <PageNotFound />
-          </Route>
+          </Route> */}
+          {/* <Route exact path="/map">
+            <MapsPlaces/>
+          </Route> */}
           <Route>
             <PageNotFound path='*'/>
           </Route>
@@ -85,20 +90,4 @@ function App() {
   );
 }
 
-// function NotFound() {
-//   return (
-//     <div>
-//       <p>Sorry, no results.</p>
-//     </div>
-//   );
-// }
-
-// function PageNotFound() {
-//   return (
-//     <div>
-//       <p>404, Not Found</p>
-//     </div>
-//   );
-// }
-
-export default App;
+export default App

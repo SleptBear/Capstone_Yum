@@ -8,7 +8,7 @@ const Beauty = () => {
 
     const handleSearch = async () => {
         dispatch(searchThunk("seafood"))
-        .then(() => history.push('/search'))
+        .then(() => history.push('/locations'))
       };
 
     return (

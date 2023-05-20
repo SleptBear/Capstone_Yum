@@ -17,7 +17,7 @@ const NavSearch = () => {
     return
     }
     dispatch(searchThunk(searchTerm.trim()))
-    .then(() => history.push('/search'))
+    .then(() => history.push('/locations'))
       setSearchTerm('')
   };
 

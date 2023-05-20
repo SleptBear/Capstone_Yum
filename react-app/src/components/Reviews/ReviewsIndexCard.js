@@ -21,16 +21,19 @@ function ReviewsIndexCard(review) {
     // console.log(review)
 
     return (
+        <>
+        <div>
+
         <div className="all-rev-card">
+            <NavLink exact to={`/locations/${review.review.location.id}`} id="name-on-rating" style={{color: 'black'}}>
+
             <div id="all-reviewer">
                 <SplashReviewer review={rev}/>
             </div>
             <img src={review.review.location.images[0]?.img_url}></img>
-            <NavLink exact to={`/locations/${review.review.location.id}`} id="name-on-rating">
-            {/* <div id="name-on-rating"> */}
+            <div id="rating-name">
                 {review.review.location.name}
-            {/* </div> */}
-            </NavLink>
+            </div>
             <div id="rating">
                 <Stars rating={review.review.rating}/>
             {/* {rev.updated_at.slice(0, 17)} */}
@@ -38,8 +41,11 @@ function ReviewsIndexCard(review) {
             <p>
                 {rev.review}
             </p>
-            {/* <hr style={{width: '100%'}}></hr> */}
+            </NavLink>
         </div>
+
+        </div>
+        </>
     )
 }
 

@@ -1,33 +1,69 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { getLocations } from "../../store/location";
+import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { getLocations, clearLocations } from "../../store/location";
 import LocationCard from "./LocationCard";
+import MapsHome from "./Gmaps/MapsHome";
 import './index.css'
 
-const LocationsIndex = () => {
+const LocationsIndex = ({ selectedCategory }) => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [isLoading, setIsLoading] = useState(false)
     const locationsObj = useSelector(state => state.location)
     const searchObj = useSelector(state => state.search)
-    // const filteredLocations = Object.values(searchObj)
-    const locations = Object.values(locationsObj?.locations)
+    const filteredSearch = Object.values(searchObj)
+    let locations = Object.values(locationsObj?.locations)
+    const [selectedPlaceFromAllPlaces, setSelectedPlaceFromAllPlaces] =
+    useState(null);
+  const [selectedCategoryForPlaces, setSelectedCategoryForPlaces] =
+    useState(selectedCategory);
+  console.log(window)
 
+    // if (!filteredSearch[0] && !locations[0]) history.push('/notfound')
     useEffect(() => {
         setIsLoading(true);
         dispatch(getLocations());
         setIsLoading(false);
+        return () => {
+            dispatch(clearLocations());
+          };
     }, [dispatch])
 
-    // console.log("Locations Index Render")
+    // console.log(searchObj)
+    // console.log(filteredSearch)
+    if (filteredSearch.length) {
+      let filteredPlacesArr = filteredSearch
+      // console.log(filteredPlacesArr)
+      locations = filteredPlacesArr;
+    }
+    if (selectedCategoryForPlaces && locations.length) {
+        // console.log("filter locations", locations)
+        let filteredPlacesArr = locations.filter(
+          (el) => el.category === selectedCategoryForPlaces
+        );
+        locations = filteredPlacesArr;
+      }
 
-    // console.log("locations reversed array", Locations)
+      if (!locationsObj) {
+        return (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+            }}
+          >
+            <img
+              src="https://assets-global.website-files.com/5c7fdbdd4e3feeee8dd96dd2/6134707265a929f4cdfc1f6d_5.gif"
+              alt="Loading"
+            ></img>
+          </div>
+        );
+      }
 
-    if(!locations[0]) return null
-    // console.log("all Locations", locations)
-    // console.log("search Locations", filteredLocations)
-    let data = locations
-    // if (filteredLocations[0]) data = filteredLocations
+    // if(!locations[0]) history.push('/notfound')
+
 
 
     return (
@@ -39,22 +75,118 @@ const LocationsIndex = () => {
 
 <section className="body-container">
     <div className="body-container-items">
-        {/* <div className="filters">
-            filter component in development
-        </div> */}
+        <div className="filter-container">
+        <h2>Filters</h2>
+        <hr style={{width: "95%"}}></hr>
+        <div className="filters">
+
+        <label>
+          <input
+            type="checkbox"
+            onChange={() =>
+                selectedCategoryForPlaces !== "Burgers"
+                ? setSelectedCategoryForPlaces("Burgers")
+                : setSelectedCategoryForPlaces(null)
+            }
+            checked={selectedCategoryForPlaces === "Burgers"}
+            ></input>{" "}
+          Burgers
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            onChange={() =>
+                selectedCategoryForPlaces !== "Chinese"
+                ? setSelectedCategoryForPlaces("Chinese")
+                : setSelectedCategoryForPlaces(null)
+            }
+            checked={selectedCategoryForPlaces === "Chinese"}
+          ></input>{" "}
+          Chinese
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            onChange={() =>
+                selectedCategoryForPlaces !== "Japanese"
+                ? setSelectedCategoryForPlaces("Japanese")
+                : setSelectedCategoryForPlaces(null)
+            }
+            checked={selectedCategoryForPlaces === "Japanese"}
+            ></input>{" "}
+          Japanese
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            onChange={() =>
+                selectedCategoryForPlaces !== "Mexican"
+                ? setSelectedCategoryForPlaces("Mexican")
+                : setSelectedCategoryForPlaces(null)
+            }
+            checked={selectedCategoryForPlaces === "Mexican"}
+            ></input>{" "}
+          Mexican
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            onChange={() =>
+                selectedCategoryForPlaces !== "Italian"
+                ? setSelectedCategoryForPlaces("Italian")
+                : setSelectedCategoryForPlaces(null)
+            }
+            checked={selectedCategoryForPlaces === "Italian"}
+            ></input>{" "}
+          Italian
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            onChange={() =>
+                selectedCategoryForPlaces !== "Seafood"
+                ? setSelectedCategoryForPlaces("Seafood")
+                : setSelectedCategoryForPlaces(null)
+            }
+            checked={selectedCategoryForPlaces === "Seafood"}
+            ></input>{" "}
+          Seafood
+        </label>
+            </div>
+            <hr style={{width: "95%"}}></hr>
+            <div>
+              <button onClick={() => window.location.reload(true)}>Clear</button>
+            </div>
+        </div>
+        <div>
+
+        </div>
         <div className="all-cards-container">
 
-        {
-            data.map(location => (
-                <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>
-                    <LocationCard location={location} />
-                </Link>
-                ))
-        }
+        {locations?.map((location) => (
+            <div
+            key={location.id}
+            onMouseOver={() => setSelectedPlaceFromAllPlaces(location)}
+            onMouseOut={() => setSelectedPlaceFromAllPlaces(null)}
+            >
+            {/* {console.log(location)} */}
+            <Link key={location.id} to={`/locations/${location.id}`} style={{textDecoration: "none", color: 'black'}}>
+            <LocationCard key={location.id} location={location} />
+            </Link>
+          </div>
+        ))}
 
         </div>
         <div className="maps-api-container">
-            <img onClick={() => window.alert("Google Maps API Coming Soon")} src='https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/w_2560%2Cc_limit/GoogleMapTA.jpg' alt="Maps API Container"></img>
+            {/* <img onClick={() => window.alert("Google Maps API Coming Soon")} src='https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/w_2560%2Cc_limit/GoogleMapTA.jpg' alt="Maps API Container"></img> */}
+            {locations?.length ? (
+                <MapsHome
+          locations={locations}
+          selectedPlaceFromAllPlaces={selectedPlaceFromAllPlaces}
+        />
+      ) : (
+        <MapsHome />
+      )}
         </div>
     </div>
 

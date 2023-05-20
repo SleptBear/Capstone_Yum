@@ -18,7 +18,7 @@ const LocationsIndex = ({ selectedCategory }) => {
     useState(null);
   const [selectedCategoryForPlaces, setSelectedCategoryForPlaces] =
     useState(selectedCategory);
-  console.log(window)
+  // console.log(window)
 
     // if (!filteredSearch[0] && !locations[0]) history.push('/notfound')
     useEffect(() => {

@@ -20,6 +20,7 @@ export const searchThunk = (search) => async (dispatch) => {
 
     if (response.ok){
         const data = await response.json()
+        console.log(data)
         dispatch(createSearch(data))
         dispatch(getLocations())
         // console.log(data)

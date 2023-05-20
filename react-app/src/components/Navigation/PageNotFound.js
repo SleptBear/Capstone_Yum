@@ -1,8 +1,15 @@
-
+import React, {useEffect} from 'react';
+import { useDispatch } from 'react-redux';
+import { clearLocations } from '../../store/location';
 
 
 
 function PageNotFound() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearLocations())
+  }, [dispatch])
     return (
       <div className="not-found">
         <p style={{fontWeight:'bold'}}>We are sorry. We cannot find the page/items you are looking for.</p>

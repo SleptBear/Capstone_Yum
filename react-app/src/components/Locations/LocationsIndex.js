@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getLocations, clearLocations } from "../../store/location";
 import LocationCard from "./LocationCard";
 import MapsHome from "./Gmaps/MapsHome";
@@ -8,6 +8,7 @@ import './index.css'
 
 const LocationsIndex = ({ selectedCategory }) => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [isLoading, setIsLoading] = useState(false)
     const locationsObj = useSelector(state => state.location)
     const searchObj = useSelector(state => state.search)
@@ -17,7 +18,9 @@ const LocationsIndex = ({ selectedCategory }) => {
     useState(null);
   const [selectedCategoryForPlaces, setSelectedCategoryForPlaces] =
     useState(selectedCategory);
+  console.log(window)
 
+    // if (!filteredSearch[0] && !locations[0]) history.push('/notfound')
     useEffect(() => {
         setIsLoading(true);
         dispatch(getLocations());
@@ -59,7 +62,7 @@ const LocationsIndex = ({ selectedCategory }) => {
         );
       }
 
-    // if(!locations[0]) return null
+    // if(!locations[0]) history.push('/notfound')
 
 
 
@@ -152,7 +155,7 @@ const LocationsIndex = ({ selectedCategory }) => {
             </div>
             <hr style={{width: "95%"}}></hr>
             <div>
-              
+              <button onClick={() => window.location.reload(true)}>Clear</button>
             </div>
         </div>
         <div>

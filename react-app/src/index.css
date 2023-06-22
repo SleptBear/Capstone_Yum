@@ -1,7 +1,14 @@
 /* TODO Add site wide styles */
+html, body {
+    margin: 0;
+}
+
 #root {
     min-width: 1080px;
-    /* overflow-x: hidden; */
+}
+
+#body {
+    margin: none;
 }
 
 #page-container {

@@ -10,12 +10,12 @@ const Automotive = () => {
         .then(() => history.push('/locations'))
       };
     return (
-    <>
+
         <div className='category-box' onClick={handleSearch}>
         <i className="fa-solid fa-parachute-box fa-2xl" style={{color: 'rgba(224,7,7,1)'}}></i>
         <h2>Delivery</h2>
         </div>
-    </>
+
     )
 }
 

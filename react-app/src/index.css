@@ -126,7 +126,7 @@ html, body {
 }
 
 .container-categories {
-     display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -141,8 +141,11 @@ html, body {
     /* display: flex;
     justify-content: center; */
     /* background-color: yellow; */
-    height: 40rem;
-    width: 70%;
+    /* height: 40rem; */
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* width: 70%; */
     /* align-items: center;
     gap: 2%;
     width: 70%; */
@@ -154,15 +157,29 @@ html, body {
     align-items: center;
     justify-content: center;
     gap: 3%;
-    border-width: 1px black;
+    /* border-width: 1px black; */
     box-shadow: 0px 0px 10px -5px;
     height: 50%;
+    min-width: 150px;
     width: 100%;
     padding-top: 1%;
     /* background-color: red; */
     height: 10rem;
     transition: .5s;
     border-radius: 5px;
+}
+
+@media screen and (max-width: 810px) {
+    .Categories {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 3rem;
+    }
+}
+@media screen and (max-width: 600px) {
+    .Categories {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 3rem;
+    }
 }
 
 .category-box:hover {

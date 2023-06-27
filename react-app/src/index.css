@@ -72,6 +72,8 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100vw;
+    overflow-x: hidden;
     /* background-color: red; */
     /* height: 20rem; */
 }
@@ -93,9 +95,10 @@ html, body {
     min-width: 70rem;
     height: 100%;
     width: 100%;
-    /* object-fit: fill; */
+    object-fit: cover;
     aspect-ratio: 3/2;
     overflow: hidden;
+    object-position: center;
 }
 
 .recent-activity {

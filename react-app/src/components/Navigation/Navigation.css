@@ -19,6 +19,7 @@
   align-items: center;
   z-index: 1;
   max-width: 120rem;
+  width: 100%;
   }
 
   .navbar {
@@ -226,7 +227,8 @@
 }
 
 .search-container {
-  width: 80%;
+  /* width: max-content; */
+  width: 100%;
 }
 
 .search-bar {
@@ -245,7 +247,6 @@
   border-color: transparent;
   border-top-left-radius: .5rem;
   border-bottom-left-radius: .5rem;
-
 
 }
 
@@ -276,4 +277,29 @@
 
 .not-found img {
   max-width: 50%;
+}
+
+@media screen and (max-width: 1030px ) {
+  .search-container {
+    /* display: none; */
+    width: 40%;
+  }
+
+  .navStart {
+    justify-content:flex-start;
+  }
+
+  .navbar {
+    justify-content: space-around;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .search-container {
+    display: none;
+  }
+
 }

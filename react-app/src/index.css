@@ -96,6 +96,7 @@ html, body {
     /* background-repeat: no-repeat ; */
     background-size: cover;
     background-position: center;
+    /* background-blend-mode: multiply; this will blend background color with image colors */
     /* z-index: 1; */
 }
 
@@ -122,6 +123,12 @@ html, body {
     width: 100%;
     /* padding-bottom: 2rem; */
     border-bottom: solid 1px lightgray;
+}
+
+.container-categories {
+     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Categories {

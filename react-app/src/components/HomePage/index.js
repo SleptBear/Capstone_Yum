@@ -42,8 +42,10 @@ function HomePage() {
             </div>
 
             {/* <hr style={{width: '100%', color: 'light-gray'}}></hr> */}
-                <h1>Categories</h1>
+                <h1 style={{display: 'flex', justifyContent: 'center'}}>Categories</h1>
                 <br></br>
+                <div className="container-categories">
+
             <div className="Categories">
                     <RestaurantCategory />
                     <ShoppingCategory />
@@ -55,6 +57,7 @@ function HomePage() {
                     <More />
 
             </div>
+                </div>
             {/* <Footer /> */}
         </div>
     )

@@ -4,9 +4,9 @@ html, body {
 }
 
 
-#root {
+/* #root {
     min-width: 1080px;
-}
+} */
 
 #body {
     margin: none;
@@ -85,7 +85,7 @@ html, body {
     /* align-items: center; */
     /* height: 40rem; */
     /* max-width: 120rem; */
-    background-color: blue;
+    /* background-color: blue; */
     position: absolute;
     top: 1px;
     width: 100%;
@@ -120,7 +120,7 @@ html, body {
     min-height: 60rem;
     margin-top: 35rem;
     /* margin-top: 45%; */
-    width: 100%;
+    /* width: 100%; */
     /* padding-bottom: 2rem; */
     border-bottom: solid 1px lightgray;
 }

@@ -32,8 +32,7 @@ const ReviewsIndex = () => {
 
     return (
 
-        <div className="review-container">
-            {/* {latestArray.map(review => ( */}
+        // <div className="review-container">
         <div className="splash-Reviews">
                 <ReviewsIndexCard review={latestArray[0]} key={latestArray[0]?.id}/>
                 <ReviewsIndexCard review={latestArray[1]} key={latestArray[1]?.id}/>
@@ -41,11 +40,11 @@ const ReviewsIndex = () => {
                 <ReviewsIndexCard review={latestArray[3]} key={latestArray[3]?.id}/>
                 <ReviewsIndexCard review={latestArray[4]} key={latestArray[4]?.id}/>
                 <ReviewsIndexCard review={latestArray[5]} key={latestArray[5]?.id}/>
-                
-        </div>
-        <br></br>
 
+        <br></br>
         </div>
+
+        // </div>
     )
 }
 

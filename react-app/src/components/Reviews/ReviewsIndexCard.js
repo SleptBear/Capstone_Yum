@@ -21,8 +21,7 @@ function ReviewsIndexCard(review) {
     // console.log(review)
 
     return (
-        <>
-        <div>
+        
 
         <div className="all-rev-card">
             <NavLink exact to={`/locations/${review.review.location.id}`} id="name-on-rating" style={{color: 'black'}}>
@@ -44,8 +43,7 @@ function ReviewsIndexCard(review) {
             </NavLink>
         </div>
 
-        </div>
-        </>
+
     )
 }
 

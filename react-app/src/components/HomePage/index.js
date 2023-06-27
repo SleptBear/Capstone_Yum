@@ -33,7 +33,7 @@ function HomePage() {
                 {/* </img> */}
             </div>
             <div className="recent-activity">
-            <h1>
+            <h1 style={{display: 'flex', justifyContent: 'center'}}>
                 What people have been saying
             </h1>
             <div className="all-reviews">

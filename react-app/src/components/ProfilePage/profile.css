@@ -9,12 +9,6 @@
 
 }
 
-.prof-details-container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    gap: 9rem;
-}
 
 .prof-container {
     /* background-color: blue; */
@@ -28,22 +22,28 @@
     align-items: center;
 }
 
-.prof-container img {
+.prof-img-container {
     border: 1px solid rgba(128, 128, 128, 0.39);
     border-radius: .5rem;
-    margin-top: 6rem;
+    /* margin-top: 6rem; */
     /* background-color: blue; */
     /* width: 100%; */
-    height: 100%;
-    width: 20%;
+    height: 60%;
+    /* max-width: 20%; */
+    min-width: 200px;
+    max-width: 20%;
     aspect-ratio: 3/2;
+    overflow: hidden;
 }
 
 .prof-center {
+    /* background-color: red; */
     display: flex;
     flex-direction: column;
-    padding-right: 15rem;
+    /* padding-right: 15rem; */
     gap: .4rem;
+    width: 30%;
+    min-width: 150px;
 }
 
 #prof-name {
@@ -56,28 +56,61 @@
 .prof-right {
     border-left: 1px solid;
     padding-left: 1rem;
+    /* background-color: green; */
+    width: 30%;
+    font-size: x-large;
+}
+
+@media screen and (max-width: 800px) {
+    .prof-right {
+        font-size: large;
+    }
+}
+@media screen and (max-width: 600px) {
+    .prof-right {
+        font-size: medium;
+    }
+}
+@media screen and (max-width: 530px) {
+    .prof-right {
+        display: none;
+    }
 }
 
 
+.prof-details-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 5%;
+    overflow: none;
+}
+@media screen and (max-width: 900px) {
+    .prof-details-container {
+        gap: 5%;
+    }
+}
 
 .prof-reviews {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    width: 50%;
     /* height: 130rem; */
     /* background-color: blue; */
 }
 
-.prof-fav-container {
-    width: 30%;
+/* .prof-fav-container {
+    width: 50%;
     min-height: 40rem;
     height: fit-content;
-}
+} */
 
 .prof-page-buttons {
     display: flex;
     flex-direction: column;
+    width: 30%;
+    align-items: center;
 }
 
 .prof-page-buttons button {
@@ -92,6 +125,12 @@
     padding-right: 15px;
     border-color: #e6e6e6;
     border-collapse: collapse;
+}
+
+@media screen and (max-width: 830px) {
+    .prof-page-buttons button {
+        width: 10rem;
+    }
 }
 
 /* .prof-page-buttons button:active {

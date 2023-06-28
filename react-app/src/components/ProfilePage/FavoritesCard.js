@@ -9,27 +9,15 @@ function FavoritesCard({location}) {
     // console.log("location data", location)
 
     return (
-        <>
-        <div className="card-container" style={{minWidth: '530px', height: '40%'}}>
-            <div className="image-container" style={{paddingTop: '25px'}}>
-                <img src={location.images[0].img_url} alt='Image Not Found' style={{height: '90%', minHeight: '80%'}}></img>
+        <div className="card-container" style={{minWidth: '350px'}} >
+            <div className="image-container" style={{alignItems: 'center'}}>
+                <img src={location.images[0].img_url} alt='Image Not Found' style={{height: '70%', maxHeight: '90%', minWidth: '100%', aspectRatio: '3/2', alignItems: 'center', marginLeft: '10px'}}></img>
             </div>
             {/* <br></br> */}
-        <div className="card-info">
+        <div className="card-info" style={{justifyContent: 'center'}}>
             <div className="card-name">
                 <h2>{location.name}</h2>
             </div>
-            {/* <div className="card-rating">
-                <div>
-                {handleReviews()}
-
-                </div>
-                <div id="numReview">
-                {reviewsArray.length}
-
-                </div>
-
-            </div> */}
             <br></br>
             <div id="category">
                 {location?.category}
@@ -53,7 +41,7 @@ function FavoritesCard({location}) {
         </div>
 
        </div>
-                </>
+
     )
 }
 

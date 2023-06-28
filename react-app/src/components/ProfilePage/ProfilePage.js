@@ -49,7 +49,10 @@ const ProfilePage = () => {
         <>
             <div className="prof-main">
                 <div className='prof-container'>
-                    <img src={profilePic} alt='none'></img>
+                    <div className='prof-img-container'>
+                        {/* <img src={profilePic} alt='none'></img> */}
+                    </div>
+
                     {/* <img src='https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png' alt='none'></img> */}
                     <div className='prof-center'>
                         <div id='prof-name'>
@@ -81,7 +84,6 @@ const ProfilePage = () => {
 <br></br>
 <br></br>
 <br></br>
-<br></br>
                 <div className='prof-details-container'>
 
                     <div className='prof-page-buttons'>
@@ -109,7 +111,7 @@ const ProfilePage = () => {
                 (
                     <div className='prof-fav-container'>
                         <h2 id="fav-header">Favorites</h2>
-                        <hr style={{width: "100%"}}></hr>
+                        <hr style={{width: "95%"}}></hr>
 
                     {
                         userFavorites.map(location => (

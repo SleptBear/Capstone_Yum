@@ -36,7 +36,7 @@ function DetailedReview(review) {
             </div>
             <div id="rating">
                 <Stars rating={review.review.rating}/>
-            {rev.updated_at.slice(0, 17)}
+            {/* {rev.updated_at.slice(0, 17)} */}
             </div>
             <div id="rev-and-mutate">
 

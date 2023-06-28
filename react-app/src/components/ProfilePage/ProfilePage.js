@@ -50,7 +50,7 @@ const ProfilePage = () => {
             <div className="prof-main">
                 <div className='prof-container'>
                     <div className='prof-img-container'>
-                        {/* <img src={profilePic} alt='none'></img> */}
+                        <img src={profilePic} alt='none'></img>
                     </div>
 
                     {/* <img src='https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png' alt='none'></img> */}

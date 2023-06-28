@@ -133,6 +133,7 @@ html, body {
 
 .Categories {
     display: grid;
+    justify-items: center;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 4rem;
     /* row-gap: 2rem; */
@@ -167,6 +168,7 @@ html, body {
     height: 10rem;
     transition: .5s;
     border-radius: 5px;
+    max-width: 275px;
 }
 
 @media screen and (max-width: 810px) {

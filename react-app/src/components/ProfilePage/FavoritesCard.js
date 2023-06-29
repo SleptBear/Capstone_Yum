@@ -9,9 +9,9 @@ function FavoritesCard({location}) {
     // console.log("location data", location)
 
     return (
-        <div className="card-container" style={{minWidth: '350px'}} >
+        <div className="card-container" style={{gap: '15px'}} >
             <div className="image-container" style={{alignItems: 'center'}}>
-                <img src={location.images[0].img_url} alt='Image Not Found' style={{height: '70%', maxHeight: '90%', minWidth: '100%', aspectRatio: '3/2', alignItems: 'center', marginLeft: '10px'}}></img>
+                <img src={location.images[0].img_url} alt='Image Not Found' style={{ maxHeight: '70%', minWidth: '100%', aspectRatio: '3/2', alignItems: 'center', marginLeft: '10px'}}></img>
             </div>
             {/* <br></br> */}
         <div className="card-info" style={{justifyContent: 'center'}}>

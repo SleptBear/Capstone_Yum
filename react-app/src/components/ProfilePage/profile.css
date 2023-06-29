@@ -133,11 +133,19 @@
     border-collapse: collapse;
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 630px) {
     .prof-page-buttons button {
         width: 10rem;
     }
 }
+/* .prof-fav-container {
+    background-color: blue;
+} */
+/* @media screen and (max-width: 570px) {
+    .prof-fav-container {
+        background-color: blue;
+    }
+} */
 
 /* .prof-page-buttons button:active {
     background-color: #e5e5e5;

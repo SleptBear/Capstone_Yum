@@ -32,6 +32,7 @@ const NavSearch = () => {
         type="input" className="inputbar"
         // placeholder='Search Feature Testing'
         value={searchTerm}
+        placeholder='Look for favorite types of food here'
         // readOnly
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyDown={enterKey}

@@ -40,15 +40,19 @@ a:hover {
 
 .maps-api-container {
     width: 35%;
-    overflow: hidden;
+    height: 90vh;
+    /* overflow:scroll; */
     /* background-color: blue; */
-    height: fit-content;
+    /* height: fit-content; */
+    /* object-fit: contain; */
+    /* width: fit-content; */
 }
 
-.maps-api-container img {
+
+/* .maps-api-container img {
     height: 100%;
     overflow: hidden;
-}
+} */
 
 .filter-container {
 width: 20%;
@@ -258,3 +262,19 @@ align-items: center;
     overflow-wrap: break-word;
     overflow-y: auto;
   }
+
+
+  @media screen and (max-width: 900px) {
+    .card-info {
+        font-size: smaller;
+
+    }
+}
+  @media screen and (max-width: 700px) {
+    .maps-api-container {
+        display: none;
+    }
+    .all-cards-container{
+        width: 100%;
+    }
+}

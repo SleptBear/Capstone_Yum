@@ -34,7 +34,7 @@ const MapsHome = ({ locations, selectedPlaceFromAllPlaces }) => {
   });
 
   const containerStyle = {
-    width: "420px",
+    // width: "420px",
     height: "85vh",
     position: "relative",
     marginTop: "20px",
@@ -74,7 +74,7 @@ const MapsHome = ({ locations, selectedPlaceFromAllPlaces }) => {
       <div
         style={{
           height: "100vh",
-          width: "420px",
+          // width: "420px",
           position: "sticky",
           right: 0,
           top: 0,
@@ -117,7 +117,7 @@ const MapsHome = ({ locations, selectedPlaceFromAllPlaces }) => {
                           <img
                             src={location.images[0].img_url}
                             alt={location.name}
-                            style={{ height: "120px", width: "120px" }}
+                            // style={{ height: "120px", width: "120px" }}
                           />
                           <div style={{ fontWeight: 500, fontSize: "14px" }}>
                             {location.name}

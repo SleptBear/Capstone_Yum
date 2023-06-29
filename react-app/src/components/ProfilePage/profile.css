@@ -101,15 +101,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 40%;
     /* height: 130rem; */
     /* background-color: blue; */
 }
 
 /* .prof-fav-container {
-    width: 50%;
-    min-height: 40rem;
-    height: fit-content;
+    width: 40%;
 } */
 
 .prof-page-buttons {

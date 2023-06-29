@@ -16,6 +16,7 @@
     max-height: 18rem;
     width: 97%;
     border-radius: 5px;
+    /* overflow: hidden; */
     /* padding-top: 10px; */
     /* box-shadow: 0px 0px 15px -5px; */
 
@@ -35,6 +36,8 @@
 
 }
 
+
+
 /* #category {
     background-color: rgb(218, 214, 214);
     width: fit-content;
@@ -50,7 +53,7 @@
 .card-info {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    /* width: 50%; */
     padding-left: 5%;
 }
 
@@ -111,7 +114,9 @@
     /* border-width: 1px; */
     width: 40%;
     min-width: 40%;
-    height: 100%;
+    min-width: 200px;
+    max-width: 300px;
+    /* height: 100%; */
 }
 
 .card-rating {
@@ -133,7 +138,7 @@
     display: flex;
     /* overflow: hidden; */
     height: 90%;
-    min-width: 90%;
+    min-width: 100%;
     max-width: 100%;
     /* flex-grow: 1; */
     max-height: 100%;
@@ -143,7 +148,14 @@
     /* max-height: 100%; */
     object-fit: fill;
     aspect-ratio: 3/2;
-    margin-left: 10%;
+    margin-left: 5%;
     /* margin-top: 3px; */
+
+}
+
+@media screen and (max-width: 700px) {
+    .maps-api-container {
+        display: none;
+    }
 
 }

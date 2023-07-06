@@ -115,10 +115,6 @@ align-items: center;
 .over-images {
     display: flex;
     justify-content:space-evenly;
-    /* border-color: black; */
-    /* border-width: 2px; */
-    /* border-style: dotted; */
-    /* background-color: blue; */
     width: 100%;
     position: absolute;
     top: 225px;

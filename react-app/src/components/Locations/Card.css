@@ -149,8 +149,6 @@
     object-fit: fill;
     aspect-ratio: 3/2;
     margin-left: 5%;
-    /* margin-top: 3px; */
-
 }
 
 @media screen and (max-width: 700px) {

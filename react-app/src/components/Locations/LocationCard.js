@@ -70,7 +70,7 @@ import './Card.css'
     // let randomRev = getRandomInt(reviewsArray.length)
     // sampReview.current = randomRev
     //   console.log("location card render cycle")
-      console.log("ref", sampReview)
+    //   console.log("ref", sampReview)
     return (
         <div className="card-container">
             <div className="image-container">

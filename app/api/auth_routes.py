@@ -65,7 +65,6 @@ def login():
             favorites = user.favorites
             # print("favorites", favorites[0])
             # favorite = favorites[0]
-            # print("LOOOOOOOOOOOOOOOOOOOK@@@@@@@@@", favorite.locations)
             # loc_list = [location.to_dict() for location in favorite.locations]
             # print("LOOOOOOOOOOOOOOOOOOOK@@@@@@@@@", loc_list)
 

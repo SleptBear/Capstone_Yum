@@ -5,7 +5,6 @@ input[type="radio"] {
 .rev-card {
     display: flex;
     flex-direction: column;
-    /* background-color: red; */
     justify-content: center;
     width: 100%;
     gap: 1rem;

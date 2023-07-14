@@ -47,7 +47,6 @@ input[type="radio"] {
   width: 75%;
   min-width: 200px;
   max-width: 75%;
-  /* min-height: 24rem; */
   max-height: 40rem;
   height: 100%;
   text-decoration: none;

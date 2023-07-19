@@ -31,7 +31,7 @@ function App() {
       spinner.style.display = "none";
       setLoading(false);
 
-    }, 3000)
+    }, 4000)
   }
   // const [isContent, setIsContent] = useState(false)
   useEffect(() => {

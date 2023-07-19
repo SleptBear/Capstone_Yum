@@ -55,9 +55,9 @@ html, body {
     min-height: 100vh;
 }
 
-#content-wrap {
-  padding-bottom: 3.5rem;    /* Footer height */
-}
+/* #content-wrap {
+  padding-bottom: 7.5rem;
+} */
 
 #footer {
   position: relative;
@@ -73,7 +73,7 @@ html, body {
     align-items: center;
     font-size: 14px;
     /* width: 100%; */
-    /* margin-top: 6rem; */
+    margin-top: 6rem;
     font-size: 18px;
 }
 

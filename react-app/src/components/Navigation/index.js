@@ -10,6 +10,7 @@ function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 	const history = useHistory();
 	const params = useParams()
+	if(!isLoaded) return null
 
 	return (
 		<div className='navStart'>

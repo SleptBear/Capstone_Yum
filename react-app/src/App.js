@@ -30,19 +30,20 @@ function App() {
     setTimeout(() => {
       spinner.style.display = "none";
       setLoading(false);
+      setIsLoaded(true);
 
     }, 4000)
   }
   // const [isContent, setIsContent] = useState(false)
   useEffect(() => {
-    dispatch(authenticate()).then(() => setIsLoaded(true));
+    dispatch(authenticate());
   }, [dispatch]);
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {!loading && isLoaded && (
       <ScrollToTop>
+      <Navigation isLoaded={isLoaded}></Navigation>
+      {!loading && isLoaded && (
         <Switch>
           <Route exact path='/'>
             <Home />
@@ -93,8 +94,8 @@ function App() {
             <PageNotFound path='*'/>
           </Route>
         </Switch>
-      </ScrollToTop>
       )}
+      </ScrollToTop>
     </>
   );
 }

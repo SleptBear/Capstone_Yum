@@ -23,7 +23,16 @@ import MapsPlaces from "./components/Locations/MapsIndex";
 
 function App() {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false);
+  const spinner = document.getElementById('spinner');
+  if(spinner){
+    setTimeout(() => {
+      spinner.style.display = "none";
+      setLoading(false);
+
+    }, 3000)
+  }
   // const [isContent, setIsContent] = useState(false)
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
@@ -32,7 +41,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+      {!loading && isLoaded && (
       <ScrollToTop>
         <Switch>
           <Route exact path='/'>

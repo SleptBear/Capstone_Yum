@@ -69,7 +69,6 @@ html, body {
     padding-top: 20px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     font-size: 14px;
     /* width: 100%; */
@@ -123,7 +122,6 @@ html, body {
     /* align-items: center; */
     /* height: 40rem; */
     /* max-width: 120rem; */
-    /* background-color: blue; */
     position: absolute;
     top: 1px;
     width: 100%;

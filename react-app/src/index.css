@@ -174,7 +174,7 @@ html, body {
     grid-gap: 4rem;
     /* row-gap: 2rem; */
     grid-auto-rows: 14rem; /* Reduce the row height */
-    /* display: flex;
+    /*
     justify-content: center; */
     /* height: 40rem; */
     width: 100%;

@@ -172,7 +172,6 @@ html, body {
     justify-items: center;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 4rem;
-    /* row-gap: 2rem; */
     grid-auto-rows: 14rem; /* Reduce the row height */
     /*
     justify-content: center; */

@@ -92,6 +92,8 @@ const ProfilePage = () => {
                         <button style={{backgroundColor: page !== 3 ? "#f5f5f5" : "#e5e5e5"}}onClick={() => (setPage(3))}>Your Restaurants</button>
 
                     </div>
+                    <div className='prof-details-tabs'>
+
                 {page === 1 ? (
 
                     <div className='prof-reviews'>
@@ -108,8 +110,8 @@ const ProfilePage = () => {
             }
             {page === 2 ?
 
-                (
-                    <div className='prof-fav-container'>
+(
+    <div className='prof-fav-container'>
                         <h2 id="fav-header">Favorites</h2>
                         <hr style={{width: "100%"}}></hr>
 
@@ -125,8 +127,8 @@ const ProfilePage = () => {
                 }
             {page === 3 ?
 
-                (
-                    <div className='prof-fav-container'>
+(
+    <div className='prof-fav-container'>
                         <h2 id="fav-header">My Restaurants</h2>
                         <hr style={{width: "100%"}}></hr>
 
@@ -141,6 +143,7 @@ const ProfilePage = () => {
                     ) : null
                 }
 
+                </div>
                 </div>
                 {/* <Footer /> */}
             </div>

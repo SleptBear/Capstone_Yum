@@ -6,6 +6,7 @@
     /* background-color: red; */
     height:80rem;
     height: fit-content;
+    overflow: hidden;
 
 }
 
@@ -20,6 +21,7 @@
     background: #f5f5f5;
     gap: 2rem;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .prof-img-container {
@@ -49,6 +51,7 @@
     /* padding-right: 15rem; */
     gap: .4rem;
     width: 30%;
+    max-width: 500px;
     min-width: 150px;
 }
 
@@ -64,6 +67,7 @@
     padding-left: 1rem;
     /* background-color: green; */
     width: 30%;
+    max-width: 300px;
     font-size: x-large;
 }
 
@@ -87,9 +91,15 @@
 .prof-details-container {
     display: flex;
     width: 100%;
+    max-width: 1880px;
     justify-content: center;
-    gap: 5%;
-    overflow: none;
+    /* gap: 5%; */
+    overflow: hidden;
+}
+
+.prof-details-tabs {
+    /* background-color: red; */
+    width: 530px;
 }
 @media screen and (max-width: 900px) {
     .prof-details-container {
@@ -101,9 +111,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
-    /* height: 130rem; */
-    /* background-color: blue; */
 }
 
 /* .prof-fav-container {

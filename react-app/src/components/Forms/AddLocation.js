@@ -29,6 +29,27 @@ const AddLocation = () => {
     //    return <h4>User not logged in</h4>
     // }
 
+    function handleFileSelect(e) {
+        const files = e.target.files
+
+        if (files.length > 0) {
+            const file = files[0];
+
+            if (file.type.startsWith('image/')) {
+
+              const reader = new FileReader();
+
+              reader.onload = () => {
+                const imageDataUrl = reader.result;
+                setImage(file);
+              };
+              reader.readAsDataURL(file);
+            } else {
+              alert('Please drop an image file.');
+            }
+          }
+        }
+
     function handleDragOver(e) {
         e.preventDefault();
         e.currentTarget.classList.add('dragover');
@@ -41,29 +62,18 @@ const AddLocation = () => {
         const files = e.dataTransfer.files;
 
         if (files.length > 0) {
-          // Get the first file from the dropped files array
           const file = files[0];
 
-          // Check if the dropped file is an image
           if (file.type.startsWith('image/')) {
-            // Create a FileReader to read the file data
             const reader = new FileReader();
 
-            // Define a callback function when the file is loaded
             reader.onload = () => {
               const imageDataUrl = reader.result;
-              console.log(files)
-              console.log(file)
-            //   console.log(imageDataUrl)
-
-              // Update the image state with the data URL
               setImage(file);
             };
 
-            // Read the file as a data URL
             reader.readAsDataURL(file);
           } else {
-            // Handle cases where a non-image file is dropped (optional)
             alert('Please drop an image file.');
           }
         }
@@ -108,7 +118,6 @@ const AddLocation = () => {
         //     if (data && data.errors) setErrors(data.errors)
         //   });
     }
-    if(image) console.log(image)
     return (
         <div className= "addLocationMain">
             <br></br>
@@ -375,7 +384,7 @@ const AddLocation = () => {
                 <input
                 type='file'
                 accept='image/*'
-                onChange={(e) => setImage(e.target.files[0])}
+                onChange={(e) => handleFileSelect(e)}
                 title='Please add Image of location'
                 required
                 >
@@ -386,7 +395,7 @@ const AddLocation = () => {
                 src={image ? URL.createObjectURL(image) : ''}
                 alt="Preview"
                     />
-                    <span>{image ? image?.name : <i class="fa-solid fa-file-arrow-up"></i>}</span>
+                    <span>{image ? image?.name : <i className="fa-solid fa-file-arrow-up"></i>}</span>
                     </div>
             </label>
             <br></br>

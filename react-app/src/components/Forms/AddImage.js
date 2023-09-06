@@ -15,6 +15,56 @@ const AddImage = () => {
     // const [imageLoading, setImageLoading] = useState(null)
     const [errors, setErrors] = useState([]);
 
+    function handleFileSelect(e) {
+        const files = e.target.files
+
+        if (files.length > 0) {
+            const file = files[0];
+
+            if (file.type.startsWith('image/')) {
+
+              const reader = new FileReader();
+
+              reader.onload = () => {
+                const imageDataUrl = reader.result;
+                setImage(file);
+              };
+              reader.readAsDataURL(file);
+            } else {
+              alert('Please drop an image file.');
+            }
+          }
+        }
+
+    function handleDragOver(e) {
+        e.preventDefault();
+        e.currentTarget.classList.add('dragover');
+      }
+
+      function handleFileDrop(e) {
+        e.preventDefault();
+        e.currentTarget.classList.remove('dragover');
+
+        const files = e.dataTransfer.files;
+
+        if (files.length > 0) {
+          const file = files[0];
+
+          if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+
+            reader.onload = () => {
+              const imageDataUrl = reader.result;
+              setImage(file);
+            };
+
+            reader.readAsDataURL(file);
+          } else {
+            alert('Please drop an image file.');
+          }
+        }
+      }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -50,22 +100,30 @@ const AddImage = () => {
                 ))}
                 </ul>
 
-            <label className="Label" id='file-input'>
+                <label className="Label">
+
+                <div
+                className={`custom-file-upload ${image ? 'active' : ''}`}
+                onDragOver={(e) => handleDragOver(e)}
+                onDrop={(e) => handleFileDrop(e)}
+                >
 
                 <input
-                className='custom-file-upload'
-                id='file-input'
                 type='file'
                 accept='image/*'
-                onChange={(e) => setImage(e.target.files[0])}
+                onChange={(e) => handleFileSelect(e)}
+                title='Please add Image of location'
                 required
                 >
+                    
                 </input>
-                    {/* <label htmlFor='file-input'><i className="fa-solid fa-file-arrow-up"></i> Choose File...</label>
-                <div id='file-display'>
-                <strong>Chosen File: </strong>
-                <div>{image?.name || "None"}</div>
-                </div> */}
+                <img
+                className="preview-image"
+                src={image ? URL.createObjectURL(image) : ''}
+                alt="Preview"
+                    />
+                    <span>{image ? image?.name : <i className="fa-solid fa-file-arrow-up"></i>}</span>
+                    </div>
             </label>
             <br></br>
             <button className="submit-form" type="Submit" >Submit</button>

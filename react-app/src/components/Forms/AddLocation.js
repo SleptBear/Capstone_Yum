@@ -29,6 +29,48 @@ const AddLocation = () => {
     //    return <h4>User not logged in</h4>
     // }
 
+    function handleDragOver(e) {
+        e.preventDefault();
+        e.currentTarget.classList.add('dragover');
+      }
+
+      function handleFileDrop(e) {
+        e.preventDefault();
+        e.currentTarget.classList.remove('dragover');
+
+        const files = e.dataTransfer.files;
+
+        if (files.length > 0) {
+          // Get the first file from the dropped files array
+          const file = files[0];
+
+          // Check if the dropped file is an image
+          if (file.type.startsWith('image/')) {
+            // Create a FileReader to read the file data
+            const reader = new FileReader();
+
+            // Define a callback function when the file is loaded
+            reader.onload = () => {
+              const imageDataUrl = reader.result;
+              console.log(files)
+              console.log(file)
+            //   console.log(imageDataUrl)
+
+              // Update the image state with the data URL
+              setImage(file);
+            };
+
+            // Read the file as a data URL
+            reader.readAsDataURL(file);
+          } else {
+            // Handle cases where a non-image file is dropped (optional)
+            alert('Please drop an image file.');
+          }
+        }
+      }
+
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -66,7 +108,7 @@ const AddLocation = () => {
         //     if (data && data.errors) setErrors(data.errors)
         //   });
     }
-
+    if(image) console.log(image)
     return (
         <div className= "addLocationMain">
             <br></br>
@@ -324,9 +366,14 @@ const AddLocation = () => {
             </label>
             <label className="Label">
                 Preview Image
+                <div
+                className='custom-file-upload'
+                onDragOver={(e) => handleDragOver(e)}
+                onDrop={(e) => handleFileDrop(e)}
+                >
+
                 <input
                 type='file'
-                className='custom-file-upload'
                 accept='image/*'
                 onChange={(e) => setImage(e.target.files[0])}
                 title='Please add Image of location'
@@ -334,29 +381,12 @@ const AddLocation = () => {
                 >
                     {/* <i class="fa-solid fa-file-arrow-up"></i> */}
                 </input>
-            {/* <input className="size-form"
-            type="url"
-            value={image}
-            placeholder="Image URL"
-            required
-            onChange={(e) => {
-                setImage(e.target.value)
-            }}
-
-            ></input> */}
+                    <span>{image?.name || "Drag &amp; drop or click to upload"}</span>
+                    </div>
             </label>
             <br></br>
             <button className="submit-form" type="Submit" >Submit</button>
             </form>
-            {/* <button className="demo-add-item"
-            onClick={() => dispatch(createLocationThunk(({name: "Demo Pants",description: "This is a description",price: 19.99, category: "pants" , color: "Demo Color", size: "Demo Size", seller: user?.id},
-            {
-                image: "https://target.scene7.com/is/image/Target/GUEST_b42925ba-d115-4575-b10d-c354a55bfaca?wid=1000&hei=1000&qlt=80&fmt=webp",
-                preview: true
-            }
-            )))}
-            >Demo Add Item</button> */}
-            {/* <Footer /> */}
         </div>
     )
 }

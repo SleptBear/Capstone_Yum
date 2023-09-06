@@ -136,3 +136,35 @@ input#file-input + label {
     display: flex;
     flex-direction: column;
 }
+.custom-file-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .custom-file-upload input[type="file"] {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+  }
+
+  .custom-file-upload span {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  /* Style when hovering over the drop area */
+  .custom-file-upload:hover {
+    background-color: #f9f9f9;
+  }
+
+  /* Style when a file is being dragged over */
+.custom-file-upload.dragover {
+    background-color: #e0e0e0;
+  }

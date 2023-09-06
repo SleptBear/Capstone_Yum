@@ -117,7 +117,7 @@ align-items: center;
     justify-content:space-evenly;
     width: 100%;
     position: absolute;
-    top: 225px;
+    top: 200px;
 }
 
 .mini-container {
@@ -135,6 +135,7 @@ align-items: center;
     color: white;
     font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;;
     font-size: 48px;
+    /* background-color: red; */
 }
 
 .mini-container div {

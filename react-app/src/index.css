@@ -4,9 +4,9 @@ html, body {
 }
 
 
-/* #root {
-    min-width: 1080px;
-} */
+#root {
+    min-height: 100vh
+}
 
 #body {
     margin: none;
@@ -71,7 +71,7 @@ html, body {
     align-items: center;
     font-size: 14px;
     /* width: 100%; */
-    margin-top: 6rem;
+    /* margin-top: 6rem; */
     font-size: 18px;
 }
 
@@ -80,7 +80,7 @@ html, body {
     /* min-height: 100vh; */
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 10px;
+    /* margin-top: 10px; */
   }
 
   #dev {

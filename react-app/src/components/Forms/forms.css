@@ -168,3 +168,14 @@ input#file-input + label {
 .custom-file-upload.dragover {
     background-color: #e0e0e0;
   }
+
+  .preview-image {
+    max-width: 100%;
+    max-height: 200px; /* Adjust the height as needed */
+    display: none; /* Initially hide the image */
+  }
+
+  .custom-file-upload.active .preview-image {
+    display: block; /* Show the image when the file is selected or dropped */
+    margin-top: 10px; /* Add spacing between the file input and the preview */
+  }

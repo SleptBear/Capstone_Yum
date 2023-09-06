@@ -367,7 +367,7 @@ const AddLocation = () => {
             <label className="Label">
                 Preview Image
                 <div
-                className='custom-file-upload'
+                className={`custom-file-upload ${image ? 'active' : ''}`}
                 onDragOver={(e) => handleDragOver(e)}
                 onDrop={(e) => handleFileDrop(e)}
                 >
@@ -381,7 +381,12 @@ const AddLocation = () => {
                 >
                     {/* <i class="fa-solid fa-file-arrow-up"></i> */}
                 </input>
-                    <span>{image?.name || "Drag &amp; drop or click to upload"}</span>
+                <img
+                className="preview-image"
+                src={image ? URL.createObjectURL(image) : ''}
+                alt="Preview"
+                    />
+                    <span>{image ? image?.name : <i class="fa-solid fa-file-arrow-up"></i>}</span>
                     </div>
             </label>
             <br></br>

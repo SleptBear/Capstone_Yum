@@ -92,7 +92,7 @@
     display: flex;
     width: 100%;
     max-width: 1880px;
-    justify-content: center;
+    justify-content: space-evenly;
     /* gap: 5%; */
     overflow: hidden;
 }

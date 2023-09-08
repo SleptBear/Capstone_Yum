@@ -24,15 +24,12 @@
   position: absolute;
   background-color:white;
   border-radius: .5rem;
-  width: fit-content;
-  height: fit-content;
   max-width: 95%;
-  max-height: 70%;
+  max-height: 80%;
   display: flex;
   justify-content: center;
-  /* z-index: 10; */
-  overflow-y: scroll;
-  /* background-color: black; */
+  top: 10%;
+  overflow-y:scroll;
 }
 
 #modal-content::-webkit-scrollbar{

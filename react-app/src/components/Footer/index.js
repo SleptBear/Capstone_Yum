@@ -8,6 +8,7 @@ function Footer ({isLoaded}) {
                     <div> Kian Seyedjafari</div>
                     <a href='https://github.com/SleptBear' target='_blank'>GitHub</a>
                     <a href='https://www.linkedin.com/in/kian-seyedjafari-6a381216b' target='_blank'>LinkedIn</a>
+                    <a href='https://www.sleptbear.github.io' target='_blank'>Portfolio</a>
                 </div>
             </div>
 

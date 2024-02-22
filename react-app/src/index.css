@@ -62,8 +62,9 @@ html, body {
   position: relative;
   bottom: 0;
   width: 100vw;
-  height: 7.5rem;            /* Footer height */
+  height: 9.5rem;            /* Footer height */
   background-color: #f7f7f7;
+  /* background-color: black; */
     color: black;
     padding-top: 20px;
     display: flex;
